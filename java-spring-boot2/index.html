@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="generator" content="Relearn 3.4.1&#43;tip">
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+    <meta name="description" content="">
+    <title>Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/nucleus.css?1653001570" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653001570" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653001570" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653001570" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653001570" rel="stylesheet">
+    <link href="/css/theme.css?1653001570" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1653001570" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653001570" rel="stylesheet">
+    <link href="/css/print.css?1653001570" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653001570"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/AlainBouchard.github.io/';
+      variants.init( [ 'relearn-light' ] );
+    </script>
+    <script src="/js/jquery.min.js?1653001570"></script>
+  </head>
+  <body class="mobile-support" data-url="/java-spring-boot2/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/" title=""><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/java-spring-boot2/" aria-disabled="true"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#why-spring-boot">Why Spring Boot?</a></li>
+        <li><a href="#spring-initializr">Spring Initializr</a></li>
+        <li><a href="#inversion-of-control">Inversion of Control</a></li>
+        <li><a href="#proxies">Proxies</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-access-in-spring">Data Access in Spring</a>
+      <ul>
+        <li><a href="#spring-data">Spring Data</a></li>
+        <li><a href="#embeedded-db-with-spring-boot">Embeedded DB with Spring Boot</a></li>
+        <li><a href="#repository-with-spring-data">Repository with Spring Data</a></li>
+        <li><a href="#using-remote-database">Using remote database</a></li>
+      </ul>
+    </li>
+    <li><a href="#service-tier">Service Tier</a>
+      <ul>
+        <li><a href="#utilizing-ioc">Utilizing IoC</a></li>
+        <li><a href="#service-abstraction">Service abstraction</a></li>
+        <li><a href="#spring-service-object">Spring Service Object</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-pages-with-spring">Web pages with Spring</a>
+      <ul>
+        <li><a href="#controller">Controller</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article>
+
+<h1></h1>
+<h1 id="java-spring-boot-2">Java Spring Boot 2</h1>
+<h2 id="terminology">Terminology</h2>
+<ul>
+<li>POJO : Plain Old Java Object (may have more that setters/getters in Spring world)</li>
+<li>Java Beans : Simple objects with only setters/getters</li>
+<li>Spring Beans : POJOs confiugered in the application context</li>
+<li>DTO : Data Transfer Objects are Java Beans used to move state between layers</li>
+<li>IOC : Inversion Of Control
+<ul>
+<li>IoC provides mechanism of dependency injection</li>
+<li><em>Application Context</em> wraps the <em>Bean Factory</em> which serves the beans at the runtime of the application</li>
+<li>Spring Boot provides auto-configuration of the <em>Application Context</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<h3 id="why-spring-boot">Why Spring Boot?</h3>
+<ul>
+<li>Support rapid development</li>
+<li>Remove boilerplate of application setup</li>
+<li>Many uses</li>
+<li><em>Cloud Native</em> support but also traditional</li>
+</ul>
+<h4 id="key-aspects">Key Aspects</h4>
+<ul>
+<li>Embedded tomacat (or others)</li>
+<li>Auto-configuration of <em>Application Context</em></li>
+<li>Automatic Servlet Mappings</li>
+<li>Database support and Hibermate/JPA dialect</li>
+<li>Automatic Controller Mappings</li>
+</ul>
+<h4 id="auto-config">Auto Config</h4>
+<ul>
+<li>Default opiniated configuration</li>
+<li>Very to override defaults</li>
+<li>Configuration on presence</li>
+</ul>
+<h3 id="spring-initializr">Spring Initializr</h3>
+<ol>
+<li>start.spring.io</li>
+<li>Spring Boot: pick latest released version (ie. 2.5.6)
+<ol>
+<li>Packaging: Jar</li>
+</ol>
+</li>
+<li>Add Dependencies:
+<ol>
+<li>Pring Web</li>
+<li>TBD&hellip;</li>
+</ol>
+</li>
+<li>Generate</li>
+</ol>
+<p>Now it can build and run as is:</p>
+<blockquote>
+<p>java -jar target/xyz-0.0.1-SNAPSHOT.jar</p>
+</blockquote>
+<p>Use Chrome: <code>localhost:8080</code></p>
+<h3 id="inversion-of-control">Inversion of Control</h3>
+<ul>
+<li>Container mainains your class dependencies</li>
+<li>Objects injected at runtime or startup time</li>
+<li>An object accepts the dependencies for construction instead of constructing them</li>
+</ul>
+<h4 id="spring-ioc">Spring IoC</h4>
+<ul>
+<li>Bean Factory</li>
+<li>Application Context</li>
+<li>References</li>
+<li>Analysis of construction order</li>
+</ul>
+<h3 id="proxies">Proxies</h3>
+<ul>
+<li>Beans in Bean Faactory are proxied</li>
+<li>Annitations drive proxies</li>
+<li>Annitations are easy extension points, for your own abstracts too</li>
+<li>Method calling order matters</li>
+</ul>
+<h2 id="data-access-in-spring">Data Access in Spring</h2>
+<h3 id="spring-data">Spring Data</h3>
+<ul>
+<li>Provides a common set of interfaces</li>
+<li>Provides a common naming convention</li>
+<li>Provides aspected behavior</li>
+<li>Provides Repository and Data Mapping convention</li>
+</ul>
+<h4 id="benefits-of-spring-data">Benefits of Spring Data</h4>
+<ul>
+<li>Remove boilerplate code</li>
+<li>Allows for swapping datasources easier</li>
+<li>Allows to focus on buisiness logic</li>
+</ul>
+<h4 id="key-components">Key Components</h4>
+<ul>
+<li>Repository Interface</li>
+<li>Entity Object</li>
+<li>DataSource no accessed directly</li>
+</ul>
+<h3 id="embeedded-db-with-spring-boot">Embeedded DB with Spring Boot</h3>
+<p>Needed dependencies:</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">org.springframework.boot:spring-boot-starter-data-jpa
+com.h2database:h2
+</code></pre><p>Set application.properties:</p>
+<ul>
+<li>logging.level.org.springframework.jdbc.datasource.init.ScriptUtils=debug : by default is set to info</li>
+<li>spring.jpa.hibernate.ddl-auto=none : don&rsquo;t create schema, and just connect to DB</li>
+</ul>
+<h3 id="repository-with-spring-data">Repository with Spring Data</h3>
+<ul>
+<li>
+<p>Java Persistence API (or <a href="https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html#jpaintro">JPA</a>)</p>
+<ul>
+<li>Mapping Java objects to DB tables and vice versa is called Object-relational Mapping (ORM)</li>
+<li>JPA permits the developer to works directly with objects rather tahn with SQL statements</li>
+<li>Based on Annotations</li>
+</ul>
+</li>
+<li>
+<p><a href="https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html#jpaintro_entity">Entity</a></p>
+<ul>
+<li>A class which should be persisted in a database it must be annotated with <code>javax.persistence.Entity</code></li>
+<li>JPA uses a database table for every entity</li>
+<li>Persisted instances of the class will be represented as one row in the table</li>
+<li>JPA allows to auto-generate the primary key in the database via the <code>@GeneratedValue</code> annotation</li>
+<li>By default, the table name corresponds to the class name. You can change this with the addition to the annotation <code>@Table(name=&quot;NEWTABLENAME&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROOM&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Room</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Id</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">AUTO</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROOM_ID&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">long</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NAME&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROOM_NUMBER&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String roomNumber<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Column</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;BED_INFO&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> String bedInfo<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">long</span> <span style="color:#a6e22e">getId</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setId</span><span style="color:#f92672">(</span><span style="color:#66d9ef">long</span> id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">id</span> <span style="color:#f92672">=</span> id<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getRoomNumber</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> roomNumber<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setRoomNumber</span><span style="color:#f92672">(</span>String roomNumber<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">roomNumber</span> <span style="color:#f92672">=</span> roomNumber<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getBedInfo</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> bedInfo<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setBedInfo</span><span style="color:#f92672">(</span>String bedInfo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">bedInfo</span> <span style="color:#f92672">=</span> bedInfo<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Room{&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;id=&#34;</span> <span style="color:#f92672">+</span> id <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;, name=&#39;&#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\&#39;&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;, roomNumber=&#39;&#34;</span> <span style="color:#f92672">+</span> roomNumber <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\&#39;&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;, bedInfo=&#39;&#34;</span> <span style="color:#f92672">+</span> bedInfo <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;\&#39;&#39;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<ul>
+<li>Create a <a href="https://www.baeldung.com/spring-data-crud-repository-save">CrudRepository</a> interface for the created <a href="https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html#jpaintro_entity">Entity</a>:</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">RoomRepository</span> <span style="color:#66d9ef">extends</span> CrudRepository<span style="color:#f92672">&lt;</span>Room<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Room is the Entity class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Long is the ID type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<ul>
+<li>
+<p>Create a <a href="https://www.baeldung.com/spring-component-annotation#component">Component</a> Event:</p>
+<ul>
+<li>A <code>@Component</code> Annotation is automatically picked by Spring</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppStartupEvent</span> <span style="color:#66d9ef">implements</span> ApplicationListener<span style="color:#f92672">&lt;</span>ApplicationReadyEvent<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RoomRepository roomRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">AppStartupEvent</span><span style="color:#f92672">(</span>RoomRepository roomRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">roomRepository</span> <span style="color:#f92672">=</span> roomRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">onApplicationEvent</span><span style="color:#f92672">(</span>ApplicationReadyEvent event<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        Iterable<span style="color:#f92672">&lt;</span>Room<span style="color:#f92672">&gt;</span> rooms <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">roomRepository</span><span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>        rooms<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h3 id="using-remote-database">Using remote database</h3>
+<p>Replace the H2 database for an other database, example a PostgreSQL:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gradle" data-lang="gradle"><span style="display:flex;"><span>dependencies:
+</span></span><span style="display:flex;"><span>org<span style="color:#f92672">.</span><span style="color:#a6e22e">postgresql</span><span style="color:#f92672">:</span>postgresql
+</span></span></code></pre></div><p>In <code>application.properties</code>:</p>
+<pre tabindex="0"><code class="language-properties" data-lang="properties">spring.jpa.database=postgresql
+spring.datasource.url=jdbc:postgresql://localhost:5432/dev
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+</code></pre><h2 id="service-tier">Service Tier</h2>
+<h3 id="utilizing-ioc">Utilizing IoC</h3>
+<p>Why use IoC?</p>
+<ul>
+<li>Allows you to focus on contracts</li>
+<li>Develoip business code only, leave constuction to the container</li>
+<li>Build intermediate abstractions</li>
+<li>Produce clean code</li>
+</ul>
+<p>Srping and IoC:</p>
+<ul>
+<li>IoC container is configured by developer</li>
+<li>Spring maintains handles to objects constucted at startup</li>
+<li>Spring serves singletons to classes during construction</li>
+<li>Spring maintains lifecycle of beans</li>
+<li>Developer only accesses the application context</li>
+</ul>
+<h3 id="service-abstraction">Service abstraction</h3>
+<p>Why building Service Abstractions:</p>
+<ul>
+<li>Encapsulate layers?</li>
+<li>Abstract 3rd partys APIs</li>
+<li>Simplify implementations</li>
+<li>Swap out implementations as runtime (ie. factory pattern)</li>
+</ul>
+<p>How to build one?</p>
+<ul>
+<li>Define our interface (or class)</li>
+<li>Create the API</li>
+<li>Inject the dependencies</li>
+<li>Annotate or configure (classes)</li>
+<li>Code the implemantation</li>
+</ul>
+<h3 id="spring-service-object">Spring Service Object</h3>
+<ul>
+<li>We mark beans with <a href="https://www.baeldung.com/spring-component-repository-service#service">@Service</a> to indicate that they&rsquo;re holding the business logic. Besides being used in the service layer, there isn&rsquo;t any other special use for this annotation.</li>
+<li>Starting with Spring 2.5, the framework introduced annotations-driven Dependency Injection. The main annotation of this feature is <a href="https://www.baeldung.com/spring-autowire">@Autowired</a>. It allows Spring to resolve and inject collaborating beans into our bean.
+<ul>
+<li>Using <code>@Autowired</code> or either properties or setters/getters isn&rsquo;t a good practice or easy to test;</li>
+<li>Use final properties with constructors to have immutable object. If more than one constructor is defined then using <code>@Autowired</code> on the default one will make Spring to use it.</li>
+</ul>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReservationService</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RoomRepository roomRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> GuestRepository guestRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ReservationRepository reservationRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Autowired</span> <span style="color:#75715e">// optional if only one constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">ReservationService</span><span style="color:#f92672">(</span>RoomRepository roomRepository<span style="color:#f92672">,</span> GuestRepository guestRepository<span style="color:#f92672">,</span> ReservationRepository reservationRepository<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">roomRepository</span> <span style="color:#f92672">=</span> roomRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">guestRepository</span> <span style="color:#f92672">=</span> guestRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">reservationRepository</span> <span style="color:#f92672">=</span> reservationRepository<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Business logic here...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<h2 id="web-pages-with-spring">Web pages with Spring</h2>
+<h3 id="controller">Controller</h3>
+<p>Model View Controller (or MVC)</p>
+<ul>
+<li>Fundamental pattern for Web application development</li>
+<li>The <code>Model</code> is the data</li>
+<li>The <code>View</code> is the visual display that is populated</li>
+<li>The <code>Controller</code> wires the view with the model</li>
+</ul>
+<p>Spring Controller</p>
+<ul>
+<li>Spring bean</li>
+<li>Annotated for the <a href="https://www.baeldung.com/intro-to-servlets">servlet</a> mapping</li>
+<li>Responds to incoming web requests</li>
+<li>Output a view or raw data</li>
+</ul>
+<p>Template Engines</p>
+<ul>
+<li>Spring supports several</li>
+<li>Thymeleaf most popular</li>
+<li>Provides a DSL for HTML leaving raw html documents</li>
+<li>Placeholders for dynamic data</li>
+<li>Rendiring engin allows for final products</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Controller</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/reservations&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RoomReservationController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> DateUtils dateUtils<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> ReservationService reservationService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">RoomReservationController</span><span style="color:#f92672">(</span>DateUtils dateUtils<span style="color:#f92672">,</span> ReservationService reservationService<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dateUtils</span> <span style="color:#f92672">=</span> dateUtils<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">reservationService</span> <span style="color:#f92672">=</span> reservationService<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span>method <span style="color:#f92672">=</span> RequestMethod<span style="color:#f92672">.</span><span style="color:#a6e22e">GET</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getReservations</span><span style="color:#f92672">(</span><span style="color:#a6e22e">@RequestParam</span><span style="color:#f92672">(</span>value<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;date&#34;</span><span style="color:#f92672">,</span> required<span style="color:#f92672">=</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span> String dateString<span style="color:#f92672">,</span> Model model<span style="color:#f92672">){</span>
+</span></span><span style="display:flex;"><span>        Date date <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">dateUtils</span><span style="color:#f92672">.</span><span style="color:#a6e22e">createDateFromDateString</span><span style="color:#f92672">(</span>dateString<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        List<span style="color:#f92672">&lt;</span>RoomReservation<span style="color:#f92672">&gt;</span> roomReservations <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">reservationService</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getRoomReservationsForDate</span><span style="color:#f92672">(</span>date<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">.</span><span style="color:#a6e22e">addAttribute</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;roomReservations&#34;</span><span style="color:#f92672">,</span> roomReservations<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;roomres&#34;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p>Can use <a href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html">Thymeleaf</a> to create HTML pages.</p>
+<ul>
+<li>Add the web page to <code>src/main/resources/templates</code></li>
+</ul>
+
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img src="logo.png">
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1653001570"></script>
+        <script src="/js/auto-complete.js?1653001570"></script>
+        <script src="/js/search.js?1653001570"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="relearn-light" value="relearn-light" selected>Relearn Light</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1653001570"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653001570"></script>
+    <script src="/js/featherlight.min.js?1653001570"></script>
+    <script src="/js/theme.js?1653001570"></script>
+  </body>
+</html>

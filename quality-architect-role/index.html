@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="generator" content="Relearn 3.4.1&#43;tip">
+    <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+    <meta name="description" content="">
+    <title>Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/nucleus.css?1653001570" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653001570" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653001570" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653001570" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653001570" rel="stylesheet">
+    <link href="/css/theme.css?1653001570" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1653001570" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653001570" rel="stylesheet">
+    <link href="/css/print.css?1653001570" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653001570"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/AlainBouchard.github.io/';
+      variants.init( [ 'relearn-light' ] );
+    </script>
+    <script src="/js/jquery.min.js?1653001570"></script>
+  </head>
+  <body class="mobile-support" data-url="/quality-architect-role/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/" title=""><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <span id="toc-menu" title='Table of Contents'><i class="fas fa-list-alt fa-fw"></i></span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/quality-architect-role/" aria-disabled="true"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes</span></a></li>
+            </ol>
+          </div>
+          <div class="default-animation progress">
+            <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#strategic">Strategic</a></li>
+    <li><a href="#tactics">Tactics</a></li>
+  </ul>
+</nav>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article>
+
+<h1></h1>
+<h1 id="role">Role</h1>
+<p>The architect is responsible for two main types of high-level activities:</p>
+<ol>
+<li>Strategic (foundations): take care of the technical vision in the medium to long term (one, two years or even more)</li>
+<li>Tactics (operations): technical support for teams, problem solving, proof of concept, etc.</li>
+</ol>
+<h2 id="strategic">Strategic</h2>
+<ol>
+<li>Define the &ldquo;Quality Vision&rdquo;, guidelines, technical documents (<a href="https://adr.github.io">ADR</a>, technical designs, terminology/technical glossary, etc.) while taking into account security rules, <a href="https://en.wikipedia.org/wiki/Personal_data">PII</a>, etc</li>
+<li>Evaluate technologies: research, comparisons, proof of concepts, publications, etc</li>
+<li>Promote best practices for the chosen technologies</li>
+<li>Mentoring and coaching</li>
+<li><a href="https://github.com/AlainBouchard/engineering-notes/blob/master/how-to-promote-the-quality-best-practices.md">Promote quality</a> during the six stages of software development, <a href="https://www.tutorialspoint.com/sdlc/sdlc_overview.htm">SDLC</a> or &ldquo;Software Development Life Cycle&rdquo;: &ldquo;Planning&rdquo; -&gt; &ldquo;Defining&rdquo; -&gt; &ldquo;Designing&rdquo; -&gt; &ldquo;Building&rdquo; -&gt; &ldquo;Testing&rdquo; - &gt; &ldquo;Deployment&rdquo;</li>
+<li>Assist or lead working groups for specific topics, define the purpose and deliverables, periodic and monthly events</li>
+<li>Attend or lead workshops for specific topics, define the goal and deliverables, event over a few hours or a few days</li>
+<li>Audit of the services for test coverage and correlate the data with the problematic services in production (Data-Driven decisions)</li>
+<li>Analyze the current testing strategy, test characterization, define a plan, promote good testing practices, follow the test pyramid:
+<ol>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-unit-introduction">Unit</a> (solitary and sociable) testing</li>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-component-introduction">Component</a> (in-process and out-of-process) testing</li>
+<li><a href="https://martinfowler.com/bliki/ContractTest.html">Contract</a> testing</li>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-integration-introduction">Integration</a> (narrow and broad) testing</li>
+<li>UI End-to-end (<a href="https://martinfowler.com/articles/microservice-testing/#testing-end-to-end-introduction">E2E</a>) and API E2E (<a href="https://martinfowler.com/bliki/SubcutaneousTest.html">Subcutaneous</a>)</li>
+<li><a href="https://martinfowler.com/bliki/UserJourneyTest.html">User journey</a> tests (and <a href="https://www.datadoghq.com/knowledge-center/synthetic-testing">Synthetic Traffic</a> tests)</li>
+<li><a href="https://www.guru99.com/non-functional-testing.html">Non-functional</a> tests: load, scalability, webvital metrics <a href="https://web.dev/lcp">LCP</a>, chaos/robustness, etc</li>
+</ol>
+</li>
+<li>Alignment on a test strategy with the deployment procedure (<a href="https://www.atlassian.com/continuous-delivery/continuous-integration">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment">CD</a>) and a <a href="https://medium.com/@vafrcor2009/gitflow-vs-trunk-based-development-3beff578030b">branching</a> procedure (gitflow, githubflow, etc), <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue/green deployment</a>, etc</li>
+<li>Participates in the recruitment process for the “quality” aspects</li>
+</ol>
+<h2 id="tactics">Tactics</h2>
+<ol>
+<li>Apply the test strategy: develop test projects, add the projects to the process (build, <a href="https://www.atlassian.com/continuous-delivery/continuous-integration">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment">CD</a>, <a href="https://www.vmware.com/topics/glossary/content/kubernetes-cluster.html">cluster/kubernetes</a>. etc), document, etc</li>
+<li>Support test development: support QAs and developers who add tests, PR reviews, etc</li>
+<li>Add test coverage: JavaScript (e.g., cypress.io, etc), python/pytest, java/rest-assured, etc</li>
+<li>Addition of <a href="https://www.datadoghq.com/knowledge-center/synthetic-testing">Synthetic Traffic</a> tests and verification of customer flows and scenarios (i.e., customer flows)</li>
+<li>Analyze system performance (e.g., load tests) and according to defined standards (i.e., <em>&ldquo;Given the data load X and the number of users Y, an API should respond within Z seconds&rdquo;</em>), <a href="https://web.dev/lcp">LCP</a> (i.e., Largest Contentful Paint) (e.g., <em>&ldquo;a page should be considered usable in less than 2.5 seconds&rdquo;</em>)</li>
+<li>Using observation tools to understand issues: <a href="https://www.datadoghq.com/">datadoghq</a>, <a href="https://www.splunk.com/">splunk/signalfx</a>, <a href="https://prometheus.io/">prometheus</a>, ​​<a href="https://grafana.com/">grafana</a>, etc</li>
+<li>Collaborates horizontally with the different “domaines” of the company and suppliers to improve the overall quality of the company</li>
+</ol>
+
+            <footer class="footline">
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img src="logo.png">
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1653001570"></script>
+        <script src="/js/auto-complete.js?1653001570"></script>
+        <script src="/js/search.js?1653001570"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="relearn-light" value="relearn-light" selected>Relearn Light</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1653001570"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653001570"></script>
+    <script src="/js/featherlight.min.js?1653001570"></script>
+    <script src="/js/theme.js?1653001570"></script>
+  </body>
+</html>
