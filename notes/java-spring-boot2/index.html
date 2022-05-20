@@ -7,16 +7,16 @@
     <meta name="generator" content="Relearn 3.4.1&#43;tip">
     <meta name="description" content="">
     <title>Java Spring Boot 2 :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/nucleus.css?1653061480" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653061480" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653061480" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653061480" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653061480" rel="stylesheet">
-    <link href="/css/theme.css?1653061480" rel="stylesheet">
-    <link href="/css/theme-relearn-light.css?1653061480" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1653061480" rel="stylesheet">
-    <link href="/css/print.css?1653061480" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1653061480"></script>
+    <link href="/css/nucleus.css?1653079044" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653079044" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653079044" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653079044" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653079044" rel="stylesheet">
+    <link href="/css/theme.css?1653079044" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1653079044" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653079044" rel="stylesheet">
+    <link href="/css/print.css?1653079044" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653079044"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -32,7 +32,7 @@
       var baseUriFull='https:\/\/AlainBouchard.github.io/';
       variants.init( [ 'relearn-light' ] );
     </script>
-    <script src="/js/jquery.min.js?1653061480"></script>
+    <script src="/js/jquery.min.js?1653079044"></script>
   </head>
   <body class="mobile-support" data-url="/notes/java-spring-boot2/">
     <div id="body" class="default-animation">
@@ -240,7 +240,8 @@ com.h2database:h2
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<details>
+    <summary>Code Example</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Entity</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@Table</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROOM&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Room</span> <span style="color:#f92672">{</span>
@@ -297,17 +298,18 @@ com.h2database:h2
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#39;}&#39;</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <ul>
 <li>Create a <a href="https://www.baeldung.com/spring-data-crud-repository-save">CrudRepository</a> interface for the created <a href="https://www.vogella.com/tutorials/JavaPersistenceAPI/article.html#jpaintro_entity">Entity</a>:</li>
 </ul>
-<!-- raw HTML omitted -->
+<details>
+    <summary>Code Example</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Repository</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">RoomRepository</span> <span style="color:#66d9ef">extends</span> CrudRepository<span style="color:#f92672">&lt;</span>Room<span style="color:#f92672">,</span> Long<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Room is the Entity class
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Long is the ID type
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <ul>
 <li>
 <p>Create a <a href="https://www.baeldung.com/spring-component-annotation#component">Component</a> Event:</p>
@@ -316,7 +318,8 @@ com.h2database:h2
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<details>
+    <summary>Code Example</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Component</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AppStartupEvent</span> <span style="color:#66d9ef">implements</span> ApplicationListener<span style="color:#f92672">&lt;</span>ApplicationReadyEvent<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RoomRepository roomRepository<span style="color:#f92672">;</span>
@@ -331,7 +334,7 @@ com.h2database:h2
 </span></span><span style="display:flex;"><span>        rooms<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <h3 id="using-remote-database">Using remote database</h3>
 <p>Replace the H2 database for an other database, example a PostgreSQL:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gradle" data-lang="gradle"><span style="display:flex;"><span>dependencies:
@@ -384,7 +387,8 @@ spring.datasource.password=postgres
 </ul>
 </li>
 </ul>
-<!-- raw HTML omitted -->
+<details>
+    <summary>Code Example</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Service</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ReservationService</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> RoomRepository roomRepository<span style="color:#f92672">;</span>
@@ -400,7 +404,7 @@ spring.datasource.password=postgres
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Business logic here...
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <h2 id="web-pages-with-spring">Web pages with Spring</h2>
 <h3 id="controller">Controller</h3>
 <p>Model View Controller (or MVC)</p>
@@ -425,7 +429,8 @@ spring.datasource.password=postgres
 <li>Placeholders for dynamic data</li>
 <li>Rendiring engin allows for final products</li>
 </ul>
-<!-- raw HTML omitted -->
+<details>
+    <summary>Code Example</summary>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Controller</span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">@RequestMapping</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/reservations&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RoomReservationController</span> <span style="color:#f92672">{</span>
@@ -446,7 +451,7 @@ spring.datasource.password=postgres
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;roomres&#34;</span><span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><!-- raw HTML omitted -->
+</span></span></code></pre></div></details>
 <p>Can use <a href="https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html">Thymeleaf</a> to create HTML pages.</p>
 <ul>
 <li>Add the web page to <code>src/main/resources/templates</code></li>
@@ -469,9 +474,9 @@ spring.datasource.password=postgres
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/js/lunr.min.js?1653061480"></script>
-        <script src="/js/auto-complete.js?1653061480"></script>
-        <script src="/js/search.js?1653061480"></script>
+        <script src="/js/lunr.min.js?1653079044"></script>
+        <script src="/js/auto-complete.js?1653079044"></script>
+        <script src="/js/search.js?1653079044"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -483,7 +488,8 @@ spring.datasource.password=postgres
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
           <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
-          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li>
+          <li data-nav-id="/blogs/dave-reid/" title="Only for my good Friend Dave Reid" class="dd-item"><a href="/blogs/dave-reid/">Only for my good Friend Dave Reid</a></li></ul></li>
           <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/"><b>2. </b>My Notes</a><ul>
           <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
           <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
@@ -528,9 +534,9 @@ spring.datasource.password=postgres
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1653061480"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653061480"></script>
-    <script src="/js/featherlight.min.js?1653061480"></script>
-    <script src="/js/theme.js?1653061480"></script>
+    <script src="/js/clipboard.min.js?1653079044"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653079044"></script>
+    <script src="/js/featherlight.min.js?1653079044"></script>
+    <script src="/js/theme.js?1653079044"></script>
   </body>
 </html>
