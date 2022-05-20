@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://AlainBouchard.github.io/blogs/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/</loc>
+  </url>
+  <url>
     <loc>https://AlainBouchard.github.io/categories/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/gradle/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/gradle-for-java-based-applications-and-libraries/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/blogs/how-to-promote-the-quality-best-practices/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/java-object-oriented-programming/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/java-spring-boot2/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/quality-architect-role/</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/role-architecte-qualite/</loc>
   </url>
   <url>
     <loc>https://AlainBouchard.github.io/tags/</loc>

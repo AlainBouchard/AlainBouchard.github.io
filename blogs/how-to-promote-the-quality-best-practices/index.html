@@ -6,8 +6,7 @@
     <meta name="generator" content="Hugo 0.99.0" />
     <meta name="generator" content="Relearn 3.4.1&#43;tip">
     <meta name="description" content="">
-    <title>Tags :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link rel="alternate" type="application/rss&#43;xml" href="/tags/index.xml" title="Alain Bouchard&#39;s Engineering Notes" />
+    <title>How to promote the Quality Best Practices :: Alain Bouchard&#39;s Engineering Notes</title>
     <link href="/css/nucleus.css?1653060461" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1653060461" rel="stylesheet">
     <link href="/css/featherlight.min.css?1653060461" rel="stylesheet">
@@ -35,17 +34,17 @@
     </script>
     <script src="/js/jquery.min.js?1653060461"></script>
   </head>
-  <body class="mobile-support" data-url="/tags/">
+  <body class="mobile-support" data-url="/blogs/how-to-promote-the-quality-best-practices/">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
+             <a class="nav nav-next" href="/notes/" title="My Notes"><i class="fas fa-chevron-right fa-fw"></i></a>
           </div>
           <div class="navigation">
-             <a class="nav nav-prev" href="/notes/role-architecte-qualite/" title="Role de l&#39;Architecte Qualité"><i class="fas fa-chevron-left fa-fw"></i></a>
+             <a class="nav nav-prev" href="/blogs/" title="My Blogs"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -53,8 +52,9 @@
             </span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/tags/" aria-disabled="true"><span itemprop="name">Tags</span></a></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/blogs/"><span itemprop="name">My Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/blogs/how-to-promote-the-quality-best-practices/" aria-disabled="true"><span itemprop="name">How to promote the Quality Best Practices</span></a></li>
             </ol>
           </div>
         </div>
@@ -65,11 +65,79 @@
           </div>
           <article>
 
-<h1>Tags</h1>
+<h1>How to promote the Quality Best Practices</h1>
 <ul>
+<li><a href="#how-to-promote-the-quality-best-practices">How to promote the Quality Best Practices</a></li>
+<li><a href="#influence-or-evangelize">Influence or evangelize</a>
+<ul>
+<li><a href="#data-driven-decisions">Data-Driven decisions</a></li>
+</ul>
+</li>
+<li><a href="#enforce">Enforce</a></li>
+</ul>
+<h2 id="how-to-promote-the-quality-best-practices">How to promote the Quality Best Practices</h2>
+<p>Two ways to promote the quality best practices are: <em>Influencing</em> the teams or to <em>enforce</em> the best practices. A periodical team <em>reality check</em> about the current practices is the beginning of the process. A team can easily live in their own <em>Ivory Tower</em> or to be <em>biased</em> by this statement: <em>&ldquo;We always did it that way so why changing it?&rdquo;</em>.</p>
+<h2 id="influence-or-evangelize">Influence or evangelize</h2>
+<ul>
+<li>Discussions: gather information about current pain points (retrospectives and lessons learned)</li>
+<li>Involve QA Specialists in all SDLC (or <a href="https://www.tutorialspoint.com/sdlc/sdlc_overview.htm">Software Development Life Cycle</a>)</li>
+<li>1:1 meetings to get information and expose point of views, share ideas and explain the best practices: it may be easier to convince on person than a group</li>
+<li>Talk to the teams</li>
+<li>Provide existing articles and blog posts</li>
+<li>Tech talk to expose the vision</li>
+<li>Create training material: guidelines, processes, videos (e.g.: <a href="https://www.pluralsight.com/">Pluralsight</a>, etc.)</li>
+<li>Involve people in quality solutions:
+<ul>
+<li>Organize Workshops (on short term) so that the targeted public becomes active participants</li>
+<li>Organize Work Groups (on long term) so that the concerned people become active participants</li>
+</ul>
+</li>
+<li>To use data as leverage; more information is available in the <a href="#data-driven-decisions">data-driven decision</a> section</li>
+</ul>
+<h3 id="data-driven-decisions">Data-Driven decisions</h3>
+<p>To show metrics of the current situation (or challenge the &ldquo;no metrics&rdquo; or lack of metrics).  It is the also called <a href="https://github.com/AlainBouchard/testing-vision#shift-right-approach">&ldquo;Shift-Right&rdquo; approach</a> in the Software Quality world.</p>
+<ul>
+<li>End-users or Customers survey can be used (e.g.: use a post-transaction experience survey on the mobile app or web site)</li>
+<li>White-Label partner surveys</li>
+<li>Use production dashboards (examples: <a href="https://www.datadoghq.com/">Datadog</a> or <a href="https://www.splunk.com/en_us/investor-relations/acquisitions/signalfx.html">SignalFX</a> metrics) and performance tools (e.g.: <a href="https://web.dev/vitals/">WebVitals</a>, etc.) to monitor <a href="https://www.datadoghq.com/blog/monitor-api-performance-with-runscope-and-datadog/">APIs</a>, <a href="https://www.datadoghq.com/blog/sql-server-performance/">SQLs</a>, etc.
+<ul>
+<li>Daily performance emails can be sent to the engineering teams</li>
+</ul>
+</li>
+<li>NPS and CSAT surveys: <a href="https://www.questionpro.com/cx/csat/nps-vs-csat.html">NPS vs CSAT definitions</a></li>
+<li>Real Customers Journey (traces of the end-users through the applications)</li>
+<li>Use support CIM dashboards: customer tickets, production tickets, ticket aging/bug fix time, tickets by services or teams, RCA (find the issues caused by quality process)
+<ul>
+<li>CIM stands for Customer Interaction Management</li>
+<li>A way to generate CIM data is to use a tool like <a href="https://eazybi.com/features">eazy bi</a></li>
+</ul>
+</li>
+<li>Correlation between test coverage (static code) and production issues
+<ul>
+<li>It is also <em>possible</em> to get test coverage from a live service using a tool like <a href="https://www.sealights.io">Sealights</a></li>
+</ul>
+</li>
+<li>Compile the functional testers (manual tests) created Tickets/JIRA vs current team or service test coverage</li>
+<li>Create Success Stories: start with one team and use the before/after statistics</li>
+<li>GIT statistics (e.g. with a tool like <a href="https://www.pluralsight.com/product/flow">GitPrime (now Pluralsight Flow)</a>) in order to correlate bugs/tickets and developers stats (e.g.: number of commits, active days, etc.)
+<ul>
+<li>I.e.: low stats may be caused by developers not working on features or test automations because they are working on manual tests or production support</li>
+</ul>
+</li>
+<li>Correlate the release cycle (how often the team releases or time to market) and test coverage; better/reliable test coverage and test regression suite will shorten the release cycle.</li>
+<li>Gather statistic about how much time it takes to refactor an existing feature?  Better test coverage will result in faster refactoring</li>
+</ul>
+<h2 id="enforce">Enforce</h2>
+<ul>
+<li>Contact the best practices stakeholders and ask for support (I.e.: to push the best practices downward)</li>
+<li>To fix deadlines (must be adopted by specific dates)</li>
+<li>Enforce with Gates, checklists, DoD, etc.</li>
+<li>Set Quality specific OKRs</li>
+<li>Assign Quality trainings</li>
 </ul>
 
             <footer class="footline">
+            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
             </footer>
           </article>
         </div>
@@ -98,8 +166,8 @@
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
-          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item parent"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle" checked/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item active"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
           <li data-nav-id="/notes/" title="My Notes" class="dd-item"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle"/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/"><b>2. </b>My Notes</a><ul>
           <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
           <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>

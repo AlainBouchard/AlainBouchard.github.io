@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="generator" content="Relearn 3.4.1&#43;tip">
+    <meta name="description" content="">
+    <title>Java Object-Oriented Programming :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/nucleus.css?1653060461" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653060461" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653060461" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653060461" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653060461" rel="stylesheet">
+    <link href="/css/theme.css?1653060461" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1653060461" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653060461" rel="stylesheet">
+    <link href="/css/print.css?1653060461" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653060461"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/AlainBouchard.github.io/';
+      variants.init( [ 'relearn-light' ] );
+    </script>
+    <script src="/js/jquery.min.js?1653060461"></script>
+  </head>
+  <body class="mobile-support" data-url="/notes/java-object-oriented-programming/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/notes/java-spring-boot2/" title="Java Spring Boot 2"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/notes/"><span itemprop="name">My Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/java-object-oriented-programming/" aria-disabled="true"><span itemprop="name">Java Object-Oriented Programming</span></a></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article>
+
+<h1>Java Object-Oriented Programming</h1>
+<h2 id="java-object-oriented-programming">Java Object-Oriented Programming</h2>
+<h2 id="class-blueprint">Class blueprint</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Class blueprint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyClass</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Can have attributes...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> String attribute1<span style="color:#f92672">;</span>  <span style="color:#75715e">// private attribute member, getter/setter are needed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  MyEnum myEnum<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> string staticAttribute1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Static Attribute&#34;</span><span style="color:#f92672">;</span> <span style="color:#75715e">// belongs to the class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Integer myFinalInteger<span style="color:#f92672">;</span> <span style="color:#75715e">// can&#39;t be modified or be overridden by any subclasses
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  MyClass<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Initiate the instance of MyClass class.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;&#39;this&#39; is used to call alternate constructors from within a constructor&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// optional code lines...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  MyClass<span style="color:#f92672">(</span>String message<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Initiate the instance of MyClass class.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Setter for private attribute
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAttribute1</span><span style="color:#f92672">(</span>attribute1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">attribute1</span> <span style="color:#f92672">=</span> attribute1<span style="color:#f92672">;</span>  <span style="color:#75715e">// note: &#34;this&#34; keyword is needed to disambuguate the variable reference.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Getter for private attribute
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getAttribute1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> attribute1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Methods or behaviours:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// no modifier so the method is accessible from its package only.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">attribute1</span> <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">&#39;</span>xyz<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myPrivateMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// private so only accessible from this classs
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myProtectedMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// protected method so accessible from this class and sub-classes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myPublicMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// public method so accessible from anywhere;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Static method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myStaticMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// A static method does not rely on any non-static attribute or member.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="static-vs-non-static-members">Static vs Non-Static members</h3>
+<ul>
+<li>Non-Static Member: is accessible from an instance and belongs to that instance</li>
+<li>Static Member: is accessible through the class and belongs to that class
+<ul>
+<li>Static members can be accessed using the class name, example:</li>
+</ul>
+</li>
+</ul>
+<h2 id="enum-blueprint">Enum blueprint</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Enum blueprint
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">enum</span> MyEnum <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  CONSTANT1<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>  CONSTANT2<span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...,</span>
+</span></span><span style="display:flex;"><span>  CONSTANTN
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="main-class-blueprint">Main class blueprint</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Main class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span>String<span style="color:#f92672">[]</span> arg<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    MyClass myClass <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> MyClass<span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>abc<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// Create an object of type MyClass
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    myClass<span style="color:#f92672">.</span><span style="color:#a6e22e">myMethod</span><span style="color:#f92672">(</span><span style="color:#960050;background-color:#1e0010">&#39;</span>xyz<span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#f92672">);</span>  <span style="color:#75715e">// Call a method from my object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h2 id="princibles">Princibles</h2>
+<h3 id="encapsulation">Encapsulation</h3>
+<ul>
+<li>allow us to bind together data and related functionality</li>
+<li>prevent classes from becoming tightly coupled</li>
+<li>easily modify the inner workings of one class without affecting the rest of the program</li>
+<li>restrictions
+<ul>
+<li>we need a clear interface between a given class and the rest of the program</li>
+<li>everything can&rsquo;t have direct access</li>
+</ul>
+</li>
+<li>make the class attributes hideen from other classes using encapsulation</li>
+<li>provide a clear interface through public methods</li>
+<li>benefits
+<ul>
+<li>clear pathways for classes to communicate</li>
+<li>less code changes required for a refactoring change</li>
+<li>less likely for an attribute to be overwritten with an invalid or null value unexpectedly</li>
+</ul>
+</li>
+<li>Access Modifiers in Java:
+<ul>
+<li>private: only visible in class that the member lives in</li>
+<li>no modifier: only visible in package the member lives in</li>
+<li>protected: visible to the package and all subclasses</li>
+<li>public: accessible everywhere within the program</li>
+</ul>
+</li>
+</ul>
+<h3 id="inheritance">Inheritance</h3>
+<ul>
+<li>allow us to create class hierarchies</li>
+<li>Subclass (child class)
+<ul>
+<li>inherits properties</li>
+<li>referred to as the child class</li>
+</ul>
+</li>
+<li>Superclass (parent class)
+<ul>
+<li>is inherited from</li>
+<li>referred to as the parent class</li>
+</ul>
+</li>
+<li>promotes code reusability and scalability</li>
+<li>leveraging inheritance:
+<ul>
+<li>a class can only have one superclass but multiple subclasses</li>
+<li>if multiple super classes is needed then multilevel inheritance is required</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySuperClass</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> String a1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> String a2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  MySuperClass<span style="color:#f92672">(</span>String a1<span style="color:#f92672">,</span> String a2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Super Class constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">a1</span> <span style="color:#f92672">=</span> a1<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">a2</span> <span style="color:#f92672">=</span> a2<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Method of the Super Class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MySubClass</span> <span style="color:#66d9ef">extends</span> MySuperClass <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  MySubClass<span style="color:#f92672">(</span>String arg1<span style="color:#f92672">,</span> String arg2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>arg1<span style="color:#f92672">,</span> arg2<span style="color:#f92672">);</span>  <span style="color:#75715e">// call superclass with arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// Sub Class constructor
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getA1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">super</span><span style="color:#f92672">.</span><span style="color:#a6e22e">a1</span><span style="color:#f92672">;</span>  <span style="color:#75715e">// this.a1 would also work for this Superclass protected variable;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Override the Super Class Method within the Sub Class
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="polymorphism">Polymorphism</h3>
+<ul>
+<li>the ability for an object or function to take amny different forms</li>
+<li>Java supports two types of polymorphism: <code>run time</code> and <code>compile-time</code> polymorphism</li>
+<li>it helps to reduce complexity and write reusable code</li>
+</ul>
+<h3 id="abstraction">Abstraction</h3>
+<ul>
+<li>
+<p>helps us with hide implementation complexity</p>
+</li>
+<li>
+<p>Java supports <code>abstact classes</code> and <code>interfaces</code></p>
+</li>
+<li>
+<p>helps by fixing <code>inputs</code> and <code>outputs</code> and giving general idea of what the system does</p>
+</li>
+<li>
+<p>an <code>abstract class</code>:</p>
+<ul>
+<li>almost like a template</li>
+<li>can&rsquo;t be instencied</li>
+<li>other classes can <code>extend</code> the abstract calss and implement the appropriate functionality</li>
+</ul>
+</li>
+<li>
+<p>an example of an abstract class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">myAbstractClass</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// The class requires the `abstract` keyword since it contains an abstract method.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> String myString<span style="color:#f92672">;</span>  <span style="color:#75715e">// final String (aka constant)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myAbstractMethod</span><span style="color:#f92672">();</span>  <span style="color:#75715e">// an abstract method is not implemented!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">myOtherClass</span> <span style="color:#66d9ef">extends</span> MyAbstractClass <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// variables, constructors... etc.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">abstract</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myAbstractMethod</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// The abstract method from the abstract class must be implemented by the sub-class.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>an <code>interface</code> is:</p>
+<ul>
+<li>a set of method signatures for <code>to-be-implemented</code> functionality</li>
+<li>a specification for a set of behaviors without implementation</li>
+<li>can&rsquo;t be instencied</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">MyInterface</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Long <span style="color:#a6e22e">myMethod1</span><span style="color:#f92672">();</span>  <span style="color:#75715e">// No method implementation
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myMethod2</span><span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">myClassImplementingMyInterface</span> <span style="color:#66d9ef">implements</span> MyInterface <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> Long <span style="color:#a6e22e">myMethod1</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// the implementation for myMethod1 method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myMethod2</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// the implementation for myMethod2 method
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Consider using abstract classes if any of these statements apply to your situation:</p>
+<ul>
+<li>In the java application, there are some related classes that need to share some lines of code then you can put these lines of code within the abstract class and this abstract class should be extended by all these related classes.</li>
+<li>You can define the non-static or non-final field(s) in the abstract class so that via a method you can access and modify the state of the Object to which they belong.</li>
+<li>You can expect that the classes that extend an abstract class have many common methods or fields, or require access modifiers other than public (such as protected and private).</li>
+</ul>
+</li>
+<li>
+<p>Consider using interfaces if any of these statements apply to your situation:</p>
+<ul>
+<li>It is a total abstraction, All methods declared within an interface must be implemented by the class(es) that implements this interface.</li>
+<li>A class can implement more than one interface. It is called multiple inheritances.</li>
+<li>You want to specify the behaviour of a particular data type, but not concerned about who implements its behaviour.</li>
+</ul>
+</li>
+</ul>
+<h2 id="usefull-build-in-java-commands-and-other-information">Usefull build-in JAVA commands and other information</h2>
+<ul>
+<li>System.out.println(&ldquo;string&hellip;&rdquo;);</li>
+</ul>
+<h3 id="method-reference-operator-or-">Method Reference Operator (or ::)</h3>
+<ul>
+<li>
+<p>a <code>method reference operator</code> (or <code>::</code>) is used to call a method by referring to it with the help of its class directly</p>
+<ul>
+<li>like using a lambda expression, example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">// Get the stream
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Stream<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> stream
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">=</span> Stream<span style="color:#f92672">.</span><span style="color:#a6e22e">of</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Geeks&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;For&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Geeks&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;A&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Computer&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;Portal&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Print the stream using lambda method:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>s <span style="color:#f92672">-&gt;</span> System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s<span style="color:#f92672">));</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Print the stream using double colon operator
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  stream<span style="color:#f92672">.</span><span style="color:#a6e22e">forEach</span><span style="color:#f92672">(</span>System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">::</span>println<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Both lambda and :: will do the same thing.
+</span></span></span></code></pre></div></li>
+</ul>
+<h3 id="the-arbitrary-number-of-arguments-or--as-a-function-argument">The <code>Arbitrary Number of Arguments</code> (or <code>...</code> as a function argument)</h3>
+<ul>
+<li>it means that zero or more String objects (or a single array of them) may be passed as the argument(s) for that method</li>
+<li>Reference : [http://java.sun.com/docs/books/tutorial/java/javaOO/arguments.html#varargs]</li>
+<li>important note:
+<ul>
+<li>the argument(s) passed in this way is always an array - even if there&rsquo;s just one. Make sure you treat it that way in the method body</li>
+<li>the argument that gets the <code>...</code> must be the last in the method signature. So, myMethod(int i, String&hellip; strings) is okay, but myMethod(String&hellip; strings, int i) is not okay</li>
+</ul>
+</li>
+<li>example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">myFunction</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> <span style="color:#f92672">...</span> a<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sum <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">:</span> a<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>      sum <span style="color:#f92672">+=</span> i<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> sum<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span><span style="color:#f92672">(</span> String args<span style="color:#f92672">[]</span> <span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> ans <span style="color:#f92672">=</span> myFunction<span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>1<span style="color:#f92672">,</span>1<span style="color:#f92672">);</span>  <span style="color:#75715e">// could have any number of arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span> <span style="color:#e6db74">&#34;Result is &#34;</span><span style="color:#f92672">+</span> ans <span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="predicate">Predicate</h3>
+<ul>
+<li>
+<p>a <code>Predicate</code> in general meaning is a statement about something that is either true or false. In programming, predicates represent single argument functions that return a boolean value</p>
+</li>
+<li>
+<p>example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#a6e22e">@FunctionalInterface</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Predicate</span><span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">boolean</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span>T t<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>An example with filter() since it does accept a Predicate as parameter:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">// With lambda function:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 3<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 7<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 9<span style="color:#f92672">,</span> 10<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> collect <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>x <span style="color:#f92672">-&gt;</span> x <span style="color:#f92672">&gt;</span> 5<span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>  System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>collect<span style="color:#f92672">);</span> <span style="color:#75715e">// [6, 7, 8, 9, 10]
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// With predicate:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  Predicate<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> noGreaterThan5 <span style="color:#f92672">=</span>  x <span style="color:#f92672">-&gt;</span> x <span style="color:#f92672">&gt;</span> 5<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span> 2<span style="color:#f92672">,</span> 3<span style="color:#f92672">,</span> 4<span style="color:#f92672">,</span> 5<span style="color:#f92672">,</span> 6<span style="color:#f92672">,</span> 7<span style="color:#f92672">,</span> 8<span style="color:#f92672">,</span> 9<span style="color:#f92672">,</span> 10<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> collect <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">stream</span><span style="color:#f92672">().</span><span style="color:#a6e22e">filter</span><span style="color:#f92672">(</span>noGreaterThan5<span style="color:#f92672">).</span><span style="color:#a6e22e">collect</span><span style="color:#f92672">(</span>Collectors<span style="color:#f92672">.</span><span style="color:#a6e22e">toList</span><span style="color:#f92672">());</span>
+</span></span><span style="display:flex;"><span>  System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>collect<span style="color:#f92672">);</span> <span style="color:#75715e">// [6, 7, 8, 9, 10]
+</span></span></span></code></pre></div></li>
+<li>
+<p>More examples with (Java 8 Predicate Examples)[https://mkyong.com/java8/java-8-predicate-examples/]</p>
+</li>
+</ul>
+<h3 id="the-final-keyword">The <code>final</code> keyword</h3>
+<ul>
+<li>Java final keyword is a non-access specifier that is used to restrict a class, variable, and method. If we initialize a variable with the final keyword, then we cannot modify its value</li>
+<li>if we declare a method as final, then it cannot be overridden by any subclasses</li>
+<li>if we declare a class as final, we restrict the other classes to inherit or extend it</li>
+<li>example:
+<ul>
+<li>final variables: to create constants</li>
+<li>final classes: to prevent inheritance</li>
+<li>final methods: to prevent method overriding</li>
+</ul>
+</li>
+</ul>
+<h3 id="generics">Generics</h3>
+<ul>
+<li>
+<p>using <code>generics</code> enable types (classes and interfaces) to be parameters when defining classes, interfaces and methods.</p>
+</li>
+<li>
+<p>using <code>generics</code> give many benefits over using non-generic code</p>
+</li>
+<li>
+<p>stronger type checks at compile time:</p>
+<ul>
+<li>Java compiler applies strong type checking to generic code and issues errors if the code violates type safety. Fixing compile-time errors is easier than fixing runtime errors, which can be difficult to find</li>
+<li>example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">// Without Generics
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// With Generics
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  List<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>Integer<span style="color:#f92672">&gt;();</span>
+</span></span><span style="display:flex;"><span>  list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">);</span> <span style="color:#75715e">// will not compile
+</span></span></span></code></pre></div></li>
+<li>
+<p>enabling programmers to implement generic algorithms</p>
+<ul>
+<li>by using generics, programmers can implement generic algorithms that work on collections of different types, can be customized, and are type safe and easier to read.</li>
+</ul>
+</li>
+<li>
+<p>elimination of casts</p>
+<ul>
+<li>example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>  <span style="color:#75715e">// Without Generics:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">();</span>
+</span></span><span style="display:flex;"><span>  list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  String s <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>String<span style="color:#f92672">)</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span>  <span style="color:#75715e">// Need to cast return value to String
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// With Generics:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;();</span>
+</span></span><span style="display:flex;"><span>  list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;hello&#34;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>  String s <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>0<span style="color:#f92672">);</span> <span style="color:#75715e">// no cast needed
+</span></span></span></code></pre></div></li>
+<li>
+<p>Generics type parameters:</p>
+<ul>
+<li>T: Type</li>
+<li>E: Element</li>
+<li>K: Key (used in Map)</li>
+<li>N: Number</li>
+<li>V: Value (used in Map)</li>
+</ul>
+</li>
+<li>
+<p>Reference: [https://www.journaldev.com/1663/java-generics-example-method-class-interface]</p>
+</li>
+</ul>
+
+            <footer class="footline">
+            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img src="logo.png">
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1653060461"></script>
+        <script src="/js/auto-complete.js?1653060461"></script>
+        <script src="/js/search.js?1653060461"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/"><b>2. </b>My Notes</a><ul>
+          <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item active"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/notes/quality-architect-role/">Quality Architect Role</a></li>
+          <li data-nav-id="/notes/role-architecte-qualite/" title="Role de l&#39;Architecte Qualité" class="dd-item"><a href="/notes/role-architecte-qualite/">Role de l&#39;Architecte Qualité</a></li></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="relearn-light" value="relearn-light" selected>Relearn Light</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1653060461"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653060461"></script>
+    <script src="/js/featherlight.min.js?1653060461"></script>
+    <script src="/js/theme.js?1653060461"></script>
+  </body>
+</html>

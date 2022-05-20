@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My Notes on Alain Bouchard&#39;s Engineering Notes</title>
+    <link>https://AlainBouchard.github.io/notes/</link>
+    <description>Recent content in My Notes on Alain Bouchard&#39;s Engineering Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://AlainBouchard.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gradle</title>
+      <link>https://AlainBouchard.github.io/notes/gradle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/gradle/</guid>
+      <description>Gradle (6.6.1) Terminology Actions Files structure for a &amp;ldquo;Multi-module build&amp;rdquo; Commands Example of Typed Task Plugins  Gradle (6.6.1)  requires JDK download from [https://gradle.org/releases/] can use either Groovy or Kotlin DSL (Domain-Specific Language)  Terminology  Project: models a software component Build script: contains automation instructions for a project Task: defines executable automation instructions  Ad hoc task: implements one-off, simplistic action code by defining doFirst or doLast, automatically extends DefaultTaslk without having to declare it Typed task: Explicitly declares type (for example, Copy); does not need to define actions as they are already provided by type   Wrapper:  set of files checked into SCM alongside source code standardizes compatible Gradle version for a project automatically downloads the Gradle distribution with defined version    Actions  doLast, doFirst, &amp;hellip;  Files structure for a &amp;ldquo;Multi-module build&amp;rdquo;  root  + build.</description>
+    </item>
+    <item>
+      <title>Gradle for Java-Based applications and libraries</title>
+      <link>https://AlainBouchard.github.io/notes/gradle-for-java-based-applications-and-libraries/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/gradle-for-java-based-applications-and-libraries/</guid>
+      <description>Project structure for gradle project in Java In build.gradle  JAVA plugin APPLICATION plugin   Commands Maven Dependencies Testing with Gradle  JUnit 5 dependencies    Project structure for gradle project in Java   single Java project with Gradle
+ example:   root  + src  + main  + java  + resources   + test  + java  + resources  + build  + classes -&amp;gt; compiled class files  + libs -&amp;gt; generated JAR files   A multi-modules project file structure:</description>
+    </item>
+    <item>
+      <title>Java Object-Oriented Programming</title>
+      <link>https://AlainBouchard.github.io/notes/java-object-oriented-programming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/java-object-oriented-programming/</guid>
+      <description>Java Object-Oriented Programming Class blueprint // Class blueprint public class MyClass {  // Can have attributes...  private String attribute1; // private attribute member, getter/setter are needed  MyEnum myEnum;  static string staticAttribute1 = &amp;#34;Static Attribute&amp;#34;; // belongs to the class  private final Integer myFinalInteger; // can&amp;#39;t be modified or be overridden by any subclasses   // Constructor  MyClass() {  // Initiate the instance of MyClass class.</description>
+    </item>
+    <item>
+      <title>Java Spring Boot 2</title>
+      <link>https://AlainBouchard.github.io/notes/java-spring-boot2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/java-spring-boot2/</guid>
+      <description>Java Spring Boot 2 Terminology Getting Started  Why Spring Boot?  Key Aspects Auto Config   Spring Initializr Inversion of Control  Spring IoC   Proxies   Data Access in Spring  Spring Data  Benefits of Spring Data Key Components   Embeedded DB with Spring Boot Repository with Spring Data Using remote database   Service Tier  Utilizing IoC Service abstraction Spring Service Object   Web pages with Spring  Controller    Java Spring Boot 2 Terminology  POJO : Plain Old Java Object (may have more that setters/getters in Spring world) Java Beans : Simple objects with only setters/getters Spring Beans : POJOs confiugered in the application context DTO : Data Transfer Objects are Java Beans used to move state between layers IOC : Inversion Of Control  IoC provides mechanism of dependency injection Application Context wraps the Bean Factory which serves the beans at the runtime of the application Spring Boot provides auto-configuration of the Application Context    Getting Started Why Spring Boot?</description>
+    </item>
+    <item>
+      <title>Quality Architect Role</title>
+      <link>https://AlainBouchard.github.io/notes/quality-architect-role/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/quality-architect-role/</guid>
+      <description>Role Strategic Tactics  Role The architect is responsible for two main types of high-level activities:
+ Strategic (foundations): take care of the technical vision in the medium to long term (one, two years or even more) Tactics (operations): technical support for teams, problem solving, proof of concept, etc.  Strategic  Define the &amp;ldquo;Quality Vision&amp;rdquo;, guidelines, technical documents (ADR, technical designs, terminology/technical glossary, etc.) while taking into account security rules, PII, etc Evaluate technologies: research, comparisons, proof of concepts, publications, etc Promote best practices for the chosen technologies Mentoring and coaching Promote quality during the six stages of software development, SDLC or &amp;ldquo;Software Development Life Cycle&amp;rdquo;: &amp;ldquo;Planning&amp;rdquo; -&amp;gt; &amp;ldquo;Defining&amp;rdquo; -&amp;gt; &amp;ldquo;Designing&amp;rdquo; -&amp;gt; &amp;ldquo;Building&amp;rdquo; -&amp;gt; &amp;ldquo;Testing&amp;rdquo; - &amp;gt; &amp;ldquo;Deployment&amp;rdquo; Assist or lead working groups for specific topics, define the purpose and deliverables, periodic and monthly events Attend or lead workshops for specific topics, define the goal and deliverables, event over a few hours or a few days Audit of the services for test coverage and correlate the data with the problematic services in production (Data-Driven decisions) Analyze the current testing strategy, test characterization, define a plan, promote good testing practices, follow the test pyramid:  Unit (solitary and sociable) testing Component (in-process and out-of-process) testing Contract testing Integration (narrow and broad) testing UI End-to-end (E2E) and API E2E (Subcutaneous) User journey tests (and Synthetic Traffic tests) Non-functional tests: load, scalability, webvital metrics LCP, chaos/robustness, etc   Alignment on a test strategy with the deployment procedure (CI/CD) and a branching procedure (gitflow, githubflow, etc), blue/green deployment, etc Participates in the recruitment process for the “quality” aspects  Tactics  Apply the test strategy: develop test projects, add the projects to the process (build, CI/CD, cluster/kubernetes.</description>
+    </item>
+    <item>
+      <title>Role de l&#39;Architecte Qualité</title>
+      <link>https://AlainBouchard.github.io/notes/role-architecte-qualite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/role-architecte-qualite/</guid>
+      <description>Role Stratégique Tactique  Role L&amp;rsquo;architecte est responsable de deux grands types d&amp;rsquo;activités à haut niveau:
+ Stratégique (fondations): s&amp;rsquo;occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ;  Stratégique  Définir la “Vision Qualité”, les guides (ou &amp;ldquo;guidelines&amp;rdquo;), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc.</description>
+    </item>
+  </channel>
+</rss>

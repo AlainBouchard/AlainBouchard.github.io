@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="generator" content="Relearn 3.4.1&#43;tip">
+    <meta name="description" content="">
+    <title>Gradle for Java-Based applications and libraries :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/nucleus.css?1653060461" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653060461" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653060461" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653060461" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653060461" rel="stylesheet">
+    <link href="/css/theme.css?1653060461" rel="stylesheet">
+    <link href="/css/theme-relearn-light.css?1653060461" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653060461" rel="stylesheet">
+    <link href="/css/print.css?1653060461" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653060461"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/AlainBouchard.github.io/';
+      variants.init( [ 'relearn-light' ] );
+    </script>
+    <script src="/js/jquery.min.js?1653060461"></script>
+  </head>
+  <body class="mobile-support" data-url="/notes/gradle-for-java-based-applications-and-libraries/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/notes/gradle/" title="Gradle"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/notes/"><span itemprop="name">My Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/gradle-for-java-based-applications-and-libraries/" aria-disabled="true"><span itemprop="name">Gradle for Java-Based applications and libraries</span></a></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article>
+
+<h1>Gradle for Java-Based applications and libraries</h1>
+<ul>
+<li><a href="#project-structure-for-gradle-project-in-java">Project structure for gradle project in Java</a></li>
+<li><a href="#in-buildgradle">In build.gradle</a>
+<ul>
+<li><a href="#java-plugin">JAVA plugin</a></li>
+<li><a href="#application-plugin">APPLICATION plugin</a></li>
+</ul>
+</li>
+<li><a href="#commands">Commands</a></li>
+<li><a href="#maven-dependencies">Maven Dependencies</a></li>
+<li><a href="#testing-with-gradle">Testing with Gradle</a>
+<ul>
+<li><a href="#junit-5-dependencies">JUnit 5 dependencies</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="project-structure-for-gradle-project-in-java">Project structure for gradle project in Java</h2>
+<ul>
+<li>
+<p>single Java project with Gradle</p>
+<ul>
+<li>example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  root
+</span></span><span style="display:flex;"><span>   + src
+</span></span><span style="display:flex;"><span>     + main
+</span></span><span style="display:flex;"><span>     + java
+</span></span><span style="display:flex;"><span>     + resources
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>     + test
+</span></span><span style="display:flex;"><span>       + java
+</span></span><span style="display:flex;"><span>     + resources
+</span></span><span style="display:flex;"><span>   + build
+</span></span><span style="display:flex;"><span>     + classes    -&gt; compiled class files
+</span></span><span style="display:flex;"><span>     + libs       -&gt; generated JAR files
+</span></span></code></pre></div></li>
+<li>
+<p>A multi-modules project file structure:</p>
+<ul>
+<li>example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  root/
+</span></span><span style="display:flex;"><span>   + appA/
+</span></span><span style="display:flex;"><span>      + build.gradle
+</span></span><span style="display:flex;"><span>         + src/
+</span></span><span style="display:flex;"><span>         + main/
+</span></span><span style="display:flex;"><span>         + java/
+</span></span><span style="display:flex;"><span>         + resources/
+</span></span><span style="display:flex;"><span>         + test/
+</span></span><span style="display:flex;"><span>         + java/
+</span></span><span style="display:flex;"><span>         + resources/
+</span></span><span style="display:flex;"><span>      + build/
+</span></span><span style="display:flex;"><span>         + classes/    -&gt; compiled class files
+</span></span><span style="display:flex;"><span>         + libs/       -&gt; generated JAR files
+</span></span><span style="display:flex;"><span>   + appB/
+</span></span><span style="display:flex;"><span>      + build.gradle
+</span></span><span style="display:flex;"><span>      + src/
+</span></span><span style="display:flex;"><span>     ... (same as above subproject)
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="in-buildgradle">In build.gradle</h2>
+<h3 id="java-plugin">JAVA plugin</h3>
+<ul>
+<li>
+<p>add plugins:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  plugins <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id <span style="color:#e6db74">&#39;java&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set the Java compatibility:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  java <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    sourceCompatibility <span style="color:#f92672">=</span> JavaVersion<span style="color:#f92672">.</span><span style="color:#a6e22e">VERSION_11</span>
+</span></span><span style="display:flex;"><span>    targetCompatibility <span style="color:#f92672">=</span> JavaVersion<span style="color:#f92672">.</span><span style="color:#a6e22e">VERSION_11</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>compiler arguments:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  compileJava <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// example: to terminate compilation if a warning occures)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    options<span style="color:#f92672">.</span><span style="color:#a6e22e">compilerArgs</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;-Werror&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set JAR filename explicitly:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;1.0.0&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  jar <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    archiveBaseName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;your-project-name&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<p>Set javadoc options:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>javadoc <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  options<span style="color:#f92672">.</span><span style="color:#a6e22e">header</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;your java doc title here&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>  options<span style="color:#f92672">.</span><span style="color:#a6e22e">verbose</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h3 id="application-plugin">APPLICATION plugin</h3>
+<ul>
+<li>
+<p>in <code>build.gradle</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  plugins <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    id <span style="color:#e6db74">&#39;application&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>set base class to run for the application as <strong>needed</strong> by plugin:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  application <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    mainClass <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;com.&lt;organization&gt;.&lt;project&gt;.Main&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>in <code>settings.gradle</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;project_name&gt;&#39;</span>
+</span></span><span style="display:flex;"><span>  include <span style="color:#e6db74">&#39;:appA&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;:appB&#39;</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="commands">Commands</h2>
+<ul>
+<li>
+<p><code>gradle wrapper</code>  -&gt; Create Gradle Wrapper</p>
+</li>
+<li>
+<p><code>gradle clean</code>    -&gt; Clean dist output?</p>
+</li>
+<li>
+<p>with java plugin:</p>
+<ul>
+<li><code>./gradlew compileJava --console=verbose</code></li>
+<li><code>./gradlew processResources --console=verbose</code></li>
+</ul>
+</li>
+<li>
+<p>or both above command agragated command:</p>
+<ul>
+<li><code>./gradlew classes --console=verbose</code></li>
+</ul>
+</li>
+<li>
+<p>see dependencies tree (and if it can be found)</p>
+<ul>
+<li><code>./gradlew dependencies</code></li>
+</ul>
+</li>
+<li>
+<p>generate JAR file</p>
+<ul>
+<li><code>./gradlew jar</code> -&gt; dropped JAR in build/libs directory</li>
+</ul>
+</li>
+<li>
+<p>with application plugin:</p>
+<ul>
+<li><code>./gradlew run --args=&quot;add 1 2&quot;</code>  -&gt; specifies arguments</li>
+<li><code>./gradlew installDist</code>           -&gt; generate shippable application with scripts</li>
+<li><code>./gradlew distZip distTar</code>       -&gt; bundle distributhe appliation</li>
+<li><code>./gradlew javadocs</code>              -&gt; genetate java doc in build/docs/javadoc (index.html)</li>
+</ul>
+</li>
+<li>
+<p>project or multi-modules project:</p>
+<ul>
+<li><code>./gradlew project</code>               -&gt; show project and show projects structure</li>
+</ul>
+</li>
+</ul>
+<h2 id="maven-dependencies">Maven Dependencies</h2>
+<ul>
+<li>
+<p>where to find? [https://search.maven.org]</p>
+</li>
+<li>
+<p>dependency coordinates:</p>
+<ul>
+<li>example: <code>commons-cli:commons-cli:1.4</code> -&gt; <code>&lt;group&gt;:&lt;artifact&gt;:&lt;version&gt;</code> or GAV</li>
+</ul>
+</li>
+<li>
+<p>set the repositories (where to get from) and dependencies:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  repositories <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    mavenCentral<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  dependencies <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;commons-cli:commons-cli:1.4&#39;</span>  <span style="color:#75715e">// get from maven repo search results
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    implementation <span style="color:#a6e22e">project</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#39;:appA&#39;</span><span style="color:#f92672">)</span>               <span style="color:#75715e">// add project dependencies (other modules from this project)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="testing-with-gradle">Testing with Gradle</h2>
+<h3 id="junit-5-dependencies">JUnit 5 dependencies</h3>
+<ul>
+<li>
+<p>from search.maven.org:</p>
+</li>
+<li>
+<p>search org.junit.jupiter (latest version is 5)</p>
+<ul>
+<li>minimum needed is junit-jupiter-api and junit-jupiter-engine</li>
+</ul>
+</li>
+<li>
+<p>declaring test dependencies:</p>
+<ul>
+<li>testImplementation -&gt; work on compilation and test execution</li>
+<li>testRuntime -&gt; work on runtime only</li>
+</ul>
+</li>
+<li>
+<p>adding dependencies:</p>
+<ul>
+<li>copy &amp; paste Gradle Groovy DSL path for both depenencies</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  dependencies <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;commons-cli:commons-cli:1.4&#39;</span> <span style="color:#75715e">// not a testImplementation!
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    testImplementation <span style="color:#e6db74">&#39;org.junit.jupiter:junit-jupiter-api:5.7.0&#39;</span>  <span style="color:#75715e">// test dependency
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    testRuntime <span style="color:#e6db74">&#39;org.junit.jupiter:junit-jupiter-engine:5.7.0&#39;</span>  <span style="color:#75715e">// test dependency on run time only
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+<li>
+<p>commands:</p>
+<ul>
+<li><code>./gradlew compileTestJava</code> -&gt; compile tests</li>
+<li><code>./gradlew test</code>            -&gt; run the tests (see useJUnitPlatform comment in order to use JUnit 5)</li>
+<li>go to <code>build/reports/tests/test</code> the automaticaly gradle generated HTML report (index.html)</li>
+<li>go to <code>build/test-reults/test</code> for the autmaticaly gradle generated XML test report</li>
+</ul>
+</li>
+<li>
+<p>adding test task in <code>build.gradle</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  test <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    useJUnitPlatform<span style="color:#f92672">()</span>  <span style="color:#75715e">// Java plugin expect Java 4 by default. Add useJUnitPlatform to indicates to use JUnit5 instead
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    testLogging <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>      events <span style="color:#e6db74">&#39;started&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;skipped&#39;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#39;failed&#39;</span>  <span style="color:#75715e">// will display specified events on run time
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      exceptionFormat <span style="color:#e6db74">&#39;full&#39;</span>  <span style="color:#75715e">// show stack trace on failures
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
+</span></span></code></pre></div></li>
+</ul>
+
+            <footer class="footline">
+            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img src="logo.png">
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1653060461"></script>
+        <script src="/js/auto-complete.js?1653060461"></script>
+        <script src="/js/search.js?1653060461"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/"><b>2. </b>My Notes</a><ul>
+          <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item active"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/notes/quality-architect-role/">Quality Architect Role</a></li>
+          <li data-nav-id="/notes/role-architecte-qualite/" title="Role de l&#39;Architecte Qualité" class="dd-item"><a href="/notes/role-architecte-qualite/">Role de l&#39;Architecte Qualité</a></li></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="relearn-light" value="relearn-light" selected>Relearn Light</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1653060461"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653060461"></script>
+    <script src="/js/featherlight.min.js?1653060461"></script>
+    <script src="/js/theme.js?1653060461"></script>
+  </body>
+</html>
