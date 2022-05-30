@@ -7,16 +7,16 @@
     <meta name="generator" content="Relearn 3.4.1&#43;tip">
     <meta name="description" content="">
     <title>Java Spring Boot 2 :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/nucleus.css?1653079044" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1653079044" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1653079044" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1653079044" rel="stylesheet">
-    <link href="/css/auto-complete.css?1653079044" rel="stylesheet">
-    <link href="/css/theme.css?1653079044" rel="stylesheet">
-    <link href="/css/theme-relearn-light.css?1653079044" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1653079044" rel="stylesheet">
-    <link href="/css/print.css?1653079044" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1653079044"></script>
+    <link href="/css/nucleus.css?1653927045" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653927045" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653927045" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653927045" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653927045" rel="stylesheet">
+    <link href="/css/theme.css?1653927045" rel="stylesheet">
+    <link href="/css/theme-blue.css?1653927045" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653927045" rel="stylesheet">
+    <link href="/css/print.css?1653927045" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653927045"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
@@ -30,9 +30,9 @@
       window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
       // some further base stuff
       var baseUriFull='https:\/\/AlainBouchard.github.io/';
-      variants.init( [ 'relearn-light' ] );
+      variants.init( [ 'blue' ] );
     </script>
-    <script src="/js/jquery.min.js?1653079044"></script>
+    <script src="/js/jquery.min.js?1653927045"></script>
   </head>
   <body class="mobile-support" data-url="/notes/java-spring-boot2/">
     <div id="body" class="default-animation">
@@ -66,52 +66,42 @@
           <article>
 
 <h1>Java Spring Boot 2</h1>
-<ul>
-<li><a href="#java-spring-boot-2">Java Spring Boot 2</a></li>
-<li><a href="#terminology">Terminology</a></li>
-<li><a href="#getting-started">Getting Started</a>
-<ul>
-<li><a href="#why-spring-boot">Why Spring Boot?</a>
-<ul>
-<li><a href="#key-aspects">Key Aspects</a></li>
-<li><a href="#auto-config">Auto Config</a></li>
-</ul>
-</li>
-<li><a href="#spring-initializr">Spring Initializr</a></li>
-<li><a href="#inversion-of-control">Inversion of Control</a>
-<ul>
-<li><a href="#spring-ioc">Spring IoC</a></li>
-</ul>
-</li>
-<li><a href="#proxies">Proxies</a></li>
-</ul>
-</li>
-<li><a href="#data-access-in-spring">Data Access in Spring</a>
-<ul>
-<li><a href="#spring-data">Spring Data</a>
-<ul>
-<li><a href="#benefits-of-spring-data">Benefits of Spring Data</a></li>
-<li><a href="#key-components">Key Components</a></li>
-</ul>
-</li>
-<li><a href="#embeedded-db-with-spring-boot">Embeedded DB with Spring Boot</a></li>
-<li><a href="#repository-with-spring-data">Repository with Spring Data</a></li>
-<li><a href="#using-remote-database">Using remote database</a></li>
-</ul>
-</li>
-<li><a href="#service-tier">Service Tier</a>
-<ul>
-<li><a href="#utilizing-ioc">Utilizing IoC</a></li>
-<li><a href="#service-abstraction">Service abstraction</a></li>
-<li><a href="#spring-service-object">Spring Service Object</a></li>
-</ul>
-</li>
-<li><a href="#web-pages-with-spring">Web pages with Spring</a>
-<ul>
-<li><a href="#controller">Controller</a></li>
-</ul>
-</li>
-</ul>
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-spring-boot-2">Java Spring Boot 2</a></li>
+    <li><a href="#terminology">Terminology</a></li>
+    <li><a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#why-spring-boot">Why Spring Boot?</a></li>
+        <li><a href="#spring-initializr">Spring Initializr</a></li>
+        <li><a href="#inversion-of-control">Inversion of Control</a></li>
+        <li><a href="#proxies">Proxies</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-access-in-spring">Data Access in Spring</a>
+      <ul>
+        <li><a href="#spring-data">Spring Data</a></li>
+        <li><a href="#embeedded-db-with-spring-boot">Embeedded DB with Spring Boot</a></li>
+        <li><a href="#repository-with-spring-data">Repository with Spring Data</a></li>
+        <li><a href="#using-remote-database">Using remote database</a></li>
+      </ul>
+    </li>
+    <li><a href="#service-tier">Service Tier</a>
+      <ul>
+        <li><a href="#utilizing-ioc">Utilizing IoC</a></li>
+        <li><a href="#service-abstraction">Service abstraction</a></li>
+        <li><a href="#spring-service-object">Spring Service Object</a></li>
+      </ul>
+    </li>
+    <li><a href="#web-pages-with-spring">Web pages with Spring</a>
+      <ul>
+        <li><a href="#controller">Controller</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
 <h2 id="java-spring-boot-2">Java Spring Boot 2</h2>
 <h2 id="terminology">Terminology</h2>
 <ul>
@@ -474,9 +464,9 @@ spring.datasource.password=postgres
           <input data-search-input id="search-by" type="search" placeholder="Search...">
           <span data-search-clear=""><i class="fas fa-times"></i></span>
         </div>
-        <script src="/js/lunr.min.js?1653079044"></script>
-        <script src="/js/auto-complete.js?1653079044"></script>
-        <script src="/js/search.js?1653079044"></script>
+        <script src="/js/lunr.min.js?1653927045"></script>
+        <script src="/js/auto-complete.js?1653927045"></script>
+        <script src="/js/search.js?1653927045"></script>
       </div>
       <div id="homelinks" class="default-animation">
         <ul>
@@ -487,12 +477,12 @@ spring.datasource.password=postgres
       </div>
       <div id="content-wrapper" class="highlightable">
         <ul class="topics">
-          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/"><b>1. </b>Blogs</a><ul>
-          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li>
-          <li data-nav-id="/blogs/dave-reid/" title="Only for my good Friend Dave Reid" class="dd-item"><a href="/blogs/dave-reid/">Only for my good Friend Dave Reid</a></li></ul></li>
-          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/"><b>2. </b>My Notes</a><ul>
+          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/">Blogs</a><ul>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
           <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
           <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/" title="Hugo" class="dd-item"><a href="/notes/hugo/">Hugo</a></li>
           <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
           <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item active"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
           <li data-nav-id="/notes/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/notes/quality-architect-role/">Quality Architect Role</a></li>
@@ -519,7 +509,7 @@ spring.datasource.password=postgres
                 <span>&nbsp;</span>
                 <div class="select-style">
                   <select id="select-variant" onchange="variants.changeVariant( this.value );">
-                    <option id="relearn-light" value="relearn-light" selected>Relearn Light</option>
+                    <option id="blue" value="blue" selected>Blue</option>
                   </select>
                 </div>
                 <div class="select-clear"></div>
@@ -534,9 +524,9 @@ spring.datasource.password=postgres
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1653079044"></script>
-    <script src="/js/perfect-scrollbar.min.js?1653079044"></script>
-    <script src="/js/featherlight.min.js?1653079044"></script>
-    <script src="/js/theme.js?1653079044"></script>
+    <script src="/js/clipboard.min.js?1653927045"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653927045"></script>
+    <script src="/js/featherlight.min.js?1653927045"></script>
+    <script src="/js/theme.js?1653927045"></script>
   </body>
 </html>

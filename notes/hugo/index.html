@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.99.0" />
+    <meta name="generator" content="Relearn 3.4.1&#43;tip">
+    <meta name="description" content="">
+    <title>Hugo :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/nucleus.css?1653927045" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1653927045" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1653927045" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1653927045" rel="stylesheet">
+    <link href="/css/auto-complete.css?1653927045" rel="stylesheet">
+    <link href="/css/theme.css?1653927045" rel="stylesheet">
+    <link href="/css/theme-blue.css?1653927045" rel="stylesheet" id="variant-style">
+    <link href="/css/variant.css?1653927045" rel="stylesheet">
+    <link href="/css/print.css?1653927045" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1653927045"></script>
+    <script>
+      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
+      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
+      var index_url="/index.json";
+      var root_url="/";
+      var baseUri=root_url.replace(/\/$/, '');
+      // translations
+      window.T_Copy_to_clipboard = 'Copy to clipboard';
+      window.T_Copied_to_clipboard = 'Copied to clipboard!';
+      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
+      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
+      // some further base stuff
+      var baseUriFull='https:\/\/AlainBouchard.github.io/';
+      variants.init( [ 'blue' ] );
+    </script>
+    <script src="/js/jquery.min.js?1653927045"></script>
+  </head>
+  <body class="mobile-support" data-url="/notes/hugo/">
+    <div id="body" class="default-animation">
+      <div id="sidebar-overlay"></div>
+      <div id="toc-overlay"></div>
+      <nav id="topbar" class="highlightable">
+        <div>
+          <div class="navigation">
+             <a class="nav nav-next" href="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming"><i class="fas fa-chevron-right fa-fw"></i></a>
+          </div>
+          <div class="navigation">
+             <a class="nav nav-prev" href="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries"><i class="fas fa-chevron-left fa-fw"></i></a>
+          </div>
+          <div id="breadcrumbs">
+            <span id="sidebar-toggle-span">
+              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
+            </span>
+            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
+              <meta itemprop="itemListOrder" content="Descending" />
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/notes/"><span itemprop="name">My Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/hugo/" aria-disabled="true"><span itemprop="name">Hugo</span></a></li>
+            </ol>
+          </div>
+        </div>
+      </nav>
+      <main id="body-inner" class="highlightable">
+        <div class="flex-block-wrapper">
+          <div id="head-tags">
+          </div>
+          <article>
+
+<h1>Hugo</h1>
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#create-hugo-site">Create Hugo Site</a></li>
+    <li><a href="#install-hugo-from-httpsgohugoio">Install Hugo from [https://gohugo.io/]</a>
+      <ul>
+        <li><a href="#from-mac">From Mac</a></li>
+        <li><a href="#from-windows">From Windows</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-github-page">Create GitHub Page</a></li>
+    <li><a href="#create-or-clone-exiting-hugo-repository">Create or Clone exiting Hugo repository</a>
+      <ul>
+        <li><a href="#clone-the-github-repo-to-publish-on-the-hugo-site">Clone the GitHub repo to publish on the hugo site</a></li>
+        <li><a href="#create-a-new-hugo-site">Create a new Hugo site</a></li>
+        <li><a href="#clone-the-theme-directory">Clone the Theme directory</a></li>
+        <li><a href="#update-the-hugo-configtoml-file-content-with-team">Update the Hugo config.toml file content with team</a></li>
+        <li><a href="#build">Build</a></li>
+        <li><a href="#verify-if-the-configuration-is-good">Verify if the configuration is good</a></li>
+        <li><a href="#update-the-logo">Update the logo</a></li>
+        <li><a href="#use-github-documentation-repo-as-content">Use github documentation repo as content</a></li>
+      </ul>
+    </li>
+    <li><a href="#try-locally">Try locally</a></li>
+    <li><a href="#build-for-github-page">Build for GitHub Page</a></li>
+    <li><a href="#links-and-references">Links and references</a>
+      <ul>
+        <li><a href="#training">Training</a></li>
+        <li><a href="#references">References</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<h2 id="create-hugo-site">Create Hugo Site</h2>
+<h2 id="install-hugo-from-httpsgohugoio">Install Hugo from [https://gohugo.io/]</h2>
+<h3 id="from-mac">From Mac</h3>
+<blockquote>
+<p>brew install hugo</p>
+</blockquote>
+<h3 id="from-windows">From Windows</h3>
+<blockquote>
+<p>choco install hugo -confirm</p>
+</blockquote>
+<p>Reference: [https://gohugo.io/getting-started/installing#chocolatey-windows]</p>
+<h2 id="create-github-page">Create GitHub Page</h2>
+<p>From GitHub.com -&gt; Create a new Repository, e.g., AlainBouchard.github.io</p>
+<h2 id="create-or-clone-exiting-hugo-repository">Create or Clone exiting Hugo repository</h2>
+<p>In this example, we&rsquo;ll use project <code>engineering-notes-site</code></p>
+<h3 id="clone-the-github-repo-to-publish-on-the-hugo-site">Clone the GitHub repo to publish on the hugo site</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>engineering-notes-site&gt; git clone git@github.com:AlainBouchard/engineering-notes-site.git
+</span></span></code></pre></div><h3 id="create-a-new-hugo-site">Create a new Hugo site</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>engineering-notes-site&gt; hugo new site --force
+</span></span><span style="display:flex;"><span>engineering-notes-site&gt; ls
+</span></span><span style="display:flex;"><span>archetypes  config.toml  content  data  layouts  public  static  themes
+</span></span></code></pre></div><h3 id="clone-the-theme-directory">Clone the Theme directory</h3>
+<p>Example of theme, many can be found on Hugo site.</p>
+<p>Hugo Theme Source: [https://themes.gohugo.io/themes/hugo-theme-relearn/]</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cd themes
+</span></span><span style="display:flex;"><span>themes&gt; git clone git@github.com:McShelby/hugo-theme-relearn.git
+</span></span></code></pre></div><h3 id="update-the-hugo-configtoml-file-content-with-team">Update the Hugo config.toml file content with team</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; vi config.toml
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#34;https://AlainBouchard.github.io/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#34;en-us&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;Alain Bouchard&#39;s Engineering Notes&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#34;hugo-theme-relearn&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">outputs</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">home</span> = [ <span style="color:#e6db74">&#34;HTML&#34;</span>, <span style="color:#e6db74">&#34;RSS&#34;</span>, <span style="color:#e6db74">&#34;JSON&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">module</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  [[<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">imports</span>]]
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span> = <span style="color:#e6db74">&#34;github.com/alain-bouchard-quality/engineering-notes&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    [[<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">imports</span>.<span style="color:#a6e22e">mounts</span>]]
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">source</span> = <span style="color:#e6db74">&#34;content&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">target</span> = <span style="color:#e6db74">&#34;content&#34;</span>
+</span></span></code></pre></div><h3 id="build">Build</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo -t hugo-theme-relearn
+</span></span></code></pre></div><h3 id="verify-if-the-configuration-is-good">Verify if the configuration is good</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo server
+</span></span></code></pre></div><h3 id="update-the-logo">Update the logo</h3>
+<ul>
+<li>
+<p>Create statics/logo.png</p>
+</li>
+<li>
+<p>Create layouts/partials/logo.html</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;img</span> <span style="color:#a6e22e">src=</span><span style="color:#e6db74">&#34;logo.png&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Link (git submodule) the documents into the GitHub Page</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; rm -Rf public
+</span></span><span style="display:flex;"><span>&gt; git submodule add -b master git@github.com:AlainBouchard/AlainBouchard.github.io.git public
+</span></span><span style="display:flex;"><span>&gt; git remote -v
+</span></span></code></pre></div></li>
+<li>
+<p>Expect the public directory to get created with the repo content</p>
+</li>
+</ul>
+<h3 id="use-github-documentation-repo-as-content">Use github documentation repo as content</h3>
+<h4 id="in-document-source-github-repo">In document source github repo</h4>
+<p>Source repo example: <code>github.com/AlainBouchard/engineering-notes</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo mod init github.com/AlainBouchard/engineering-notes
+</span></span></code></pre></div><h4 id="in-hugo-project-github-repo">In hugo project github repo</h4>
+<p>Hugo repo example: <code>github.com/AlainBouchard/engineering-notes-site</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo mod init github.com/AlainBouchard/engineering-notes-site
+</span></span></code></pre></div><p>Verify if the module work:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo mod get github.com/AlainBouchard/engineering-notes
+</span></span></code></pre></div><p>Expect <code>go.sum</code> to get created:</p>
+<pre tabindex="0"><code class="language-script" data-lang="script">github.com/AlainBouchard/engineering-notes v0.0.0-20220518202018-bd023ee889d6 h1:0s4tNjEN0+jGCkNEObTbnW+akRJD5RdjJ8pPsUU5ROU=
+github.com/AlainBouchard/engineering-notes v0.0.0-20220518202018-bd023ee889d6/go.mod h1:Z6BTmpjCul+gI1Za7PY2E0LgyfIJpyeII/zcRE3e654=
+</code></pre><p>Expect <code>go.mod</code> to get updated:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">module</span> <span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">notes</span><span style="color:#f92672">-</span><span style="color:#a6e22e">site</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#ae81ff">1.18</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">require</span> <span style="color:#a6e22e">github</span>.<span style="color:#a6e22e">com</span><span style="color:#f92672">/</span><span style="color:#a6e22e">AlainBouchard</span><span style="color:#f92672">/</span><span style="color:#a6e22e">engineering</span><span style="color:#f92672">-</span><span style="color:#a6e22e">notes</span> <span style="color:#a6e22e">v0</span><span style="color:#ae81ff">.0.0</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20220518202018</span><span style="color:#f92672">-</span><span style="color:#a6e22e">bd023ee889d6</span> <span style="color:#75715e">// indirect
+</span></span></span></code></pre></div><h2 id="try-locally">Try locally</h2>
+<ol>
+<li>
+<p>Build</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo
+</span></span><span style="display:flex;"><span>&gt; hugo server --disableFastRender --ignoreCache
+</span></span></code></pre></div></li>
+<li>
+<p>Expect Hugo to run on [http://localhost:1313/]</p>
+</li>
+</ol>
+<h2 id="build-for-github-page">Build for GitHub Page</h2>
+<ol>
+<li>
+<p>build for theme</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; hugo -t hugo-theme-relearn
+</span></span><span style="display:flex;"><span>&gt; go the <span style="color:#e6db74">`</span>/public<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>&gt; git status
+</span></span><span style="display:flex;"><span>&gt; git add .
+</span></span><span style="display:flex;"><span>&gt; git commit -m <span style="color:#e6db74">&#34;xyz&#34;</span>
+</span></span><span style="display:flex;"><span>&gt; git push
+</span></span></code></pre></div></li>
+<li>
+<p>expect the GitHub Page repo to be updated.</p>
+</li>
+</ol>
+<h2 id="links-and-references">Links and references</h2>
+<h3 id="training">Training</h3>
+<ul>
+<li>[https://www.youtube.com/watch?v=LIFvgrRxdt4] (10 min)</li>
+</ul>
+<h3 id="references">References</h3>
+<ul>
+<li>[https://www.hugofordevelopers.com/articles/master-hugo-modules-handle-content-or-assets-as-modules/]</li>
+<li>[https://www.thenewdynamic.com/note/develop-hugo-modules-locally/]</li>
+<li>[https://mcshelby.github.io/hugo-theme-relearn/cont/pages/]</li>
+<li>[https://learn.netlify.app/en/shortcodes/children/]</li>
+<li>[https://codingreflections.com/hugo-table-of-contents/]</li>
+</ul>
+
+            <footer class="footline">
+            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="sidebar" class="default-animation">
+      <div id="header-wrapper" class="default-animation">
+        <div id="header" class="default-animation">
+<img src="/logo.png">
+        </div>
+        <div class="searchbox default-animation">
+          <label for="search-by"><i class="fas fa-search"></i></label>
+          <input data-search-input id="search-by" type="search" placeholder="Search...">
+          <span data-search-clear=""><i class="fas fa-times"></i></span>
+        </div>
+        <script src="/js/lunr.min.js?1653927045"></script>
+        <script src="/js/auto-complete.js?1653927045"></script>
+        <script src="/js/search.js?1653927045"></script>
+      </div>
+      <div id="homelinks" class="default-animation">
+        <ul>
+          <li>
+              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+        </ul>
+      </div>
+      <div id="content-wrapper" class="highlightable">
+        <ul class="topics">
+          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/">Blogs</a><ul>
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li></ul></li>
+          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
+          <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/" title="Hugo" class="dd-item active"><a href="/notes/hugo/">Hugo</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/notes/quality-architect-role/">Quality Architect Role</a></li>
+          <li data-nav-id="/notes/role-architecte-qualite/" title="Role de l&#39;Architecte Qualité" class="dd-item"><a href="/notes/role-architecte-qualite/">Role de l&#39;Architecte Qualité</a></li></ul></li>
+        </ul>
+        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
+        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+          <ul>
+            <li id="select-language-container" class="footerLangSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-language fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-language" onchange="location = baseUri + this.value;">
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+            </li>
+            <li id="select-variant-container" class="footerVariantSwitch">
+              <a class="padding select-container">
+                <i class="fas fa-paint-brush fa-fw"></i>
+                <span>&nbsp;</span>
+                <div class="select-style">
+                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
+                    <option id="blue" value="blue" selected>Blue</option>
+                  </select>
+                </div>
+                <div class="select-clear"></div>
+              </a>
+              <script>variants.markSelectedVariant();</script>
+            </li>
+            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+          </ul>
+        </div>
+        <div id="footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1653927045"></script>
+    <script src="/js/perfect-scrollbar.min.js?1653927045"></script>
+    <script src="/js/featherlight.min.js?1653927045"></script>
+    <script src="/js/theme.js?1653927045"></script>
+  </body>
+</html>
