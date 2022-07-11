@@ -7,6 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://AlainBouchard.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Apache Kafka (WIP)</title>
+      <link>https://AlainBouchard.github.io/notes/apache-kafka/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/apache-kafka/</guid>
+      <description>Warning 2022-07-11: This is a WORK IN PROGRESS document (WIP) and need to be reviewed.
+   Apache Kafka  Topics, partitions and offsets Brokers Brokers and topics Topic replication factor Producers Consumers Consumer offsets Kafka broker discovery Zookeeper Kafka guarantees Install Kafka using Docker images Use Kafka Topics CLI Topics CLI Kafka console producer Kafka console consumer Kafka-Client with Java Kafka Connect and Kafka Stream     Apache Kafka Why Apache Kafka?</description>
+    </item>
+    <item>
       <title>Gradle</title>
       <link>https://AlainBouchard.github.io/notes/gradle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -29,6 +37,14 @@
       <description>Create Hugo Site Install Hugo from [https://gohugo.io/]  From Mac From Windows   Create GitHub Page Create or Clone exiting Hugo repository  Clone the GitHub repo to publish on the hugo site Create a new Hugo site Clone the Theme directory Update the Hugo config.toml file content with team Build Verify if the configuration is good Update the logo Use github documentation repo as content   Try locally Build for GitHub Page Links and references  Training References     Create Hugo Site Install Hugo from [https://gohugo.</description>
     </item>
     <item>
+      <title>IntelliJ Cheat Sheet</title>
+      <link>https://AlainBouchard.github.io/notes/intellij-ide/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/intellij-ide/</guid>
+      <description>IntelliJ cheat sheet  IntelliJ cheat sheet Create Main Method   Create Main Method Create the main method: write psvm and select the method to create:
+ public static void main(String[] args) {   } </description>
+    </item>
+    <item>
       <title>Java Object-Oriented Programming</title>
       <link>https://AlainBouchard.github.io/notes/java-object-oriented-programming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -43,20 +59,23 @@
       <description>Java Spring Boot 2 Terminology Getting Started  Why Spring Boot? Spring Initializr Inversion of Control Proxies   Data Access in Spring  Spring Data Embeedded DB with Spring Boot Repository with Spring Data Using remote database   Service Tier  Utilizing IoC Service abstraction Spring Service Object   Web pages with Spring  Controller     Java Spring Boot 2 Terminology  POJO : Plain Old Java Object (may have more that setters/getters in Spring world) Java Beans : Simple objects with only setters/getters Spring Beans : POJOs confiugered in the application context DTO : Data Transfer Objects are Java Beans used to move state between layers IOC : Inversion Of Control  IoC provides mechanism of dependency injection Application Context wraps the Bean Factory which serves the beans at the runtime of the application Spring Boot provides auto-configuration of the Application Context    Getting Started Why Spring Boot?</description>
     </item>
     <item>
-      <title>Quality Architect Role</title>
-      <link>https://AlainBouchard.github.io/notes/quality-architect-role/</link>
+      <title>Java with Rest-Assured</title>
+      <link>https://AlainBouchard.github.io/notes/java-rest-assured/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/notes/quality-architect-role/</guid>
-      <description>Role Strategic Tactics   Role The architect is responsible for two main types of high-level activities:
- Strategic (foundations): take care of the technical vision in the medium to long term (one, two years or even more) Tactics (operations): technical support for teams, problem solving, proof of concept, etc.  Strategic  Define the &amp;ldquo;Quality Vision&amp;rdquo;, guidelines, technical documents (ADR, technical designs, terminology/technical glossary, etc.) while taking into account security rules, PII, etc Evaluate technologies: research, comparisons, proof of concepts, publications, etc Promote best practices for the chosen technologies Mentoring and coaching Promote quality during the six stages of software development, SDLC or &amp;ldquo;Software Development Life Cycle&amp;rdquo;: &amp;ldquo;Planning&amp;rdquo; -&amp;gt; &amp;ldquo;Defining&amp;rdquo; -&amp;gt; &amp;ldquo;Designing&amp;rdquo; -&amp;gt; &amp;ldquo;Building&amp;rdquo; -&amp;gt; &amp;ldquo;Testing&amp;rdquo; - &amp;gt; &amp;ldquo;Deployment&amp;rdquo; Assist or lead working groups for specific topics, define the purpose and deliverables, periodic and monthly events Attend or lead workshops for specific topics, define the goal and deliverables, event over a few hours or a few days Audit of the services for test coverage and correlate the data with the problematic services in production (Data-Driven decisions) Analyze the current testing strategy, test characterization, define a plan, promote good testing practices, follow the test pyramid:  Unit (solitary and sociable) testing Component (in-process and out-of-process) testing Contract testing Integration (narrow and broad) testing UI End-to-end (E2E) and API E2E (Subcutaneous) User journey tests (and Synthetic Traffic tests) Non-functional tests: load, scalability, webvital metrics LCP, chaos/robustness, etc   Alignment on a test strategy with the deployment procedure (CI/CD) and a branching procedure (gitflow, githubflow, etc), blue/green deployment, etc Participates in the recruitment process for the “quality” aspects  Tactics  Apply the test strategy: develop test projects, add the projects to the process (build, CI/CD, cluster/kubernetes.</description>
+      <guid>https://AlainBouchard.github.io/notes/java-rest-assured/</guid>
+      <description>Java with Rest-Assured Pattern API response Deserialize a response Tools   Java with Rest-Assured  Rest-Assured link: [https://rest-assured.io] can get latest version: [https://mvnrepository.com] jackson databind package can be used for data-binding hamcrest package can be used for matchers  org.hamcrest.Matchers.*    Pattern   using the Given, When and Then pattern
+ the Given specify prerequisites the When describe the action to take the Then describe the expected result using JUnit 5:   @Test  public void getTest() {  String endpoint = &amp;#34;http://localhost:8888/a/b/c&amp;#34;;  var response = given().</description>
     </item>
     <item>
-      <title>Role de l&#39;Architecte Qualité</title>
-      <link>https://AlainBouchard.github.io/notes/role-architecte-qualite/</link>
+      <title>Lombok Java Library</title>
+      <link>https://AlainBouchard.github.io/notes/java-lombok/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/notes/role-architecte-qualite/</guid>
-      <description>Role Stratégique Tactique   Role L&amp;rsquo;architecte est responsable de deux grands types d&amp;rsquo;activités à haut niveau:
- Stratégique (fondations): s&amp;rsquo;occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ;  Stratégique  Définir la “Vision Qualité”, les guides (ou &amp;ldquo;guidelines&amp;rdquo;), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.</description>
+      <guid>https://AlainBouchard.github.io/notes/java-lombok/</guid>
+      <description>@ToString The Class @ToString tag will replace the Overriding ToString method automatically.
+@AllArgsConstructor and @NoArgsConstructor The Class @AllArgsConstructor and @NoArgsConstructor tags will automatically replace the constructors.
+@EqualsAndHashCode The Class @EqualsAndHashCode tag will allow us to compare 2 objects.
+@Log4J The Class @Log4J tag can replace the logger initiator in the class. The LOGGER can be replaced by log.
+@Data The Class @Data tag will replace the @ToString, @RequiredArgsConstructor, @EqualsAndHashCode, @Setter (for non-final attributes) and the @Getter.</description>
     </item>
   </channel>
 </rss>

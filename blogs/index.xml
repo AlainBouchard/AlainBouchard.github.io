@@ -13,5 +13,21 @@
       <guid>https://AlainBouchard.github.io/blogs/how-to-promote-the-quality-best-practices/</guid>
       <description>How to promote the Quality Best Practices Influence or evangelize  Data-Driven decisions   Enforce   How to promote the Quality Best Practices Two ways to promote the quality best practices are: Influencing the teams or to enforce the best practices. A periodical team reality check about the current practices is the beginning of the process. A team can easily live in their own Ivory Tower or to be biased by this statement: &amp;ldquo;We always did it that way so why changing it?</description>
     </item>
+    <item>
+      <title>Quality Architect Role</title>
+      <link>https://AlainBouchard.github.io/blogs/quality-architect-role/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/blogs/quality-architect-role/</guid>
+      <description>Role Strategic Tactics   Role The architect is responsible for two main types of high-level activities:
+ Strategic (foundations): take care of the technical vision in the medium to long term (one, two years or even more) Tactics (operations): technical support for teams, problem solving, proof of concept, etc.  Strategic  Define the &amp;ldquo;Quality Vision&amp;rdquo;, guidelines, technical documents (ADR, technical designs, terminology/technical glossary, etc.) while taking into account security rules, PII, etc Evaluate technologies: research, comparisons, proof of concepts, publications, etc Promote best practices for the chosen technologies Mentoring and coaching Promote quality during the six stages of software development, SDLC or &amp;ldquo;Software Development Life Cycle&amp;rdquo;: &amp;ldquo;Planning&amp;rdquo; -&amp;gt; &amp;ldquo;Defining&amp;rdquo; -&amp;gt; &amp;ldquo;Designing&amp;rdquo; -&amp;gt; &amp;ldquo;Building&amp;rdquo; -&amp;gt; &amp;ldquo;Testing&amp;rdquo; - &amp;gt; &amp;ldquo;Deployment&amp;rdquo; Assist or lead working groups for specific topics, define the purpose and deliverables, periodic and monthly events Attend or lead workshops for specific topics, define the goal and deliverables, event over a few hours or a few days Audit of the services for test coverage and correlate the data with the problematic services in production (Data-Driven decisions) Analyze the current testing strategy, test characterization, define a plan, promote good testing practices, follow the test pyramid:  Unit (solitary and sociable) testing Component (in-process and out-of-process) testing Contract testing Integration (narrow and broad) testing UI End-to-end (E2E) and API E2E (Subcutaneous) User journey tests (and Synthetic Traffic tests) Non-functional tests: load, scalability, webvital metrics LCP, chaos/robustness, etc   Alignment on a test strategy with the deployment procedure (CI/CD) and a branching procedure (gitflow, githubflow, etc), blue/green deployment, etc Participates in the recruitment process for the “quality” aspects  Tactics  Apply the test strategy: develop test projects, add the projects to the process (build, CI/CD, cluster/kubernetes.</description>
+    </item>
+    <item>
+      <title>Rôle de l&#39;Architecte Qualité (FR)</title>
+      <link>https://AlainBouchard.github.io/blogs/role-architecte-qualite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/blogs/role-architecte-qualite/</guid>
+      <description>Role Stratégique Tactique   Role L&amp;rsquo;architecte est responsable de deux grands types d&amp;rsquo;activités à haut niveau:
+ Stratégique (fondations): s&amp;rsquo;occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ;  Stratégique  Définir la “Vision Qualité”, les guides (ou &amp;ldquo;guidelines&amp;rdquo;), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.</description>
+    </item>
   </channel>
 </rss>

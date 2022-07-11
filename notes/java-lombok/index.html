@@ -6,8 +6,7 @@
     <meta name="generator" content="Hugo 0.99.0" />
     <meta name="generator" content="Relearn 3.4.1&#43;tip">
     <meta name="description" content="">
-    <title>My Notes :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link rel="alternate" type="application/rss&#43;xml" href="/notes/index.xml" title="Alain Bouchard&#39;s Engineering Notes" />
+    <title>Lombok Java Library :: Alain Bouchard&#39;s Engineering Notes</title>
     <link href="/css/nucleus.css?1657561237" rel="stylesheet">
     <link href="/css/fontawesome-all.min.css?1657561237" rel="stylesheet">
     <link href="/css/featherlight.min.css?1657561237" rel="stylesheet">
@@ -35,17 +34,17 @@
     </script>
     <script src="/js/jquery.min.js?1657561237"></script>
   </head>
-  <body class="mobile-support" data-url="/notes/">
+  <body class="mobile-support" data-url="/notes/java-lombok/">
     <div id="body" class="default-animation">
       <div id="sidebar-overlay"></div>
       <div id="toc-overlay"></div>
       <nav id="topbar" class="highlightable">
         <div>
           <div class="navigation">
-             <a class="nav nav-next" href="/notes/apache-kafka/" title="Apache Kafka (WIP)"><i class="fas fa-chevron-right fa-fw"></i></a>
+             <span class="nav nav-next"><i class="fa fa-chevron-right fa-fw"></i></span>
           </div>
           <div class="navigation">
-             <a class="nav nav-prev" href="/blogs/role-architecte-qualite/" title="Rôle de l&#39;Architecte Qualité (FR)"><i class="fas fa-chevron-left fa-fw"></i></a>
+             <a class="nav nav-prev" href="/notes/java-rest-assured/" title="Java with Rest-Assured"><i class="fas fa-chevron-left fa-fw"></i></a>
           </div>
           <div id="breadcrumbs">
             <span id="sidebar-toggle-span">
@@ -53,32 +52,30 @@
             </span>
             <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
               <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/" aria-disabled="true"><span itemprop="name">My Notes</span></a></li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/notes/"><span itemprop="name">My Notes</span></a> > </li>
+              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/java-lombok/" aria-disabled="true"><span itemprop="name">Lombok Java Library</span></a></li>
             </ol>
           </div>
         </div>
       </nav>
-      <main id="body-inner" class="highlightable chapter">
+      <main id="body-inner" class="highlightable">
         <div class="flex-block-wrapper">
           <div id="head-tags">
           </div>
-          <article class="chapter">
+          <article>
 
-<h2 id="my-engineering-notes">My Engineering Notes</h2>
-
-
-<ul class="children children-li children-sort-">
-<li><a href="/notes/apache-kafka/" >Apache Kafka (WIP)</a></li><ul></ul>
-<li><a href="/notes/gradle/" >Gradle</a></li><ul></ul>
-<li><a href="/notes/gradle-for-java-based-applications-and-libraries/" >Gradle for Java-Based applications and libraries</a></li><ul></ul>
-<li><a href="/notes/hugo/" >Hugo</a></li><ul></ul>
-<li><a href="/notes/intellij-ide/" >IntelliJ Cheat Sheet</a></li><ul></ul>
-<li><a href="/notes/java-object-oriented-programming/" >Java Object-Oriented Programming</a></li><ul></ul>
-<li><a href="/notes/java-spring-boot2/" >Java Spring Boot 2</a></li><ul></ul>
-<li><a href="/notes/java-rest-assured/" >Java with Rest-Assured</a></li><ul></ul>
-<li><a href="/notes/java-lombok/" >Lombok Java Library</a></li><ul></ul>
-</ul>
+<h1>Lombok Java Library</h1>
+<h2 id="tostring">@ToString</h2>
+<p>The Class @ToString tag will replace the Overriding ToString method automatically.</p>
+<h2 id="allargsconstructor-and-noargsconstructor">@AllArgsConstructor and @NoArgsConstructor</h2>
+<p>The Class @AllArgsConstructor and @NoArgsConstructor tags will automatically replace the constructors.</p>
+<h2 id="equalsandhashcode">@EqualsAndHashCode</h2>
+<p>The Class @EqualsAndHashCode tag will allow us to compare 2 objects.</p>
+<h2 id="log4j">@Log4J</h2>
+<p>The Class @Log4J tag can replace the logger initiator in the class.  The <code>LOGGER</code> can be replaced by <code>log</code>.</p>
+<h2 id="data">@Data</h2>
+<p>The Class @Data tag will replace the @ToString, @RequiredArgsConstructor, @EqualsAndHashCode, @Setter (for non-final attributes) and the @Getter.</p>
 
             <footer class="footline">
             <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
@@ -114,7 +111,7 @@
           <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li>
           <li data-nav-id="/blogs/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/blogs/quality-architect-role/">Quality Architect Role</a></li>
           <li data-nav-id="/blogs/role-architecte-qualite/" title="Rôle de l&#39;Architecte Qualité (FR)" class="dd-item"><a href="/blogs/role-architecte-qualite/">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
-          <li data-nav-id="/notes/" title="My Notes" class="dd-item active parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
+          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
           <li data-nav-id="/notes/apache-kafka/" title="Apache Kafka (WIP)" class="dd-item"><a href="/notes/apache-kafka/">Apache Kafka (WIP)</a></li>
           <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
           <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
@@ -123,7 +120,7 @@
           <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
           <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
           <li data-nav-id="/notes/java-rest-assured/" title="Java with Rest-Assured" class="dd-item"><a href="/notes/java-rest-assured/">Java with Rest-Assured</a></li>
-          <li data-nav-id="/notes/java-lombok/" title="Lombok Java Library" class="dd-item"><a href="/notes/java-lombok/">Lombok Java Library</a></li></ul></li>
+          <li data-nav-id="/notes/java-lombok/" title="Lombok Java Library" class="dd-item active"><a href="/notes/java-lombok/">Lombok Java Library</a></li></ul></li>
         </ul>
         <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
         <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
