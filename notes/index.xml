@@ -77,5 +77,12 @@
 @Log4J The Class @Log4J tag can replace the logger initiator in the class. The LOGGER can be replaced by log.
 @Data The Class @Data tag will replace the @ToString, @RequiredArgsConstructor, @EqualsAndHashCode, @Setter (for non-final attributes) and the @Getter.</description>
     </item>
+    <item>
+      <title>Python and PyTest</title>
+      <link>https://AlainBouchard.github.io/notes/python-and-pytest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://AlainBouchard.github.io/notes/python-and-pytest/</guid>
+      <description>Python and PyTest PyTest  Why PyTest? requirements.txt content for pytest Run a test pytest.ini configuration file example   Tox  tox.ini Test file skeleton Test class skeleton Fixtures   Python  Class file skeleton Commonly used functions and examples     Python and PyTest Working with multiple python versions may cause issues and confusion. It is recommended to specify the python version to use.</description>
+    </item>
   </channel>
 </rss>
