@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.135.0">
+    <meta name="generator" content="Relearn 6.4.0+tip">
+    <meta name="description" content="MongoDB Create a doc Insert to a collection Show documents Searching using regex Sort, limit and skip Operators and arrays Updating a document Update one field Add one field Remove one field Increment a counter by N updating an array of a document Delete a document MongoDB show dbs show collections
+javascript shell
+use &lt;db name&gt; db.getName() -&gt; will return current DB Create a doc doc = {&#34;key&#34;:value, ...} Insert to a collection db.&lt;collection&gt;.insertOne(doc) Show documents db.&lt;collection&gt;.find() db.&lt;collection&gt;.find().pretty() -&gt; json file formated db.&lt;collection&gt;.find({}, {&#34;title&#34;: 1}) -&gt; will return only the title for all documents db.&lt;collection&gt;.find({&#34;title&#34;: &#34;tacos&#34;}) -&gt; will return all documents that match the condiction, ex. “title”:“tacos” Searching using regex db.&lt;collection&gt;.find(&#34;title&#34;: {$regex: /taco/i}}, {title: 1}) -&gt; returns the title for all documents that title march regex /taco/i">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MongoDB :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="MongoDB Create a doc Insert to a collection Show documents Searching using regex Sort, limit and skip Operators and arrays Updating a document Update one field Add one field Remove one field Increment a counter by N updating an array of a document Delete a document MongoDB show dbs show collections
+javascript shell
+use &lt;db name&gt; db.getName() -&gt; will return current DB Create a doc doc = {&#34;key&#34;:value, ...} Insert to a collection db.&lt;collection&gt;.insertOne(doc) Show documents db.&lt;collection&gt;.find() db.&lt;collection&gt;.find().pretty() -&gt; json file formated db.&lt;collection&gt;.find({}, {&#34;title&#34;: 1}) -&gt; will return only the title for all documents db.&lt;collection&gt;.find({&#34;title&#34;: &#34;tacos&#34;}) -&gt; will return all documents that match the condiction, ex. “title”:“tacos” Searching using regex db.&lt;collection&gt;.find(&#34;title&#34;: {$regex: /taco/i}}, {title: 1}) -&gt; returns the title for all documents that title march regex /taco/i">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/mongodb/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="MongoDB :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="MongoDB Create a doc Insert to a collection Show documents Searching using regex Sort, limit and skip Operators and arrays Updating a document Update one field Add one field Remove one field Increment a counter by N updating an array of a document Delete a document MongoDB show dbs show collections
+javascript shell
+use &lt;db name&gt; db.getName() -&gt; will return current DB Create a doc doc = {&#34;key&#34;:value, ...} Insert to a collection db.&lt;collection&gt;.insertOne(doc) Show documents db.&lt;collection&gt;.find() db.&lt;collection&gt;.find().pretty() -&gt; json file formated db.&lt;collection&gt;.find({}, {&#34;title&#34;: 1}) -&gt; will return only the title for all documents db.&lt;collection&gt;.find({&#34;title&#34;: &#34;tacos&#34;}) -&gt; will return all documents that match the condiction, ex. “title”:“tacos” Searching using regex db.&lt;collection&gt;.find(&#34;title&#34;: {$regex: /taco/i}}, {title: 1}) -&gt; returns the title for all documents that title march regex /taco/i">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="MongoDB :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="MongoDB Create a doc Insert to a collection Show documents Searching using regex Sort, limit and skip Operators and arrays Updating a document Update one field Add one field Remove one field Increment a counter by N updating an array of a document Delete a document MongoDB show dbs show collections
+javascript shell
+use &lt;db name&gt; db.getName() -&gt; will return current DB Create a doc doc = {&#34;key&#34;:value, ...} Insert to a collection db.&lt;collection&gt;.insertOne(doc) Show documents db.&lt;collection&gt;.find() db.&lt;collection&gt;.find().pretty() -&gt; json file formated db.&lt;collection&gt;.find({}, {&#34;title&#34;: 1}) -&gt; will return only the title for all documents db.&lt;collection&gt;.find({&#34;title&#34;: &#34;tacos&#34;}) -&gt; will return all documents that match the condiction, ex. “title”:“tacos” Searching using regex db.&lt;collection&gt;.find(&#34;title&#34;: {$regex: /taco/i}}, {title: 1}) -&gt; returns the title for all documents that title march regex /taco/i">
+    <meta itemprop="wordCount" content="387">
+    <title>MongoDB :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1727973009" rel="stylesheet">
+    <link href="/css/auto-complete.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1727973009" rel="stylesheet">
+    <link href="/css/fonts.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1727973009" rel="stylesheet">
+    <link href="/css/theme-blue.css?1727973009" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1727973009" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1727973009" rel="stylesheet">
+    <link href="/css/print.css?1727973009" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1727973009"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/notes/mongodb/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">MongoDB</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/java-lombok/index.html" title="Lombok Java Library (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/python-and-pytest/index.html" title="Python and PyTest (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="mongodb">MongoDB</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mongodb">MongoDB</a>
+      <ul>
+        <li><a href="#create-a-doc">Create a doc</a></li>
+        <li><a href="#insert-to-a-collection">Insert to a collection</a></li>
+        <li><a href="#show-documents">Show documents</a></li>
+        <li><a href="#searching-using-regex">Searching using regex</a></li>
+        <li><a href="#sort-limit-and-skip">Sort, limit and skip</a></li>
+        <li><a href="#operators-and-arrays">Operators and arrays</a></li>
+        <li><a href="#updating-a-document">Updating a document</a></li>
+        <li><a href="#update-one-field">Update one field</a></li>
+        <li><a href="#add-one-field">Add one field</a></li>
+        <li><a href="#remove-one-field">Remove one field</a></li>
+        <li><a href="#increment-a-counter-by-n">Increment a counter by N</a></li>
+        <li><a href="#updating-an-array-of-a-document">updating an array of a document</a></li>
+        <li><a href="#delete-a-document">Delete a document</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<h2 id="mongodb">MongoDB</h2>
+<p>show dbs
+show collections</p>
+<p>javascript shell</p>
+<ul>
+<li><code>use &lt;db name&gt;</code></li>
+<li><code>db.getName()</code> -&gt; will return current DB</li>
+</ul>
+<h3 id="create-a-doc">Create a doc</h3>
+<ul>
+<li><code>doc = {&quot;key&quot;:value, ...}</code></li>
+</ul>
+<h3 id="insert-to-a-collection">Insert to a collection</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.insertOne(doc)</code></li>
+</ul>
+<h3 id="show-documents">Show documents</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.find()</code></li>
+<li><code>db.&lt;collection&gt;.find().pretty()</code> -&gt; json file formated</li>
+<li><code>db.&lt;collection&gt;.find({}, {&quot;title&quot;: 1})</code> -&gt; will return only the title for all documents</li>
+<li><code>db.&lt;collection&gt;.find({&quot;title&quot;: &quot;tacos&quot;})</code> -&gt; will return all documents that match the condiction, ex. &ldquo;title&rdquo;:&ldquo;tacos&rdquo;</li>
+</ul>
+<h3 id="searching-using-regex">Searching using regex</h3>
+<p><code>db.&lt;collection&gt;.find(&quot;title&quot;: {$regex: /taco/i}}, {title: 1})</code> -&gt; returns the title for all documents that title march regex /taco/i</p>
+<h3 id="sort-limit-and-skip">Sort, limit and skip</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.find().count()</code></li>
+<li><code>db.&lt;collection&gt;.find({}, {&quot;title&quot;: 1}).sort({&quot;title&quot;: 1})</code> where 1 for asc and -1 for desc</li>
+<li><code>db.&lt;collection&gt;.find().limit(2)</code> -&gt; returns 2 results only</li>
+<li><code>db.&lt;collection&gt;.find({}, {&quot;title&quot;: 1}).skip(1)</code> -&gt; will return the items skipping first one</li>
+</ul>
+<h3 id="operators-and-arrays">Operators and arrays</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>greater than: $gt
+</span></span><span style="display:flex;"><span>less than: $lt
+</span></span><span style="display:flex;"><span>less than or equal to: $lte</span></span></code></pre></div>
+<ul>
+<li><code>db.&lt;collection&gt;.find({ &quot;cook_time&quot;: { $lte: 30 }}, {&quot;title&quot;:1})</code> -&gt; find items with cook_time &lt;= 30</li>
+<li><code>db.&lt;collection&gt;.find({ &quot;cook_time&quot;: { $lte: 30 }, &quot;prep_time&quot;: { $lte: 10 } },  {&quot;title&quot;:1})</code> -&gt; find items with cook_time &lt;= 30 <em>AND</em> prep_time &lt;= 10</li>
+<li><code>db.&lt;collection&gt;.find( { $or: [{ &quot;cook_time&quot;: { $lte: 30 }, &quot;prep_time&quot;: { $lte: 10 } }]},  {&quot;title&quot;:1})</code> -&gt; find items with cook_time &lt;= 30 <em>OR</em> prep_time &lt;= 10</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$all operator: require all items in a doc arrays
+</span></span><span style="display:flex;"><span>$in operator: require one from the arrays</span></span></code></pre></div>
+<ul>
+<li><code>db.&lt;collection&gt;.find( { &quot;tags&quot; : {$all: [&quot;easy&quot;, &quot;quick&quot;]}}, {&quot;title&quot;:1, &quot;tag&quot;:1})</code> -&gt; returns item with both tags &ldquo;easy&rdquo; or &ldquo;quick&rdquo;</li>
+<li><code>db.&lt;collection&gt;.find( { &quot;tags&quot; : {$in: [&quot;easy&quot;, &quot;quick&quot;]}}, {&quot;title&quot;:1, &quot;tag&quot;:1})</code> -&gt; returns item with either tags &ldquo;easy&rdquo; or &ldquo;quick&rdquo;</li>
+</ul>
+<h3 id="updating-a-document">Updating a document</h3>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>$set
+</span></span><span style="display:flex;"><span>$unset
+</span></span><span style="display:flex;"><span>$inc -&gt; increment</span></span></code></pre></div>
+<h3 id="update-one-field">Update one field</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.updateOne(find, modification)</code></li>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $set: {&quot;title&quot;:&quot;thin crust pizza&quot;}})</code></li>
+</ul>
+<h3 id="add-one-field">Add one field</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $set: {&quot;vegan&quot;:true}})</code></li>
+</ul>
+<h3 id="remove-one-field">Remove one field</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $unset: {&quot;vegan&quot;:1}})</code> -&gt; one for true?!?!</li>
+</ul>
+<h3 id="increment-a-counter-by-n">Increment a counter by N</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $inc: {&quot;likes_count&quot;:1}})</code> -&gt; increment likes_count field by 1</li>
+</ul>
+<h3 id="updating-an-array-of-a-document">updating an array of a document</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $push: {&quot;likes&quot;:60}});</code> -&gt; will add value 60 to the likes array</li>
+<li><code>db.&lt;collection&gt;.updateOne({&quot;title&quot;: &quot;pizza&quot;}, { $pull: {&quot;likes&quot;:60}});</code> -&gt; will remove value 60 from the likes array</li>
+</ul>
+<h3 id="delete-a-document">Delete a document</h3>
+<ul>
+<li><code>db.&lt;collection&gt;.deleteOne({&quot;_id&quot;:&quot;....&quot;})</code></li>
+</ul>
+
+            <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+
+        <search>
+          <div class="searchbox default-animation">
+            <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1727973009" defer></script>
+        <script src="/js/search.js?1727973009" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/blogs/index.html" class=""><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="morespace collapsible-menu">
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/index.html" class=""><a class="padding" href="/blogs/how-to-promote-the-quality-best-practices/index.html">How to promote the Quality Best Practices</a></li>
+          <li data-nav-id="/blogs/quality-architect-role/index.html" class=""><a class="padding" href="/blogs/quality-architect-role/index.html">Quality Architect Role</a></li>
+          <li data-nav-id="/blogs/role-architecte-qualite/index.html" class=""><a class="padding" href="/blogs/role-architecte-qualite/index.html">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
+          <li data-nav-id="/notes/index.html" class="parent "><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="morespace collapsible-menu">
+          <li data-nav-id="/notes/apache-kafka/index.html" class=""><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+          <li data-nav-id="/notes/data-quality/index.html" class=""><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+          <li data-nav-id="/notes/gradle/index.html" class=""><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html" class=""><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/index.html" class=""><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+          <li data-nav-id="/notes/intellij-ide/index.html" class=""><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/index.html" class=""><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/index.html" class=""><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/java-rest-assured/index.html" class=""><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+          <li data-nav-id="/notes/java-lombok/index.html" class=""><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+          <li data-nav-id="/notes/mongodb/index.html" class="active"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+          <li data-nav-id="/notes/python-and-pytest/index.html" class=""><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/mongodb/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1727973009" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1727973009" defer></script>
+    <script src="/js/theme.js?1727973009" defer></script>
+  </body>
+</html>

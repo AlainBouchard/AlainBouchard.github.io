@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alain Bouchard&#39;s Engineering Notes and Blogs on Alain Bouchard&#39;s Engineering Notes</title>
-    <link>https://AlainBouchard.github.io/</link>
-    <description>Recent content in Alain Bouchard&#39;s Engineering Notes and Blogs on Alain Bouchard&#39;s Engineering Notes</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://AlainBouchard.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <title>Alain Bouchard&#39;s Engineering Notes and Blogs :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link>https://AlainBouchard.github.io/index.html</link>
+    <description>My Engineering Notes and Blogs Welcome on my Engineering Notes and Blogs site!&#xA;My Blogs&#xD;How to promote the Quality Best Practices&#xD;Quality Architect Role&#xD;Rôle de l&#39;Architecte Qualité (FR)&#xD;My Notes&#xD;Apache Kafka (WIP)&#xD;Data Quality&#xD;Gradle&#xD;Gradle for Java-Based applications and libraries&#xD;Hugo&#xD;IntelliJ Cheat Sheet&#xD;Java Object-Oriented Programming&#xD;Java Spring Boot 2&#xD;Java with Rest-Assured&#xD;Lombok Java Library&#xD;MongoDB&#xD;Python and PyTest</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://AlainBouchard.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Blogs</title>
-      <link>https://AlainBouchard.github.io/blogs/</link>
+      <link>https://AlainBouchard.github.io/blogs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/blogs/</guid>
-      <description>Blogs How to promote the Quality Best Practices Quality Architect Role Rôle de l&amp;#39;Architecte Qualité (FR)  </description>
+      <guid>https://AlainBouchard.github.io/blogs/index.html</guid>
+      <description>Blogs How to promote the Quality Best Practices&#xD;Quality Architect Role&#xD;Rôle de l&#39;Architecte Qualité (FR)</description>
     </item>
     <item>
       <title>My Notes</title>
-      <link>https://AlainBouchard.github.io/notes/</link>
+      <link>https://AlainBouchard.github.io/notes/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/notes/</guid>
-      <description>My Engineering Notes Apache Kafka (WIP) Gradle Gradle for Java-Based applications and libraries Hugo IntelliJ Cheat Sheet Java Object-Oriented Programming Java Spring Boot 2 Java with Rest-Assured Lombok Java Library Python and PyTest  </description>
+      <guid>https://AlainBouchard.github.io/notes/index.html</guid>
+      <description>My Engineering Notes Apache Kafka (WIP)&#xD;Data Quality&#xD;Gradle&#xD;Gradle for Java-Based applications and libraries&#xD;Hugo&#xD;IntelliJ Cheat Sheet&#xD;Java Object-Oriented Programming&#xD;Java Spring Boot 2&#xD;Java with Rest-Assured&#xD;Lombok Java Library&#xD;MongoDB&#xD;Python and PyTest</description>
     </item>
   </channel>
 </rss>

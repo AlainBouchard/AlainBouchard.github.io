@@ -1,71 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.0" />
-    <meta name="generator" content="Relearn 3.4.1&#43;tip">
-    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.135.0">
+    <meta name="generator" content="Relearn 6.4.0+tip">
+    <meta name="description" content="Gradle (6.6.1) Terminology Actions Files structure for a “Multi-module build” Commands Example of Typed Task Plugins Gradle (6.6.1) requires JDK download from [https://gradle.org/releases/] can use either Groovy or Kotlin DSL (Domain-Specific Language) Terminology Project: models a software component Build script: contains automation instructions for a project Task: defines executable automation instructions Ad hoc task: implements one-off, simplistic action code by defining doFirst or doLast, automatically extends DefaultTaslk without having to declare it Typed task: Explicitly declares type (for example, Copy); does not need to define actions as they are already provided by type Wrapper: set of files checked into SCM alongside source code standardizes compatible Gradle version for a project automatically downloads the Gradle distribution with defined version Actions doLast, doFirst, … Files structure for a “Multi-module build” root &#43; build.gradle &#43; moduleA/ | &#43; build.gradle | &#43; src/ &#43; moduleB/ &#43; build.gradle &#43; src/Commands gradle &lt;task name&gt; -&gt; run the task from the build.gradle">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Gradle :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Gradle (6.6.1) Terminology Actions Files structure for a “Multi-module build” Commands Example of Typed Task Plugins Gradle (6.6.1) requires JDK download from [https://gradle.org/releases/] can use either Groovy or Kotlin DSL (Domain-Specific Language) Terminology Project: models a software component Build script: contains automation instructions for a project Task: defines executable automation instructions Ad hoc task: implements one-off, simplistic action code by defining doFirst or doLast, automatically extends DefaultTaslk without having to declare it Typed task: Explicitly declares type (for example, Copy); does not need to define actions as they are already provided by type Wrapper: set of files checked into SCM alongside source code standardizes compatible Gradle version for a project automatically downloads the Gradle distribution with defined version Actions doLast, doFirst, … Files structure for a “Multi-module build” root &#43; build.gradle &#43; moduleA/ | &#43; build.gradle | &#43; src/ &#43; moduleB/ &#43; build.gradle &#43; src/Commands gradle &lt;task name&gt; -&gt; run the task from the build.gradle">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/gradle/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Gradle :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Gradle (6.6.1) Terminology Actions Files structure for a “Multi-module build” Commands Example of Typed Task Plugins Gradle (6.6.1) requires JDK download from [https://gradle.org/releases/] can use either Groovy or Kotlin DSL (Domain-Specific Language) Terminology Project: models a software component Build script: contains automation instructions for a project Task: defines executable automation instructions Ad hoc task: implements one-off, simplistic action code by defining doFirst or doLast, automatically extends DefaultTaslk without having to declare it Typed task: Explicitly declares type (for example, Copy); does not need to define actions as they are already provided by type Wrapper: set of files checked into SCM alongside source code standardizes compatible Gradle version for a project automatically downloads the Gradle distribution with defined version Actions doLast, doFirst, … Files structure for a “Multi-module build” root &#43; build.gradle &#43; moduleA/ | &#43; build.gradle | &#43; src/ &#43; moduleB/ &#43; build.gradle &#43; src/Commands gradle &lt;task name&gt; -&gt; run the task from the build.gradle">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="Gradle :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Gradle (6.6.1) Terminology Actions Files structure for a “Multi-module build” Commands Example of Typed Task Plugins Gradle (6.6.1) requires JDK download from [https://gradle.org/releases/] can use either Groovy or Kotlin DSL (Domain-Specific Language) Terminology Project: models a software component Build script: contains automation instructions for a project Task: defines executable automation instructions Ad hoc task: implements one-off, simplistic action code by defining doFirst or doLast, automatically extends DefaultTaslk without having to declare it Typed task: Explicitly declares type (for example, Copy); does not need to define actions as they are already provided by type Wrapper: set of files checked into SCM alongside source code standardizes compatible Gradle version for a project automatically downloads the Gradle distribution with defined version Actions doLast, doFirst, … Files structure for a “Multi-module build” root &#43; build.gradle &#43; moduleA/ | &#43; build.gradle | &#43; src/ &#43; moduleB/ &#43; build.gradle &#43; src/Commands gradle &lt;task name&gt; -&gt; run the task from the build.gradle">
+    <meta itemprop="wordCount" content="325">
     <title>Gradle :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/nucleus.css?1658246653" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1658246653" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1658246653" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1658246653" rel="stylesheet">
-    <link href="/css/auto-complete.css?1658246653" rel="stylesheet">
-    <link href="/css/theme.css?1658246653" rel="stylesheet">
-    <link href="/css/theme-blue.css?1658246653" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1658246653" rel="stylesheet">
-    <link href="/css/print.css?1658246653" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1658246653"></script>
+    <link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1727973009" rel="stylesheet">
+    <link href="/css/auto-complete.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1727973009" rel="stylesheet">
+    <link href="/css/fonts.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1727973009" rel="stylesheet">
+    <link href="/css/theme-blue.css?1727973009" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1727973009" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1727973009" rel="stylesheet">
+    <link href="/css/print.css?1727973009" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1727973009"></script>
     <script>
-      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
-      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
-      var index_url="/index.json";
-      var root_url="/";
-      var baseUri=root_url.replace(/\/$/, '');
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
       // translations
-      window.T_Copy_to_clipboard = 'Copy to clipboard';
-      window.T_Copied_to_clipboard = 'Copied to clipboard!';
-      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
-      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
-      // some further base stuff
-      var baseUriFull='https:\/\/AlainBouchard.github.io/';
-      variants.init( [ 'blue' ] );
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
-    <script src="/js/jquery.min.js?1658246653"></script>
   </head>
-  <body class="mobile-support" data-url="/notes/gradle/">
-    <div id="body" class="default-animation">
-      <div id="sidebar-overlay"></div>
-      <div id="toc-overlay"></div>
-      <nav id="topbar" class="highlightable">
-        <div>
-          <div class="navigation">
-             <a class="nav nav-next" href="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries"><i class="fas fa-chevron-right fa-fw"></i></a>
+  <body class="mobile-support html" data-url="/notes/gradle/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
           </div>
-          <div class="navigation">
-             <a class="nav nav-prev" href="/notes/apache-kafka/" title="Apache Kafka (WIP)"><i class="fas fa-chevron-left fa-fw"></i></a>
-          </div>
-          <div id="breadcrumbs">
-            <span id="sidebar-toggle-span">
-              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
-            </span>
-            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
-              <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/notes/"><span itemprop="name">My Notes</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/notes/gradle/" aria-disabled="true"><span itemprop="name">Gradle</span></a></li>
-            </ol>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Gradle</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/data-quality/index.html" title="Data Quality (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/gradle-for-java-based-applications-and-libraries/index.html" title="Gradle for Java-Based applications and libraries (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
-      <main id="body-inner" class="highlightable">
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <div id="head-tags">
-          </div>
-          <article>
+          <article class="default">
+            <header class="headline">
+            </header>
 
-<h1>Gradle</h1>
+<h1 id="gradle">Gradle</h1>
+
 <div class="toc">
     <nav id="TableOfContents">
   <ul>
@@ -108,15 +134,15 @@
 <li>doLast, doFirst, &hellip;</li>
 </ul>
 <h2 id="files-structure-for-a-multi-module-build">Files structure for a &ldquo;Multi-module build&rdquo;</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  root
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  root
 </span></span><span style="display:flex;"><span>   + build.gradle
 </span></span><span style="display:flex;"><span>   + moduleA/
 </span></span><span style="display:flex;"><span>   |  + build.gradle
 </span></span><span style="display:flex;"><span>   |   + src/
 </span></span><span style="display:flex;"><span>   + moduleB/
 </span></span><span style="display:flex;"><span>      + build.gradle
-</span></span><span style="display:flex;"><span>     + src/
-</span></span></code></pre></div><h2 id="commands">Commands</h2>
+</span></span><span style="display:flex;"><span>     + src/</span></span></code></pre></div>
+<h2 id="commands">Commands</h2>
 <ul>
 <li>
 <p><code>gradle &lt;task name&gt;</code>  -&gt; run the task from the build.gradle</p>
@@ -132,12 +158,12 @@
 </li>
 <li>
 <p>example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  distributionBase=GRADLE_USER_HOME
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>  distributionBase=GRADLE_USER_HOME
 </span></span><span style="display:flex;"><span>  distributionPath=wrapper/dists
 </span></span><span style="display:flex;"><span>  distributionUrl=https\://services.gradle.org/distributions/gradle-6.6.1-bin.zip
 </span></span><span style="display:flex;"><span>  zipStoreBase=GRADLE_USER_HOME
-</span></span><span style="display:flex;"><span>  zipStorePath=wrapper/dists
-</span></span></code></pre></div></li>
+</span></span><span style="display:flex;"><span>  zipStorePath=wrapper/dists</span></span></code></pre></div>
+</li>
 <li>
 <p><code>./gradlew &lt;task name&gt;</code>       -&gt; download the wrapper gradle version and execute the task with it</p>
 </li>
@@ -148,8 +174,8 @@
 <ul>
 <li>
 <p>Use <code>settings.gradle</code> do define information, example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gradle-training&#34;</span>
-</span></span></code></pre></div></li>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  rootProject<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;gradle-training&#34;</span></span></span></code></pre></div>
+</li>
 </ul>
 </li>
 <li>
@@ -163,7 +189,7 @@
 <ul>
 <li>
 <p>example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  task <span style="color:#a6e22e">copyFiles</span><span style="color:#f92672">(</span>type: Copy<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  task <span style="color:#a6e22e">copyFiles</span><span style="color:#f92672">(</span>type: Copy<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    from <span style="color:#e6db74">&#34;sourceFiles&#34;</span>
 </span></span><span style="display:flex;"><span>    into <span style="color:#e6db74">&#34;target&#34;</span>
 </span></span><span style="display:flex;"><span>    include <span style="color:#e6db74">&#34;**/*md&#34;</span>
@@ -175,8 +201,8 @@
 </span></span><span style="display:flex;"><span>    archiveFileName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;docs.zip&#34;</span>
 </span></span><span style="display:flex;"><span>    destinationDirectory <span style="color:#f92672">=</span> file<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;build/dist&#34;</span><span style="color:#f92672">)</span>
 </span></span><span style="display:flex;"><span>    dependsOn CopyFiles
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span>
-</span></span></code></pre></div></li>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span></span></span></code></pre></div>
+</li>
 </ul>
 <h2 id="plugins">Plugins</h2>
 <ol>
@@ -188,103 +214,130 @@
 </ol>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  apply from: <span style="color:#e6db74">&#34;myPlugin.gradle&#34;</span>
-</span></span></code></pre></div><ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  apply from: <span style="color:#e6db74">&#34;myPlugin.gradle&#34;</span></span></span></code></pre></div>
+<ul>
 <li>
 <p>Notes:</p>
 <ul>
 <li>available plugins are Core Plugins (from Gradle) and Community Plugins (not from Gradle)</li>
 <li>to apply Core plugin Base (for example), in <code>build.gradle</code>:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  apply plugin: <span style="color:#e6db74">&#39;base&#39;</span>
-</span></span></code></pre></div></li>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>  apply plugin: <span style="color:#e6db74">&#39;base&#39;</span></span></span></code></pre></div>
+</li>
 </ul>
 
             <footer class="footline">
-            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
             </footer>
           </article>
         </div>
       </main>
     </div>
-    <aside id="sidebar" class="default-animation">
-      <div id="header-wrapper" class="default-animation">
-        <div id="header" class="default-animation">
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
 <img src="/logo.png">
         </div>
-        <div class="searchbox default-animation">
-          <label for="search-by"><i class="fas fa-search"></i></label>
-          <input data-search-input id="search-by" type="search" placeholder="Search...">
-          <span data-search-clear=""><i class="fas fa-times"></i></span>
-        </div>
-        <script src="/js/lunr.min.js?1658246653"></script>
-        <script src="/js/auto-complete.js?1658246653"></script>
-        <script src="/js/search.js?1658246653"></script>
+
+        <search>
+          <div class="searchbox default-animation">
+            <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1727973009" defer></script>
+        <script src="/js/search.js?1727973009" defer></script>
       </div>
-      <div id="homelinks" class="default-animation">
+      <div id="R-homelinks" class="default-animation homelinks">
         <ul>
-          <li>
-              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
-          </li>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
         </ul>
+        <hr class="padding">
       </div>
-      <div id="content-wrapper" class="highlightable">
-        <ul class="topics">
-          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle"/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/">Blogs</a><ul>
-          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li>
-          <li data-nav-id="/blogs/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/blogs/quality-architect-role/">Quality Architect Role</a></li>
-          <li data-nav-id="/blogs/role-architecte-qualite/" title="Rôle de l&#39;Architecte Qualité (FR)" class="dd-item"><a href="/blogs/role-architecte-qualite/">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
-          <li data-nav-id="/notes/" title="My Notes" class="dd-item parent"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle" checked/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
-          <li data-nav-id="/notes/apache-kafka/" title="Apache Kafka (WIP)" class="dd-item"><a href="/notes/apache-kafka/">Apache Kafka (WIP)</a></li>
-          <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item active"><a href="/notes/gradle/">Gradle</a></li>
-          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
-          <li data-nav-id="/notes/hugo/" title="Hugo" class="dd-item"><a href="/notes/hugo/">Hugo</a></li>
-          <li data-nav-id="/notes/intellij-ide/" title="IntelliJ Cheat Sheet" class="dd-item"><a href="/notes/intellij-ide/">IntelliJ Cheat Sheet</a></li>
-          <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
-          <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
-          <li data-nav-id="/notes/java-rest-assured/" title="Java with Rest-Assured" class="dd-item"><a href="/notes/java-rest-assured/">Java with Rest-Assured</a></li>
-          <li data-nav-id="/notes/java-lombok/" title="Lombok Java Library" class="dd-item"><a href="/notes/java-lombok/">Lombok Java Library</a></li>
-          <li data-nav-id="/notes/python-and-pytest/" title="Python and PyTest" class="dd-item"><a href="/notes/python-and-pytest/">Python and PyTest</a></li></ul></li>
-        </ul>
-        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
-        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
-        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
-          <ul>
-            <li id="select-language-container" class="footerLangSwitch">
-              <a class="padding select-container">
-                <i class="fas fa-language fa-fw"></i>
-                <span>&nbsp;</span>
-                <div class="select-style">
-                  <select id="select-language" onchange="location = baseUri + this.value;">
-                  </select>
-                </div>
-                <div class="select-clear"></div>
-              </a>
-            </li>
-            <li id="select-variant-container" class="footerVariantSwitch">
-              <a class="padding select-container">
-                <i class="fas fa-paint-brush fa-fw"></i>
-                <span>&nbsp;</span>
-                <div class="select-style">
-                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
-                    <option id="blue" value="blue" selected>Blue</option>
-                  </select>
-                </div>
-                <div class="select-clear"></div>
-              </a>
-              <script>variants.markSelectedVariant();</script>
-            </li>
-            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/blogs/index.html" class=""><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="morespace collapsible-menu">
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/index.html" class=""><a class="padding" href="/blogs/how-to-promote-the-quality-best-practices/index.html">How to promote the Quality Best Practices</a></li>
+          <li data-nav-id="/blogs/quality-architect-role/index.html" class=""><a class="padding" href="/blogs/quality-architect-role/index.html">Quality Architect Role</a></li>
+          <li data-nav-id="/blogs/role-architecte-qualite/index.html" class=""><a class="padding" href="/blogs/role-architecte-qualite/index.html">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
+          <li data-nav-id="/notes/index.html" class="parent "><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="morespace collapsible-menu">
+          <li data-nav-id="/notes/apache-kafka/index.html" class=""><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+          <li data-nav-id="/notes/data-quality/index.html" class=""><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+          <li data-nav-id="/notes/gradle/index.html" class="active"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html" class=""><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/index.html" class=""><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+          <li data-nav-id="/notes/intellij-ide/index.html" class=""><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/index.html" class=""><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/index.html" class=""><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/java-rest-assured/index.html" class=""><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+          <li data-nav-id="/notes/java-lombok/index.html" class=""><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+          <li data-nav-id="/notes/mongodb/index.html" class=""><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+          <li data-nav-id="/notes/python-and-pytest/index.html" class=""><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li></ul></li>
           </ul>
         </div>
-        <div id="footer" class="footerFooter showFooter">
-	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/gradle/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1658246653"></script>
-    <script src="/js/perfect-scrollbar.min.js?1658246653"></script>
-    <script src="/js/featherlight.min.js?1658246653"></script>
-    <script src="/js/theme.js?1658246653"></script>
+    <script src="/js/clipboard.min.js?1727973009" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1727973009" defer></script>
+    <script src="/js/theme.js?1727973009" defer></script>
   </body>
 </html>

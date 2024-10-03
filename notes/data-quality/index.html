@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.135.0">
+    <meta name="generator" content="Relearn 6.4.0+tip">
+    <meta name="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/data-quality/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta itemprop="wordCount" content="2985">
+    <title>Data Quality :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1727973009" rel="stylesheet">
+    <link href="/css/auto-complete.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1727973009" rel="stylesheet">
+    <link href="/css/fonts.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1727973009" rel="stylesheet">
+    <link href="/css/theme-blue.css?1727973009" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1727973009" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1727973009" rel="stylesheet">
+    <link href="/css/print.css?1727973009" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1727973009"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/notes/data-quality/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Data Quality</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/apache-kafka/index.html" title="Apache Kafka (WIP) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/gradle/index.html" title="Gradle (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
+        <div class="flex-block-wrapper">
+          <article class="default">
+            <header class="headline">
+            </header>
+
+<h1 id="data-quality">Data Quality</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#data-quality-and-data-management-101">Data Quality and Data Management 101</a>
+      <ul>
+        <li><a href="#what-is-data-quality-definition">What is Data Quality Definition?</a></li>
+        <li><a href="#what-is-data-quality-management-dqm-and-its-pillars">What is Data Quality Management (DQM) and its pillars?</a></li>
+        <li><a href="#what-is-the-impact-of-poor-data-quality">What is the Impact of Poor Data Quality</a></li>
+        <li><a href="#real-life-examples">Real-life Examples</a></li>
+      </ul>
+    </li>
+    <li><a href="#causes-of-bad-data">Causes of Bad Data</a></li>
+    <li><a href="#data-quality-dimensions">Data Quality Dimensions</a>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#example-of-accuracy-issue">Example of Accuracy Issue</a></li>
+        <li><a href="#example-of-completeness-issue">Example of Completeness Issue</a></li>
+        <li><a href="#example-of-consistency-issue">Example of Consistency Issue</a></li>
+        <li><a href="#example-of-timelessness-issue">Example of Timelessness Issue</a></li>
+        <li><a href="#example-of-validity-issue">Example of Validity Issue</a></li>
+        <li><a href="#example-for-uniqueness-issue">Example for Uniqueness Issue</a></li>
+        <li><a href="#example-of-integrity-issues">Example of Integrity Issues</a></li>
+        <li><a href="#multiple-data-quality-dimensions-issues">Multiple Data Quality Dimensions Issues</a></li>
+      </ul>
+    </li>
+    <li><a href="#data-quality-rules">Data Quality Rules</a></li>
+    <li><a href="#data-quality-techniques">Data Quality Techniques</a></li>
+    <li><a href="#data-quality-roles">Data Quality Roles</a></li>
+    <li><a href="#data-quality-process">Data Quality Process</a></li>
+    <li><a href="#data-quality-tools">Data Quality Tools</a></li>
+    <li><a href="#data-governance-or-data-quality-management">Data Governance or Data Quality Management</a></li>
+    <li><a href="#best-practices">Best Practices</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="data-quality-and-data-management-101">Data Quality and Data Management 101</h2>
+<h3 id="what-is-data-quality-definition">What is Data Quality Definition?</h3>
+<ul>
+<li>In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use</li>
+<li>In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making</li>
+<li>Data quality is defined by how well a given dataset meets a user&rsquo;s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible</li>
+</ul>
+<h3 id="what-is-data-quality-management-dqm-and-its-pillars">What is Data Quality Management (DQM) and its pillars?</h3>
+<ul>
+<li><strong>People</strong>: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues.  These roles ensure alignment alignment between business needs and the data used to support them.</li>
+<li><strong>Data Profiling</strong>: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies.  Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements.</li>
+<li><strong>Defining Data Quality</strong>: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency.  These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively.  What the data should look like, and it is based on the business goals</li>
+<li><strong>Data Reporting</strong>: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM &ldquo;return on the investment&rdquo; (ROI), and how data compares to the defined data quality benchmarks.</li>
+<li><strong>Data Fixing</strong>: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication.  It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn&rsquo;t meet the defined data quality benchmarks and standards. Improving data to the required standards.</li>
+</ul>
+<p>Most important pillar is probably the People one.</p>
+<h3 id="what-is-the-impact-of-poor-data-quality">What is the Impact of Poor Data Quality</h3>
+<p>Poor data quality can have significant negative impacts on a business across various dimensions:</p>
+<ul>
+<li>decision-making,</li>
+<li>operational efficiency,</li>
+<li>financial performance/missed opportunities, and</li>
+<li>customer trust/reputation risk.</li>
+</ul>
+<p>Key impacts include:</p>
+<ul>
+<li><strong>Inaccurate Decision-Making</strong>: poor data quality leads to faulty analysis and reporting, causing executives and managers to base strategic and operation decisions on incorrect or incomplete information.  This can result in missed opportunities, flawed strategies, or inappropriate response to market conditions. The data based decisions and policies are only as good as the data they are based on.</li>
+<li><strong>Reduced Operational Efficiency</strong>: when data is inaccurate or inconsistent, processes such ad data integration, analysis, and reporting take longer and require more manual intervention. This leads to inefficiencies, increased labor costs, and delayed operations, affecting productivity.</li>
+<li><strong>Financial Losses</strong>: poor data quality can directly impact revenue by causing billing errors, incorrect pricing, or inventory mismanagement. It also increases costs due to rework compliance fines, or failed marking campaigns based on bad data. For example, failure to deliver service to customers or failure to sale the relevant contacts.</li>
+<li><strong>Customer dissatisfaction</strong>: errors in customer data, such as wrong addresses or incorrect orders, can result in poor customer experiences, damaged relationships, and loss of trust. This can lead to increased customer churn and negative brand reputation.</li>
+<li><strong>Regulatory and Compliance risks</strong>:: in industries with strict regulatory requirements (e.g., finance, healthcare, etc), poor data quality can lead to non-compliance, legal penalties, and damage to the organization&rsquo;s credibility. For example, GDPR issues and negative media coverage.</li>
+<li><strong>Loss of competitive advantage</strong>: businesses that fail to manage data quality effectively may fall behind competitors that leverage clean, accurate data for better market insights, customer targeting, and innovation.</li>
+</ul>
+<p>In conclusion, poor data quality undermines the reliability and value of business intelligence (BI)., impacting nearly every aspect of the business, from dat-to-day operations to long-term growth and competitiveness.</p>
+<h3 id="real-life-examples">Real-life Examples</h3>
+<p>There are several real-life examples where poor data quality had a significant impact on businesses:</p>
+<ul>
+<li><strong>Knight Capital Group</strong>: in 2012, a software glitch caused the firm to make unintended stock trades, resulting in a $ 440 million loss within 45 minutes. This error was linked to poor data handling and led to the firm&rsquo;s eventual bankruptcy. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
+<li>**Boeing 747 Max Crashes: Faulty sensor data triggered the automated flight control system, contributing to two fatal crashes in 2018 and 2019. Boeing lost billions, and the incidents resulted in the grounding of all 737 Max planes. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
+<li><strong>UK Passport Agency</strong>: in 1999, data migration errors during a system upgrade delayed the insurance of 500K passports.  The fallout from these data issues led to public outrage and a cost of around £12.6 millions to resolve. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
+<li><strong>NASA Mars Orbiter</strong>: NASA lost a $125 million Mars orbiter because a Lockheed Martin engineering team used English units of measurement while the agency&rsquo;s team used the more conventional metric system for a key spacecraft operation. [<a href="http://www.cnn.com/TECH/space/9909/30/mars.metric.02/" rel="external" target="_blank">CNN_NASA</a>]</li>
+</ul>
+<p>These examples demonstrate how critical accurate data is in preventing financial losses, reputation damage, and even human safety risks.</p>
+<p>More cases are documented on [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>].</p>
+<h2 id="causes-of-bad-data">Causes of Bad Data</h2>
+<p>Bad data can arise due to due to various reasons, typically stemming from issues in data collection, management, and governance. Here are some reasons why we encounter poor data quality:</p>
+<ul>
+<li><strong>Human Error</strong>
+<ul>
+<li><strong>Manual Data Entry</strong>: people can make mistakes when entering data, leading to inaccuracies, misspellings, and incomplete records. For example, typographical errors or incorrect formatting can lead to inconsistencies in databases.</li>
+<li><strong>Lack of Training</strong>: when data entry personnel aren&rsquo;t adequately trained, they may unintentionally introduce systemic errors.  This happens when employees unknowingly enter incomplete or incorrect data, which accumulates and impacts the overall quality of the dataset.</li>
+</ul>
+</li>
+<li><strong>Inadequate Data Validation</strong>
+<ul>
+<li><strong>Missing Validation Rules</strong>: without proper validation checks, systems can let through invalid data like incorrect formats or data types (for instance, entering letters when numbers are expected). These gaps can lead to faulty or unusable data being stored.</li>
+<li><strong>Inconsistent Standards</strong>: when different departments or systems use varying data formats and standards, it results in inconsistencies across the organization, making it difficult to maintain clean and reliable data.</li>
+</ul>
+</li>
+<li><strong>Integration Errors</strong>
+<ul>
+<li><strong>Data from Multiple Sources</strong>: merging data from various sources, such as legacy systems or third-party vendors, often introduces discrepancies. Differences in data structures or formats can lead to duplicated records, missing information, or incorrect data being captured.</li>
+<li><strong>Incorrect Mapping or Transformation</strong>: during migrations or updates, if data fields aren&rsquo;t mapped properly, or if transformation rules are incorrect, it can lead to distorted or corrupted data.</li>
+</ul>
+</li>
+<li><strong>Outdated Information</strong>
+<ul>
+<li><strong>Stale Data</strong>: information can become outdated if not updated regularly. This is especially common with customer records like contact details, which change frequently over time.</li>
+<li><strong>Lag in Data Updates</strong>: some systems don&rsquo;t update data in real time, leading to discrepancies between what&rsquo;s recorded and actual events, which can cause issues in decision-making.</li>
+</ul>
+</li>
+<li><strong>Lack of Data Governance</strong>
+<ul>
+<li><strong>No Clear Ownership</strong>: when there&rsquo;s no assigned responsibility for data management, inconsistent practices across departments can result in poor data quality.  Without ownership, it&rsquo;s hard to maintain data standards.</li>
+<li><strong>Unstructured Data Management</strong>: without clear policies and structured processes for managing storing, and cleaning data, its quality tends to degrade, leading to inaccurate or complete data.</li>
+</ul>
+</li>
+<li><strong>Incomplete Data</strong>
+<ul>
+<li><strong>Partial Data Entry</strong>: sometimes, important data fields are left out during entry, leading to incomplete records. This can happen when systems don&rsquo;t enforce required fields, making the data unreliable.</li>
+<li><strong>Legacy Systems</strong>: older systems might not capture all necessary data, leaving gaps when this information i used in modern analytics or business intelligence platforms.</li>
+</ul>
+</li>
+<li><strong>Technical Errors</strong>
+<ul>
+<li><strong>System Failures</strong>: technical issues like system crashes, corrupted files, or failed data transfers can lead to incomplete or inaccurate data.</li>
+<li><strong>Software Bugs</strong>: bugs in data processing tools or software can introduce errors, reading faulty data that affects overall insights and decision-making.</li>
+</ul>
+</li>
+</ul>
+<p>In conclusion, each of these factors highlights the need for solid <strong>DQM</strong> practices, such as robust validation, regular data cleaning, and strong governance to keep data accurate and reliable.</p>
+<h2 id="data-quality-dimensions">Data Quality Dimensions</h2>
+<h3 id="overview">Overview</h3>
+<p><strong>Data Quality Dimensions</strong> refer to the different ways we measure how good our data is.</p>
+<pre class="mermaid align-center ">flowchart TB
+  DQD(Data Quality Dimensions) &lt;--&gt; Validity
+  DQD &lt;--&gt; Timeliness
+  DQD &lt;--&gt; Completeness
+  DQD &lt;--&gt; Uniqueness
+  DQD &lt;--&gt; Consistency
+  DQD &lt;--&gt; Accuracy
+  DQD &lt;--&gt; Integrity</pre>
+<p>Here&rsquo;s some of the most recognized dimensions:</p>
+<ul>
+<li><strong>Accuracy</strong>: this is all about how closely the data matches real-world facts. If your data doesn’t reflect reality, it can lead to bad decisions.</li>
+<li><strong>Completeness</strong>: it checks if all the necessary information is present. Missing data can leave important gaps, making the data unreliable.</li>
+<li><strong>Consistency</strong>: data should be the same across all systems. For example, if one database says a customer lives in New York and another says they live in California, that&rsquo;s inconsistent and can cause confusion.</li>
+<li><strong>Timelessness</strong>: how current is the data? Old or delayed information can lead to missed opportunities or wrong conclusions.</li>
+<li><strong>Validity</strong>: this looks at whether the data follows the required rules or formats. For instance, you wouldn’t want letters in a field that should only have numbers.</li>
+<li><strong>Uniqueness</strong>: there shouldn’t be duplicates. If the same person or thing is entered twice, it skews the results and creates inefficiencies.</li>
+<li><strong>Integrity</strong>: this ensures that relationships within the data are properly maintained. For example, if a customer is linked to an order, that link should always stay intact.</li>
+</ul>
+<p>In summary, these dimensions help ensure that your data is trustworthy and usable for making informed business decisions.</p>
+<h3 id="example-of-accuracy-issue">Example of Accuracy Issue</h3>
+<p>Here’s an example of a <strong>data accuracy issue</strong> using a customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">1105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Issue</strong>:
+In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p>
+<ul>
+<li><strong>First Name</strong>: &ldquo;Jonh&rdquo; should be &ldquo;John.&rdquo;</li>
+<li><strong>Last Name</strong>: &ldquo;Smtih&rdquo; should be &ldquo;Smith.&rdquo;</li>
+<li><strong>Address</strong>: &ldquo;123 Elm Street&rdquo; is an incorrect variation of &ldquo;123 Elm St.&rdquo;</li>
+<li><strong>Zip Code</strong>: The entry &ldquo;1105&rdquo; is missing a digit; it should be &ldquo;01105.&rdquo;</li>
+</ul>
+<p>These inaccuracies could lead to problems like sending mail to the wrong address, duplicate entries for the same person, or errors in customer service interactions.</p>
+<p>This highlights how inaccurate data can cause operational inefficiencies and poor customer experiences.</p>
+<h3 id="example-of-completeness-issue">Example of Completeness Issue</h3>
+<p>Here’s an example of a <strong>data completeness issue</strong> using the customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">1105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Completeness Issues</strong>:</p>
+<ul>
+<li><strong>Customer 103</strong>: The <strong>Address</strong> field is missing, leaving out critical information needed for communications or shipments.</li>
+<li><strong>Customer 104</strong>: The <strong>Last Name</strong> is missing, making it impossible to fully identify this customer, especially if there are multiple people named &ldquo;Emma.&rdquo;</li>
+</ul>
+<p>Incomplete data like this can cause issues such as failed deliveries, incorrect customer segmentation, or difficulties in contacting the customer.</p>
+<h3 id="example-of-consistency-issue">Example of Consistency Issue</h3>
+<p>Here’s an example of a <strong>data consistency issue</strong> using the customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">1105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Consistency Issues</strong>:</p>
+<ul>
+<li><strong>Customer 103</strong>: The <strong>Address</strong> is listed as &ldquo;123 Elm Street&rdquo; instead of &ldquo;123 Elm St,&rdquo; which is an inconsistency in the format of the same address as Customer 101.</li>
+<li><strong>Customer 103</strong>: The <strong>Zip Code</strong> is &ldquo;1105&rdquo; instead of &ldquo;01105,&rdquo; showing inconsistency in the zip code format (missing leading zero).</li>
+</ul>
+<p>Inconsistent data like this creates confusion and inefficiencies, as different systems may not recognize the same entity when information is presented in various formats. This can lead to duplicate records or incorrect data processing.</p>
+<h3 id="example-of-timelessness-issue">Example of Timelessness Issue</h3>
+<p>Here’s an example of a <strong>data timeliness issue</strong> using the customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+          <th style="text-align: left">Last Updated</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left">2024-09-01</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+          <td style="text-align: left">2024-09-01</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left">2021-06-15</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+          <td style="text-align: left">2022-03-10</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Timeliness Issues</strong>:</p>
+<ul>
+<li><strong>Customer 103</strong>: The <strong>Last Updated</strong> date is from 2021, making this record outdated. Since the address and contact details haven&rsquo;t been verified or updated in over two years, it&rsquo;s possible that the data is no longer accurate.</li>
+<li><strong>Customer 104</strong>: The data was last updated in early 2022, which also makes it outdated for a customer who might have changed address or contact information since then.</li>
+</ul>
+<p>Outdated records like these could lead to problems such as sending communications or deliveries to the wrong address, missing customer preferences, or failing to capture changes that impact business decisions. Timely data updates are crucial to maintaining the reliability of customer information.</p>
+<h3 id="example-of-validity-issue">Example of Validity Issue</h3>
+<p>Here’s an example of a <strong>data validity issue</strong> using the customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+          <th style="text-align: left">Email</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left"><a href="mailto:john.smith@email.com" rel="external" target="_blank">john.smith@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+          <td style="text-align: left"><a href="mailto:jane.doe@email.com" rel="external" target="_blank">jane.doe@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">1105</td>
+          <td style="text-align: left">jonh.smtih@email..com</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+          <td style="text-align: left">emma@invalidemail@com</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Validity Issues</strong>:</p>
+<ul>
+<li><strong>Customer 103</strong>: The email address &ldquo;jonh.smtih@email..com&rdquo; contains a formatting error (extra period before &ldquo;.com&rdquo;), which is invalid.</li>
+<li><strong>Customer 104</strong>: The email &ldquo;emma@invalidemail@com&rdquo; has two &ldquo;@&rdquo; symbols, which is not allowed in email formatting, making it invalid.</li>
+</ul>
+<p>In cases like these, data validity rules (e.g., proper email formats, correct zip code length, or valid data types) must be enforced. Invalid data such as incorrect email formats could result in failed communications and missed customer interactions, highlighting the importance of ensuring data conforms to required standards.</p>
+<h3 id="example-for-uniqueness-issue">Example for Uniqueness Issue</h3>
+<p>Here’s an example of a <strong>data uniqueness issue</strong> using the customer list:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+          <th style="text-align: left">Email</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left"><a href="mailto:john.smith@email.com" rel="external" target="_blank">john.smith@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+          <td style="text-align: left"><a href="mailto:jane.doe@email.com" rel="external" target="_blank">jane.doe@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left"><a href="mailto:jonh.smtih@email.com" rel="external" target="_blank">jonh.smtih@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+          <td style="text-align: left"><a href="mailto:emma.johnson@email.com" rel="external" target="_blank">emma.johnson@email.com</a></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">105</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+          <td style="text-align: left"><a href="mailto:john.smith@email.com" rel="external" target="_blank">john.smith@email.com</a></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Uniqueness Issues</strong>:</p>
+<ul>
+<li><strong>Customer 101 and Customer 105</strong>: These entries are duplicates, representing the same individual (John Smith) with identical information (address, email, etc.). However, they have different <strong>Customer IDs</strong>, which indicates a lack of uniqueness in the dataset.</li>
+</ul>
+<p>Duplicate records like this can lead to inefficiencies, such as multiple mailings to the same person, errors in customer segmentation, and skewed analytics. Ensuring uniqueness, especially in key fields like Customer ID or email, is crucial to maintaining data integrity.</p>
+<h3 id="example-of-integrity-issues">Example of Integrity Issues</h3>
+<p>Here’s an example of a <strong>data integrity issue</strong> using a customer list and an associated order table:</p>
+<p><strong>Customer Table</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">First Name</th>
+          <th style="text-align: left">Last Name</th>
+          <th style="text-align: left">Address</th>
+          <th style="text-align: left">City</th>
+          <th style="text-align: left">Zip Code</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">John</td>
+          <td style="text-align: left">Smith</td>
+          <td style="text-align: left">123 Elm St</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">102</td>
+          <td style="text-align: left">Jane</td>
+          <td style="text-align: left">Doe</td>
+          <td style="text-align: left">456 Oak Ave</td>
+          <td style="text-align: left">Shelbyville</td>
+          <td style="text-align: left">12345</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">103</td>
+          <td style="text-align: left">Jonh</td>
+          <td style="text-align: left">Smtih</td>
+          <td style="text-align: left">123 Elm Street</td>
+          <td style="text-align: left">Springfield</td>
+          <td style="text-align: left">01105</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">Emma</td>
+          <td style="text-align: left">Johnson</td>
+          <td style="text-align: left">789 Maple Blvd</td>
+          <td style="text-align: left">Capital City</td>
+          <td style="text-align: left">54321</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Order Table</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Order ID</th>
+          <th style="text-align: left">Customer ID</th>
+          <th style="text-align: left">Order Date</th>
+          <th style="text-align: left">Order Amount</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">5001</td>
+          <td style="text-align: left">101</td>
+          <td style="text-align: left">2024-09-01</td>
+          <td style="text-align: left">$150</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5002</td>
+          <td style="text-align: left">105</td>
+          <td style="text-align: left">2024-09-02</td>
+          <td style="text-align: left">$200</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5003</td>
+          <td style="text-align: left">104</td>
+          <td style="text-align: left">2024-09-03</td>
+          <td style="text-align: left">$250</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Integrity Issues</strong>:</p>
+<ul>
+<li><strong>Customer ID in Order Table</strong>: In the Order Table, <strong>Order 5002</strong> refers to <strong>Customer ID 105</strong>, which does not exist in the <strong>Customer Table</strong>. This indicates a <strong>referential integrity</strong> problem, where a record in the Order Table is pointing to a non-existent customer.</li>
+<li><strong>Mismatch of Addresses</strong>: In the Customer Table, <strong>Customer 103</strong> has the same address as <strong>Customer 101</strong> but with variations (e.g., &ldquo;Elm Street&rdquo; vs. &ldquo;Elm St.&rdquo;), which could also indicate an integrity issue in maintaining consistent data relationships.</li>
+</ul>
+<p>Data integrity ensures that relationships between tables (e.g., customer and order data) are accurate and complete. Integrity issues like these can lead to broken reporting, incorrect data analysis, and operational inefficiencies.</p>
+<h3 id="multiple-data-quality-dimensions-issues">Multiple Data Quality Dimensions Issues</h3>
+<p>A single issue, like an address problem, can involve <strong>multiple data quality dimensions</strong> at once. Here&rsquo;s how:</p>
+<ol>
+<li><strong>Accuracy</strong>: if the address is wrong (e.g., &ldquo;123 Elm St&rdquo; instead of &ldquo;321 Elm St&rdquo;), it’s an accuracy issue. This can cause real problems, like sending packages to the wrong place or communicating with the customer at the wrong address.</li>
+<li><strong>Completeness</strong>: if part of the address is missing, such as no zip code or an incomplete street name (e.g., “Elm St” without the house number), that’s a completeness issue. Without the full details, the address may not be useful, and the business can&rsquo;t function properly.</li>
+<li><strong>Integrity</strong>: data integrity is about making sure information is consistent across systems. If one system shows &ldquo;123 Elm St&rdquo; and another has &ldquo;456 Oak Ave&rdquo; for the same person, it’s an integrity problem, as these records don&rsquo;t match.</li>
+</ol>
+<p>So, a simple issue like an incorrect or incomplete address can affect <strong>accuracy</strong>, <strong>completeness</strong>, and <strong>integrity</strong> all at the same time, making it crucial to fix the issue from multiple angles to ensure the data is reliable.</p>
+<h2 id="data-quality-rules">Data Quality Rules</h2>
+<h2 id="data-quality-techniques">Data Quality Techniques</h2>
+<h2 id="data-quality-roles">Data Quality Roles</h2>
+<h2 id="data-quality-process">Data Quality Process</h2>
+<h2 id="data-quality-tools">Data Quality Tools</h2>
+<h2 id="data-governance-or-data-quality-management">Data Governance or Data Quality Management</h2>
+<h2 id="best-practices">Best Practices</h2>
+<!-- links -->
+
+            <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
+            </footer>
+          </article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+
+        <search>
+          <div class="searchbox default-animation">
+            <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1727973009" defer></script>
+        <script src="/js/search.js?1727973009" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/blogs/index.html" class=""><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="morespace collapsible-menu">
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/index.html" class=""><a class="padding" href="/blogs/how-to-promote-the-quality-best-practices/index.html">How to promote the Quality Best Practices</a></li>
+          <li data-nav-id="/blogs/quality-architect-role/index.html" class=""><a class="padding" href="/blogs/quality-architect-role/index.html">Quality Architect Role</a></li>
+          <li data-nav-id="/blogs/role-architecte-qualite/index.html" class=""><a class="padding" href="/blogs/role-architecte-qualite/index.html">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
+          <li data-nav-id="/notes/index.html" class="parent "><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="morespace collapsible-menu">
+          <li data-nav-id="/notes/apache-kafka/index.html" class=""><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+          <li data-nav-id="/notes/data-quality/index.html" class="active"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+          <li data-nav-id="/notes/gradle/index.html" class=""><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html" class=""><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/index.html" class=""><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+          <li data-nav-id="/notes/intellij-ide/index.html" class=""><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/index.html" class=""><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/index.html" class=""><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/java-rest-assured/index.html" class=""><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+          <li data-nav-id="/notes/java-lombok/index.html" class=""><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+          <li data-nav-id="/notes/mongodb/index.html" class=""><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+          <li data-nav-id="/notes/python-and-pytest/index.html" class=""><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/data-quality/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1727973009" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-color.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1727973009" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1727973009" defer></script>
+    <script src="/js/js-yaml.min.js?1727973009" defer></script>
+    <script src="/js/mermaid.min.js?1727973009" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="/js/theme.js?1727973009" defer></script>
+  </body>
+</html>

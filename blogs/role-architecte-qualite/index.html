@@ -1,71 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.99.0" />
-    <meta name="generator" content="Relearn 3.4.1&#43;tip">
-    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.135.0">
+    <meta name="generator" content="Relearn 6.4.0+tip">
+    <meta name="description" content="Role Stratégique Tactique Role L’architecte est responsable de deux grands types d’activités à haut niveau:
+Stratégique (fondations): s’occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ; Stratégique Définir la “Vision Qualité”, les guides (ou “guidelines”), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc. ; Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.; Promouvoir les bonnes pratiques pour les technologies choisies; Mentorat et “Coaching”; Promouvoir la qualité lors des six étapes du développement logiciel, SDLC ou “Software Development Life Cycle” : “Planning” -&gt; “Defining” -&gt; “Designing” -&gt; “Building” -&gt; “Testing” -&gt; “Deployment” ; Assister ou diriger des groupes de travail (ou “Work Groups”) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ; Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ; Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”); Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests “pratique” (en anglais pour faciliter) : Unit (“solitary” et “sociable”) testing ; Component (“in-process” et “out-of-process”) testing ; Contract testing ; Integration (“narrow” et “broad”) testing ; UI End-to-end (E2E) et API E2E (ou Subcutaneous) ; User journey tests (and Synthetic Traffic tests) ; Non functional tests : load, scalability, webvital metrics LCP, chaos/robustness, etc. ; Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ; Alignment sur une stratégie de tests avec la procédure de déploiement (CI/CD) avec une procédure de “branching” (examples : gitflow ou trunk-based workflows), blue/green deployment, smoke tests, etc. ; Participe au processus de recrutement pour le volet “qualité” ; Tactique Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, CI/CD, cluster/kubernetes. etc), documenter, etc. ; Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ; Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ; Ajout de “tests de trafic synthétique” et vérification des flux et scénarios clients (ou “customer flows”) ; Analyser les performances systèmes (example: load tests) et selon les standards définis (example: “Given the data load X and the number of users Y, an API should respond within Z seconds”), LCP (ou “Largest Contentful Paint”, example : “une page devrait être considérée utilisable en moins de 2.5 secondes”) ; Utilisation d’outils d’observation pour comprendre les problèmes : datadoghq, splunk/signalfx, prometheus, grafana, etc. ; Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Rôle de l&#39;Architecte Qualité (FR) :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Role Stratégique Tactique Role L’architecte est responsable de deux grands types d’activités à haut niveau:
+Stratégique (fondations): s’occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ; Stratégique Définir la “Vision Qualité”, les guides (ou “guidelines”), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc. ; Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.; Promouvoir les bonnes pratiques pour les technologies choisies; Mentorat et “Coaching”; Promouvoir la qualité lors des six étapes du développement logiciel, SDLC ou “Software Development Life Cycle” : “Planning” -&gt; “Defining” -&gt; “Designing” -&gt; “Building” -&gt; “Testing” -&gt; “Deployment” ; Assister ou diriger des groupes de travail (ou “Work Groups”) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ; Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ; Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”); Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests “pratique” (en anglais pour faciliter) : Unit (“solitary” et “sociable”) testing ; Component (“in-process” et “out-of-process”) testing ; Contract testing ; Integration (“narrow” et “broad”) testing ; UI End-to-end (E2E) et API E2E (ou Subcutaneous) ; User journey tests (and Synthetic Traffic tests) ; Non functional tests : load, scalability, webvital metrics LCP, chaos/robustness, etc. ; Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ; Alignment sur une stratégie de tests avec la procédure de déploiement (CI/CD) avec une procédure de “branching” (examples : gitflow ou trunk-based workflows), blue/green deployment, smoke tests, etc. ; Participe au processus de recrutement pour le volet “qualité” ; Tactique Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, CI/CD, cluster/kubernetes. etc), documenter, etc. ; Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ; Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ; Ajout de “tests de trafic synthétique” et vérification des flux et scénarios clients (ou “customer flows”) ; Analyser les performances systèmes (example: load tests) et selon les standards définis (example: “Given the data load X and the number of users Y, an API should respond within Z seconds”), LCP (ou “Largest Contentful Paint”, example : “une page devrait être considérée utilisable en moins de 2.5 secondes”) ; Utilisation d’outils d’observation pour comprendre les problèmes : datadoghq, splunk/signalfx, prometheus, grafana, etc. ; Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;">
+    <meta property="og:url" content="https://AlainBouchard.github.io/blogs/role-architecte-qualite/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Rôle de l&#39;Architecte Qualité (FR) :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Role Stratégique Tactique Role L’architecte est responsable de deux grands types d’activités à haut niveau:
+Stratégique (fondations): s’occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ; Stratégique Définir la “Vision Qualité”, les guides (ou “guidelines”), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc. ; Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.; Promouvoir les bonnes pratiques pour les technologies choisies; Mentorat et “Coaching”; Promouvoir la qualité lors des six étapes du développement logiciel, SDLC ou “Software Development Life Cycle” : “Planning” -&gt; “Defining” -&gt; “Designing” -&gt; “Building” -&gt; “Testing” -&gt; “Deployment” ; Assister ou diriger des groupes de travail (ou “Work Groups”) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ; Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ; Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”); Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests “pratique” (en anglais pour faciliter) : Unit (“solitary” et “sociable”) testing ; Component (“in-process” et “out-of-process”) testing ; Contract testing ; Integration (“narrow” et “broad”) testing ; UI End-to-end (E2E) et API E2E (ou Subcutaneous) ; User journey tests (and Synthetic Traffic tests) ; Non functional tests : load, scalability, webvital metrics LCP, chaos/robustness, etc. ; Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ; Alignment sur une stratégie de tests avec la procédure de déploiement (CI/CD) avec une procédure de “branching” (examples : gitflow ou trunk-based workflows), blue/green deployment, smoke tests, etc. ; Participe au processus de recrutement pour le volet “qualité” ; Tactique Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, CI/CD, cluster/kubernetes. etc), documenter, etc. ; Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ; Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ; Ajout de “tests de trafic synthétique” et vérification des flux et scénarios clients (ou “customer flows”) ; Analyser les performances systèmes (example: load tests) et selon les standards définis (example: “Given the data load X and the number of users Y, an API should respond within Z seconds”), LCP (ou “Largest Contentful Paint”, example : “une page devrait être considérée utilisable en moins de 2.5 secondes”) ; Utilisation d’outils d’observation pour comprendre les problèmes : datadoghq, splunk/signalfx, prometheus, grafana, etc. ; Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Blogs">
+    <meta itemprop="name" content="Rôle de l&#39;Architecte Qualité (FR) :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Role Stratégique Tactique Role L’architecte est responsable de deux grands types d’activités à haut niveau:
+Stratégique (fondations): s’occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ; Stratégique Définir la “Vision Qualité”, les guides (ou “guidelines”), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc. ; Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.; Promouvoir les bonnes pratiques pour les technologies choisies; Mentorat et “Coaching”; Promouvoir la qualité lors des six étapes du développement logiciel, SDLC ou “Software Development Life Cycle” : “Planning” -&gt; “Defining” -&gt; “Designing” -&gt; “Building” -&gt; “Testing” -&gt; “Deployment” ; Assister ou diriger des groupes de travail (ou “Work Groups”) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ; Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ; Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”); Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests “pratique” (en anglais pour faciliter) : Unit (“solitary” et “sociable”) testing ; Component (“in-process” et “out-of-process”) testing ; Contract testing ; Integration (“narrow” et “broad”) testing ; UI End-to-end (E2E) et API E2E (ou Subcutaneous) ; User journey tests (and Synthetic Traffic tests) ; Non functional tests : load, scalability, webvital metrics LCP, chaos/robustness, etc. ; Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ; Alignment sur une stratégie de tests avec la procédure de déploiement (CI/CD) avec une procédure de “branching” (examples : gitflow ou trunk-based workflows), blue/green deployment, smoke tests, etc. ; Participe au processus de recrutement pour le volet “qualité” ; Tactique Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, CI/CD, cluster/kubernetes. etc), documenter, etc. ; Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ; Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ; Ajout de “tests de trafic synthétique” et vérification des flux et scénarios clients (ou “customer flows”) ; Analyser les performances systèmes (example: load tests) et selon les standards définis (example: “Given the data load X and the number of users Y, an API should respond within Z seconds”), LCP (ou “Largest Contentful Paint”, example : “une page devrait être considérée utilisable en moins de 2.5 secondes”) ; Utilisation d’outils d’observation pour comprendre les problèmes : datadoghq, splunk/signalfx, prometheus, grafana, etc. ; Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;">
+    <meta itemprop="wordCount" content="500">
     <title>Rôle de l&#39;Architecte Qualité (FR) :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/nucleus.css?1658246653" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1658246653" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1658246653" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1658246653" rel="stylesheet">
-    <link href="/css/auto-complete.css?1658246653" rel="stylesheet">
-    <link href="/css/theme.css?1658246653" rel="stylesheet">
-    <link href="/css/theme-blue.css?1658246653" rel="stylesheet" id="variant-style">
-    <link href="/css/variant.css?1658246653" rel="stylesheet">
-    <link href="/css/print.css?1658246653" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1658246653"></script>
+    <link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1727973009" rel="stylesheet">
+    <link href="/css/auto-complete.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1727973009" rel="stylesheet">
+    <link href="/css/fonts.css?1727973009" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1727973009" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1727973009" rel="stylesheet">
+    <link href="/css/theme-blue.css?1727973009" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1727973009" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/variant.css?1727973009" rel="stylesheet">
+    <link href="/css/print.css?1727973009" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1727973009"></script>
     <script>
-      // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
-      // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
-      var index_url="/index.json";
-      var root_url="/";
-      var baseUri=root_url.replace(/\/$/, '');
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
       // translations
-      window.T_Copy_to_clipboard = 'Copy to clipboard';
-      window.T_Copied_to_clipboard = 'Copied to clipboard!';
-      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
-      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
-      // some further base stuff
-      var baseUriFull='https:\/\/AlainBouchard.github.io/';
-      variants.init( [ 'blue' ] );
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
-    <script src="/js/jquery.min.js?1658246653"></script>
   </head>
-  <body class="mobile-support" data-url="/blogs/role-architecte-qualite/">
-    <div id="body" class="default-animation">
-      <div id="sidebar-overlay"></div>
-      <div id="toc-overlay"></div>
-      <nav id="topbar" class="highlightable">
-        <div>
-          <div class="navigation">
-             <a class="nav nav-next" href="/notes/" title="My Notes"><i class="fas fa-chevron-right fa-fw"></i></a>
+  <body class="mobile-support html" data-url="/blogs/role-architecte-qualite/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
           </div>
-          <div class="navigation">
-             <a class="nav nav-prev" href="/blogs/quality-architect-role/" title="Quality Architect Role"><i class="fas fa-chevron-left fa-fw"></i></a>
-          </div>
-          <div id="breadcrumbs">
-            <span id="sidebar-toggle-span">
-              <a href="#" id="sidebar-toggle" title='Menu'><i class="fas fa-bars fa-fw"></i></a>
-            </span>
-            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
-              <meta itemprop="itemListOrder" content="Descending" />
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="3" /><a itemprop="item" href="/"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="2" /><a itemprop="item" href="/blogs/"><span itemprop="name">My Blogs</span></a> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><meta itemprop="position" content="1" /><a itemprop="item" href="/blogs/role-architecte-qualite/" aria-disabled="true"><span itemprop="name">Rôle de l&#39;Architecte Qualité (FR)</span></a></li>
-            </ol>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/blogs/index.html"><span itemprop="name">My Blogs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Rôle de l&#39;Architecte Qualité (FR)</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/blogs/quality-architect-role/index.html" title="Quality Architect Role (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/index.html" title="My Notes (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </nav>
-      <main id="body-inner" class="highlightable">
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <div id="head-tags">
-          </div>
-          <article>
+          <article class="default">
+            <header class="headline">
+            </header>
 
-<h1>Rôle de l&#39;Architecte Qualité (FR)</h1>
+<h1 id="rôle-de-larchitecte-qualité-fr">Rôle de l&#39;Architecte Qualité (FR)</h1>
+
 <div class="toc">
     <nav id="TableOfContents">
   <ul>
@@ -83,125 +113,152 @@
 </ol>
 <h2 id="stratégique">Stratégique</h2>
 <ol>
-<li>Définir la “Vision Qualité”, les guides (ou &ldquo;guidelines&rdquo;), documents techniques (<a href="https://adr.github.io">ADR</a>, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, <a href="https://en.wikipedia.org/wiki/Personal_data">PII</a>, etc. ;</li>
+<li>Définir la “Vision Qualité”, les guides (ou &ldquo;guidelines&rdquo;), documents techniques (<a href="https://adr.github.io" rel="external" target="_blank">ADR</a>, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, <a href="https://en.wikipedia.org/wiki/Personal_data" rel="external" target="_blank">PII</a>, etc. ;</li>
 <li>Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.;</li>
 <li>Promouvoir les bonnes pratiques pour les technologies choisies;</li>
 <li>Mentorat et “Coaching”;</li>
-<li><a href="https://github.com/AlainBouchard/engineering-notes/blob/master/how-to-promote-the-quality-best-practices.md">Promouvoir la qualité</a> lors des six étapes du développement logiciel, <a href="https://www.tutorialspoint.com/sdlc/sdlc_overview.htm">SDLC</a> ou &ldquo;Software Development Life Cycle&rdquo; : &ldquo;Planning&rdquo; -&gt; &ldquo;Defining&rdquo; -&gt; &ldquo;Designing&rdquo; -&gt; &ldquo;Building&rdquo; -&gt; &ldquo;Testing&rdquo; -&gt; &ldquo;Deployment&rdquo; ;</li>
+<li><a href="https://github.com/AlainBouchard/engineering-notes/blob/master/how-to-promote-the-quality-best-practices.md" rel="external" target="_blank">Promouvoir la qualité</a> lors des six étapes du développement logiciel, <a href="https://www.tutorialspoint.com/sdlc/sdlc_overview.htm" rel="external" target="_blank">SDLC</a> ou &ldquo;Software Development Life Cycle&rdquo; : &ldquo;Planning&rdquo; -&gt; &ldquo;Defining&rdquo; -&gt; &ldquo;Designing&rdquo; -&gt; &ldquo;Building&rdquo; -&gt; &ldquo;Testing&rdquo; -&gt; &ldquo;Deployment&rdquo; ;</li>
 <li>Assister ou diriger des groupes de travail (ou &ldquo;Work Groups&rdquo;) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ;</li>
 <li>Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ;</li>
 <li>Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”);</li>
 <li>Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests &ldquo;pratique&rdquo; (en anglais pour faciliter) :
 <ol>
-<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-unit-introduction">Unit</a> (&ldquo;solitary&rdquo; et &ldquo;sociable&rdquo;) testing ;</li>
-<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-component-introduction">Component</a> (&ldquo;in-process&rdquo; et &ldquo;out-of-process&rdquo;) testing ;</li>
-<li><a href="https://martinfowler.com/bliki/ContractTest.html">Contract</a> testing ;</li>
-<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-integration-introduction">Integration</a> (&ldquo;narrow&rdquo; et &ldquo;broad&rdquo;) testing ;</li>
-<li>UI End-to-end (<a href="https://martinfowler.com/articles/microservice-testing/#testing-end-to-end-introduction">E2E</a>) et API E2E (ou <a href="https://martinfowler.com/bliki/SubcutaneousTest.html">Subcutaneous</a>) ;</li>
-<li><a href="https://martinfowler.com/bliki/UserJourneyTest.html">User journey</a> tests (and <a href="https://www.datadoghq.com/knowledge-center/synthetic-testing">Synthetic Traffic</a> tests) ;</li>
-<li><a href="https://www.guru99.com/non-functional-testing.html">Non functional</a> tests : load, scalability, webvital metrics <a href="https://web.dev/lcp">LCP</a>, chaos/robustness, etc. ;</li>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-unit-introduction" rel="external" target="_blank">Unit</a> (&ldquo;solitary&rdquo; et &ldquo;sociable&rdquo;) testing ;</li>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-component-introduction" rel="external" target="_blank">Component</a> (&ldquo;in-process&rdquo; et &ldquo;out-of-process&rdquo;) testing ;</li>
+<li><a href="https://martinfowler.com/bliki/ContractTest.html" rel="external" target="_blank">Contract</a> testing ;</li>
+<li><a href="https://martinfowler.com/articles/microservice-testing/#testing-integration-introduction" rel="external" target="_blank">Integration</a> (&ldquo;narrow&rdquo; et &ldquo;broad&rdquo;) testing ;</li>
+<li>UI End-to-end (<a href="https://martinfowler.com/articles/microservice-testing/#testing-end-to-end-introduction" rel="external" target="_blank">E2E</a>) et API E2E (ou <a href="https://martinfowler.com/bliki/SubcutaneousTest.html" rel="external" target="_blank">Subcutaneous</a>) ;</li>
+<li><a href="https://martinfowler.com/bliki/UserJourneyTest.html" rel="external" target="_blank">User journey</a> tests (and <a href="https://www.datadoghq.com/knowledge-center/synthetic-testing" rel="external" target="_blank">Synthetic Traffic</a> tests) ;</li>
+<li><a href="https://www.guru99.com/non-functional-testing.html" rel="external" target="_blank">Non functional</a> tests : load, scalability, webvital metrics <a href="https://web.dev/lcp" rel="external" target="_blank">LCP</a>, chaos/robustness, etc. ;</li>
 </ol>
 </li>
 <li>Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ;</li>
-<li>Alignment sur une stratégie de tests avec la procédure de déploiement (<a href="https://www.atlassian.com/continuous-delivery/continuous-integration">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment">CD</a>) avec une procédure de “<a href="https://medium.com/@vafrcor2009/gitflow-vs-trunk-based-development-3beff578030b">branching</a>” (examples : gitflow ou trunk-based workflows), <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html">blue/green deployment</a>, smoke tests, etc. ;</li>
+<li>Alignment sur une stratégie de tests avec la procédure de déploiement (<a href="https://www.atlassian.com/continuous-delivery/continuous-integration" rel="external" target="_blank">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment" rel="external" target="_blank">CD</a>) avec une procédure de “<a href="https://medium.com/@vafrcor2009/gitflow-vs-trunk-based-development-3beff578030b" rel="external" target="_blank">branching</a>” (examples : gitflow ou trunk-based workflows), <a href="https://martinfowler.com/bliki/BlueGreenDeployment.html" rel="external" target="_blank">blue/green deployment</a>, smoke tests, etc. ;</li>
 <li>Participe au processus de recrutement pour le volet “qualité” ;</li>
 </ol>
 <h2 id="tactique">Tactique</h2>
 <ol>
-<li>Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, <a href="https://www.atlassian.com/continuous-delivery/continuous-integration">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment">CD</a>, <a href="https://www.vmware.com/topics/glossary/content/kubernetes-cluster.html">cluster/kubernetes</a>. etc), documenter, etc. ;</li>
+<li>Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, <a href="https://www.atlassian.com/continuous-delivery/continuous-integration" rel="external" target="_blank">CI</a>/<a href="https://www.atlassian.com/continuous-delivery/continuous-deployment" rel="external" target="_blank">CD</a>, <a href="https://www.vmware.com/topics/glossary/content/kubernetes-cluster.html" rel="external" target="_blank">cluster/kubernetes</a>. etc), documenter, etc. ;</li>
 <li>Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ;</li>
 <li>Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ;</li>
-<li>Ajout de “<a href="https://www.datadoghq.com/knowledge-center/synthetic-testing">tests de trafic synthétique</a>” et vérification des flux et scénarios clients (ou “customer flows”) ;</li>
-<li>Analyser les performances systèmes (example: load tests) et selon les standards définis (example: <em>&ldquo;Given the data load X and the number of users Y, an API should respond within Z seconds&rdquo;</em>), <a href="https://web.dev/lcp">LCP</a> (ou “Largest Contentful Paint”, example : <em>&ldquo;une page devrait être considérée utilisable en moins de 2.5 secondes&rdquo;</em>) ;</li>
-<li>Utilisation d’outils d’observation pour comprendre les problèmes : <a href="https://www.datadoghq.com/">datadoghq</a>, <a href="https://www.splunk.com/">splunk/signalfx</a>, <a href="https://prometheus.io/">prometheus</a>, <a href="https://grafana.com/">grafana</a>, etc. ;</li>
+<li>Ajout de “<a href="https://www.datadoghq.com/knowledge-center/synthetic-testing" rel="external" target="_blank">tests de trafic synthétique</a>” et vérification des flux et scénarios clients (ou “customer flows”) ;</li>
+<li>Analyser les performances systèmes (example: load tests) et selon les standards définis (example: <em>&ldquo;Given the data load X and the number of users Y, an API should respond within Z seconds&rdquo;</em>), <a href="https://web.dev/lcp" rel="external" target="_blank">LCP</a> (ou “Largest Contentful Paint”, example : <em>&ldquo;une page devrait être considérée utilisable en moins de 2.5 secondes&rdquo;</em>) ;</li>
+<li>Utilisation d’outils d’observation pour comprendre les problèmes : <a href="https://www.datadoghq.com/" rel="external" target="_blank">datadoghq</a>, <a href="https://www.splunk.com/" rel="external" target="_blank">splunk/signalfx</a>, <a href="https://prometheus.io/" rel="external" target="_blank">prometheus</a>, <a href="https://grafana.com/" rel="external" target="_blank">grafana</a>, etc. ;</li>
 <li>Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;</li>
 </ol>
 
             <footer class="footline">
-            <i class='fas fa-user'></i> <a href="mailto:alain.bouchard@appdirect.com">Alain Bouchard</a>
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
             </footer>
           </article>
         </div>
       </main>
     </div>
-    <aside id="sidebar" class="default-animation">
-      <div id="header-wrapper" class="default-animation">
-        <div id="header" class="default-animation">
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
 <img src="/logo.png">
         </div>
-        <div class="searchbox default-animation">
-          <label for="search-by"><i class="fas fa-search"></i></label>
-          <input data-search-input id="search-by" type="search" placeholder="Search...">
-          <span data-search-clear=""><i class="fas fa-times"></i></span>
-        </div>
-        <script src="/js/lunr.min.js?1658246653"></script>
-        <script src="/js/auto-complete.js?1658246653"></script>
-        <script src="/js/search.js?1658246653"></script>
+
+        <search>
+          <div class="searchbox default-animation">
+            <i class="fas fa-search" title="Search (CTRL+ALT+f)"></i>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1727973009" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1727973009" defer></script>
+        <script src="/js/search.js?1727973009" defer></script>
       </div>
-      <div id="homelinks" class="default-animation">
+      <div id="R-homelinks" class="default-animation homelinks">
         <ul>
-          <li>
-              <a class="padding" href="/"><i class="fas fa-home"></i> Home</a>
-          </li>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
         </ul>
+        <hr class="padding">
       </div>
-      <div id="content-wrapper" class="highlightable">
-        <ul class="topics">
-          <li data-nav-id="/blogs/" title="My Blogs" class="dd-item parent"><input type="checkbox" id="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" class="toggle" checked/><label for="section-8c14ab2d8aecfbedfb55fbca3bdb6a6b" ></label><a href="/blogs/">Blogs</a><ul>
-          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/" title="How to promote the Quality Best Practices" class="dd-item"><a href="/blogs/how-to-promote-the-quality-best-practices/">How to promote the Quality Best Practices</a></li>
-          <li data-nav-id="/blogs/quality-architect-role/" title="Quality Architect Role" class="dd-item"><a href="/blogs/quality-architect-role/">Quality Architect Role</a></li>
-          <li data-nav-id="/blogs/role-architecte-qualite/" title="Rôle de l&#39;Architecte Qualité (FR)" class="dd-item active"><a href="/blogs/role-architecte-qualite/">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
-          <li data-nav-id="/notes/" title="My Notes" class="dd-item"><input type="checkbox" id="section-ef46fe0aac274900fefdd5e564e236b2" class="toggle"/><label for="section-ef46fe0aac274900fefdd5e564e236b2" ></label><a href="/notes/">My Notes</a><ul>
-          <li data-nav-id="/notes/apache-kafka/" title="Apache Kafka (WIP)" class="dd-item"><a href="/notes/apache-kafka/">Apache Kafka (WIP)</a></li>
-          <li data-nav-id="/notes/gradle/" title="Gradle" class="dd-item"><a href="/notes/gradle/">Gradle</a></li>
-          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/" title="Gradle for Java-Based applications and libraries" class="dd-item"><a href="/notes/gradle-for-java-based-applications-and-libraries/">Gradle for Java-Based applications and libraries</a></li>
-          <li data-nav-id="/notes/hugo/" title="Hugo" class="dd-item"><a href="/notes/hugo/">Hugo</a></li>
-          <li data-nav-id="/notes/intellij-ide/" title="IntelliJ Cheat Sheet" class="dd-item"><a href="/notes/intellij-ide/">IntelliJ Cheat Sheet</a></li>
-          <li data-nav-id="/notes/java-object-oriented-programming/" title="Java Object-Oriented Programming" class="dd-item"><a href="/notes/java-object-oriented-programming/">Java Object-Oriented Programming</a></li>
-          <li data-nav-id="/notes/java-spring-boot2/" title="Java Spring Boot 2" class="dd-item"><a href="/notes/java-spring-boot2/">Java Spring Boot 2</a></li>
-          <li data-nav-id="/notes/java-rest-assured/" title="Java with Rest-Assured" class="dd-item"><a href="/notes/java-rest-assured/">Java with Rest-Assured</a></li>
-          <li data-nav-id="/notes/java-lombok/" title="Lombok Java Library" class="dd-item"><a href="/notes/java-lombok/">Lombok Java Library</a></li>
-          <li data-nav-id="/notes/python-and-pytest/" title="Python and PyTest" class="dd-item"><a href="/notes/python-and-pytest/">Python and PyTest</a></li></ul></li>
-        </ul>
-        <div class="footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
-        <hr class="default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"/>
-        <div id="prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
-          <ul>
-            <li id="select-language-container" class="footerLangSwitch">
-              <a class="padding select-container">
-                <i class="fas fa-language fa-fw"></i>
-                <span>&nbsp;</span>
-                <div class="select-style">
-                  <select id="select-language" onchange="location = baseUri + this.value;">
-                  </select>
-                </div>
-                <div class="select-clear"></div>
-              </a>
-            </li>
-            <li id="select-variant-container" class="footerVariantSwitch">
-              <a class="padding select-container">
-                <i class="fas fa-paint-brush fa-fw"></i>
-                <span>&nbsp;</span>
-                <div class="select-style">
-                  <select id="select-variant" onchange="variants.changeVariant( this.value );">
-                    <option id="blue" value="blue" selected>Blue</option>
-                  </select>
-                </div>
-                <div class="select-clear"></div>
-              </a>
-              <script>variants.markSelectedVariant();</script>
-            </li>
-            <li class="footerVisitedLinks"><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+          <li data-nav-id="/blogs/index.html" class="parent "><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="morespace collapsible-menu">
+          <li data-nav-id="/blogs/how-to-promote-the-quality-best-practices/index.html" class=""><a class="padding" href="/blogs/how-to-promote-the-quality-best-practices/index.html">How to promote the Quality Best Practices</a></li>
+          <li data-nav-id="/blogs/quality-architect-role/index.html" class=""><a class="padding" href="/blogs/quality-architect-role/index.html">Quality Architect Role</a></li>
+          <li data-nav-id="/blogs/role-architecte-qualite/index.html" class="active"><a class="padding" href="/blogs/role-architecte-qualite/index.html">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
+          <li data-nav-id="/notes/index.html" class=""><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="morespace collapsible-menu">
+          <li data-nav-id="/notes/apache-kafka/index.html" class=""><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+          <li data-nav-id="/notes/data-quality/index.html" class=""><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+          <li data-nav-id="/notes/gradle/index.html" class=""><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+          <li data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html" class=""><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+          <li data-nav-id="/notes/hugo/index.html" class=""><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+          <li data-nav-id="/notes/intellij-ide/index.html" class=""><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+          <li data-nav-id="/notes/java-object-oriented-programming/index.html" class=""><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+          <li data-nav-id="/notes/java-spring-boot2/index.html" class=""><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+          <li data-nav-id="/notes/java-rest-assured/index.html" class=""><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+          <li data-nav-id="/notes/java-lombok/index.html" class=""><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+          <li data-nav-id="/notes/mongodb/index.html" class=""><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+          <li data-nav-id="/notes/python-and-pytest/index.html" class=""><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li></ul></li>
           </ul>
         </div>
-        <div id="footer" class="footerFooter showFooter">
-	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/blogs/role-architecte-qualite/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+	    <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1658246653"></script>
-    <script src="/js/perfect-scrollbar.min.js?1658246653"></script>
-    <script src="/js/featherlight.min.js?1658246653"></script>
-    <script src="/js/theme.js?1658246653"></script>
+    <script src="/js/clipboard.min.js?1727973009" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1727973009" defer></script>
+    <script src="/js/theme.js?1727973009" defer></script>
   </body>
 </html>
