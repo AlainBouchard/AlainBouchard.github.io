@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alain Bouchard&#39;s Engineering Notes and Blogs :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link>https://AlainBouchard.github.io/index.html</link>
-    <description>My Engineering Notes and Blogs Welcome on my Engineering Notes and Blogs site!&#xA;My Blogs&#xD;How to promote the Quality Best Practices&#xD;Quality Architect Role&#xD;Rôle de l&#39;Architecte Qualité (FR)&#xD;My Notes&#xD;Apache Kafka (WIP)&#xD;Data Quality&#xD;Gradle&#xD;Gradle for Java-Based applications and libraries&#xD;Hugo&#xD;IntelliJ Cheat Sheet&#xD;Java Object-Oriented Programming&#xD;Java Spring Boot 2&#xD;Java with Rest-Assured&#xD;Lombok Java Library&#xD;MongoDB&#xD;Python and PyTest</description>
+    <link>http://localhost:1313/index.html</link>
+    <description>My Engineering Notes and Blogs Welcome on my Engineering Notes and Blogs site!&#xA;My Blogs How to promote the Quality Best Practices Quality Architect Role Rôle de l&#39;Architecte Qualité (FR) My Notes Apache Kafka (WIP) Data Quality Gradle Gradle for Java-Based applications and libraries Hugo IntelliJ Cheat Sheet Java Object-Oriented Programming Java Spring Boot 2 Java with Rest-Assured Lombok Java Library MongoDB Python and PyTest TypeScript</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://AlainBouchard.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Blogs</title>
-      <link>https://AlainBouchard.github.io/blogs/index.html</link>
+      <link>http://localhost:1313/blogs/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/blogs/index.html</guid>
-      <description>Blogs How to promote the Quality Best Practices&#xD;Quality Architect Role&#xD;Rôle de l&#39;Architecte Qualité (FR)</description>
+      <guid>http://localhost:1313/blogs/index.html</guid>
+      <description>Blogs How to promote the Quality Best Practices Quality Architect Role Rôle de l&#39;Architecte Qualité (FR)</description>
     </item>
     <item>
       <title>My Notes</title>
-      <link>https://AlainBouchard.github.io/notes/index.html</link>
+      <link>http://localhost:1313/notes/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://AlainBouchard.github.io/notes/index.html</guid>
-      <description>My Engineering Notes Apache Kafka (WIP)&#xD;Data Quality&#xD;Gradle&#xD;Gradle for Java-Based applications and libraries&#xD;Hugo&#xD;IntelliJ Cheat Sheet&#xD;Java Object-Oriented Programming&#xD;Java Spring Boot 2&#xD;Java with Rest-Assured&#xD;Lombok Java Library&#xD;MongoDB&#xD;Python and PyTest</description>
+      <guid>http://localhost:1313/notes/index.html</guid>
+      <description>My Engineering Notes Apache Kafka (WIP) Data Quality Gradle Gradle for Java-Based applications and libraries Hugo IntelliJ Cheat Sheet Java Object-Oriented Programming Java Spring Boot 2 Java with Rest-Assured Lombok Java Library MongoDB Python and PyTest TypeScript</description>
     </item>
   </channel>
 </rss>
