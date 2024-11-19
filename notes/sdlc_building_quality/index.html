@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.1">
+    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="description" content="Test Flow by Environment Test Flow Diagram Test Description Software Development Life Cycle (SDLC) What is SDLC? The Test Strategy within the SDLC Quality and SDLC Flow Conclusion Building Quality: Aligning Test Strategies with the SDLC We often discuss concepts like SDLC (Software Development Life Cycle) or a Test Strategy, but rarely do we focus on how to seamlessly integrate the test strategy into the SDLC. This is crucial because a test strategy isn’t just a standalone document — it’s a roadmap that ensures quality throughout each phase of development.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Building Quality: Aligning Test Strategies with the SDLC :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Test Flow by Environment Test Flow Diagram Test Description Software Development Life Cycle (SDLC) What is SDLC? The Test Strategy within the SDLC Quality and SDLC Flow Conclusion Building Quality: Aligning Test Strategies with the SDLC We often discuss concepts like SDLC (Software Development Life Cycle) or a Test Strategy, but rarely do we focus on how to seamlessly integrate the test strategy into the SDLC. This is crucial because a test strategy isn’t just a standalone document — it’s a roadmap that ensures quality throughout each phase of development.">
+    <meta property="og:url" content="http://localhost:1313/notes/sdlc_building_quality/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Building Quality: Aligning Test Strategies with the SDLC :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Test Flow by Environment Test Flow Diagram Test Description Software Development Life Cycle (SDLC) What is SDLC? The Test Strategy within the SDLC Quality and SDLC Flow Conclusion Building Quality: Aligning Test Strategies with the SDLC We often discuss concepts like SDLC (Software Development Life Cycle) or a Test Strategy, but rarely do we focus on how to seamlessly integrate the test strategy into the SDLC. This is crucial because a test strategy isn’t just a standalone document — it’s a roadmap that ensures quality throughout each phase of development.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="Building Quality: Aligning Test Strategies with the SDLC :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Test Flow by Environment Test Flow Diagram Test Description Software Development Life Cycle (SDLC) What is SDLC? The Test Strategy within the SDLC Quality and SDLC Flow Conclusion Building Quality: Aligning Test Strategies with the SDLC We often discuss concepts like SDLC (Software Development Life Cycle) or a Test Strategy, but rarely do we focus on how to seamlessly integrate the test strategy into the SDLC. This is crucial because a test strategy isn’t just a standalone document — it’s a roadmap that ensures quality throughout each phase of development.">
+    <meta itemprop="wordCount" content="2392">
+    <title>Building Quality: Aligning Test Strategies with the SDLC :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1731978264" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731978264" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731978264" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731978264" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731978264" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731978264" rel="stylesheet">
+    <link href="/css/fonts.css?1731978264" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731978264" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731978264" rel="stylesheet">
+    <link href="/css/theme-blue.css?1731978264" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1731978264" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731978264" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731978264"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/notes/sdlc_building_quality/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Building Quality: Aligning Test Strategies with the SDLC</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/apache-kafka/index.html" title="Apache Kafka (WIP) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/cypress/index.html" title="Cypress.io (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable notes" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="building-quality-aligning-test-strategies-with-the-sdlc">Building Quality: Aligning Test Strategies with the SDLC</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#test-flow-by-environment">Test Flow by Environment</a>
+      <ul>
+        <li><a href="#test-flow-diagram">Test Flow Diagram</a></li>
+        <li><a href="#test-description">Test Description</a></li>
+      </ul>
+    </li>
+    <li><a href="#software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</a>
+      <ul>
+        <li><a href="#what-is-sdlc">What is SDLC?</a></li>
+        <li><a href="#the-test-strategy-within-the-sdlc">The Test Strategy within the SDLC</a></li>
+        <li><a href="#quality-and-sdlc-flow">Quality and SDLC Flow</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</div>
+<h1 id="building-quality-aligning-test-strategies-with-the-sdlc">Building Quality: Aligning Test Strategies with the SDLC</h1>
+<p>We often discuss concepts like <strong>SDLC (Software Development Life Cycle)</strong> or a <strong>Test Strategy</strong>, but rarely do we focus on how to seamlessly integrate the test strategy into the SDLC. This is crucial because a test strategy isn’t just a standalone document — it’s a roadmap that ensures quality throughout each phase of development.</p>
+<p>While many people understand what the SDLC is, they may not fully grasp the <strong>goals, activities, or expected outcomes</strong> of each phase. Each phase, from requirements to maintenance, plays a unique role in shaping the final product, and testing must align with these stages to maximize efficiency and quality.</p>
+<p>To make this integration clear, we need to focus on <strong>test types</strong>, <strong>where to run them</strong>, and <strong>who is responsible</strong>.  Well cover that later in this article.</p>
+<p>By aligning the test strategy with the SDLC, everyone - from developers to QA, including DevOps, Security, IT and Compliance people — knows their role in ensuring quality, and testing becomes an integral part of the development process, not an afterthought.</p>
+<h2 id="test-flow-by-environment">Test Flow by Environment</h2>
+<p>The <strong>Test Pyramid</strong> has become a buzzword in testing conversations, often paired with trendy concepts like <strong>shift left</strong> and <strong>shift right</strong>. While these ideas are valuable, let’s take a step back and explore testing through the lens of a <strong>typical deployment flow</strong>, grounding the discussion in practical terms.</p>
+<p>In this section, we’ll dive into an exhaustive list of test types that ensure a robust testing strategy. These will include:</p>
+<p>Here’s the formatted list, each on a single line:</p>
+<ul>
+<li><strong>Functional Tests</strong>: Focus on verifying the application&rsquo;s functionality, including unit, integration, and end-to-end tests.</li>
+<li><strong>Non-Functional Tests</strong>: Cover aspects like performance, scalability, usability, and accessibility.</li>
+<li><strong>Security Tests</strong>: Assess the application&rsquo;s resilience to threats and ensure data protection.</li>
+<li><strong>Analytic Tests</strong>: Validate data accuracy, tracking, and reporting mechanisms.</li>
+<li><strong>Compliance Tests</strong>: Ensure adherence to regulatory, legal, and organizational standards.</li>
+<li><strong>Business Continuity Tests</strong>: Test disaster recovery, backup, rollback mechanisms, and other continuity measures.</li>
+<li><strong>Deployment Strategy Tests</strong>: Validate deployment approaches such as blue/green, canary, and rolling deployments.</li>
+<li><strong>Compatibility Tests</strong>: Ensure the application works across various browsers, devices, and operating systems.</li>
+<li><strong>Data Integrity Tests</strong>: Verify the accuracy, consistency, and reliability of data across systems.</li>
+<li><strong>Localization and Internationalization Tests</strong>: Ensure the application functions correctly in different regions and languages.</li>
+</ul>
+<p>By aligning these tests with deployment stages, we aim to create a clear, actionable roadmap for delivering high-quality software.</p>
+<h3 id="test-flow-diagram">Test Flow Diagram</h3>
+<p>The diagram below represents a <strong>per-environment test flow</strong>, outlining the <strong>environments, test types</strong>, and their <strong>owners or responsibilities</strong>. While this flow is designed around typical industry practices, it’s important to note that every organization may have different environments, naming conventions, or even responsibilities assigned to teams.</p>
+<p>The <strong>responsibilities</strong> listed in this flow align with standard industry roles, but these may vary depending on a company’s structure or specific needs. Additionally, <strong>adding quality and test coverage is an iterative process</strong>, meaning that no single test strategy will cover every possible test type from the start. Instead, test strategies evolve over time to adapt to new challenges and ensure comprehensive quality.</p>
+<pre class="mermaid align-center ">graph TD
+
+%% Subgraph: Local
+subgraph Local [Local Environment]
+  subgraph &#34;&#34; &#34;&#34;
+    UnitTests_Local[&#34;Unit Tests - Dev&#34;]
+    InProcessComponentTests_Local[&#34;In-Process Component Tests - Dev&#34;]
+    NarrowIntegrationTests_Local[&#34;Narrow Integration Tests - Dev, QA&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    StaticCodeAnalysis_Local[&#34;Static Code Analysis - Dev&#34;]
+    CodeCoverage_Local[&#34;Code Coverage - Dev, QA&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    SmokeTests_Local[&#34;Smoke Tests - Dev, QA&#34;]
+    EndToEndTests_Local[&#34;End-to-End (E2E) Tests - QA&#34;]
+  end
+end
+
+%% Arrow to CI
+Local --&gt; CI
+
+%% Subgraph: CI
+subgraph CI [Continuous Integration - CI]
+  subgraph &#34;&#34; &#34;&#34;
+    InProcessComponentTests_CI[&#34;In-Process Component Tests - Dev&#34;]
+    OutOfProcessComponentTests_CI[&#34;Out-of-Process Component Tests - Dev, QA&#34;]
+    NarrowIntegrationTests_CI[&#34;Narrow Integration Tests - Dev, QA&#34;]
+    BroadIntegrationTests_CI[&#34;Broad Integration Tests - QA, DevOps&#34;]
+    APIContractTests_CI[&#34;API Contract Tests - Dev, QA&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    StaticCodeAnalysis_CI[&#34;Static Code Analysis - Dev&#34;]
+    CodeCoverage_CI[&#34;Code Coverage - Dev, QA&#34;]
+    SecurityScans_CI[&#34;Security Scans - Security, DevOps&#34;]
+    CrossBrowserTests_CI[&#34;Cross-Browser Tests - QA&#34;]
+    AccessibilityTests_CI[&#34;Accessibility Tests - QA&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    EndToEndTests_CI[&#34;End-to-End (E2E) Tests - QA&#34;]
+    SmokeTests_CI[&#34;Smoke Tests - Dev, QA&#34;]
+    ConfigurationTests_CI[&#34;Configuration Tests - DevOps&#34;]
+    ComplianceTests_CI[&#34;Compliance Tests - Compliance, Security&#34;]
+  end
+end
+
+%% Arrow to Preprod
+CI --&gt; Preprod
+
+%% Subgraph: Preprod
+subgraph Preprod [Pre-production Environment]
+  subgraph &#34;&#34; &#34;&#34;
+    OutOfProcessComponentTests_Preprod[&#34;Out-of-Process Component Tests - Dev, QA&#34;]
+    BroadIntegrationTests_Preprod[&#34;Broad Integration Tests - QA, DevOps&#34;]
+    APIContractTests_Preprod[&#34;API Contract Tests - Dev, QA&#34;]
+    SecurityScans_Preprod[&#34;Security Scans - Security, DevOps&#34;]
+    LoadTests_Preprod[&#34;Load Tests - QA, DevOps&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    PerformanceTests_Preprod[&#34;Performance Tests - QA, DevOps&#34;]
+    CrossBrowserTests_Preprod[&#34;Cross-Browser Tests - QA&#34;]
+    AccessibilityTests_Preprod[&#34;Accessibility Tests - QA&#34;]
+    EndToEndTests_Preprod[&#34;End-to-End (E2E) Tests - QA&#34;]
+    SmokeTests_Preprod[&#34;Smoke Tests - Dev, QA&#34;]
+  end
+  subgraph &#34;&#34; &#34;&#34;
+    DatabaseMigrationTests_Preprod[&#34;Database Migration Tests - Dev, DBA&#34;]
+    RollbackTests_Preprod[&#34;Rollback Tests - DevOps, DBA&#34;]
+    DisasterRecoveryTests_Preprod[&#34;Disaster Recovery Tests - DevOps, IT&#34;]
+    ComplianceTests_Preprod[&#34;Compliance Tests - Compliance, Security&#34;]
+    ConfigurationTests_Preprod[&#34;Configuration Tests - DevOps&#34;]
+  end
+end
+
+%% Arrow to Prod
+Preprod --&gt; Prod
+
+%% Subgraph: Prod
+subgraph Prod [Production Environment]
+subgraph BlueGreen [Blue/Green Deployment]
+    SmokeTestsBG_Prod[&#34;Smoke Tests - Dev, DevOps, QA&#34;]
+    PostDeploymentTests_Prod[&#34;Post-Deployment Tests - QA, DevOps&#34;]
+end
+
+subgraph &#34;&#34; &#34;&#34;
+    SmokeTests_Prod[&#34;Smoke Tests - Dev, QA&#34;]
+    DisasterRecoveryTests_Prod[&#34;Disaster Recovery Tests - DevOps, IT&#34;]
+    ComplianceTests_Prod[&#34;Compliance Tests - Compliance, Security&#34;]
+end
+    
+subgraph &#34;&#34; &#34;&#34;
+    SecurityScans_Prod[&#34;Security Scans - Security, DevOps&#34;]
+    LoadTests_Prod[&#34;Load Tests - QA, DevOps&#34;]
+    PerformanceTests_Prod[&#34;Performance Tests - QA, DevOps&#34;]
+end
+end</pre>
+<h3 id="test-description">Test Description</h3>
+<p>This section presents <strong>test types</strong> in a clear and concise <strong>table format</strong>. The table includes the <strong>test type</strong>, the <strong>environments</strong> where it is typically executed, the <strong>owners</strong> responsible for the tests, and a <strong>short description</strong> of each test type.</p>
+<p>While the information provided reflects <strong>industry standards</strong>, it is not a strict rule. Every organization may adapt these test types, environments, and responsibilities to fit their unique workflows and quality assurance strategies.</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Test Type</strong></th>
+          <th><strong>Environment(s)</strong></th>
+          <th><strong>Who</strong></th>
+          <th><strong>Description</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Unit Tests</strong></td>
+          <td>Local, CI</td>
+          <td>Developers</td>
+          <td>Verify individual functions or modules. Should run quickly in isolation and are ideal for CI.</td>
+      </tr>
+      <tr>
+          <td><strong>In-Process Component Tests</strong></td>
+          <td>Local, CI</td>
+          <td>Developers</td>
+          <td>Test individual components within the same process (e.g., an API controller with a mock database layer). This verifies component behavior without external dependencies.</td>
+      </tr>
+      <tr>
+          <td><strong>Out-of-Process Component Tests</strong></td>
+          <td>CI, Preprod</td>
+          <td>Developers, QA Engineers</td>
+          <td>Test components with actual dependencies in separate processes (e.g., an API calling a real database or microservice). Verifies real interactions.</td>
+      </tr>
+      <tr>
+          <td><strong>Narrow Integration Tests</strong></td>
+          <td>Local, CI</td>
+          <td>Developers, QA Engineers</td>
+          <td>Test interactions between a few closely-related components or services within the same system boundary. Validates integrations, such as between modules or a service and its database.</td>
+      </tr>
+      <tr>
+          <td><strong>Broad Integration Tests</strong></td>
+          <td>CI, Preprod</td>
+          <td>QA Engineers, DevOps</td>
+          <td>Test larger cross-system or cross-boundary integrations, like microservices or third-party APIs. Ensures multiple components interact correctly.</td>
+      </tr>
+      <tr>
+          <td><strong>API Contract Tests</strong></td>
+          <td>Local, CI, Preprod</td>
+          <td>Developers, QA Engineers</td>
+          <td>Ensure APIs adhere to specified contracts, helping prevent breaking changes.</td>
+      </tr>
+      <tr>
+          <td><strong>Static Code Analysis</strong></td>
+          <td>Local, CI</td>
+          <td>Developers</td>
+          <td>Analyze code quality (e.g., linting). Typically run in CI and locally to catch style issues early.</td>
+      </tr>
+      <tr>
+          <td><strong>Code Coverage</strong></td>
+          <td>Local, CI</td>
+          <td>Developers, QA Engineers</td>
+          <td>Assess the percentage of code exercised by tests, typically monitored in CI.</td>
+      </tr>
+      <tr>
+          <td><strong>Security Scans</strong></td>
+          <td>CI, Preprod, Prod</td>
+          <td>Security Engineers, DevOps</td>
+          <td>Detect security vulnerabilities; best run in CI and preprod, with continuous monitoring in prod.</td>
+      </tr>
+      <tr>
+          <td><strong>Load Tests</strong></td>
+          <td>Preprod, Prod (if isolated)</td>
+          <td>QA Engineers, DevOps</td>
+          <td>Evaluate system performance under load; run in preprod to avoid impact, validated in production when feasible.</td>
+      </tr>
+      <tr>
+          <td><strong>Performance Tests</strong></td>
+          <td>Preprod, Prod (controlled)</td>
+          <td>QA Engineers, DevOps</td>
+          <td>Test system speed and response under normal load. Can run in preprod, occasionally in production.</td>
+      </tr>
+      <tr>
+          <td><strong>Cross-Browser Tests</strong></td>
+          <td>CI, Preprod</td>
+          <td>QA Engineers</td>
+          <td>Verify UI functionality across browsers; CI for regular checks, preprod for critical flows.</td>
+      </tr>
+      <tr>
+          <td><strong>Accessibility Tests</strong></td>
+          <td>CI, Preprod</td>
+          <td>QA Engineers</td>
+          <td>Ensure app is accessible (e.g., WCAG standards). Run in CI for consistency, preprod for final check.</td>
+      </tr>
+      <tr>
+          <td><strong>End-to-End (E2E) Tests</strong></td>
+          <td>Local, CI, Preprod</td>
+          <td>QA Engineers</td>
+          <td>Simulate full user flows; run in CI for main paths, preprod for final verification.</td>
+      </tr>
+      <tr>
+          <td><strong>Smoke Tests</strong></td>
+          <td>Local, CI, Preprod, Prod (Blue/Green)</td>
+          <td>Developers, DevOps, QA Engineers</td>
+          <td>Basic functionality check to verify stability in each environment. Often executed on both blue and green environments in production to validate stability before and after deployment.</td>
+      </tr>
+      <tr>
+          <td><strong>Post-Deployment Tests</strong></td>
+          <td>Prod (Blue/Green)</td>
+          <td>QA Engineers, DevOps</td>
+          <td>Comprehensive testing (e.g., E2E, performance) conducted on the newly deployed environment to confirm stability and functionality before the switch.</td>
+      </tr>
+      <tr>
+          <td><strong>Database Migration Tests</strong></td>
+          <td>Preprod</td>
+          <td>Developers, Database Administrators</td>
+          <td>Ensure database changes deploy correctly; should run in preprod to confirm migration stability.</td>
+      </tr>
+      <tr>
+          <td><strong>Rollback Tests</strong></td>
+          <td>Preprod</td>
+          <td>DevOps, Database Administrators</td>
+          <td>Test rollback strategy if deployment fails; typically run in preprod for validation.</td>
+      </tr>
+      <tr>
+          <td><strong>Disaster Recovery Tests</strong></td>
+          <td>Preprod, Prod (if feasible)</td>
+          <td>DevOps, IT Operations</td>
+          <td>Ensure recovery process works; ideal in preprod, with periodic validation in production.</td>
+      </tr>
+      <tr>
+          <td><strong>Compliance Tests</strong></td>
+          <td>CI, Preprod, Prod</td>
+          <td>Compliance Officers, Security Engineers</td>
+          <td>Confirm compliance requirements are met (e.g., GDPR). Run in CI/preprod and monitor in prod.</td>
+      </tr>
+      <tr>
+          <td><strong>Configuration Tests</strong></td>
+          <td>CI, Preprod</td>
+          <td>DevOps</td>
+          <td>Check for proper configuration settings; primarily CI with validation in preprod.</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</h2>
+<h3 id="what-is-sdlc">What is SDLC?</h3>
+<p>The Software Development Life Cycle (SDLC) is a structured process guiding software projects from start to finish. Each phase has specific goals, activities, and deliverables that build on each other to ensure successful development and maintenance. The following table are the key SDLC phases:</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Phase</strong></th>
+          <th><strong>Goal</strong></th>
+          <th><strong>Activities</strong></th>
+          <th><strong>Outcome</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Requirements</strong></td>
+          <td>Define what the software needs to do.</td>
+          <td>Gather and document requirements with stakeholders.</td>
+          <td>Clear requirements for design and development.</td>
+      </tr>
+      <tr>
+          <td><strong>Design</strong></td>
+          <td>Create a blueprint for the software.</td>
+          <td>Define architecture, interfaces, databases, and plan security and scalability.</td>
+          <td>Detailed design documents and diagrams.</td>
+      </tr>
+      <tr>
+          <td><strong>Development</strong></td>
+          <td>Build the software.</td>
+          <td>Write code, create unit tests, and conduct code reviews.</td>
+          <td>Working prototype or complete software.</td>
+      </tr>
+      <tr>
+          <td><strong>Testing</strong></td>
+          <td>Ensure the software meets quality.</td>
+          <td>Perform unit, integration, system, and user acceptance testing (UAT). Fix any issues.</td>
+          <td>Stable version ready for deployment.</td>
+      </tr>
+      <tr>
+          <td><strong>Deployment</strong></td>
+          <td>Release the software for use.</td>
+          <td>Deploy software to production, monitor, and run acceptance tests.</td>
+          <td>Live, functioning product accessible to users.</td>
+      </tr>
+      <tr>
+          <td><strong>Maintenance &amp; Support</strong></td>
+          <td>Keep the software functional post-release.</td>
+          <td>Monitor, fix bugs, apply patches, and implement enhancements based on feedback.</td>
+          <td>Continuous support and updates until retirement.</td>
+      </tr>
+  </tbody>
+</table>
+<p>This table provides a concise overview of each phase, including its purpose, activities, and outcomes. Let me know if you’d like further refinements!</p>
+<h3 id="the-test-strategy-within-the-sdlc">The Test Strategy within the SDLC</h3>
+<p>Mapping the <strong>Test Strategy</strong> over the <strong>SDLC phases</strong> can create a comprehensive quality framework, ensuring that quality standards are integrated at each step. This approach establishes quality checkpoints and testing strategies throughout the development process. Here’s how each phase can incorporate elements of the quality architecture:</p>
+<h4 id="1-requirements-gathering-and-analysis">1. <strong>Requirements Gathering and Analysis</strong></h4>
+<ul>
+<li><strong>Quality Objectives</strong>: Define quality standards, acceptance criteria, and regulatory requirements with input from all stakeholders.</li>
+<li><strong>Test Strategy and Planning</strong>: Outline an initial test plan, including types of testing required (functional, security, performance) and establish early quality metrics.</li>
+<li><strong>Roles and Responsibilities</strong>: Product Managers (PM) and QA collaborate to create clear, testable requirements and acceptance criteria.</li>
+</ul>
+<h4 id="2-system-design">2. <strong>System Design</strong></h4>
+<ul>
+<li><strong>Test Design and Coverage</strong>: Develop test cases and design documents that map directly to requirements, focusing on both functional and non-functional requirements.</li>
+<li><strong>Quality Metrics</strong>: Define metrics like test coverage, complexity, and maintainability as part of design specifications.</li>
+<li><strong>Automation Planning</strong>: Determine areas for automated testing (such as unit and integration tests) and establish CI/CD integration points.</li>
+<li><strong>Roles and Responsibilities</strong>: QA and DevOps engage with developers to ensure testability, and DevOps designs CI/CD pipeline for early test integration.</li>
+</ul>
+<h4 id="3-development">3. <strong>Development</strong></h4>
+<ul>
+<li><strong>Code Quality and Reviews</strong>: Developers follow coding standards and conduct code reviews for quality assurance. Automated tools, like linters and static code analysis, can be incorporated here.</li>
+<li><strong>Unit Testing and Test Coverage</strong>: Implement unit tests for individual components and monitor test coverage as code is developed.</li>
+<li><strong>Continuous Integration (CI)</strong>: Use CI tools to automatically build and run tests with each code commit to catch issues early.</li>
+<li><strong>Roles and Responsibilities</strong>: Developers write and run unit tests, and QA may validate test case coverage.</li>
+</ul>
+<h4 id="4-testing">4. <strong>Testing</strong></h4>
+<ul>
+<li><strong>Functional Testing</strong>: QA executes functional, integration, and end-to-end tests to verify that all requirements are met.</li>
+<li><strong>Non-Functional Testing</strong>: Perform performance, security, and usability testing to evaluate software robustness under different scenarios.</li>
+<li><strong>Automated Regression Testing</strong>: Run automated regression tests on each new build to ensure new changes don’t introduce defects.</li>
+<li><strong>Quality Metrics and Monitoring</strong>: Track defect density, test coverage, and test pass rates. Analyze results to inform potential fixes or improvements.</li>
+<li><strong>Roles and Responsibilities</strong>: QA leads testing efforts, with developers addressing reported issues, and DevOps maintaining test environments.</li>
+</ul>
+<h4 id="5-deployment">5. <strong>Deployment</strong></h4>
+<ul>
+<li><strong>Environment Validation</strong>: Ensure the production environment is consistent and validated against pre-deployment criteria.</li>
+<li><strong>Final Acceptance Testing</strong>: Conduct final smoke tests or sanity checks to confirm functionality in the production-like environment.</li>
+<li><strong>Monitoring Setup</strong>: Set up application and quality monitoring for post-deployment analysis.</li>
+<li><strong>Roles and Responsibilities</strong>: DevOps manages deployment and monitoring setup, while QA ensures final tests are successful.</li>
+</ul>
+<h4 id="6-maintenance-and-support">6. <strong>Maintenance and Support</strong></h4>
+<ul>
+<li><strong>Continuous Quality Monitoring</strong>: Track production metrics like uptime, response time, and error rates. Use monitoring tools to identify issues and trends.</li>
+<li><strong>Defect Management</strong>: Prioritize and fix bugs identified in production, using insights to refine tests and improve future releases.</li>
+<li><strong>Feedback Loops</strong>: Implement customer feedback and production incident reports to continually improve quality standards and test cases.</li>
+<li><strong>Roles and Responsibilities</strong>: QA and DevOps collaborate on monitoring, with developers addressing production issues, and PM integrating customer feedback.</li>
+</ul>
+<h3 id="quality-and-sdlc-flow">Quality and SDLC Flow</h3>
+<pre class="mermaid align-center ">flowchart TD
+    A[Requirements] --&gt; B[Design]
+    B --&gt; C[Development]
+    C --&gt; D[Testing]
+    D --&gt; E[Deployment]
+    E --&gt; F[Maintenance]
+    F --&gt; A
+
+    %% Quality Architecture with Responsibilities
+    subgraph Quality_Architecture
+        QA1[Define Quality Objectives - PM, QA] --&gt; A
+        QA2[Develop Test Strategy - PM, QA] --&gt; A
+        QA3[Design Test Cases and Coverage - QA] --&gt; B
+        QA4[Set Quality Metrics - PM, QA] --&gt; B
+        QA5[Code Reviews and Unit Testing - Developers] --&gt; C
+        QA6[Functional, Integration Testing - QA] --&gt; D
+        QA7[Non-Functional Testing - QA, Developers] --&gt; D
+        QA8[Final Acceptance Testing - QA] --&gt; E
+        QA9[Environment Validation and Monitoring - DevOps, QA] --&gt; E
+        QA10[Continuous Quality Monitoring - DevOps, QA] --&gt; F
+        QA11[Feedback Loops for Improvement - PM, QA, DevOps] --&gt; F
+    end</pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>This article is focusing on how to align testing strategies with the <strong>Software Development Life Cycle (SDLC)</strong> to ensure quality at every stage of development. We looked at how different test types fit into the SDLC and how responsibilities are distributed among teams.</p>
+<p>Key points covered:</p>
+<ul>
+<li>The SDLC provides a clear roadmap with goals, activities, and outcomes for each phase.</li>
+<li>Tests can be grouped into categories like functional, non-functional, security, and compliance to make sure all areas are covered.</li>
+<li>Responsibilities and environments may differ across organizations, so it’s important to adapt industry standards to your specific needs.</li>
+</ul>
+<p>Testing is a process that evolves over time, and this article insights highlight the value of collaboration and continuous improvement to build high-quality software.</p>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+        <script>
+          window.index_js_url="/searchindex.js?1731978264";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1731978264" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731978264" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731978264" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731978264" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731978264" defer></script>
+        <script src="/js/search.js?1731978264" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+            <li class="active " data-nav-id="/notes/sdlc_building_quality/index.html"><a class="padding" href="/notes/sdlc_building_quality/index.html">Building Quality: Aligning Test Strategies with the SDLC</a></li>
+            <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress.io</a></li>
+            <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+            <li class="" data-nav-id="/notes/gradle/index.html"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+            <li class="" data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html"><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+            <li class="" data-nav-id="/notes/hugo/index.html"><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+            <li class="" data-nav-id="/notes/intellij-ide/index.html"><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+            <li class="" data-nav-id="/notes/java-object-oriented-programming/index.html"><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+            <li class="" data-nav-id="/notes/java-spring-boot2/index.html"><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+            <li class="" data-nav-id="/notes/java-rest-assured/index.html"><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+            <li class="" data-nav-id="/notes/javascript-best-practices/index.html"><a class="padding" href="/notes/javascript-best-practices/index.html">JavaScript Best Practices and Principles</a></li>
+            <li class="" data-nav-id="/notes/java-lombok/index.html"><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+            <li class="" data-nav-id="/notes/mongodb/index.html"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+            <li class="" data-nav-id="/notes/python-and-pytest/index.html"><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li>
+            <li class="" data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/sdlc_building_quality/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1731978264" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-color.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1731978264" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1731978264" defer></script>
+    <script src="/js/js-yaml.min.js?1731978264" defer></script>
+    <script src="/js/mermaid.min.js?1731978264" defer></script>
+    <script>
+      window.themeUseMermaid = JSON.parse("{}");
+    </script>
+    <script src="/js/theme.js?1731978264" defer></script>
+  </body>
+</html>

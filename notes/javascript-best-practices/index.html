@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.1">
+    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="description" content="Best Practices Use const and let, avoid using var Write Modular, Reusable Code Use Arrow Functions (=&gt;) Consistent Naming Conventions Error Handling Use Template Literals for String Concatenation Comment and Document the Code Prefer Destructuring for Objects and Arrays Use Promises and async/await for Asynchronous Code Use Strict Mode Write Unit Tests Use ESLint and Prettier for Code Quality and Formatting Avoid Global Variables Optimize Performance Minimize Use of this Context Avoid Deeply Nested Code Use Default Parameters Write Clean and Readable Code Principles Single Responsibility Principle (SRP) Don’t Repeat Yourself (DRY) Keep it simple, Stupid (KISS) Encapsulation Separation of Concerns (SoC) Modularity Favor Composition Over Inheritance What does TypeScript fix? Encapsulation, Privacy and Minimize this Context Type Safety and const Usage Avoiding Global Scope Pollution Type Safety and Immutability Error Handling and Fail Fast Documentation and Readability Conclusion It is easy to fall in a trap when coding in JavaScript. Thus, it is highly suggested to add types and use Typescript. Nevertheless, there are the Best Practices and Principles to follow with Javascript. Many can be used with other languages like Typescript.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="JavaScript Best Practices and Principles :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Best Practices Use const and let, avoid using var Write Modular, Reusable Code Use Arrow Functions (=&gt;) Consistent Naming Conventions Error Handling Use Template Literals for String Concatenation Comment and Document the Code Prefer Destructuring for Objects and Arrays Use Promises and async/await for Asynchronous Code Use Strict Mode Write Unit Tests Use ESLint and Prettier for Code Quality and Formatting Avoid Global Variables Optimize Performance Minimize Use of this Context Avoid Deeply Nested Code Use Default Parameters Write Clean and Readable Code Principles Single Responsibility Principle (SRP) Don’t Repeat Yourself (DRY) Keep it simple, Stupid (KISS) Encapsulation Separation of Concerns (SoC) Modularity Favor Composition Over Inheritance What does TypeScript fix? Encapsulation, Privacy and Minimize this Context Type Safety and const Usage Avoiding Global Scope Pollution Type Safety and Immutability Error Handling and Fail Fast Documentation and Readability Conclusion It is easy to fall in a trap when coding in JavaScript. Thus, it is highly suggested to add types and use Typescript. Nevertheless, there are the Best Practices and Principles to follow with Javascript. Many can be used with other languages like Typescript.">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/javascript-best-practices/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="JavaScript Best Practices and Principles :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Best Practices Use const and let, avoid using var Write Modular, Reusable Code Use Arrow Functions (=&gt;) Consistent Naming Conventions Error Handling Use Template Literals for String Concatenation Comment and Document the Code Prefer Destructuring for Objects and Arrays Use Promises and async/await for Asynchronous Code Use Strict Mode Write Unit Tests Use ESLint and Prettier for Code Quality and Formatting Avoid Global Variables Optimize Performance Minimize Use of this Context Avoid Deeply Nested Code Use Default Parameters Write Clean and Readable Code Principles Single Responsibility Principle (SRP) Don’t Repeat Yourself (DRY) Keep it simple, Stupid (KISS) Encapsulation Separation of Concerns (SoC) Modularity Favor Composition Over Inheritance What does TypeScript fix? Encapsulation, Privacy and Minimize this Context Type Safety and const Usage Avoiding Global Scope Pollution Type Safety and Immutability Error Handling and Fail Fast Documentation and Readability Conclusion It is easy to fall in a trap when coding in JavaScript. Thus, it is highly suggested to add types and use Typescript. Nevertheless, there are the Best Practices and Principles to follow with Javascript. Many can be used with other languages like Typescript.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="JavaScript Best Practices and Principles :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Best Practices Use const and let, avoid using var Write Modular, Reusable Code Use Arrow Functions (=&gt;) Consistent Naming Conventions Error Handling Use Template Literals for String Concatenation Comment and Document the Code Prefer Destructuring for Objects and Arrays Use Promises and async/await for Asynchronous Code Use Strict Mode Write Unit Tests Use ESLint and Prettier for Code Quality and Formatting Avoid Global Variables Optimize Performance Minimize Use of this Context Avoid Deeply Nested Code Use Default Parameters Write Clean and Readable Code Principles Single Responsibility Principle (SRP) Don’t Repeat Yourself (DRY) Keep it simple, Stupid (KISS) Encapsulation Separation of Concerns (SoC) Modularity Favor Composition Over Inheritance What does TypeScript fix? Encapsulation, Privacy and Minimize this Context Type Safety and const Usage Avoiding Global Scope Pollution Type Safety and Immutability Error Handling and Fail Fast Documentation and Readability Conclusion It is easy to fall in a trap when coding in JavaScript. Thus, it is highly suggested to add types and use Typescript. Nevertheless, there are the Best Practices and Principles to follow with Javascript. Many can be used with other languages like Typescript.">
+    <meta itemprop="wordCount" content="3808">
+    <title>JavaScript Best Practices and Principles :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731979209" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731979209" rel="stylesheet">
+    <link href="/css/fonts.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731979209" rel="stylesheet">
+    <link href="/css/theme-blue.css?1731979209" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1731979209" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731979209" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731979209"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/notes/javascript-best-practices/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">JavaScript Best Practices and Principles</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/java-rest-assured/index.html" title="Java with Rest-Assured (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/java-lombok/index.html" title="Lombok Java Library (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable notes" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="javascript-best-practices-and-principles">JavaScript Best Practices and Principles</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#best-practices">Best Practices</a>
+      <ul>
+        <li><a href="#use-const-and-let-avoid-using-var">Use const and let, avoid using var</a></li>
+        <li><a href="#write-modular-reusable-code">Write Modular, Reusable Code</a></li>
+        <li><a href="#use-arrow-functions-">Use Arrow Functions (=&gt;)</a></li>
+        <li><a href="#consistent-naming-conventions">Consistent Naming Conventions</a></li>
+        <li><a href="#error-handling">Error Handling</a></li>
+        <li><a href="#use-template-literals-for-string-concatenation">Use Template Literals for String Concatenation</a></li>
+        <li><a href="#comment-and-document-the-code">Comment and Document the Code</a></li>
+        <li><a href="#prefer-destructuring-for-objects-and-arrays">Prefer Destructuring for Objects and Arrays</a></li>
+        <li><a href="#use-promises-and-asyncawait-for-asynchronous-code">Use Promises and <code>async/await</code> for Asynchronous Code</a></li>
+        <li><a href="#use-strict-mode">Use Strict Mode</a></li>
+        <li><a href="#write-unit-tests">Write Unit Tests</a></li>
+        <li><a href="#use-eslint-and-prettier-for-code-quality-and-formatting">Use ESLint and Prettier for Code Quality and Formatting</a></li>
+        <li><a href="#avoid-global-variables">Avoid Global Variables</a></li>
+        <li><a href="#optimize-performance">Optimize Performance</a></li>
+        <li><a href="#minimize-use-of-this-context">Minimize Use of <code>this</code> Context</a></li>
+        <li><a href="#avoid-deeply-nested-code">Avoid Deeply Nested Code</a></li>
+        <li><a href="#use-default-parameters">Use Default Parameters</a></li>
+        <li><a href="#write-clean-and-readable-code">Write Clean and Readable Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#principles">Principles</a>
+      <ul>
+        <li><a href="#single-responsibility-principle-srp">Single Responsibility Principle (SRP)</a></li>
+        <li><a href="#dont-repeat-yourself-dry">Don&rsquo;t Repeat Yourself (DRY)</a></li>
+        <li><a href="#keep-it-simple-stupid-kiss">Keep it simple, Stupid (KISS)</a></li>
+        <li><a href="#encapsulation">Encapsulation</a></li>
+        <li><a href="#separation-of-concerns-soc">Separation of Concerns (SoC)</a></li>
+        <li><a href="#modularity">Modularity</a></li>
+        <li><a href="#favor-composition-over-inheritance">Favor Composition Over Inheritance</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-does-typescript-fix">What does TypeScript fix?</a>
+      <ul>
+        <li><a href="#encapsulation-privacy-and-minimize-this-context">Encapsulation, Privacy and Minimize <code>this</code> Context</a></li>
+        <li><a href="#type-safety-and-const-usage">Type Safety and <code>const</code> Usage</a></li>
+        <li><a href="#avoiding-global-scope-pollution">Avoiding Global Scope Pollution</a></li>
+        <li><a href="#type-safety-and-immutability">Type Safety and Immutability</a></li>
+        <li><a href="#error-handling-and-fail-fast">Error Handling and Fail Fast</a></li>
+        <li><a href="#documentation-and-readability">Documentation and Readability</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+</div>
+<p>It is easy to fall in a trap when coding in JavaScript.  Thus, it is highly suggested to add types and use Typescript.  Nevertheless, there are the Best Practices and Principles to follow with Javascript.  Many can be used with other languages like Typescript.</p>
+<h2 id="best-practices">Best Practices</h2>
+<p>Here are some best practices for javascript coding, in order to maintain clean, efficient and error-free code.</p>
+<h3 id="use-const-and-let-avoid-using-var">Use const and let, avoid using var</h3>
+<ul>
+<li><code>const</code> is used for variables, or constants, whose values shouldn&rsquo;t change.</li>
+<li><code>let</code> is used for variables that may change.</li>
+<li>Avoid <code>var</code> due to its function-scoping, which can cause unexpected behavior</li>
+</ul>
+<h4 id="function-scope-vs-block-scope">Function Scope vs Block Scope</h4>
+<p>The <code>var </code>is function-scoped, meaning that it is accessible within the function in which it is declared, regardless of the block it&rsquo;s in, for example, within an <code>if</code> or <code>for</code> statement.</p>
+<p>The <code>let</code> and <code>const</code> are block-scoped, meaning they are only accessible within the block they are defined in.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">testScope</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">functionScoped</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;I&#39;m accessible throughout the function&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">blockScoped</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;I&#39;m accessible only within this block&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">functionScoped</span>); <span style="color:#75715e">// Works
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">blockScoped</span>); <span style="color:#75715e">// ReferenceError: blockScoped is not defined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+<h4 id="hoisting-or-raised">Hoisting (or raised)</h4>
+<p>The <code>var</code> declarations are <code>hoisted</code> to the top of their scope, which means that Javascript moves all <code>var</code> declarations to the top of the function scope at runtime; warning: only declaration is hoisted, not the initialization.</p>
+<p>This can lead to confusing bugs, especially if the <code>var</code> is used before it&rsquo;s initialization.  In this case, value will be <code>undefined</code> instead of causing an error.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">myVar</span>); <span style="color:#75715e">// undefined (hoisted declaration)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">myVar</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>; <span style="color:#75715e">// initialized here
+</span></span></span></code></pre></div>
+<p>By contrast, <code>let</code> and <code>const</code> are also hoisted, but they remain in a <code>temporal dead zone</code> until they are actually declared in code.  Accessing them before their declaration will cause a <code>ReferenceError</code>, meaning it easier to catch potential errors in the code.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">myLet</span>); <span style="color:#75715e">// ReferenceError: Cannot access &#39;myLet&#39; before initialization
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">myLet</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;</span></span></code></pre></div>
+<h4 id="re-declaration-issues">Re-declaration Issues</h4>
+<p>The <code>var</code> allows re-declaration within the same scope, which can cause unintended variable overwrites and bugs in the code.</p>
+<p>The <code>let</code> and <code>const</code> do not allow re-declaration within same scope.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">message</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;World&#34;</span>; <span style="color:#75715e">// Re-declaration allowed with var
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">message</span>); <span style="color:#75715e">// &#34;World&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hi&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>; <span style="color:#75715e">// SyntaxError: Identifier &#39;greeting&#39; has already been declared
+</span></span></span></code></pre></div>
+<h3 id="write-modular-reusable-code">Write Modular, Reusable Code</h3>
+<ul>
+<li>Break down code into smaller, reusable functions or modules.</li>
+<li>Use the Single Responsibility Principle (SRP): each function or module should handle one task.</li>
+<li>Consider using the <code>module pattern</code> or <code>ES6 modules</code> to organize code.</li>
+</ul>
+<p>Organizing Javascript code using the <code>module pattern</code> or <code>ES6 modules</code> helps manage code structure, making it more maintainable, modular, and reusable:</p>
+<h4 id="module-pattern">Module Pattern</h4>
+<p>The Module Pattern is a design pattern in javascript that allows you to group related functions, variables and objects into a single unit (or a <code>module</code>), usually returning an object that expose only what needs to be accessible externally while keeping the rest private.</p>
+<ul>
+<li>This pattern relies only  on <code>closures</code> to create private and public members within a function, providing <code>encapsulation</code> to avoid global scope pollution and project internal details from external access.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CounterModule</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Private variables and functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">counter</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">decrement</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">counter</span><span style="color:#f92672">--</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Public API: exposed by returning an object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getCounter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">counter</span>;
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">incrementCounter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">increment</span>();
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">decrementCounter</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">decrement</span>();
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>})();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">CounterModule</span>.<span style="color:#a6e22e">incrementCounter</span>();
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">CounterModule</span>.<span style="color:#a6e22e">getCounter</span>()); <span style="color:#75715e">// 1
+</span></span></span></code></pre></div>
+<p>In this example, counter, increment and decrement are private (can&rsquo;t be accessed directly outside the module), while the getCounter, incrementCounter and decrementCounter methods are public.</p>
+<h4 id="es5-modules">ES5 Modules</h4>
+<ul>
+<li><code>ES6 Modules (or ECMAScript 2015)</code> introduced a built-in module system for Javascript, designed to support modular code directly in the language. This system provides <code>import</code> and <code>export</code> keywords to allow easy code sharing between files.</li>
+<li>With ES6 modules, each file is treated as a <code>separated module</code> with its own scope.  Variables, functions and classes can be exported from one file and imported into another.  This improves code readability and allows for cleaner dependencies without global variable conflicts.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// matUtils.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Named exports
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">subtract</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">-</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Default export
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">multiply</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// app.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// Importing named exports
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">add</span>, <span style="color:#a6e22e">subtract</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./mathUtils.js&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Importing default export
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">multiply</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./mathUtils.js&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)); <span style="color:#75715e">// 5
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">subtract</span>(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>)); <span style="color:#75715e">// 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">multiply</span>(<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">2</span>)); <span style="color:#75715e">// 8
+</span></span></span></code></pre></div>
+<p>Notes:</p>
+<ul>
+<li>ES6 modules are automatically <code>strict mode</code> meaning undeclared variables or unsafe operations are disallowed bu default.</li>
+<li>Unlike the module pattern, ES6 modules are asynchronous, and they use <code>tree-shaking</code> to removed unused exports, while helps optimize performance by reducing bundle size in production. <code>tree-shaking</code> is an optimization technique used in Javascript bundlers (like webpack, rollup and ESBuild) to remove unused code (dead code) from final bundle, making applications faster and more efficient.</li>
+</ul>
+<h4 id="when">When?</h4>
+<p>The <code>module pattern</code>is ideal if you&rsquo;re working in an environment where ES6 modules are not supported (e.g., older environments) or if you want to create an immediately usable object with private/public members without importing/exporting between files.</p>
+<p>The ÈS6 Modules` are recommended for most modern Javascript application, especially for object using build tools like webpack, vite, rollup, etc.  ES6 modules are now the standard way of organizing Javascript code in both client-side and server-side applications, including framework like React, Vue, and Node.js.</p>
+<h3 id="use-arrow-functions-">Use Arrow Functions (=&gt;)</h3>
+<ul>
+<li>Arrow functions are concise and <strong>don&rsquo;t have</strong> their own <code>this</code> context, making them useful for callbacks and simpler functions.</li>
+<li><code>Warning</code>: avoid arrow functions in methods if you need a function with its own <code>this</code> context.</li>
+</ul>
+<h4 id="use-arrows-functions-for-simple-callbacks">Use arrows functions for simple callbacks.</h4>
+<p>Arrows functions make callbacks, especially inline ones, more concise and readable:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">squares</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">num</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid (excessive verbosity for a simple callback)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">squaresOld</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">map</span>(<span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">num</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">num</span>;
+</span></span><span style="display:flex;"><span>});</span></span></code></pre></div>
+<p>The practices help to make the code clearer, more predictable, and avoid common pitfalls with <code>this</code> binding.</p>
+<h4 id="avoid-arrow-functions-for-methods-in-classes">Avoid arrow functions for methods in classes</h4>
+<p>Use regular function expressions for defining methods in classes, as arrow functions fo not have their own this context:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Counter</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Good (using regular function for method)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid (arrow functions lack their own `this`)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CounterBad</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">increment</span> <span style="color:#f92672">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">count</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h4 id="use-arrow-functions-to-maintain-this-context-in-callbacks">Use arrow functions to maintain `this“ context in callbacks</h4>
+<p>When working with callbacks in a class, arrow functions can be beneficial for preserving the <code>this</code> context:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Timer</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">constructor</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">seconds</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">start</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">setInterval</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">seconds</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>; <span style="color:#75715e">// `this` refers to Timer instance
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }, <span style="color:#ae81ff">1000</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="consistent-naming-conventions">Consistent Naming Conventions</h3>
+<ul>
+<li>
+<p>Use <code>camelCase</code> for variables and functions: <code>const userAge = 25;</code></p>
+</li>
+<li>
+<p>Use <code>PascalCase</code> for classes and constructors: <code>class UserAccount{ ... }</code></p>
+</li>
+<li>
+<p>Use prefix boolean variables with <code>is</code>, <code>has</code>, <code>should</code> and <code>can</code>:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">isLoggedIn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">hasAccess</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">loggedIn</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">accessGranted</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;</span></span></code></pre></div>
+</li>
+<li>
+<p>Use descriptive names for variables, functions and classes:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">calculateTotalPrice</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">items</span>) =&gt; { <span style="color:#75715e">/* ... */</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">itemList</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;apple&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;banana&#39;</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid (unclear purpose)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">calcTP</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">arr</span>) =&gt; { <span style="color:#75715e">/* ... */</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arr</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;apple&#39;</span>, <span style="color:#e6db74">&#39;orange&#39;</span>, <span style="color:#e6db74">&#39;banana&#39;</span>];</span></span></code></pre></div>
+</li>
+<li>
+<p>Use descriptive names for Constants, use UPPER_SNAKE_CASE for constants that represent values unlikely to change (e.g., configuration values), this helps indicate immutability:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MAX_USER_COUNT</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_BASE_URL</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.example.com&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">MaxUserCount</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">apiBaseUrl</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;https://api.example.com&#39;</span>;</span></span></code></pre></div>
+</li>
+<li>
+<p>Use consistent naming convention for Asynchronous Functions (<code>async</code>/<code>fetch</code>), when working with async functions, prefix the function names with <code>fetch</code>, <code>get</code>, <code>load</code> or <code>retrieve</code> to indicate the nature of the function:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchUserData</span>() { <span style="color:#75715e">/* ... */</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">loadSettings</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; { <span style="color:#75715e">/* ... */</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getData</span>() { <span style="color:#75715e">/* ... */</span> }</span></span></code></pre></div>
+</li>
+<li>
+<p>Use <code>handle</code> or <code>on</code> prefixes with event handler functions to make their purpose clear:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchUserData</span>() { <span style="color:#75715e">/* ... */</span> }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">loadSettings</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">async</span> () =&gt; { <span style="color:#75715e">/* ... */</span> };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getData</span>() { <span style="color:#75715e">/* ... */</span> }</span></span></code></pre></div>
+</li>
+</ul>
+<h3 id="error-handling">Error Handling</h3>
+<ul>
+<li>Always add error handling in asynchronous code (<code>try/catch</code> blocks with <code>async/await</code>).</li>
+<li>Use custom error messages to make debugging easier.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Asynchronous function with proper error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchUserData</span>(<span style="color:#a6e22e">userId</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">`https://api.example.com/users/</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">userId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">ok</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`Failed to fetch data: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">statusText</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">data</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Custom error message for debugging
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">`Error in fetchUserData: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">`Unable to retrieve user data for ID: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">userId</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Example usage of the function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fetchUserData</span>(<span style="color:#ae81ff">123</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>));</span></span></code></pre></div>
+<h3 id="use-template-literals-for-string-concatenation">Use Template Literals for String Concatenation</h3>
+<ul>
+<li>Instead of using + to concatenate strings, use template literals:</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Good
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">firstName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Alain&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">lastName</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bouchard&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greeting</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">firstName</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">lastName</span><span style="color:#e6db74">}</span><span style="color:#e6db74">! Welcome.`</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Avoid
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">greetingOld</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello, &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">firstName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">lastName</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;! Welcome.&#34;</span>;</span></span></code></pre></div>
+<h3 id="comment-and-document-the-code">Comment and Document the Code</h3>
+<ul>
+<li>Write comments for complex or unclear code blocks, but avoid redundant comments.</li>
+<li>Use JSDoc-style comments for functions and classes to describe their purpose, parameters and return values.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Calculates the total price of items with tax.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number[]} prices - Array of item prices.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @param {number} taxRate - Tax rate to be applied (e.g., 0.08 for 8%).
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * @returns {number} Total price after tax.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculateTotalPrice</span>(<span style="color:#a6e22e">prices</span>, <span style="color:#a6e22e">taxRate</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">subtotal</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">prices</span>.<span style="color:#a6e22e">reduce</span>((<span style="color:#a6e22e">total</span>, <span style="color:#a6e22e">price</span>) =&gt; <span style="color:#a6e22e">total</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">price</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">subtotal</span> <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">taxRate</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Example usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">total</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">calculateTotalPrice</span>(<span style="color:#a6e22e">items</span>, <span style="color:#ae81ff">0.08</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">total</span>);</span></span></code></pre></div>
+<h3 id="prefer-destructuring-for-objects-and-arrays">Prefer Destructuring for Objects and Arrays</h3>
+<ul>
+<li>Destructuring improves readability and reduces repetitive code:</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Alain&#39;</span>, <span style="color:#a6e22e">age</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">30</span> };
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">age</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">user</span>;</span></span></code></pre></div>
+<h3 id="use-promises-and-asyncawait-for-asynchronous-code">Use Promises and <code>async/await</code> for Asynchronous Code</h3>
+<ul>
+<li>Avoid callback hell bu using Promises or async/await.</li>
+<li>handle errors with <code>try/catch</code> blocks around async functions.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Function using async/await with error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchData</span>(<span style="color:#a6e22e">url</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">fetch</span>(<span style="color:#a6e22e">url</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">json</span>();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">data</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error fetching data:&#34;</span>, <span style="color:#a6e22e">error</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">throw</span> <span style="color:#a6e22e">error</span>; <span style="color:#75715e">// Re-throw to handle it in calling code if needed
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Example usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">fetchData</span>(<span style="color:#e6db74">&#34;https://api.example.com/data&#34;</span>)
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">data</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">data</span>))
+</span></span><span style="display:flex;"><span>  .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Fetch failed:&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>));</span></span></code></pre></div>
+<h3 id="use-strict-mode">Use Strict Mode</h3>
+<ul>
+<li>Enable Strict Mode by adding <code>use strict;</code> at the beginning of your scripts.  This mode prevents the use of undeclared variables and other common Javascript pitfalls:</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#e6db74">&#34;use strict&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">calculateArea</span>(<span style="color:#a6e22e">radius</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Prevents usage of undeclared variables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">pi</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14159</span>; <span style="color:#75715e">// ReferenceError: pi is not defined
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">pi</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">radius</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">radius</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">calculateArea</span>(<span style="color:#ae81ff">5</span>);</span></span></code></pre></div>
+<p>Note: Strict Mode isn&rsquo;t required with Typescript as TS inherently enforces many of the same safeguards.</p>
+<h3 id="write-unit-tests">Write Unit Tests</h3>
+<ul>
+<li>Write unit tests for functions and components to verify code behavior.</li>
+<li>Use frameworks like Jest, Mocha, or Cypress (for FE and E2E testing).</li>
+</ul>
+<h3 id="use-eslint-and-prettier-for-code-quality-and-formatting">Use ESLint and Prettier for Code Quality and Formatting</h3>
+<ul>
+<li>ESLint helps catch common errors and enforces a consistent style.</li>
+<li>Prettier ensures that code is formatted consistently across your project.</li>
+</ul>
+<h3 id="avoid-global-variables">Avoid Global Variables</h3>
+<ul>
+<li>Avoid polluting the global namespace by declaring variables and functions at the global scope. Use closures aor modules instead.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Avoid: Global variables and functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Global variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Count:&#34;</span>, <span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reset</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Count reset.&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">increment</span>(); <span style="color:#75715e">// Count: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">increment</span>(); <span style="color:#75715e">// Count: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">reset</span>();     <span style="color:#75715e">// Count reset.
+</span></span></span></code></pre></div>
+<p>Example using an Immediately-Invoked Function Expression (IIFE) to create a closure:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// IIFE to avoid polluting the global namespace
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">CounterModule</span> <span style="color:#f92672">=</span> (<span style="color:#66d9ef">function</span> () {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Private variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Count:&#34;</span>, <span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">reset</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Count reset.&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">increment</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">reset</span>,
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>})();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using the module
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">CounterModule</span>.<span style="color:#a6e22e">increment</span>(); <span style="color:#75715e">// Count: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">CounterModule</span>.<span style="color:#a6e22e">increment</span>(); <span style="color:#75715e">// Count: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">CounterModule</span>.<span style="color:#a6e22e">reset</span>();     <span style="color:#75715e">// Count reset.
+</span></span></span></code></pre></div>
+<p>Note: A <code>closure</code> is a feature where an inner function has access to the outer (enclosing) function&rsquo;s variables, even after the outer function has finished executing.  This allows the inner function to <code>&quot;remember&quot;</code> the environment in which it was created. Closures are often used to create private variables and functions, which helps avoid global scope pollution:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">createCounter</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">count</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Private variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">increment</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">count</span><span style="color:#f92672">++</span>; <span style="color:#75715e">// Accessing count from the outer scope
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Count:&#34;</span>, <span style="color:#a6e22e">count</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">counter</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">createCounter</span>(); <span style="color:#75715e">// createCounter returns the inner function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">counter</span>(); <span style="color:#75715e">// Count: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">counter</span>(); <span style="color:#75715e">// Count: 2
+</span></span></span></code></pre></div>
+<h3 id="optimize-performance">Optimize Performance</h3>
+<ul>
+<li>Avoid excessive DOM manipulations; batch updates if possible.</li>
+<li>Use <code>Debouncing</code> and <code>Throttling</code> to handle frequent event calls like scrolling or resizing.</li>
+<li>Load only necessary libraries and assets, especially for web applications.</li>
+</ul>
+<h4 id="debouncing">Debouncing</h4>
+<p>To delay the function execution until a specified time has passed since the last call.  Useful for events that file rapidly, like resize:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Debounce function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">debounce</span>(<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">delay</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">timer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> (...<span style="color:#a6e22e">args</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">clearTimeout</span>(<span style="color:#a6e22e">timer</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">timer</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">setTimeout</span>(() =&gt; <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">args</span>), <span style="color:#a6e22e">delay</span>);
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage: Resize event with debounce
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;resize&#34;</span>, <span style="color:#a6e22e">debounce</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Resized!&#34;</span>);
+</span></span><span style="display:flex;"><span>}, <span style="color:#ae81ff">300</span>));</span></span></code></pre></div>
+<h4 id="throttling">Throttling</h4>
+<p>To ensure a function is only called once in a specified time interval, regardless of how many times the event occurs.  Useful for scroll events:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Throttle function
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">throttle</span>(<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">limit</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">inThrottle</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> (...<span style="color:#a6e22e">args</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span><span style="color:#a6e22e">inThrottle</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">func</span>.<span style="color:#a6e22e">apply</span>(<span style="color:#66d9ef">this</span>, <span style="color:#a6e22e">args</span>);
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">inThrottle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">setTimeout</span>(() =&gt; (<span style="color:#a6e22e">inThrottle</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>), <span style="color:#a6e22e">limit</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage: Scroll event with throttle
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>window.<span style="color:#a6e22e">addEventListener</span>(<span style="color:#e6db74">&#34;scroll&#34;</span>, <span style="color:#a6e22e">throttle</span>(() =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Scrolled!&#34;</span>);
+</span></span><span style="display:flex;"><span>}, <span style="color:#ae81ff">300</span>));</span></span></code></pre></div>
+<h3 id="minimize-use-of-this-context">Minimize Use of <code>this</code> Context</h3>
+<ul>
+<li>Use arrow functions and .bind() to avoid unexpected <code>this</code> binding.</li>
+<li>Prefer <code>class</code> for object-oriented code, which clarifies <code>this</code> usage.</li>
+</ul>
+<p>In Javascript, <code>.bind()</code> is used to explicitly set the <code>this</code> context for a function, ensuring it refers to a specific object regardless of where or how the function is called. This is particularly helpful <strong>when passing functions as callbacks</strong>, as it prevents unexpected <code>this</code> binding.</p>
+<p>Example of <code>.bind[]</code> to preserve <code>this</code> context:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alain&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">greet</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>);
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Without .bind(), `this` is lost in a callback
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">greet</span>, <span style="color:#ae81ff">1000</span>); <span style="color:#75715e">// Output: &#34;Hello, undefined!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Using .bind() to preserve `this`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">setTimeout</span>(<span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">greet</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#a6e22e">user</span>), <span style="color:#ae81ff">1000</span>); <span style="color:#75715e">// Output: &#34;Hello, Alain!&#34;
+</span></span></span></code></pre></div>
+<p>In this specific case, the arrow function <code>=&gt;</code> isn&rsquo;t suggested, Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">user</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Alain&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">greet</span><span style="color:#f92672">:</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>), <span style="color:#75715e">// Avoid (arrow function here makes `this` undefined)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>};</span></span></code></pre></div>
+<h3 id="avoid-deeply-nested-code">Avoid Deeply Nested Code</h3>
+<ul>
+<li>Deeply nested  ode can be hard to read and maintain. Refactor nested callbacks and <code>if</code> statements into smaller functions.</li>
+</ul>
+<h3 id="use-default-parameters">Use Default Parameters</h3>
+<ul>
+<li>Set default values for function parameters to handle undefined arguments:</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Guest&#39;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="write-clean-and-readable-code">Write Clean and Readable Code</h3>
+<ul>
+<li>Aim for readability over cleverness. Code should be understandable by others without needing additional explanation.</li>
+<li>Avoid adding comments, use code readability instead.</li>
+</ul>
+<h2 id="principles">Principles</h2>
+<p>Javascript Principles form the foundational ideas and approaches that guide how code should be structured, organized and maintained. Following these principles leads to more efficient, maintainable and error-free code.</p>
+<h3 id="single-responsibility-principle-srp">Single Responsibility Principle (SRP)</h3>
+<ul>
+<li>Each function, module or class should have one specific responsibility.</li>
+<li>Bu following SRP, you make your code easier to read, test and maintain.</li>
+</ul>
+<h3 id="dont-repeat-yourself-dry">Don&rsquo;t Repeat Yourself (DRY)</h3>
+<ul>
+<li>Avoid duplicating code; instead, reuse functions, classes, or modules.</li>
+<li>DRY promotes reusability and helps avoid inconsistent code, especially during updates.</li>
+</ul>
+<h3 id="keep-it-simple-stupid-kiss">Keep it simple, Stupid (KISS)</h3>
+<ul>
+<li>Write simple, clear code, instead of overly complicated solutions.</li>
+<li>Avoid unnecessary complexity and strive to make your code easy to understand and maintain.</li>
+</ul>
+<h3 id="encapsulation">Encapsulation</h3>
+<ul>
+<li>Hide implementation details and expose only what&rsquo;s necessary.</li>
+<li>Encapsulation helps prevent external code from accidentally interacting with or modifying internal logic.</li>
+</ul>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankAccount</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">balance</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// Private field
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">accountHolder</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">accountHolder</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">accountHolder</span>; <span style="color:#75715e">// Public property
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">deposit</span>(<span style="color:#a6e22e">amount</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">amount</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">this</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">balance</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">amount</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">withdraw</span>(<span style="color:#a6e22e">amount</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">amount</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#a6e22e">amount</span> <span style="color:#f92672">&lt;=</span> <span style="color:#66d9ef">this</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">balance</span>) <span style="color:#66d9ef">this</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">balance</span> <span style="color:#f92672">-=</span> <span style="color:#a6e22e">amount</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getBalance</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#960050;background-color:#1e0010">#</span><span style="color:#a6e22e">balance</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">account</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">BankAccount</span>(<span style="color:#e6db74">&#34;Alain&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">deposit</span>(<span style="color:#ae81ff">100</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">getBalance</span>()); <span style="color:#75715e">// 100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">withdraw</span>(<span style="color:#ae81ff">30</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">account</span>.<span style="color:#a6e22e">getBalance</span>()); <span style="color:#75715e">// 70
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// console.log(account.#balance); // Error: Private field &#39;#balance&#39; is not accessible
+</span></span></span></code></pre></div>
+<h3 id="separation-of-concerns-soc">Separation of Concerns (SoC)</h3>
+<ul>
+<li>Keep different concerns (data handling, UI rendering, business logic) separate.</li>
+<li>In Javascript, this often means separating HTML/CSS from JavaScript logic and organizing Javascript into cohesive modules.</li>
+</ul>
+<h3 id="modularity">Modularity</h3>
+<ul>
+<li>Break down your code into smaller, independent modules or functions.</li>
+<li>Modularity improves reusability, testability, and maintainability by keeping related functions grouped logically.</li>
+</ul>
+<h3 id="favor-composition-over-inheritance">Favor Composition Over Inheritance</h3>
+<ul>
+<li>Use composition (combining functions to build objects) rather than inheritance (creating class hierarchies) when possible.</li>
+<li>Composition is more flexible than inheritance, making it easier to reuse code without creating complex class hierarchies.</li>
+</ul>
+<p>Example of Composition vs Inheritance:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// Behavior functions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">canFly</span>(<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">fly</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Flying!&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">canSwim</span>(<span style="color:#a6e22e">obj</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">obj</span>.<span style="color:#a6e22e">swim</span> <span style="color:#f92672">=</span> () =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Swimming!&#34;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">obj</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Composing a bird object with specific behaviors
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">bird</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canFly</span>({});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">bird</span>.<span style="color:#a6e22e">fly</span>(); <span style="color:#75715e">// Output: &#34;Flying!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Composing a fish object with different behavior
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">fish</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">canSwim</span>({});
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fish</span>.<span style="color:#a6e22e">swim</span>(); <span style="color:#75715e">// Output: &#34;Swimming!&#34;
+</span></span></span></code></pre></div>
+<p>Instead of creating multiple subclasses like <code>FlyingBird</code> or <code>SwimmingFish</code>, we use small, composable functions (e.g., <code>canFly</code> or <code>canSwim</code>).  This approach allows flexible combinations of behaviors, making it easier to create objects with varied capabilities without rigid class hierarchies.</p>
+<h2 id="what-does-typescript-fix">What does TypeScript fix?</h2>
+<p>When using <strong>TypeScript</strong> with JavaScript principles, most concepts remain valid, but TypeScript&rsquo;s features can modify or enhance certain principles.</p>
+<p>There are the JavaScript principles that are affected.</p>
+<h3 id="encapsulation-privacy-and-minimize-this-context">Encapsulation, Privacy and Minimize <code>this</code> Context</h3>
+<p><strong>TypeScript</strong> provides <code>private</code> and <code>protected</code> access modifiers for class fields and methods, enabling true encapsulation without relying on JavaScript-specific patterns like closures or the # syntax for private fields, and making it easier to manage privacy without relying heavily on <code>this</code>.  Additionally, using arrow functions and bound functions in TYpeScript classes can help avoid unexpected <code>this</code> binding, especially in callbacks.</p>
+<p>The <strong>impact</strong> is that it makes encapsulation more intuitive and aligned with other OOP languages.  You can avoid closures or the module pattern for encapsulation within classes, as TypeScript&rsquo;s access modifiers give more straightforward privacy control. Additionally, you can more easily avoid <code>this</code> in context where it&rsquo;s not needed or expected. Access modifiers and arrow functions reduce reliance of <code>this</code> for accessing private or protected members, which can simplify code and make it easier to follow.</p>
+<p>Example of a TypeScript class:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BankAccount</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#a6e22e">balance</span>: <span style="color:#66d9ef">number</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#75715e">// private access modifier
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">deposit</span>(<span style="color:#a6e22e">amount</span>: <span style="color:#66d9ef">number</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">amount</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">balance</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">amount</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">getBalance</span>()<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">balance</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="type-safety-and-const-usage">Type Safety and <code>const</code> Usage</h3>
+<p><strong>TypeScript</strong> enforces types, meaning that developers don&rsquo;t need to rely as heavily on <code>const</code> to prevent reassignment. The type system ensures that values of specific types remain consistent throughout the code.</p>
+<p>The <strong>impact</strong> is that the use of <code>const</code> for immutability is still recommended, but sightly less critical for type safety, as TypeScript will enforce types at compile time.</p>
+<h3 id="avoiding-global-scope-pollution">Avoiding Global Scope Pollution</h3>
+<p>**TypeScript has its own module system and strict scoping, which naturally avoids global pollution bu requiring explicit imports and exports.</p>
+<p>The <strong>impact</strong> is that the emphasis on avoiding global scope pollution is less relevant in TypeScript, as it enforces a module-based approach.  Each file is treated as a module by default, so variables and functions aren&rsquo;t accidentally exposed globally.</p>
+<h3 id="type-safety-and-immutability">Type Safety and Immutability</h3>
+<p><strong>TypeScript</strong> provides the <code>readonly</code> keyword for properties.  It adds a layer of immutability by preventing properties from being modified after initialization. This is especially helpful in enforcing immutability for objects and class properties.</p>
+<p>The <strong>impact</strong> is that the immutability is still important, but TypeScript&rsquo;s <code>readonly</code> keyword gives more control over immutability directly, reducing the need to use libraries or additional patterns to enforce immutability manually.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">readonly</span> <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">constructor</span>(<span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">name</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h3 id="error-handling-and-fail-fast">Error Handling and Fail Fast</h3>
+<p><strong>TypeScript</strong>&rsquo;s type checking at compile time reduces certain runtime errors, enforcing stricter code that prevents many errors, enforcing stricter code that prevents many errors before they happen. Additionally, TypeScript modules automatically run in <code>strict mode</code>, enforcing safer coding by default</p>
+<p>The <strong>impact</strong> is that while <code>fail fast</code> is still a good principle, TypeScript&rsquo;s static typing minimizes runtime errors, especially those related to type mismatches or missing properties. This reduces reliance on <code>try/catch</code> for type errors, though runtime errors (like network errors) still require handling.</p>
+<p>JavaScript vs TypeScript example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// javascript version with type error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span> <span style="color:#f92672">||</span> <span style="color:#66d9ef">typeof</span> <span style="color:#a6e22e">b</span> <span style="color:#f92672">!==</span> <span style="color:#e6db74">&#39;number&#39;</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Both arguments must be numbers&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Cannot divide by zero&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">divide</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>)); <span style="color:#75715e">// Error: Cannot divide by zero
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">divide</span>(<span style="color:#e6db74">&#34;10&#34;</span>, <span style="color:#ae81ff">2</span>)); <span style="color:#75715e">// Error: Both arguments must be numbers
+</span></span></span></code></pre></div>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// typescript version with no type error handling
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">divide</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">void</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">b</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Error(<span style="color:#e6db74">&#34;Cannot divide by zero&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">/</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span> <span style="color:#66d9ef">instanceof</span> Error) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#34;Error:&#34;</span>, <span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">message</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Usage
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">divide</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">0</span>)); <span style="color:#75715e">// Error: Cannot divide by zero
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">divide</span>(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>)); <span style="color:#75715e">// 5
+</span></span></span></code></pre></div>
+<h3 id="documentation-and-readability">Documentation and Readability</h3>
+<p><strong>TypeScript</strong> types provide a level of <code>self-documentation</code>, as types clarify what a function, variable, or class is expected to handle. For example, seeing <code>getUser(id: number): User</code> clearly communicates what <code>getUser</code> does.</p>
+<p>The <strong>impact</strong> is that this principle still relevant, but <code>enums</code> and TypeScript&rsquo;s type checking make it easier to avoid magic numbers and use constants consistently.</p>
+<p>Example:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Status</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Active</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Inactive</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+<h2 id="conclusion">Conclusion</h2>
+<p>Most JavaScript principles remain valid in TypeScript, but TypeScript&rsquo;s features like <code>private</code>, <code>readonly</code>, modules, enums and static typing improve and simplify many best practices. With TypeScript, code can be more organized, self-documenting and type-safe, which can reduce reliance on specific patterns used in pure JavaScript.</p>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+        <script>
+          window.index_js_url="/searchindex.js?1731979209";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731979209" defer></script>
+        <script src="/js/search.js?1731979209" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+            <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
+            <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+            <li class="" data-nav-id="/notes/gradle/index.html"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+            <li class="" data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html"><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+            <li class="" data-nav-id="/notes/hugo/index.html"><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+            <li class="" data-nav-id="/notes/intellij-ide/index.html"><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+            <li class="" data-nav-id="/notes/java-object-oriented-programming/index.html"><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+            <li class="" data-nav-id="/notes/java-spring-boot2/index.html"><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+            <li class="" data-nav-id="/notes/java-rest-assured/index.html"><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+            <li class="active " data-nav-id="/notes/javascript-best-practices/index.html"><a class="padding" href="/notes/javascript-best-practices/index.html">JavaScript Best Practices and Principles</a></li>
+            <li class="" data-nav-id="/notes/java-lombok/index.html"><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+            <li class="" data-nav-id="/notes/mongodb/index.html"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+            <li class="" data-nav-id="/notes/python-and-pytest/index.html"><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li>
+            <li class="" data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/javascript-best-practices/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1731979209" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731979209" defer></script>
+    <script src="/js/theme.js?1731979209" defer></script>
+  </body>
+</html>

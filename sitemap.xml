@@ -1,66 +1,75 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blogs/index.html</loc>
+    <loc>https://AlainBouchard.github.io/blogs/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/index.html</loc>
+    <loc>https://AlainBouchard.github.io/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/apache-kafka/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/apache-kafka/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/categories/index.html</loc>
+    <loc>https://AlainBouchard.github.io/blogs/sdlc-building-quality/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/data-quality/index.html</loc>
+    <loc>https://AlainBouchard.github.io/categories/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/gradle/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/cypress/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/gradle-for-java-based-applications-and-libraries/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/data-quality/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/blogs/how-to-promote-the-quality-best-practices/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/gradle/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/hugo/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/gradle-for-java-based-applications-and-libraries/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/intellij-ide/index.html</loc>
+    <loc>https://AlainBouchard.github.io/blogs/how-to-promote-the-quality-best-practices/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/java-object-oriented-programming/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/hugo/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/java-spring-boot2/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/intellij-ide/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/java-rest-assured/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/java-object-oriented-programming/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/java-lombok/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/java-spring-boot2/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/mongodb/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/java-rest-assured/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/python-and-pytest/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/javascript-best-practices/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/blogs/quality-architect-role/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/java-lombok/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/blogs/role-architecte-qualite/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/mongodb/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/tags/index.html</loc>
+    <loc>https://AlainBouchard.github.io/notes/python-and-pytest/index.html</loc>
   </url>
   <url>
-    <loc>http://localhost:1313/notes/typescript/index.html</loc>
+    <loc>https://AlainBouchard.github.io/blogs/quality-architect-role/index.html</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/blogs/role-architecte-qualite/index.html</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/tags/index.html</loc>
+  </url>
+  <url>
+    <loc>https://AlainBouchard.github.io/notes/typescript/index.html</loc>
   </url>
 </urlset>

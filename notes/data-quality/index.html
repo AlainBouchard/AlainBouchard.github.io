@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.1">
@@ -10,7 +10,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
     <meta name="twitter:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
-    <meta property="og:url" content="http://localhost:1313/notes/data-quality/index.html">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/data-quality/index.html">
     <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
     <meta property="og:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
     <meta property="og:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
@@ -21,21 +21,21 @@
     <meta itemprop="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules Data Quality Techniques Data Quality Roles Data Quality Process Data Quality Tools Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
     <meta itemprop="wordCount" content="2985">
     <title>Data Quality :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1729118630" rel="stylesheet">
-    <link href="/css/auto-complete.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1729118630" rel="stylesheet">
-    <link href="/css/fonts.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1729118630" rel="stylesheet">
-    <link href="/css/theme-blue.css?1729118630" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1729118630" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1729118630" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1729118630"></script>
+    <link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731979209" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731979209" rel="stylesheet">
+    <link href="/css/fonts.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731979209" rel="stylesheet">
+    <link href="/css/theme-blue.css?1731979209" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1731979209" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731979209" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731979209"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       // variant stuff
@@ -67,7 +67,7 @@
             itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Data Quality</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
-            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/apache-kafka/index.html" title="Apache Kafka (WIP) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/cypress/index.html" title="Cypress with TypeScript (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
             <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/gradle/index.html" title="Gradle (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
@@ -707,7 +707,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <img src="/logo.png">
         </div>
         <script>
-          window.index_js_url="/searchindex.js?1729118630";
+          window.index_js_url="/searchindex.js?1731979209";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -720,12 +720,12 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1729118630" defer></script>
-        <script src="/js/search.js?1729118630" defer></script>
+        <script src="/js/auto-complete.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731979209" defer></script>
+        <script src="/js/search.js?1731979209" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -739,6 +739,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
             <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
             <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
             <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+            <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
             <li class="active " data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
             <li class="" data-nav-id="/notes/gradle/index.html"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
             <li class="" data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html"><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
@@ -747,6 +748,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
             <li class="" data-nav-id="/notes/java-object-oriented-programming/index.html"><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
             <li class="" data-nav-id="/notes/java-spring-boot2/index.html"><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
             <li class="" data-nav-id="/notes/java-rest-assured/index.html"><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+            <li class="" data-nav-id="/notes/javascript-best-practices/index.html"><a class="padding" href="/notes/javascript-best-practices/index.html">JavaScript Best Practices and Principles</a></li>
             <li class="" data-nav-id="/notes/java-lombok/index.html"><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
             <li class="" data-nav-id="/notes/mongodb/index.html"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
             <li class="" data-nav-id="/notes/python-and-pytest/index.html"><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li>
@@ -803,22 +805,22 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1729118630" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-color.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1729118630" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1729118630" defer></script>
-    <script src="/js/js-yaml.min.js?1729118630" defer></script>
-    <script src="/js/mermaid.min.js?1729118630" defer></script>
+    <script src="/js/clipboard.min.js?1731979209" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-color.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1731979209" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1731979209" defer></script>
+    <script src="/js/js-yaml.min.js?1731979209" defer></script>
+    <script src="/js/mermaid.min.js?1731979209" defer></script>
     <script>
       window.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1729118630" defer></script>
+    <script src="/js/theme.js?1731979209" defer></script>
   </body>
 </html>

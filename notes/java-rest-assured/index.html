@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.1">
@@ -12,7 +12,7 @@ the Given specify prerequisites the When describe the action to take the Then de
     <meta name="twitter:title" content="Java with Rest-Assured :: Alain Bouchard&#39;s Engineering Notes">
     <meta name="twitter:description" content="Java with Rest-Assured Pattern API response Deserialize a response Tools Java with Rest-Assured Rest-Assured link: [https://rest-assured.io] can get latest version: [https://mvnrepository.com] jackson databind package can be used for data-binding hamcrest package can be used for matchers org.hamcrest.Matchers.* Pattern using the Given, When and Then pattern
 the Given specify prerequisites the When describe the action to take the Then describe the expected result using JUnit 5: @Test public void getTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; var response = given(). // using easy to read format for doc only queryParam(&#34;id&#34;, &#34;2&#34;). when(). get(endpoint). then(); } @Test public void postTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34;, &#34;key2&#34;: &#34;value2&#34; } &#34;&#34;&#34; var response = given().body(body).when().post(endpoint).then(); } @Test public void putTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34;, &#34;key2&#34;: &#34;value2&#34; } &#34;&#34;&#34; var response = given().body(body).when().put(endpoint).then(); } @Test public void deleteTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34; } &#34;&#34;&#34; var response = given().body(body).when().delete(endpoint).then(); } API response validate the status code">
-    <meta property="og:url" content="http://localhost:1313/notes/java-rest-assured/index.html">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/java-rest-assured/index.html">
     <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
     <meta property="og:title" content="Java with Rest-Assured :: Alain Bouchard&#39;s Engineering Notes">
     <meta property="og:description" content="Java with Rest-Assured Pattern API response Deserialize a response Tools Java with Rest-Assured Rest-Assured link: [https://rest-assured.io] can get latest version: [https://mvnrepository.com] jackson databind package can be used for data-binding hamcrest package can be used for matchers org.hamcrest.Matchers.* Pattern using the Given, When and Then pattern
@@ -25,21 +25,21 @@ the Given specify prerequisites the When describe the action to take the Then de
 the Given specify prerequisites the When describe the action to take the Then describe the expected result using JUnit 5: @Test public void getTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; var response = given(). // using easy to read format for doc only queryParam(&#34;id&#34;, &#34;2&#34;). when(). get(endpoint). then(); } @Test public void postTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34;, &#34;key2&#34;: &#34;value2&#34; } &#34;&#34;&#34; var response = given().body(body).when().post(endpoint).then(); } @Test public void putTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34;, &#34;key2&#34;: &#34;value2&#34; } &#34;&#34;&#34; var response = given().body(body).when().put(endpoint).then(); } @Test public void deleteTest() { String endpoint = &#34;http://localhost:8888/a/b/c&#34;; String body = &#34;&#34;&#34; { &#34;key1&#34;: &#34;value1&#34; } &#34;&#34;&#34; var response = given().body(body).when().delete(endpoint).then(); } API response validate the status code">
     <meta itemprop="wordCount" content="306">
     <title>Java with Rest-Assured :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1729118630" rel="stylesheet">
-    <link href="/css/auto-complete.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1729118630" rel="stylesheet">
-    <link href="/css/fonts.css?1729118630" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1729118630" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1729118630" rel="stylesheet">
-    <link href="/css/theme-blue.css?1729118630" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1729118630" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1729118630" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1729118630"></script>
+    <link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731979209" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731979209" rel="stylesheet">
+    <link href="/css/fonts.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731979209" rel="stylesheet">
+    <link href="/css/theme-blue.css?1731979209" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1731979209" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731979209" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731979209"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
-      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
       // variant stuff
@@ -73,7 +73,7 @@ the Given specify prerequisites the When describe the action to take the Then de
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/java-spring-boot2/index.html" title="Java Spring Boot 2 (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
             </div>
-            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/java-lombok/index.html" title="Lombok Java Library (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/javascript-best-practices/index.html" title="JavaScript Best Practices and Principles (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
             </div>
             <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
               <div class="topbar-content">
@@ -240,7 +240,7 @@ the Given specify prerequisites the When describe the action to take the Then de
 <img src="/logo.png">
         </div>
         <script>
-          window.index_js_url="/searchindex.js?1729118630";
+          window.index_js_url="/searchindex.js?1731979209";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -253,12 +253,12 @@ the Given specify prerequisites the When describe the action to take the Then de
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1729118630" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1729118630" defer></script>
-        <script src="/js/search.js?1729118630" defer></script>
+        <script src="/js/auto-complete.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731979209" defer></script>
+        <script src="/js/search.js?1731979209" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -272,6 +272,7 @@ the Given specify prerequisites the When describe the action to take the Then de
             <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
             <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
             <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+            <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
             <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
             <li class="" data-nav-id="/notes/gradle/index.html"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
             <li class="" data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html"><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
@@ -280,6 +281,7 @@ the Given specify prerequisites the When describe the action to take the Then de
             <li class="" data-nav-id="/notes/java-object-oriented-programming/index.html"><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
             <li class="" data-nav-id="/notes/java-spring-boot2/index.html"><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
             <li class="active " data-nav-id="/notes/java-rest-assured/index.html"><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+            <li class="" data-nav-id="/notes/javascript-best-practices/index.html"><a class="padding" href="/notes/javascript-best-practices/index.html">JavaScript Best Practices and Principles</a></li>
             <li class="" data-nav-id="/notes/java-lombok/index.html"><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
             <li class="" data-nav-id="/notes/mongodb/index.html"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
             <li class="" data-nav-id="/notes/python-and-pytest/index.html"><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li>
@@ -336,8 +338,8 @@ the Given specify prerequisites the When describe the action to take the Then de
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1729118630" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1729118630" defer></script>
-    <script src="/js/theme.js?1729118630" defer></script>
+    <script src="/js/clipboard.min.js?1731979209" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731979209" defer></script>
+    <script src="/js/theme.js?1731979209" defer></script>
   </body>
 </html>

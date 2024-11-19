@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.1">
+    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="description" content="Install Cypress with npm Open Cypress from CLI Using TypeScript with Cypress Dependencies installation Configure TypeScript tsconfig.ts File ESLint Installation for Cypress and TypeScript Install Cypress with npm From terminal:
+&gt; npm init -y &gt; npm install cypress --save-dev Expect package.json file to be created an contain the following:
+&gt; cat package.json { &#34;devDependencies&#34;: { &#34;cypress&#34;: &#34;^13.15.0&#34;, }, &#34;dependencies&#34;: { } } Open Cypress from CLI &gt; npx cypress open Using TypeScript with Cypress Information may be found on Cypress TypeScript documentation page.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Cypress with TypeScript :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Install Cypress with npm Open Cypress from CLI Using TypeScript with Cypress Dependencies installation Configure TypeScript tsconfig.ts File ESLint Installation for Cypress and TypeScript Install Cypress with npm From terminal:
+&gt; npm init -y &gt; npm install cypress --save-dev Expect package.json file to be created an contain the following:
+&gt; cat package.json { &#34;devDependencies&#34;: { &#34;cypress&#34;: &#34;^13.15.0&#34;, }, &#34;dependencies&#34;: { } } Open Cypress from CLI &gt; npx cypress open Using TypeScript with Cypress Information may be found on Cypress TypeScript documentation page.">
+    <meta property="og:url" content="https://AlainBouchard.github.io/notes/cypress/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Cypress with TypeScript :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Install Cypress with npm Open Cypress from CLI Using TypeScript with Cypress Dependencies installation Configure TypeScript tsconfig.ts File ESLint Installation for Cypress and TypeScript Install Cypress with npm From terminal:
+&gt; npm init -y &gt; npm install cypress --save-dev Expect package.json file to be created an contain the following:
+&gt; cat package.json { &#34;devDependencies&#34;: { &#34;cypress&#34;: &#34;^13.15.0&#34;, }, &#34;dependencies&#34;: { } } Open Cypress from CLI &gt; npx cypress open Using TypeScript with Cypress Information may be found on Cypress TypeScript documentation page.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Notes">
+    <meta itemprop="name" content="Cypress with TypeScript :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Install Cypress with npm Open Cypress from CLI Using TypeScript with Cypress Dependencies installation Configure TypeScript tsconfig.ts File ESLint Installation for Cypress and TypeScript Install Cypress with npm From terminal:
+&gt; npm init -y &gt; npm install cypress --save-dev Expect package.json file to be created an contain the following:
+&gt; cat package.json { &#34;devDependencies&#34;: { &#34;cypress&#34;: &#34;^13.15.0&#34;, }, &#34;dependencies&#34;: { } } Open Cypress from CLI &gt; npx cypress open Using TypeScript with Cypress Information may be found on Cypress TypeScript documentation page.">
+    <meta itemprop="wordCount" content="763">
+    <title>Cypress with TypeScript :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1731979209" rel="stylesheet">
+    <link href="/css/auto-complete.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1731979209" rel="stylesheet">
+    <link href="/css/fonts.css?1731979209" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731979209" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1731979209" rel="stylesheet">
+    <link href="/css/theme-blue.css?1731979209" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1731979209" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1731979209" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1731979209"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='https:\/\/AlainBouchard.github.io';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/notes/cypress/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Cypress with TypeScript</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/apache-kafka/index.html" title="Apache Kafka (WIP) (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/data-quality/index.html" title="Data Quality (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable notes" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="cypress-with-typescript">Cypress with TypeScript</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-cypress-with-npm">Install Cypress with npm</a></li>
+    <li><a href="#open-cypress-from-cli">Open Cypress from CLI</a></li>
+    <li><a href="#using-typescript-with-cypress">Using TypeScript with Cypress</a>
+      <ul>
+        <li><a href="#dependencies-installation">Dependencies installation</a></li>
+        <li><a href="#configure-typescript-tsconfigts-file">Configure TypeScript tsconfig.ts File</a></li>
+      </ul>
+    </li>
+    <li><a href="#eslint-installation-for-cypress-and-typescript">ESLint Installation for Cypress and TypeScript</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="install-cypress-with-npm">Install Cypress with npm</h2>
+<p>From terminal:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm init -y
+</span></span><span style="display:flex;"><span>&gt; npm install cypress --save-dev</span></span></code></pre></div>
+<p>Expect package.json file to be created an contain the following:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code class="language-cli" data-lang="cli">&gt; cat package.json
+
+{
+  &#34;devDependencies&#34;: {
+    &#34;cypress&#34;: &#34;^13.15.0&#34;,
+  },
+  &#34;dependencies&#34;: {
+  }
+}</code></pre></div>
+<h2 id="open-cypress-from-cli">Open Cypress from CLI</h2>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npx cypress open</span></span></code></pre></div>
+<h2 id="using-typescript-with-cypress">Using TypeScript with Cypress</h2>
+<p>Information may be found on <a href="https://docs.cypress.io/guides/tooling/typescript-support" rel="external" target="_blank">Cypress TypeScript</a> documentation page.</p>
+<h3 id="dependencies-installation">Dependencies installation</h3>
+<p>Install TypeScript locally:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install typescript --save-dev</span></span></code></pre></div>
+<p>Expect the following:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code class="language-cli" data-lang="cli">&gt; cat package.json
+
+{
+  &#34;devDependencies&#34;: {
+    &#34;cypress&#34;: &#34;^13.15.0&#34;,
+    &#34;typescript&#34;: &#34;^5.6.3&#34;    
+  },
+  &#34;dependencies&#34;: {
+  }
+}</code></pre></div>
+<p>Optionally, install the ESLinter for TypesSript:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+</span></span><span style="display:flex;"><span>&gt; npx eslint --init</span></span></code></pre></div>
+<p>Pick the right configuration:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>✔ How would you like to use ESLint? · problems
+</span></span><span style="display:flex;"><span>✔ What type of modules does your project use? · esm
+</span></span><span style="display:flex;"><span>✔ Which framework does your project use? · none
+</span></span><span style="display:flex;"><span>✔ Does your project use TypeScript? · typescript
+</span></span><span style="display:flex;"><span>✔ Where does your code run? · browser
+</span></span><span style="display:flex;"><span>The config that you&#39;ve selected requires the following dependencies:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>eslint, globals, @eslint/js, typescript-eslint
+</span></span><span style="display:flex;"><span>✔ Would you like to install them now? · Yes
+</span></span><span style="display:flex;"><span>✔ Which package manager do you want to use? · npm</span></span></code></pre></div>
+<p>Install Cypress Plugin:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install eslint-plugin-cypress --save-dev</span></span></code></pre></div>
+<h3 id="configure-typescript-tsconfigts-file">Configure TypeScript tsconfig.ts File</h3>
+<p>Configure TypeScript for Cypress:</p>
+<p>From the cypress directory, run the following command.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npx tsc --init --types cypress,node,jquery --lib dom,es6</span></span></code></pre></div>
+<p>Expect a <code>tsconfig.json</code> file to be created at the project&rsquo;s <code>cypress</code> directory:</p>
+<div class="highlight wrap-code"><pre tabindex="0"><code class="language-cli" data-lang="cli">Created a new tsconfig.json with:                                                  target: es2016
+  module: commonjs
+  lib: dom,es6
+  strict: true
+  types: cypress
+  esModuleInterop: true
+  skipLibCheck: true
+  forceConsistentCasingInFileNames: true</code></pre></div>
+<p>Note: the <code>tsconfig.json</code> should be in the <code>cypress</code> directory, therefore it should be moved if it was created at the project root level.</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;types&#34;</span>: [<span style="color:#e6db74">&#34;cypress&#34;</span>, <span style="color:#e6db74">&#34;jquery&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;target&#34;</span>: <span style="color:#e6db74">&#34;es6&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lib&#34;</span>: [<span style="color:#e6db74">&#34;es6&#34;</span>, <span style="color:#e6db74">&#34;dom&#34;</span>],  <span style="color:#75715e">// Ensure DOM types are included
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">&#34;moduleResolution&#34;</span>: <span style="color:#e6db74">&#34;node&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;esModuleInterop&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;include&#34;</span>: [<span style="color:#e6db74">&#34;cypress/**/*.ts&#34;</span>, <span style="color:#e6db74">&#34;cypress/**/*.d.ts&#34;</span>]  <span style="color:#75715e">// Ensure it includes Cypress TypeScript files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+<h2 id="eslint-installation-for-cypress-and-typescript">ESLint Installation for Cypress and TypeScript</h2>
+<p>You’ll need to install the following npm packages to configure ESLint for TypeScript and Cypress:</p>
+<p>Core ESLint Packages:</p>
+<ul>
+<li>eslint: The core ESLint package.</li>
+<li>@eslint/js: JavaScript-specific ESLint configurations (recommended rules).</li>
+<li>@typescript-eslint/parser: ESLint parser for TypeScript.</li>
+<li>@typescript-eslint/eslint-plugin: Plugin for TypeScript-specific ESLint rules.</li>
+<li>eslint-plugin-cypress: ESLint plugin for Cypress-specific rules.</li>
+</ul>
+<p>Globals Package:</p>
+<ul>
+<li>globals: Provides global variables for environments like browsers, Node.js, Cypress, Mocha, etc.</li>
+</ul>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install eslint @eslint/js @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-cypress globals --save-dev</span></span></code></pre></div>
+<p>Installation command:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install eslint @eslint/js @typescript-eslint/parser @typescript-eslint/eslint-plugin eslint-plugin-cypress globals --save-dev</span></span></code></pre></div>
+<p>ESLint Configuration File:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">globals</span> <span style="color:#960050;background-color:#1e0010">from</span> <span style="color:#960050;background-color:#1e0010">&#39;globals&#39;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">pluginJs</span> <span style="color:#960050;background-color:#1e0010">from</span> <span style="color:#960050;background-color:#1e0010">&#39;@eslint/js&#39;;</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">tseslint</span> <span style="color:#960050;background-color:#1e0010">from</span> <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint/eslint-plugin&#39;;</span>  <span style="color:#75715e">// Import TypeScript plugin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">tsParser</span> <span style="color:#960050;background-color:#1e0010">from</span> <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint/parser&#39;;</span>  <span style="color:#75715e">// Use TypeScript parser
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">cypressPlugin</span> <span style="color:#960050;background-color:#1e0010">from</span> <span style="color:#960050;background-color:#1e0010">&#39;eslint-plugin-cypress&#39;;</span>  <span style="color:#75715e">// Import Cypress plugin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">export</span> <span style="color:#960050;background-color:#1e0010">default</span> [
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Apply to general JavaScript and TypeScript files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">files:</span> <span style="color:#960050;background-color:#1e0010">[&#39;**/*.{js,mjs,cjs,ts,tsx</span>}<span style="color:#960050;background-color:#1e0010">&#39;</span>]<span style="color:#960050;background-color:#1e0010">,</span>  <span style="color:#75715e">// Apply to all JS and TS files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#960050;background-color:#1e0010">languageOptions:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">parser:</span> <span style="color:#960050;background-color:#1e0010">tsParser,</span>  <span style="color:#75715e">// Use TypeScript parser for TS files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">globals:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">...globals.browser,</span>  <span style="color:#75715e">// Include browser-specific global variables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">...globals.node,</span>     <span style="color:#75715e">// Include Node.js globals
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">JQuery:</span> <span style="color:#960050;background-color:#1e0010">&#39;readonly&#39;,</span>  <span style="color:#75715e">// Add JQuery global for Cypress files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">plugins:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint&#39;:</span> <span style="color:#960050;background-color:#1e0010">tseslint,</span>
+</span></span><span style="display:flex;"><span>    }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">rules:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">&#39;quotes&#39;:</span> <span style="color:#960050;background-color:#1e0010">[&#39;error&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;single&#39;],</span>  <span style="color:#75715e">// Enforce single quotes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;semi&#39;:</span> <span style="color:#960050;background-color:#1e0010">[&#39;error&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;always&#39;],</span>    <span style="color:#75715e">// Enforce semicolons
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint/no-unused-vars&#39;:</span> <span style="color:#960050;background-color:#1e0010">&#39;error&#39;,</span>  <span style="color:#75715e">// Disallow unused variables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">},</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Apply specifically to Cypress test files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">files:</span> <span style="color:#960050;background-color:#1e0010">[&#39;**/*.cy.{js,ts,tsx</span>}<span style="color:#960050;background-color:#1e0010">&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;cypress/**/*.</span>{<span style="color:#960050;background-color:#1e0010">js,ts,tsx</span>}<span style="color:#960050;background-color:#1e0010">&#39;],</span>  <span style="color:#75715e">// Target Cypress test files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#960050;background-color:#1e0010">languageOptions:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">parser:</span> <span style="color:#960050;background-color:#1e0010">tsParser,</span>  <span style="color:#75715e">// Use TypeScript parser for Cypress files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">globals:</span> <span style="color:#960050;background-color:#1e0010">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">...globals.browser,</span>  <span style="color:#75715e">// Include browser-specific global variables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">cy:</span> <span style="color:#960050;background-color:#1e0010">&#39;readonly&#39;,</span>  <span style="color:#75715e">// Explicitly define &#39;cy&#39; as a global variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">Cypress:</span> <span style="color:#960050;background-color:#1e0010">&#39;readonly&#39;,</span>  <span style="color:#75715e">// Explicitly define &#39;Cypress&#39; as a global variable
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">...globals.cypress,</span>  <span style="color:#75715e">// Include Cypress globals (cy, Cypress, etc.)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">...globals.mocha,</span>  <span style="color:#75715e">// Include Mocha globals (describe, it, beforeEach, etc.)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#960050;background-color:#1e0010">JQuery:</span> <span style="color:#960050;background-color:#1e0010">&#39;readonly&#39;,</span>  <span style="color:#75715e">// Add JQuery global for Cypress files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">plugins:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint&#39;:</span> <span style="color:#960050;background-color:#1e0010">tseslint,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">&#39;cypress&#39;:</span> <span style="color:#960050;background-color:#1e0010">cypressPlugin,</span>  <span style="color:#75715e">// Enable Cypress plugin
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">rules:</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#960050;background-color:#1e0010">&#39;quotes&#39;:</span> <span style="color:#960050;background-color:#1e0010">[&#39;error&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;single&#39;],</span>  <span style="color:#75715e">// Enforce single quotes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;semi&#39;:</span> <span style="color:#960050;background-color:#1e0010">[&#39;error&#39;,</span> <span style="color:#960050;background-color:#1e0010">&#39;always&#39;],</span>    <span style="color:#75715e">// Enforce semicolons
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;@typescript-eslint/no-unused-vars&#39;:</span> <span style="color:#960050;background-color:#1e0010">&#39;error&#39;,</span>  <span style="color:#75715e">// Disallow unused variables
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;cypress/no-unnecessary-waiting&#39;:</span> <span style="color:#960050;background-color:#1e0010">&#39;error&#39;,</span>  <span style="color:#75715e">// Enforce Cypress rule
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#960050;background-color:#1e0010">&#39;cypress/assertion-before-screenshot&#39;:</span> <span style="color:#960050;background-color:#1e0010">&#39;warn&#39;,</span>  <span style="color:#75715e">// Enforce Cypress rule
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">},</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">pluginJs.configs.recommended,</span>  <span style="color:#75715e">// Recommended JavaScript rules
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">rules:</span> <span style="color:#960050;background-color:#1e0010">tseslint.configs.recommended.rules,</span>  <span style="color:#75715e">// Include recommended TypeScript rules
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }<span style="color:#960050;background-color:#1e0010">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">];</span></span></span></code></pre></div>
+<p>ESLint Commands:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npx eslint <span style="color:#e6db74">&#39;**/*.cy.{ts,js,tsx}&#39;</span>
+</span></span><span style="display:flex;"><span>&gt; npx eslint <span style="color:#e6db74">&#39;**/*.{ts,js,mjs,tsx}&#39;</span></span></span></code></pre></div>
+<p>Adding Eslint to the package.json scripts section:</p>
+<p>The following must be added to the &lsquo;package.json&rsquo; (comments are for doc only, please remove them):</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;scripts&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;lint&#34;</span>: <span style="color:#e6db74">&#34;eslint &#39;**/*.{js,ts,tsx}&#39;&#34;</span>,   <span style="color:#75715e">// Lint all JS/TS files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">&#34;lint:fix&#34;</span>: <span style="color:#e6db74">&#34;eslint &#39;**/*.{js,ts,tsx}&#39; --fix&#34;</span>,  <span style="color:#75715e">// Fix linting issues
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#f92672">&#34;lint:cypress&#34;</span>: <span style="color:#e6db74">&#34;eslint &#39;cypress/**/*.{js,ts,tsx}&#39;&#34;</span>  <span style="color:#75715e">// Lint only Cypress test files
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  }<span style="color:#960050;background-color:#1e0010">,</span></span></span></code></pre></div>
+<p>The npm command to run it:</p>
+<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm run lint
+</span></span><span style="display:flex;"><span>&gt; npm run lint:fix
+</span></span><span style="display:flex;"><span>&gt; npm run lint:cypress</span></span></code></pre></div>
+<!-- References and links -->
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+        <script>
+          window.index_js_url="/searchindex.js?1731979209";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1731979209" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1731979209" defer></script>
+        <script src="/js/search.js?1731979209" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
+            <li class="active " data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
+            <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
+            <li class="" data-nav-id="/notes/gradle/index.html"><a class="padding" href="/notes/gradle/index.html">Gradle</a></li>
+            <li class="" data-nav-id="/notes/gradle-for-java-based-applications-and-libraries/index.html"><a class="padding" href="/notes/gradle-for-java-based-applications-and-libraries/index.html">Gradle for Java-Based applications and libraries</a></li>
+            <li class="" data-nav-id="/notes/hugo/index.html"><a class="padding" href="/notes/hugo/index.html">Hugo</a></li>
+            <li class="" data-nav-id="/notes/intellij-ide/index.html"><a class="padding" href="/notes/intellij-ide/index.html">IntelliJ Cheat Sheet</a></li>
+            <li class="" data-nav-id="/notes/java-object-oriented-programming/index.html"><a class="padding" href="/notes/java-object-oriented-programming/index.html">Java Object-Oriented Programming</a></li>
+            <li class="" data-nav-id="/notes/java-spring-boot2/index.html"><a class="padding" href="/notes/java-spring-boot2/index.html">Java Spring Boot 2</a></li>
+            <li class="" data-nav-id="/notes/java-rest-assured/index.html"><a class="padding" href="/notes/java-rest-assured/index.html">Java with Rest-Assured</a></li>
+            <li class="" data-nav-id="/notes/javascript-best-practices/index.html"><a class="padding" href="/notes/javascript-best-practices/index.html">JavaScript Best Practices and Principles</a></li>
+            <li class="" data-nav-id="/notes/java-lombok/index.html"><a class="padding" href="/notes/java-lombok/index.html">Lombok Java Library</a></li>
+            <li class="" data-nav-id="/notes/mongodb/index.html"><a class="padding" href="/notes/mongodb/index.html">MongoDB</a></li>
+            <li class="" data-nav-id="/notes/python-and-pytest/index.html"><a class="padding" href="/notes/python-and-pytest/index.html">Python and PyTest</a></li>
+            <li class="" data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/cypress/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1731979209" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1731979209" defer></script>
+    <script src="/js/theme.js?1731979209" defer></script>
+  </body>
+</html>
