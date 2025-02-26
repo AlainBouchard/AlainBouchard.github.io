@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <meta name="generator" content="Hugo 0.136.1">
+    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="description" content="Background Applying Design for Testability to Software Development Test Strategy Requirements 1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right) 2. Repeatability &amp; Reliability 3. Comprehensive Logging &amp; Reporting 4. Self-Cleaning Tests 5. No Testing Limitations 6. Decentralized Testing Responsibility Infrastructure and Configuration for Testability 1. Testing in Any Environment (Including Production, If Needed) 2. Self-Cleaning Tests 3. Domain-Isolated Testing 4. Multi-Interface Testing 5. Feature Flag (FF) Control 6. Capturing System Metrics 7. Production-Representative Test Environments Software Development for Testability 1. CRUD API Support 2. Database Management for Testing 3. Feature Flag (FF) Control 4. Time Manipulation for Testing In a Nutshell Background “Design for Testability” is a principle I frequently use, and it comes from my early experience in electrical engineering. In hardware development, especially when designing Printed Circuit Boards (PCBs) and Printed Circuit Board Assemblies (PCBAs), testing isn’t just a step—it’s a necessity.">
+    <meta name="author" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Design for Testability :: Alain Bouchard&#39;s Engineering Notes">
+    <meta name="twitter:description" content="Background Applying Design for Testability to Software Development Test Strategy Requirements 1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right) 2. Repeatability &amp; Reliability 3. Comprehensive Logging &amp; Reporting 4. Self-Cleaning Tests 5. No Testing Limitations 6. Decentralized Testing Responsibility Infrastructure and Configuration for Testability 1. Testing in Any Environment (Including Production, If Needed) 2. Self-Cleaning Tests 3. Domain-Isolated Testing 4. Multi-Interface Testing 5. Feature Flag (FF) Control 6. Capturing System Metrics 7. Production-Representative Test Environments Software Development for Testability 1. CRUD API Support 2. Database Management for Testing 3. Feature Flag (FF) Control 4. Time Manipulation for Testing In a Nutshell Background “Design for Testability” is a principle I frequently use, and it comes from my early experience in electrical engineering. In hardware development, especially when designing Printed Circuit Boards (PCBs) and Printed Circuit Board Assemblies (PCBAs), testing isn’t just a step—it’s a necessity.">
+    <meta property="og:url" content="http://localhost:1313/blogs/design-for-testability/index.html">
+    <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:title" content="Design for Testability :: Alain Bouchard&#39;s Engineering Notes">
+    <meta property="og:description" content="Background Applying Design for Testability to Software Development Test Strategy Requirements 1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right) 2. Repeatability &amp; Reliability 3. Comprehensive Logging &amp; Reporting 4. Self-Cleaning Tests 5. No Testing Limitations 6. Decentralized Testing Responsibility Infrastructure and Configuration for Testability 1. Testing in Any Environment (Including Production, If Needed) 2. Self-Cleaning Tests 3. Domain-Isolated Testing 4. Multi-Interface Testing 5. Feature Flag (FF) Control 6. Capturing System Metrics 7. Production-Representative Test Environments Software Development for Testability 1. CRUD API Support 2. Database Management for Testing 3. Feature Flag (FF) Control 4. Time Manipulation for Testing In a Nutshell Background “Design for Testability” is a principle I frequently use, and it comes from my early experience in electrical engineering. In hardware development, especially when designing Printed Circuit Boards (PCBs) and Printed Circuit Board Assemblies (PCBAs), testing isn’t just a step—it’s a necessity.">
+    <meta property="og:locale" content="en_us">
+    <meta property="og:type" content="article">
+    <meta property="article:section" content="My Blogs">
+    <meta itemprop="name" content="Design for Testability :: Alain Bouchard&#39;s Engineering Notes">
+    <meta itemprop="description" content="Background Applying Design for Testability to Software Development Test Strategy Requirements 1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right) 2. Repeatability &amp; Reliability 3. Comprehensive Logging &amp; Reporting 4. Self-Cleaning Tests 5. No Testing Limitations 6. Decentralized Testing Responsibility Infrastructure and Configuration for Testability 1. Testing in Any Environment (Including Production, If Needed) 2. Self-Cleaning Tests 3. Domain-Isolated Testing 4. Multi-Interface Testing 5. Feature Flag (FF) Control 6. Capturing System Metrics 7. Production-Representative Test Environments Software Development for Testability 1. CRUD API Support 2. Database Management for Testing 3. Feature Flag (FF) Control 4. Time Manipulation for Testing In a Nutshell Background “Design for Testability” is a principle I frequently use, and it comes from my early experience in electrical engineering. In hardware development, especially when designing Printed Circuit Boards (PCBs) and Printed Circuit Board Assemblies (PCBAs), testing isn’t just a step—it’s a necessity.">
+    <meta itemprop="wordCount" content="1217">
+    <title>Design for Testability :: Alain Bouchard&#39;s Engineering Notes</title>
+    <link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1740605805" rel="stylesheet">
+    <link href="/css/auto-complete.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1740605805" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1740605805" rel="stylesheet">
+    <link href="/css/fonts.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1740605805" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1740605805" rel="stylesheet">
+    <link href="/css/theme-blue.css?1740605805" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1740605805" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1740605805" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1740605805"></script>
+    <script>
+      window.relearn = window.relearn || {};
+      window.relearn.relBasePath='..\/..';
+      window.relearn.relBaseUri='..\/..';
+      window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.disableAnchorCopy=false;
+      window.relearn.disableAnchorScrolling=false;
+      // variant stuff
+      window.variants && variants.init( [ 'blue' ] );
+      // translations
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
+    </script>
+  </head>
+  <body class="mobile-support html" data-url="/blogs/design-for-testability/index.html">
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/blogs/index.html"><span itemprop="name">My Blogs</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Design for Testability</span><meta itemprop="position" content="3"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
+            <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/blogs/sdlc-building-quality/index.html" title="Building Quality: Aligning Test Strategies with the SDLC (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-next" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/blogs/how-to-promote-the-quality-best-practices/index.html" title="How to promote the Quality Best Practices (🡒)"><i class="fa-fw fas fa-chevron-right"></i></a>
+            </div>
+            <div class="topbar-button topbar-button-more" data-content-empty="hide" data-width-s="show" data-width-m="show" data-width-l="show"><button class="topbar-control" onclick="toggleTopbarFlyout(this)" type="button" title="More"><i class="fa-fw fas fa-ellipsis-v"></i></button>
+              <div class="topbar-content">
+                <div class="topbar-content-wrapper">
+                  <div class="topbar-area topbar-area-more" data-area="more">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable blogs" tabindex="-1">
+        <div class="flex-block-wrapper">
+<article class="default">
+  <header class="headline">
+  </header>
+
+<h1 id="design-for-testability">Design for Testability</h1>
+
+<div class="toc">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#background">Background</a></li>
+    <li><a href="#applying-design-for-testability-to-software-development">Applying Design for Testability to Software Development</a></li>
+    <li><a href="#test-strategy-requirements">Test Strategy Requirements</a>
+      <ul>
+        <li><a href="#1-continuous-testing-across-cicd-shift-left--shift-right">1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right)</a></li>
+        <li><a href="#2-repeatability--reliability">2. Repeatability &amp; Reliability</a></li>
+        <li><a href="#3-comprehensive-logging--reporting">3. Comprehensive Logging &amp; Reporting</a></li>
+        <li><a href="#4-self-cleaning-tests">4. Self-Cleaning Tests</a></li>
+        <li><a href="#5-no-testing-limitations">5. No Testing Limitations</a></li>
+        <li><a href="#6-decentralized-testing-responsibility">6. Decentralized Testing Responsibility</a></li>
+      </ul>
+    </li>
+    <li><a href="#infrastructure-and-configuration-for-testability">Infrastructure and Configuration for Testability</a>
+      <ul>
+        <li><a href="#1-testing-in-any-environment-including-production-if-needed">1. Testing in Any Environment (Including Production, If Needed)</a></li>
+        <li><a href="#2-self-cleaning-tests">2. Self-Cleaning Tests</a></li>
+        <li><a href="#3-domain-isolated-testing">3. Domain-Isolated Testing</a></li>
+        <li><a href="#4-multi-interface-testing">4. Multi-Interface Testing</a></li>
+        <li><a href="#5-feature-flag-ff-control">5. Feature Flag (FF) Control</a></li>
+        <li><a href="#6-capturing-system-metrics">6. Capturing System Metrics</a></li>
+        <li><a href="#7-production-representative-test-environments">7. Production-Representative Test Environments</a></li>
+      </ul>
+    </li>
+    <li><a href="#software-development-for-testability">Software Development for Testability</a>
+      <ul>
+        <li><a href="#1-crud-api-support">1. CRUD API Support</a></li>
+        <li><a href="#2-database-management-for-testing">2. Database Management for Testing</a></li>
+        <li><a href="#3-feature-flag-ff-control">3. Feature Flag (FF) Control</a></li>
+        <li><a href="#4-time-manipulation-for-testing">4. Time Manipulation for Testing</a></li>
+      </ul>
+    </li>
+    <li><a href="#in-a-nutshell">In a Nutshell</a></li>
+  </ul>
+</nav>
+</div>
+<h2 id="background">Background</h2>
+<p>&ldquo;Design for Testability&rdquo; is a principle I frequently use, and it comes from my early experience in electrical engineering. In hardware development, especially when designing <strong>Printed Circuit Boards (PCBs) and Printed Circuit Board Assemblies (PCBAs)</strong>, testing isn’t just a step—it’s a necessity.</p>
+<p>Why? Because once hardware is built, <strong>retrofitting to fix a problem is costly and complex</strong>. To mitigate this, engineers integrate testability into the design process itself:</p>
+<ul>
+<li><strong>Vias</strong> – These small drilled holes connect metal layers in a PCB, allowing electrical signals and power to travel between them. They also provide test points for validating functionality.</li>
+<li><strong>Fixtures (or jigs)</strong> – These tools leverage vias and other test points to systematically assess the board’s electrical characteristics. The more test points available, the higher the test coverage, making <strong>troubleshooting easier and more efficient</strong>.</li>
+</ul>
+<p>By <strong>designing with testability in mind</strong>, engineers ensure that defects can be identified and fixed before mass production. Instead of scrapping faulty PCBs, <strong>they can be repaired, saving time, resources, and money</strong>.</p>
+<h2 id="applying-design-for-testability-to-software-development">Applying Design for Testability to Software Development</h2>
+<p>In <strong>software development and the Software Development Life Cycle (SDLC)</strong>, design follows the planning and requirements phase. Just like in hardware engineering, <strong>testability should be a core consideration from the start</strong>.</p>
+<ul>
+<li><strong>Test planning and test requirements</strong> should be integrated into the design phase, not treated as an afterthought.</li>
+<li>A <strong>well-designed system simplifies development, testing, deployment, and maintenance</strong>, ensuring that later stages don’t suffer from poor testability.</li>
+</ul>
+<p>For software to be truly testable, <strong>every aspect—code, configuration, infrastructure, and tests—should be built with testability as a guiding principle</strong>. This leads to:</p>
+<ul>
+<li>Easier debugging and troubleshooting</li>
+<li>More efficient automation</li>
+<li>Faster feedback loops</li>
+<li>Reduced long-term maintenance costs</li>
+</ul>
+<p>By <strong>designing for testability from the start</strong>, teams create <strong>more resilient, maintainable, and high-quality software</strong>.</p>
+<h2 id="test-strategy-requirements">Test Strategy Requirements</h2>
+<p>A robust test strategy ensures that testing is <strong>seamless, repeatable, and reliable</strong> across the entire <strong>CI/CD pipeline</strong>, without disrupting production. To achieve this, the strategy must support:</p>
+<h3 id="1-continuous-testing-across-cicd-shift-left--shift-right">1. Continuous Testing Across CI/CD (Shift-Left &amp; Shift-Right)</h3>
+<ul>
+<li>Tests should be <strong>triggered at any stage</strong> of the pipeline, from early development (shift-left) to post-deployment monitoring (shift-right).</li>
+<li>Testing must not interfere with production stability.</li>
+</ul>
+<h3 id="2-repeatability--reliability">2. Repeatability &amp; Reliability</h3>
+<ul>
+<li>Tests should be designed to <strong>run multiple times without side effects</strong>.</li>
+<li>Execution should be <strong>consistent and automated</strong>, ensuring results are reliable across different runs.</li>
+</ul>
+<h3 id="3-comprehensive-logging--reporting">3. Comprehensive Logging &amp; Reporting</h3>
+<ul>
+<li>Test results must be <strong>logged and published</strong> in relevant platforms such as dashboards, test management tools, Slack notifications, and databases.</li>
+<li>Visibility into test outcomes ensures <strong>faster debugging and better decision-making</strong>.</li>
+</ul>
+<h3 id="4-self-cleaning-tests">4. Self-Cleaning Tests</h3>
+<ul>
+<li>Each test should <strong>clean up after itself</strong>, preventing test data pollution and flaky results.</li>
+</ul>
+<h3 id="5-no-testing-limitations">5. No Testing Limitations</h3>
+<p>Test strategy should <strong>support all types of testing</strong>, including:</p>
+<ul>
+<li><strong>Parallel execution</strong> for speed and efficiency.</li>
+<li><strong>Multi-version testing</strong>, both independently and simultaneously.</li>
+<li><strong>Load testing</strong> at different scales, ensuring no impact on production.</li>
+<li><strong>Feature-flag testing</strong>, allowing validation with and without specific features enabled.</li>
+<li><strong>Concurrent test execution</strong>, with minimal interference between tests.</li>
+</ul>
+<h3 id="6-decentralized-testing-responsibility">6. Decentralized Testing Responsibility</h3>
+<ul>
+<li><strong>Teams own their domain, services, and dependencies</strong>, ensuring accountability and autonomy.</li>
+<li><strong>Failing tests in one domain should not block other teams</strong> from deploying or running their own tests.</li>
+<li><strong>Contract Testing</strong> is used to verify service integration while maintaining isolation between teams.</li>
+</ul>
+<p>By following these principles, teams can build a <strong>scalable, resilient, and efficient</strong> test strategy that supports both <strong>rapid development and production stability</strong>.</p>
+<h2 id="infrastructure-and-configuration-for-testability">Infrastructure and Configuration for Testability</h2>
+<p>A <strong>test-ready infrastructure</strong> ensures that testing is flexible, reliable, and reflective of real-world conditions. To support this, the infrastructure and configuration must enable:</p>
+<h3 id="1-testing-in-any-environment-including-production-if-needed">1. Testing in Any Environment (Including Production, If Needed)</h3>
+<ul>
+<li>Testing in production should be <strong>a strategic choice, not a risk-driven fear</strong>.</li>
+<li>The system should support <strong>safe, controlled production testing</strong> when required.</li>
+</ul>
+<h3 id="2-self-cleaning-tests">2. Self-Cleaning Tests</h3>
+<ul>
+<li>Tests must manage their own <strong>data cleanup</strong>, ensuring they don’t leave residual data.</li>
+<li>Infrastructure should support <strong>terminating test pods or sessions</strong> after execution.</li>
+</ul>
+<h3 id="3-domain-isolated-testing">3. Domain-Isolated Testing</h3>
+<ul>
+<li>Tests should run <strong>without interfering with other domains</strong>, ensuring controlled validation and minimal cross-impact.</li>
+</ul>
+<h3 id="4-multi-interface-testing">4. Multi-Interface Testing</h3>
+<ul>
+<li>The ability to test through different interfaces, including:
+<ul>
+<li><strong>User Interface (UI)</strong></li>
+<li><strong>APIs</strong></li>
+<li><strong>Messaging Streams</strong> (e.g., Kafka)</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-feature-flag-ff-control">5. Feature Flag (FF) Control</h3>
+<ul>
+<li>Tests should be able to <strong>enable/disable feature flags dynamically</strong>, allowing for flexible test scenarios.</li>
+<li><strong>Granular feature control</strong> enables:
+<ul>
+<li>Running multiple tests with <strong>different users and feature sets simultaneously</strong>.</li>
+<li>Conducting <strong>A/B testing</strong> to verify that:
+<ul>
+<li>Enabled features work as expected.</li>
+<li>Disabled features <strong>don’t break</strong> existing functionality.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-capturing-system-metrics">6. Capturing System Metrics</h3>
+<ul>
+<li>Tests should <strong>log key resource metrics</strong> (CPU, memory, etc.) to monitor system performance and detect anomalies.</li>
+</ul>
+<h3 id="7-production-representative-test-environments">7. Production-Representative Test Environments</h3>
+<ul>
+<li>Test environments should be configured to <strong>mirror production</strong> as closely as possible.</li>
+<li><strong>Feature Testing:</strong> Ensuring <strong>same release versions and feature flags</strong> as production.</li>
+<li><strong>Non-Feature Testing:</strong> Supporting <strong>load, stress, security, and configuration tests</strong> that provide meaningful insights.</li>
+</ul>
+<p>By ensuring these capabilities, the infrastructure enables <strong>reliable, scalable, and high-impact testing</strong>, reducing deployment risks and improving software quality.</p>
+<h2 id="software-development-for-testability">Software Development for Testability</h2>
+<p>In a testable software development approach, APIs, databases, and feature flags must be designed to support seamless testing while maintaining security and control in production.</p>
+<h3 id="1-crud-api-support">1. CRUD API Support</h3>
+<ul>
+<li>A test should be able to <strong>Create, Read, Update, and Delete (CRUD)</strong> resources via APIs.</li>
+<li>Some API methods (e.g., <strong>DELETE, PUT, POST</strong>) may need to be <strong>disabled in production for security reasons</strong> but should remain accessible in test environments.</li>
+</ul>
+<h3 id="2-database-management-for-testing">2. Database Management for Testing</h3>
+<ul>
+<li>Testing requires the ability to <strong>identify, disable, or delete test data</strong> as needed.</li>
+<li>Collaboration with <strong>infrastructure or platform teams</strong> may be necessary to ensure proper test data management.</li>
+</ul>
+<h3 id="3-feature-flag-ff-control">3. Feature Flag (FF) Control</h3>
+<ul>
+<li><strong>Feature Flags</strong> enable tests to toggle features on or off dynamically.</li>
+<li><strong>Granular FF control</strong> allows:
+<ul>
+<li>Running tests <strong>with and without a feature enabled</strong> simultaneously.</li>
+<li>Controlled experimentation and validation in both <strong>pre-production and production</strong> environments.</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-time-manipulation-for-testing">4. Time Manipulation for Testing</h3>
+<ul>
+<li>Some features may require tests to <strong>simulate past or future dates</strong>.</li>
+<li>The system should support controlled <strong>time travel testing</strong>, ensuring functionality behaves correctly across different time conditions.</li>
+</ul>
+<p>By embedding these capabilities into software development, teams can ensure <strong>flexibility, security, and robust testability</strong> across environments.</p>
+<h2 id="in-a-nutshell">In a Nutshell</h2>
+<p>The <strong>efficiency, speed, and reliability</strong> of a test strategy depend on how well <strong>Design for Testability</strong> is implemented. The earlier this mindset is adopted, the greater the benefits.</p>
+<p>By <strong>embedding testability from the start</strong>—whether in a <strong>new product or a growing company</strong>—teams can:</p>
+<ul>
+<li><strong>Reduce costs</strong> – It’s cheaper to build testability early than to retrofit later.</li>
+<li><strong>Accelerate development</strong> – A testable design enables faster iterations, debugging, and automation.</li>
+<li><strong>Improve reliability</strong> – A well-structured system ensures smoother deployments and fewer surprises in production.</li>
+</ul>
+<p>Waiting too long to introduce testability leads to <strong>higher costs, technical debt, and slower releases</strong>. A <strong>Design for Testability</strong> mindset from day one helps create <strong>scalable, maintainable, and high-quality software</strong> while keeping business agility intact.</p>
+
+  <footer class="footline">
+              <i class='fa-fw fas fa-user'></i> <a href="mailto:abouchard@live.ca">Alain Bouchard</a>
+  </footer>
+</article>
+        </div>
+      </main>
+    </div>
+    <aside id="R-sidebar" class="default-animation">
+      <div id="R-header-topbar" class="default-animation"></div>
+      <div id="R-header-wrapper" class="default-animation">
+        <div id="R-header" class="default-animation">
+<img src="/logo.png">
+        </div>
+        <script>
+          window.index_js_url="/searchindex.js?1740605805";
+        </script>
+        <search><form action="/search/index.html" method="get">
+          <div class="searchbox default-animation">
+            <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
+            <label class="a11y-only" for="R-search-by">Search</label>
+            <input data-search-input id="R-search-by" name="search-by" class="search-by" type="search" placeholder="Search...">
+            <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
+          </div>
+        </form></search>
+        <script>
+          var contentLangs=['en'];
+        </script>
+        <script src="/js/auto-complete.js?1740605805" defer></script>
+        <script src="/js/lunr/lunr.min.js?1740605805" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1740605805" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1740605805" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1740605805" defer></script>
+        <script src="/js/search.js?1740605805" defer></script>
+      </div>
+      <div id="R-homelinks" class="default-animation homelinks">
+        <ul>
+          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+        </ul>
+        <hr class="padding">
+      </div>
+      <div id="R-content-wrapper" class="highlightable">
+        <div id="R-topics">
+          <ul class="enlarge morespace collapsible-menu">
+            <li class="parent " data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu">
+            <li class="" data-nav-id="/blogs/sdlc-building-quality/index.html"><a class="padding" href="/blogs/sdlc-building-quality/index.html">Building Quality: Aligning Test Strategies with the SDLC</a></li>
+            <li class="active " data-nav-id="/blogs/design-for-testability/index.html"><a class="padding" href="/blogs/design-for-testability/index.html">Design for Testability</a></li>
+            <li class="" data-nav-id="/blogs/how-to-promote-the-quality-best-practices/index.html"><a class="padding" href="/blogs/how-to-promote-the-quality-best-practices/index.html">How to promote the Quality Best Practices</a></li>
+            <li class="" data-nav-id="/blogs/quality-architect-role/index.html"><a class="padding" href="/blogs/quality-architect-role/index.html">Quality Architect Role</a></li>
+            <li class="" data-nav-id="/blogs/role-architecte-qualite/index.html"><a class="padding" href="/blogs/role-architecte-qualite/index.html">Rôle de l&#39;Architecte Qualité (FR)</a></li></ul></li>
+            <li class="" data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu"></ul></li>
+          </ul>
+        </div>
+        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
+        <div id="R-menu-footer">
+          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
+          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
+            <ul>
+              <li id="R-select-language-container" class="footerLangSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-language"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-language">Language</label>
+                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
+                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/blogs/design-for-testability/index.html" lang="en-us" selected></option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+              <li id="R-select-variant-container" class="footerVariantSwitch">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-paint-brush"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <label class="a11y-only" for="R-select-variant">Theme</label>
+                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
+                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
+                    </select>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                <script>window.variants && variants.markSelectedVariant();</script>
+              </li>
+              <li class="footerVisitedLinks">
+                <div class="padding menu-control">
+                  <i class="fa-fw fas fa-history"></i>
+                  <span>&nbsp;</span>
+                  <div class="control-style">
+                    <button onclick="clearHistory();">Clear History</button>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div id="R-footer" class="footerFooter showFooter">
+        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <script src="/js/clipboard.min.js?1740605805" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1740605805" defer></script>
+    <script src="/js/theme.js?1740605805" defer></script>
+  </body>
+</html>
