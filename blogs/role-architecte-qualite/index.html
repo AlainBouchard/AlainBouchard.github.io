@@ -25,16 +25,16 @@ Stratégique (fondations): s’occuper de la vision technique à moyen à long t
 Stratégique (fondations): s’occuper de la vision technique à moyen à long terme (un, deux ans ou même plus) ; Tactique (opérations): support technique des équipes, résolution de problèmes, preuve de concept, etc ; Stratégique Définir la “Vision Qualité”, les guides (ou “guidelines”), documents techniques (ADR, Technical Design, Terminologie/glossaire technique, etc.) tout en tenant compte des règles de sécuritées, PII, etc. ; Évaluer les technologies : Recherches, comparatifs, preuves de concepts, publications, etc.; Promouvoir les bonnes pratiques pour les technologies choisies; Mentorat et “Coaching”; Promouvoir la qualité lors des six étapes du développement logiciel, SDLC ou “Software Development Life Cycle” : “Planning” -&gt; “Defining” -&gt; “Designing” -&gt; “Building” -&gt; “Testing” -&gt; “Deployment” ; Assister ou diriger des groupes de travail (ou “Work Groups”) pour des sujets précis, définir le but et les livrables, événements périodiques et sur plusieurs mois ; Assister ou diriger des ateliers de travail (ou “Workshops”) pour des sujets précis, définir le but et les livrables, événement sur quelques heures ou quelques jours ; Audit de la couverture de tests et corrélation des données avec les services problématiques en production (décision basée sur les données ou “Data-Driven”); Analyser la stratégie de tests actuelle, caractérisation des tests, définir un plan, promouvoir les bonnes pratiques de tests, la pyramide de tests “pratique” (en anglais pour faciliter) : Unit (“solitary” et “sociable”) testing ; Component (“in-process” et “out-of-process”) testing ; Contract testing ; Integration (“narrow” et “broad”) testing ; UI End-to-end (E2E) et API E2E (ou Subcutaneous) ; User journey tests (and Synthetic Traffic tests) ; Non functional tests : load, scalability, webvital metrics LCP, chaos/robustness, etc. ; Création de projets archétypes et création de matériel de formation (on-demand training) suivi de projets pilotes ou réels, écriture de tests, documentation, etc. ; Alignment sur une stratégie de tests avec la procédure de déploiement (CI/CD) avec une procédure de “branching” (examples : gitflow ou trunk-based workflows), blue/green deployment, smoke tests, etc. ; Participe au processus de recrutement pour le volet “qualité” ; Tactique Appliquer la stratégie de tests : développer des projets tests, ajouter les projets au processus (build, CI/CD, cluster/kubernetes. etc), documenter, etc. ; Supporter le développement de tests: supporter les QAs et développeurs qui ajoutent des tests, PR reviews, etc. ; Ajouter une couverture de tests : javascript (exemple : cypress.io), python/pytest, java/rest-assured, etc. ; Ajout de “tests de trafic synthétique” et vérification des flux et scénarios clients (ou “customer flows”) ; Analyser les performances systèmes (example: load tests) et selon les standards définis (example: “Given the data load X and the number of users Y, an API should respond within Z seconds”), LCP (ou “Largest Contentful Paint”, example : “une page devrait être considérée utilisable en moins de 2.5 secondes”) ; Utilisation d’outils d’observation pour comprendre les problèmes : datadoghq, splunk/signalfx, prometheus, grafana, etc. ; Collabore horizontalement avec les différents “domaines” de l’entreprises et des fournisseurs pour améliorer la qualité globale de l’entreprise ;">
     <meta itemprop="wordCount" content="500">
     <title>Rôle de l&#39;Architecte Qualité (FR) :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1731980559" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1731980559" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1731980559" rel="stylesheet">
-    <link href="/css/auto-complete.css?1731980559" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1731980559" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1731980559" rel="stylesheet">
-    <link href="/css/fonts.css?1731980559" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1731980559" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1731980559" rel="stylesheet">
-    <link href="/css/theme-blue.css?1731980559" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1731980559" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1731980559" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1731980559"></script>
+    <link href="/css/fontawesome-all.min.css?1740604526" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1740604526" rel="stylesheet"></noscript>
+    <link href="/css/nucleus.css?1740604526" rel="stylesheet">
+    <link href="/css/auto-complete.css?1740604526" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1740604526" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar.min.css?1740604526" rel="stylesheet">
+    <link href="/css/fonts.css?1740604526" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1740604526" rel="stylesheet"></noscript>
+    <link href="/css/theme.css?1740604526" rel="stylesheet">
+    <link href="/css/theme-blue.css?1740604526" rel="stylesheet" id="R-variant-style">
+    <link href="/css/chroma-learn.css?1740604526" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="/css/print.css?1740604526" rel="stylesheet" media="print">
+    <script src="/js/variant.js?1740604526"></script>
     <script>
       window.relearn = window.relearn || {};
       window.relearn.relBasePath='..\/..';
@@ -160,7 +160,7 @@ Stratégique (fondations): s’occuper de la vision technique à moyen à long t
 <img src="/logo.png">
         </div>
         <script>
-          window.index_js_url="/searchindex.js?1731980559";
+          window.index_js_url="/searchindex.js?1740604526";
         </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
@@ -173,12 +173,12 @@ Stratégique (fondations): s’occuper de la vision technique à moyen à long t
         <script>
           var contentLangs=['en'];
         </script>
-        <script src="/js/auto-complete.js?1731980559" defer></script>
-        <script src="/js/lunr/lunr.min.js?1731980559" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1731980559" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1731980559" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1731980559" defer></script>
-        <script src="/js/search.js?1731980559" defer></script>
+        <script src="/js/auto-complete.js?1740604526" defer></script>
+        <script src="/js/lunr/lunr.min.js?1740604526" defer></script>
+        <script src="/js/lunr/lunr.stemmer.support.min.js?1740604526" defer></script>
+        <script src="/js/lunr/lunr.multi.min.js?1740604526" defer></script>
+        <script src="/js/lunr/lunr.en.min.js?1740604526" defer></script>
+        <script src="/js/search.js?1740604526" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
         <ul>
@@ -247,8 +247,8 @@ Stratégique (fondations): s’occuper de la vision technique à moyen à long t
         </div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1731980559" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1731980559" defer></script>
-    <script src="/js/theme.js?1731980559" defer></script>
+    <script src="/js/clipboard.min.js?1740604526" defer></script>
+    <script src="/js/perfect-scrollbar.min.js?1740604526" defer></script>
+    <script src="/js/theme.js?1740604526" defer></script>
   </body>
 </html>
