@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.1">
-    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="generator" content="Relearn 7.6.1+b0c6bb558d7728ac4535a2ac677c5f47297203cc">
     <meta name="description" content="Warning 2022-07-11: This is a WORK IN PROGRESS document (WIP) and need to be reviewed.
 Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic replication factor Producers Consumers Consumer offsets Kafka broker discovery Zookeeper Kafka guarantees Install Kafka using Docker images Use Kafka Topics CLI Topics CLI Kafka console producer Kafka console consumer Kafka-Client with Java Kafka Connect and Kafka Stream Apache Kafka Why Apache Kafka?">
     <meta name="author" content="">
@@ -25,25 +25,62 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic replication factor Producers Consumers Consumer offsets Kafka broker discovery Zookeeper Kafka guarantees Install Kafka using Docker images Use Kafka Topics CLI Topics CLI Kafka console producer Kafka console consumer Kafka-Client with Java Kafka Connect and Kafka Stream Apache Kafka Why Apache Kafka?">
     <meta itemprop="wordCount" content="6991">
     <title>Apache Kafka (WIP) :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1740605805" rel="stylesheet">
-    <link href="/css/auto-complete.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1740605805" rel="stylesheet">
-    <link href="/css/fonts.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1740605805" rel="stylesheet">
-    <link href="/css/theme-blue.css?1740605805" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1740605805" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1740605805" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1740605805"></script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1744834729" rel="stylesheet">
+    <link href="/css/theme.css?1744834729" rel="stylesheet">
+    <link href="/css/format-html.css?1744834729" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1744834729" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1744834729" defer></script>
+    <script src="/js/search.js?1744834729" defer></script>
     <script>
       window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/notes\/apache-kafka\/index.html';
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.contentLangs=['en'];
+      window.relearn.index_js_url="/searchindex.en.js?1744834729";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
       // variant stuff
-      window.variants && variants.init( [ 'blue' ] );
+      window.relearn.themevariants = [ 'blue' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
       // translations
       window.T_Copy_to_clipboard = `Copy to clipboard`;
       window.T_Copied_to_clipboard = `Copied to clipboard!`;
@@ -65,10 +102,10 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
             <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Apache Kafka (WIP)</span><meta itemprop="position" content="3"></li>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Apache Kafka (WIP)</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/index.html" title="My Notes (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
@@ -95,14 +132,16 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 
 <h1 id="apache-kafka-wip">Apache Kafka (WIP)</h1>
 
-<div class="box notices cstyle warning">
-  <div class="box-label">
-    <i class="fa-fw fas fa-exclamation-triangle"></i> Warning
-  </div>
+
+<details open class=" box cstyle notices warning">
+  <summary class="box-label" tabindex="-1">
+    <i class="fa-fw fas fa-exclamation-triangle"></i> 
+    Warning
+  </summary>
   <div class="box-content">
 <p>2022-07-11: This is a WORK IN PROGRESS document (WIP) and need to be reviewed.</p>
   </div>
-</div>
+</details>
 <div class="toc">
     <nav id="TableOfContents">
   <ul>
@@ -163,7 +202,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>each partiction is orderied</li>
 <li>each message within a partiction gets an incremental id, called <code>offset</code></li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>            | Partition 0 -&gt; offset: | 0 | 1 | 2 | 3 | 4 | 5 | ...
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>            | Partition 0 -&gt; offset: | 0 | 1 | 2 | 3 | 4 | 5 | ...
 </span></span><span style="display:flex;"><span>            |
 </span></span><span style="display:flex;"><span>Kafka Topic + Partition 1 -&gt; offset: | 0 | 1 | 2 | ... writes
 </span></span><span style="display:flex;"><span>            |
@@ -349,7 +388,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </ul>
 <h3 id="install-kafka-using-docker-images">Install Kafka using Docker images</h3>
 <p>Create the <code>docker-compose.yaml</code> file:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.5&#39;</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.5&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">zookeeper</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">confluentinc/cp-zookeeper:latest</span>
@@ -373,7 +412,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_INTER_BROKER_LISTENER_NAME</span>: <span style="color:#ae81ff">PLAINTEXT</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR</span>: <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <p>From the CLI:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose up -d
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose up -d
 </span></span><span style="display:flex;"><span>&gt; docker ps
 </span></span><span style="display:flex;"><span>CONTAINER ID   IMAGE                              COMMAND                  CREATED          STATUS          PORTS                                         NAMES
 </span></span><span style="display:flex;"><span>ab09b5c8bc7b   confluentinc/cp-kafka:latest       <span style="color:#e6db74">&#34;/etc/confluent/dock…&#34;</span>   <span style="color:#ae81ff">11</span> minutes ago   Up <span style="color:#ae81ff">11</span> minutes   9092/tcp, 0.0.0.0:29092-&gt;29092/tcp            kafka-cluster_kafka_1
@@ -409,7 +448,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <p>Install the <a href="https://kafkatool.com/download.html" rel="external" target="_blank">Kafka Offset Explorer</a> to connect to Kafka Cluster and make sure to configure the bootstrap server: <code>localhost:29092</code></p>
 <h3 id="use-kafka-topics-cli">Use Kafka Topics CLI</h3>
 <p>Use <code>docker</code> to execute the <code>kafka-topics</code> command:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose ps
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose ps
 </span></span><span style="display:flex;"><span>          Name                       Command            State                      Ports
 </span></span><span style="display:flex;"><span>-----------------------------------------------------------------------------------------------------------
 </span></span><span style="display:flex;"><span>kafka-cluster_kafka_1       /etc/confluent/docker/run   Up      0.0.0.0:29092-&gt;29092/tcp, 9092/tcp
@@ -426,12 +465,12 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>.
 </span></span><span style="display:flex;"><span>.</span></span></code></pre></div>
 <p>To use Kafka Container shell:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker exec -it kafka-cluster_kafka_1 sh
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker exec -it kafka-cluster_kafka_1 sh
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <h3 id="topics-cli">Topics CLI</h3>
 <p>Reference: <a href="https://medium.com/@TimvanBaarsen/apache-kafka-cli-commands-cheat-sheet-a6f06eac01b#8c2f" rel="external" target="_blank">Apache Kafka CLI commands cheat sheet</a></p>
 <h4 id="creating-a-topic">Creating a topic</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --create --topic first_topic --partitions <span style="color:#ae81ff">3</span> --replication-factor <span style="color:#ae81ff">1</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --create --topic first_topic --partitions <span style="color:#ae81ff">3</span> --replication-factor <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>WARNING: Due to limitations in metric names, topics with a period <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">)</span> or underscore <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;_&#39;</span><span style="color:#f92672">)</span> could collide. To avoid issues it is best to use either, but not both.
 </span></span><span style="display:flex;"><span>Created topic first_topic.
@@ -439,13 +478,13 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Note: the <code>--bootstrap-server localhost:9092</code> replaces the <code>kafka-topics</code> command <code>--zookeeper localhost:9092</code></p>
 <h4 id="listing-current-topics">Listing current topics</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --list
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --list
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <h4 id="describe-a-topic">Describe a topic</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --describe --topic first_topic
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --describe --topic first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Topic: first_topic      TopicId: vQ6o8fX1Sx-qNQuUQ5vbAg PartitionCount: <span style="color:#ae81ff">3</span>       ReplicationFactor: <span style="color:#ae81ff">1</span>    Configs:
 </span></span><span style="display:flex;"><span>        Topic: first_topic      Partition: <span style="color:#ae81ff">0</span>    Leader: <span style="color:#ae81ff">1</span>       Replicas: <span style="color:#ae81ff">1</span>     Isr: <span style="color:#ae81ff">1</span>
@@ -454,7 +493,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <h4 id="delete-a-topic">Delete a topic</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --list
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-topics --bootstrap-server localhost:9092 --list
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>first-topic
 </span></span><span style="display:flex;"><span>first_topic
@@ -469,7 +508,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <h3 id="kafka-console-producer">Kafka console producer</h3>
 <h4 id="create-messages">Create messages</h4>
 <p>Creating 4 messages using Kafka Broker using the <code>kafka-console-producer</code> command.  The <code>CTRL-C</code> command will make the <code>kafka-console-producer</code> command to stop.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt;message1
 </span></span><span style="display:flex;"><span>&gt;message2
@@ -481,7 +520,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <h4 id="create-messages-in-a-non-existing-topic">Create messages in a non-existing topic</h4>
 <p>It is possible to create a new topic on-the-fly when adding but it is not recommended since the default values for both <code>PartitionCount</code> and <code>ReplicationFactor</code> are set to <code>1</code>. Best practices require more partitions and replications.</p>
 <p>Default replication value can be changed from <code>/etc/kafka/server.properties</code> value <code>num.partitions</code>, default is 1.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic new_topic
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic new_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt;This is a message to a new topic
 </span></span><span style="display:flex;"><span><span style="color:#f92672">[</span>2022-06-02 18:56:53,185<span style="color:#f92672">]</span> WARN <span style="color:#f92672">[</span>Producer clientId<span style="color:#f92672">=</span>console-producer<span style="color:#f92672">]</span> Error <span style="color:#66d9ef">while</span> fetching metadata with correlation id <span style="color:#ae81ff">3</span> : <span style="color:#f92672">{</span>new_topic<span style="color:#f92672">=</span>LEADER_NOT_AVAILABLE<span style="color:#f92672">}</span> <span style="color:#f92672">(</span>org.apache.kafka.clients.NetworkClient<span style="color:#f92672">)</span>
@@ -500,7 +539,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <h4 id="change-the-producer-property">Change the producer-property</h4>
 <p>Changing the <code>acks</code> property.  Refer to <a href="/notes/apache-kafka/index.html#producers">producer</a> above sections for more information about <code>acks=all</code> property.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks<span style="color:#f92672">=</span>all
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic --producer-property acks<span style="color:#f92672">=</span>all
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt;acks message1
 </span></span><span style="display:flex;"><span>&gt;^C
@@ -509,7 +548,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <h3 id="kafka-console-consumer">Kafka console consumer</h3>
 <h4 id="consuming-messages-from-a-topic">Consuming messages from a topic</h4>
 <p>The <code>kafka-console-consumer</code> won&rsquo;t consume topic messages from <code>offset=0</code> by default to avoid consuming millions of existing message.  It will consume the upcomming messages only (from now on).  To get all messages from offest:0, the <code>--from-beginning</code> option must be specified.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>message2
 </span></span><span style="display:flex;"><span>acks message1
@@ -520,7 +559,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <h4 id="consuming-messages-from-a-topic-with-groups">Consuming messages from a topic with groups</h4>
 <p>The <code>--group</code> define a group of kafka consumers that will share the consumption load for one given topic.</p>
 <p>The <code>kafka-console-producer</code> example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-producer --broker-list localhost:9092 --topic first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt;patate
 </span></span><span style="display:flex;"><span>&gt;carotte
@@ -528,24 +567,24 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>&gt;orange
 </span></span><span style="display:flex;"><span>&gt;</span></span></code></pre></div>
 <p>The first <code>kafka-console-consumer</code> example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-group
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>carotte
 </span></span><span style="display:flex;"><span>orange</span></span></code></pre></div>
 <p>The second <code>kafka-console-consumer</code> example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-group
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --group my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>patate
 </span></span><span style="display:flex;"><span>pomme</span></span></code></pre></div>
 <h4 id="consumer-groups-command">Consumer groups command</h4>
 <p>Get all the available consumer groups:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --list
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --list
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Get consumer group information:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                           HOST            CLIENT-ID
 </span></span><span style="display:flex;"><span>my-group        first_topic     <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">3</span>               <span style="color:#ae81ff">3</span>               <span style="color:#ae81ff">0</span>               console-consumer-13be95b9-8704-4471-8211-2660c5ab59b1 /172.19.0.3     console-consumer
@@ -555,7 +594,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <h4 id="consumer-groups-reseting-offsets">Consumer groups: reseting offsets</h4>
 <p>All messages are currently consumed: <code>current-offsets=log-end-offsets</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                           HOST            CLIENT-ID
 </span></span><span style="display:flex;"><span>my-group        first_topic     <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">3</span>               <span style="color:#ae81ff">3</span>               <span style="color:#ae81ff">0</span>               console-consumer-13be95b9-8704-4471-8211-2660c5ab59b1 /172.19.0.3     console-consumer
@@ -564,7 +603,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Reseting the <code>current-offsets</code> to <code>0</code> using <code>--to-earliest</code> option:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --group my-group --reset-offsets --to-earliest --execute --topic first_topic
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --group my-group --reset-offsets --to-earliest --execute --topic first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>GROUP                          TOPIC                          PARTITION  NEW-OFFSET
 </span></span><span style="display:flex;"><span>my-group                       first_topic                    <span style="color:#ae81ff">0</span>          <span style="color:#ae81ff">0</span>
@@ -573,7 +612,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Verify the group offsets is not <code>0</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group my-group
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Consumer group <span style="color:#e6db74">&#39;my-group&#39;</span> has no active members.
 </span></span><span style="display:flex;"><span>
@@ -584,7 +623,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Shift the offset by <code>1</code> using <code>--shift-by</code> option:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-consumer-groups --bootstrap-server localhost:9092 --group my-group --reset-offsets --shift-by <span style="color:#ae81ff">1</span> --
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-consumer-groups --bootstrap-server localhost:9092 --group my-group --reset-offsets --shift-by <span style="color:#ae81ff">1</span> --
 </span></span><span style="display:flex;"><span>execute --topic first_topic
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>GROUP                          TOPIC                          PARTITION  NEW-OFFSET
@@ -594,7 +633,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Available <code>--reset-offsets</code> options are :</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--to-datetime
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--to-datetime
 </span></span><span style="display:flex;"><span>--by-period
 </span></span><span style="display:flex;"><span>--to-earliest
 </span></span><span style="display:flex;"><span>--to-latest
@@ -623,7 +662,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>Close the <code>producer</code></li>
 </ul>
 <p>Reference for <a href="https://kafka.apache.org/documentation/#producerconfigs" rel="external" target="_blank">Kafka Producer Properties</a>.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaProducerDemo</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaProducerDemo</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
 </span></span><span style="display:flex;"><span>        Properties properties <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties();
@@ -646,7 +685,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h4 id="create-a-producer-with-a-callback">Create a producer with a callback</h4>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaProducerDemoWithCallback</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaProducerDemoWithCallback</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
 </span></span><span style="display:flex;"><span>        Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(KafkaProducerDemoWithCallback.<span style="color:#a6e22e">class</span>);
@@ -693,7 +732,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>poll data in a loop</li>
 </ul>
 <p>Reference for <a href="https://kafka.apache.org/documentation/#consumerconfigs" rel="external" target="_blank">Kafka Consumer Properties</a>.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerDemo</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerDemo</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
 </span></span><span style="display:flex;"><span>        Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(KafkaConsumerDemo.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
 </span></span><span style="display:flex;"><span>
@@ -725,7 +764,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h4 id="create-a-consumer-in-a-thread">Create a consumer in a thread</h4>
 <p>Note: It is only working if the application does stop gracefully.  A Break/Kill signal won&rsquo;t trigger the shutdown properly.  IntelliJ don&rsquo;t have the <code>exit</code> button on Windows.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerWithThreadsDemo</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerWithThreadsDemo</span> {
 </span></span><span style="display:flex;"><span>    Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(KafkaConsumerWithThreadsDemo.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#a6e22e">KafkaConsumerWithThreadsDemo</span>() { }
@@ -826,7 +865,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h4 id="assign-and-seek-consumer">Assign and seek consumer</h4>
 <p>The Assign and Seek is mostly used to replay data or fetch a specific message.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerWithAssignAndSeekDemo</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">KafkaConsumerWithAssignAndSeekDemo</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
 </span></span><span style="display:flex;"><span>        Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(KafkaConsumerWithAssignAndSeekDemo.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
 </span></span><span style="display:flex;"><span>
@@ -867,19 +906,19 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <p>It means that <strong>the latest client library version should always be used</strong> as documented in the confluent documentation <a href="https://www.confluent.io/blog/upgrading-apache-kafka-clients-just-got-easier/" rel="external" target="_blank">Upgrading Apache Kafka Clients Just Got Easier</a></p>
 <h4 id="creating-a-producer-for-twitter-messages">Creating a Producer for Twitter messages</h4>
 <p>Needed packages:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>    implementation group: <span style="color:#e6db74">&#39;com.twitter&#39;</span><span style="color:#f92672">,</span> name: <span style="color:#e6db74">&#39;twitter-api-java-sdk&#39;</span><span style="color:#f92672">,</span> version: <span style="color:#e6db74">&#39;1.2.4&#39;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div>
 <p>Creating the topic:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_tweets --partitions <span style="color:#ae81ff">6</span> --replication-factor <span style="color:#ae81ff">1</span></span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_tweets --partitions <span style="color:#ae81ff">6</span> --replication-factor <span style="color:#ae81ff">1</span></span></span></code></pre></div>
 <p>Adding a <code>TwitterKafkaProducerInterface</code> Interface:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.github.alainbouchard.kafka_demo.demo2;
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#f92672">package</span> com.github.alainbouchard.kafka_demo.demo2;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">TwitterKafkaProducerInterface</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">send</span>(String topic, String message);
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p>Implementing the interface with <code>TwitterKafkaProducer</code> Class:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TwitterKafkaProducer</span> <span style="color:#66d9ef">implements</span> TwitterKafkaProducerInterface {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TwitterKafkaProducer</span> <span style="color:#66d9ef">implements</span> TwitterKafkaProducerInterface {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">final</span> Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(TwitterKafkaProducer.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> KafkaProducer<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> producer;
 </span></span><span style="display:flex;"><span>
@@ -917,7 +956,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p>Adding the <code>TwitterListerner</code> Class:</p>
 <p>Some TwitterApi v2 SDK methods have issues at the moment that this document is written.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TwitterListener</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TwitterListener</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">/***
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * Ref:
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     *    https://developer.axonivy.com/api-browser?url=/market-cache/twitter/twitter-connector-product/9.3.0/openapi.json#/Tweets/addOrDeleteRules
@@ -1122,7 +1161,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </ul>
 </li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 partition 0 (leader)
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 partition 0 (leader)
 </span></span><span style="display:flex;"><span>--------             -------------------------------
 </span></span><span style="display:flex;"><span>    |                               |
 </span></span><span style="display:flex;"><span>    +-----[send data to leader]----&gt;+
@@ -1133,7 +1172,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>the producer may retry if the tack isn&rsquo;t received</li>
 <li>data loss is possible if <code>leader broker</code> goes offline and <code>replcas</code> haven&rsquo;t replicated the data yet</li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 partition 0 (leader)
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 partition 0 (leader)
 </span></span><span style="display:flex;"><span>--------             -------------------------------
 </span></span><span style="display:flex;"><span>    |                               |
 </span></span><span style="display:flex;"><span>    +----[send data to leader]-----&gt;+
@@ -1147,7 +1186,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>no data loss if enough replicas</li>
 <li><strong>needed setting to avoid losing data</strong></li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 part0 (leader)    Broker 102 part0 (replica)    Broker 103 part0 (replica)
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Producer             Broker 101 part0 (leader)    Broker 102 part0 (replica)    Broker 103 part0 (replica)
 </span></span><span style="display:flex;"><span>--------             -------------------------    --------------------------    --------------------------
 </span></span><span style="display:flex;"><span>    |                            |                            |                            |
 </span></span><span style="display:flex;"><span>    +---[send data to leader]---&gt;+                            |                            |
@@ -1206,7 +1245,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>Note: running <em>safe producer</em> might impact the throughput or lantency, and therefore the <code>use case</code> must be verified to make sure the producer is within the NFR expectations</li>
 </ul>
 <p>An example of Producer settings to improve safeness:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#75715e">// Make a safer producer</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#75715e">// Make a safer producer</span>
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">ENABLE_IDEMPOTENCE_CONFIG</span>, <span style="color:#e6db74">&#34;true&#34;</span>);
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">ACKS_CONFIG</span>, <span style="color:#e6db74">&#34;all&#34;</span>);  <span style="color:#75715e">// default value with Idempotence=true</span>
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">RETRIES_CONFIG</span>, Integer.<span style="color:#a6e22e">toString</span>(Integer.<span style="color:#a6e22e">MAX_VALUE</span>)); <span style="color:#75715e">// default value with Idempotence=true</span>
@@ -1219,7 +1258,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>the <code>compression.type</code> can be <code>none</code> (default), <code>gzip</code>, <code>lz4</code> and <code>snappy</code></li>
 <li>compression will improve the throughput and performance</li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+----------------+       +--------------------+      +---------------+
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+----------------+       +--------------------+      +---------------+
 </span></span><span style="display:flex;"><span>| Producer Batch |------&gt;| Compression of the |-----&gt;| Kafka Cluster |
 </span></span><span style="display:flex;"><span>+----------------+       | batch of messages  |      +---------------+
 </span></span><span style="display:flex;"><span>                         +--------------------+</span></span></code></pre></div>
@@ -1263,7 +1302,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>the average batch size metric can be monitored by using the Kafka Producer Metrics</li>
 </ul>
 <p>An example of Producer settings to improve efficiency:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#75715e">// Improve throughput efficiency of the producer</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#75715e">// Improve throughput efficiency of the producer</span>
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">COMPRESSION_TYPE_CONFIG</span>, <span style="color:#e6db74">&#34;snappy&#34;</span>);
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">LINGER_MS_CONFIG</span>, <span style="color:#e6db74">&#34;20&#34;</span>);
 </span></span><span style="display:flex;"><span>        properties.<span style="color:#a6e22e">setProperty</span>(ProducerConfig.<span style="color:#a6e22e">BATCH_SIZE_CONFIG</span>, <span style="color:#e6db74">&#34;32768&#34;</span>);  <span style="color:#f92672">//</span> 32 KB</span></span></code></pre></div>
@@ -1294,7 +1333,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <h5 id="adding-elasticsearch-docker-container">Adding elasticsearch docker container</h5>
 <p>The following must be added in order to add an <code>elastic search</code> container or server to the kafka-cluster:</p>
 <p>docker-compose.yaml:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">elasticsearch</span>:
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>  <span style="color:#f92672">elasticsearch</span>:
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">docker.elastic.co/elasticsearch/elasticsearch:7.5.2</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
 </span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">9200</span>:<span style="color:#ae81ff">9200</span>
@@ -1304,7 +1343,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">node.name</span>: <span style="color:#ae81ff">es01</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#f92672">cluster.name</span>: <span style="color:#ae81ff">kafka-cluster</span></span></span></code></pre></div>
 <p>To start the service from docker-compose:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose up elasticsearch -d
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; docker-compose up elasticsearch -d
 </span></span><span style="display:flex;"><span>&gt; docker-compose ps
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>NAME                            COMMAND                  SERVICE             STATUS              PORTS
@@ -1333,9 +1372,9 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div>
 <h5 id="java-elasticsearch-client">Java elasticsearch client</h5>
 <p>The following packages are required:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>    implementation group: <span style="color:#e6db74">&#39;org.elasticsearch.client&#39;</span><span style="color:#f92672">,</span> name: <span style="color:#e6db74">&#39;elasticsearch-rest-high-level-client&#39;</span><span style="color:#f92672">,</span> version: <span style="color:#e6db74">&#39;7.14.0&#39;</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>    implementation group: <span style="color:#e6db74">&#39;org.elasticsearch.client&#39;</span><span style="color:#f92672">,</span> name: <span style="color:#e6db74">&#39;elasticsearch-rest-high-level-client&#39;</span><span style="color:#f92672">,</span> version: <span style="color:#e6db74">&#39;7.14.0&#39;</span>
 </span></span><span style="display:flex;"><span>    implementation group: <span style="color:#e6db74">&#39;org.apache.logging.log4j&#39;</span><span style="color:#f92672">,</span> name: <span style="color:#e6db74">&#39;log4j-core&#39;</span><span style="color:#f92672">,</span> version: <span style="color:#e6db74">&#39;2.17.2&#39;</span> <span style="color:#e6db74">//</span> Elastic search dependency</span></span></code></pre></div>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElasticsearchClient</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ElasticsearchClient</span> {
 </span></span><span style="display:flex;"><span>    Logger logger <span style="color:#f92672">=</span> LoggerFactory.<span style="color:#a6e22e">getLogger</span>(ElasticsearchClient.<span style="color:#a6e22e">class</span>.<span style="color:#a6e22e">getName</span>());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> RestHighLevelClient restHighLevelClient;
@@ -1481,7 +1520,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <ul>
 <li>
 <p>pseudocode:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
 </span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Records<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> consumer.<span style="color:#a6e22e">poll</span>(Duration.<span style="color:#a6e22e">ofMillis</span>(100));
 </span></span><span style="display:flex;"><span>    doSomethingSunchronous(records);
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
@@ -1497,7 +1536,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <ul>
 <li>
 <p>pseudocode:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
 </span></span><span style="display:flex;"><span>    records <span style="color:#f92672">+=</span> consumer.<span style="color:#a6e22e">poll</span>(Duration.<span style="color:#a6e22e">ofMillis</span>(100));
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> isReady(records) {
 </span></span><span style="display:flex;"><span>        doSomethingSynchronous(records);
@@ -1516,10 +1555,10 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </ul>
 <h5 id="manual-commits">Manual commits</h5>
 <p>Settings to be configured to avoid offsets auto commits:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>properties.<span style="color:#a6e22e">setProperty</span>(ConsumerConfig.<span style="color:#a6e22e">ENABLE_AUTO_COMMIT_CONFIG</span>,<span style="color:#e6db74">&#34;false&#34;</span>); <span style="color:#75715e">// Will require manual offsets commits</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>properties.<span style="color:#a6e22e">setProperty</span>(ConsumerConfig.<span style="color:#a6e22e">ENABLE_AUTO_COMMIT_CONFIG</span>,<span style="color:#e6db74">&#34;false&#34;</span>); <span style="color:#75715e">// Will require manual offsets commits</span>
 </span></span><span style="display:flex;"><span>properties.<span style="color:#a6e22e">setProperty</span>(ConsumerConfig.<span style="color:#a6e22e">MAX_POLL_RECORDS_CONFIG</span>, <span style="color:#e6db74">&#34;10&#34;</span>); <span style="color:#f92672">//</span> Only retrieve 10 records at the time</span></span></code></pre></div>
 <p>The syncronous commit command for the consumer - pseudocode:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">while</span>(<span style="color:#66d9ef">true</span>) {
 </span></span><span style="display:flex;"><span>    ConsumerRecords<span style="color:#f92672">&lt;</span>String, String<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> twitterKafkaConsumer.<span style="color:#a6e22e">poll</span>(Duration.<span style="color:#a6e22e">ofMillis</span>(100));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    logger.<span style="color:#a6e22e">info</span>(String.<span style="color:#a6e22e">format</span>(<span style="color:#e6db74">&#34;Received %s records&#34;</span>, records.<span style="color:#a6e22e">count</span>()));
@@ -1534,7 +1573,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <ul>
 <li>looking at the offsets for given group <code>kafka-java-demo-elasticsearch</code>:</li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-java-demo-elasticsearch --describe
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-java-demo-elasticsearch --describe
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Consumer group <span style="color:#e6db74">&#39;kafka-java-demo-elasticsearch&#39;</span> has no active members.
 </span></span><span style="display:flex;"><span>
@@ -1555,7 +1594,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <ul>
 <li>consuming records using <code>Java</code> consumer and verifying the offsets:</li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-java-demo-elasticsearch --describe
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --group kafka-java-demo-elasticsearch --describe
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>Consumer group <span style="color:#e6db74">&#39;kafka-java-demo-elasticsearch&#39;</span> has no active members.
 </span></span><span style="display:flex;"><span>
@@ -1591,7 +1630,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <p>The retention delay can be set using the broker setting <code>offset.retention.minutes</code>. Proper data and offset retention period must be set to ensure no data loss if a server can go down for a while, e.g., 30 days.</p>
 <h4 id="replaying-the-data-for-a-consumner-group">Replaying the data for a consumner group</h4>
 <p>To reset kafka server offsets and replay messages from beginning:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --topic twitter_tweets --group kafka-java-demo-elasticse
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ kafka-consumer-groups --bootstrap-server localhost:9092 --topic twitter_tweets --group kafka-java-demo-elasticse
 </span></span><span style="display:flex;"><span>arch --reset-offsets --to-earliest --execute
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>GROUP                          TOPIC                          PARTITION  NEW-OFFSET
@@ -1665,7 +1704,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 <li>an <em>unexperimented developper</em> may struggle to achieve fault tolerance, idempotence, distribution, ordering, etc.</li>
 <li>an <em>experimented developper</em>  already did the work for others.</li>
 </ul>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Sources/Destinations     Connect Cluster             Kafka Cluster          Stream Apps
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Sources/Destinations     Connect Cluster             Kafka Cluster          Stream Apps
 </span></span><span style="display:flex;"><span>--------------------     ---------------             -------------          -----------
 </span></span><span style="display:flex;"><span>     [source1]-------------&gt;[worker]                   [broker]--------------&gt;[app1]
 </span></span><span style="display:flex;"><span>                            [worker]------------------&gt;[broker]&lt;--------------
@@ -1683,7 +1722,7 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </ul>
 <h5 id="adding-a-connector-to-a-java-project">Adding a connector to a Java project</h5>
 <p>The connector <a href="https://www.confluent.io/hub/jcustenborder/kafka-connect-twitter" rel="external" target="_blank">kafka-connect-twitter</a> will be used as an example to show file structure:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+ [my-java-project]
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>+ [my-java-project]
 </span></span><span style="display:flex;"><span>+-+ [kafka-connect] (to be created with sub folders)
 </span></span><span style="display:flex;"><span>| +-+ [connectors]
 </span></span><span style="display:flex;"><span>| | +-+ [kafka-connect-twitter] (downloaded connector project from github)
@@ -1692,12 +1731,12 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
 </span></span><span style="display:flex;"><span>| | | + run.sh
 </span></span><span style="display:flex;"><span>| | | + twitter.properties</span></span></code></pre></div>
 <h5 id="connect-standalone-cli-command">Connect standalone CLI command</h5>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ connect-standalone
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sh-4.4$ connect-standalone
 </span></span><span style="display:flex;"><span>USAGE: /usr/bin/connect-standalone <span style="color:#f92672">[</span>-daemon<span style="color:#f92672">]</span> connect-standalone.properties
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sh-4.4$</span></span></code></pre></div>
 <p>Creating a new topic for the kafka connector:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_status_connect --parti
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kafka-topics --bootstrap-server localhost:9092 --create --topic twitter_status_connect --parti
 </span></span><span style="display:flex;"><span>tions <span style="color:#ae81ff">3</span> --replication-factor <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>WARNING: Due to limitations in metric names, topics with a period <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;.&#39;</span><span style="color:#f92672">)</span> or underscore <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;_&#39;</span><span style="color:#f92672">)</span> could collide. To avoid issues it is best to use either, but not both.
@@ -1725,9 +1764,6 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
         <div id="R-header" class="default-animation">
 <img src="/logo.png">
         </div>
-        <script>
-          window.index_js_url="/searchindex.js?1740605805";
-        </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
             <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
@@ -1736,27 +1772,32 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
             <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
           </div>
         </form></search>
-        <script>
-          var contentLangs=['en'];
-        </script>
-        <script src="/js/auto-complete.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1740605805" defer></script>
-        <script src="/js/search.js?1740605805" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
-        <ul>
-          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
-        </ul>
-        <hr class="padding">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
       </div>
       <div id="R-content-wrapper" class="highlightable">
-        <div id="R-topics">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
-            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-0c82701243222eae0a7f46ed20de4880" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-56ddd28e5c6776f76f8fbdd8face0232" class="collapsible-menu">
             <li class="active " data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
             <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
             <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
@@ -1774,58 +1815,23 @@ Apache Kafka Topics, partitions and offsets Brokers Brokers and topics Topic rep
             <li class="" data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
           </ul>
         </div>
-        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
-        <div id="R-menu-footer">
-          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
-          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
-            <ul>
-              <li id="R-select-language-container" class="footerLangSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-language"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-language">Language</label>
-                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/apache-kafka/index.html" lang="en-us" selected></option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-              <li id="R-select-variant-container" class="footerVariantSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-paint-brush"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-variant">Theme</label>
-                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
-                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                <script>window.variants && variants.markSelectedVariant();</script>
-              </li>
-              <li class="footerVisitedLinks">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-history"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <button onclick="clearHistory();">Clear History</button>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="R-footer" class="footerFooter showFooter">
-        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
-          </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
         </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1740605805" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1740605805" defer></script>
-    <script src="/js/theme.js?1740605805" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1744834729" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1744834729" defer></script>
+    <script src="/js/theme.js?1744834729" defer></script>
   </body>
 </html>

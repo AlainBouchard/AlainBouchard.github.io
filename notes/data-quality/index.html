@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.1">
-    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
-    <meta name="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion *Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Why Choose the Right Tool Early Data Quality Tools Categorization Comparative Table of Data Quality Tools In a Nutshell Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta name="generator" content="Relearn 7.6.1+b0c6bb558d7728ac4535a2ac677c5f47297203cc">
+    <meta name="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Data Quality Tools Categorization Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Why Data Governance Is Important Difference Between Data Quality and Data Governance What is Data Governance? Why Do We Need Data Governance? Major Data Governance Failures: Key Cases and Consequences Data Governance Policy Description Data Governance Roles &amp; Responsibilities Starting Data Governance in a Fintech Best Practices Top 5 Data Quality Best Practices Measuring Data Quality Success: What Really Matters Beyond Clean Data: Building Future-Ready Data Quality Systems Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
-    <meta name="twitter:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion *Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Why Choose the Right Tool Early Data Quality Tools Categorization Comparative Table of Data Quality Tools In a Nutshell Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta name="twitter:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Data Quality Tools Categorization Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Why Data Governance Is Important Difference Between Data Quality and Data Governance What is Data Governance? Why Do We Need Data Governance? Major Data Governance Failures: Key Cases and Consequences Data Governance Policy Description Data Governance Roles &amp; Responsibilities Starting Data Governance in a Fintech Best Practices Top 5 Data Quality Best Practices Measuring Data Quality Success: What Really Matters Beyond Clean Data: Building Future-Ready Data Quality Systems Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
     <meta property="og:url" content="http://localhost:1313/notes/data-quality/index.html">
     <meta property="og:site_name" content="Alain Bouchard&#39;s Engineering Notes">
     <meta property="og:title" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
-    <meta property="og:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion *Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Why Choose the Right Tool Early Data Quality Tools Categorization Comparative Table of Data Quality Tools In a Nutshell Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta property="og:description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Data Quality Tools Categorization Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Why Data Governance Is Important Difference Between Data Quality and Data Governance What is Data Governance? Why Do We Need Data Governance? Major Data Governance Failures: Key Cases and Consequences Data Governance Policy Description Data Governance Roles &amp; Responsibilities Starting Data Governance in a Fintech Best Practices Top 5 Data Quality Best Practices Measuring Data Quality Success: What Really Matters Beyond Clean Data: Building Future-Ready Data Quality Systems Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
     <meta property="og:locale" content="en_us">
     <meta property="og:type" content="article">
     <meta property="article:section" content="My Notes">
     <meta itemprop="name" content="Data Quality :: Alain Bouchard&#39;s Engineering Notes">
-    <meta itemprop="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion *Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Why Choose the Right Tool Early Data Quality Tools Categorization Comparative Table of Data Quality Tools In a Nutshell Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Best Practices Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
-    <meta itemprop="wordCount" content="14830">
+    <meta itemprop="description" content="Data Quality and Data Management 101 What is Data Quality Definition? What is Data Quality Management (DQM) and its pillars? What is the Impact of Poor Data Quality Real-life Examples Causes of Bad Data Data Quality Dimensions Overview Example of Accuracy Issue Example of Completeness Issue Example of Consistency Issue Example of Timelessness Issue Example of Validity Issue Example for Uniqueness Issue Example of Integrity Issues Multiple Data Quality Dimensions Issues Data Quality Rules What? Examples of Data Quality Rules Why? How to define the Data Quality Rules Data Quality Techniques Data Profiling Data Parsing Data Standardization Identify Resolution Data Linkage Data Cleansing Data Enhancement Conclusion Data Inspection and Monitoring Who? Data Quality Roles Key Data Quality Roles and Their Responsibilities Why Are Data Quality Roles Important? In a Nutshell Data Quality Roles Data Quality Manager Data Analyst Data Engineer Data Owner Data Steward Data Custodian Data Consumer Data Quality Process Data Quality Improvement Process Step 1: Defining Data Quality Improvement Goals Step 2: Data Profiling Step 3: Conducting Data Quality Assessment and Using Root Cause Analysis (RCA) Tools Step 4: Resolving Data Quality Issues Step 5: Monitoring and Controlling Data Quality Tools Why Data Quality Tools Are Important Features to Look for When Selecting a Data Quality Tool Data Quality Tools Categorization Data Quality Tools from AWS and Google Cloud Data Governance or Data Quality Management Why Data Governance Is Important Difference Between Data Quality and Data Governance What is Data Governance? Why Do We Need Data Governance? Major Data Governance Failures: Key Cases and Consequences Data Governance Policy Description Data Governance Roles &amp; Responsibilities Starting Data Governance in a Fintech Best Practices Top 5 Data Quality Best Practices Measuring Data Quality Success: What Really Matters Beyond Clean Data: Building Future-Ready Data Quality Systems Data Quality and Data Management 101 What is Data Quality Definition? In the Data and Business Intelligence domain, Data Quality refers to the overall accuracy, completeness, reliability, and relevance of data, ensuring that it is fit for its intended use In essence, Data Quality ensures that the data used in business intelligence efforts is trustworthy, allowing for accurate analysis, reporting, and decision-making Data quality is defined by how well a given dataset meets a user’s need. Data quality is an important criteria for ensuring that data-driven decisions are made as accurately as possible What is Data Quality Management (DQM) and its pillars? People: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them. Data Profiling: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements. Defining Data Quality: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals Data Reporting: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM “return on the investment” (ROI), and how data compares to the defined data quality benchmarks. Data Fixing: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn’t meet the defined data quality benchmarks and standards. Improving data to the required standards. Most important pillar is probably the People one.">
+    <meta itemprop="wordCount" content="18185">
     <title>Data Quality :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1740605805" rel="stylesheet">
-    <link href="/css/auto-complete.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1740605805" rel="stylesheet">
-    <link href="/css/fonts.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1740605805" rel="stylesheet">
-    <link href="/css/theme-blue.css?1740605805" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1740605805" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1740605805" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1740605805"></script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1744834729" rel="stylesheet">
+    <link href="/css/theme.css?1744834729" rel="stylesheet">
+    <link href="/css/format-html.css?1744834729" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1744834729" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1744834729" defer></script>
+    <script src="/js/search.js?1744834729" defer></script>
     <script>
       window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/notes\/data-quality\/index.html';
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.contentLangs=['en'];
+      window.relearn.index_js_url="/searchindex.en.js?1744834729";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
       // variant stuff
-      window.variants && variants.init( [ 'blue' ] );
+      window.relearn.themevariants = [ 'blue' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
       // translations
       window.T_Copy_to_clipboard = `Copy to clipboard`;
       window.T_Copied_to_clipboard = `Copied to clipboard!`;
@@ -61,10 +98,10 @@
             <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Data Quality</span><meta itemprop="position" content="3"></li>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">Data Quality</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/cypress/index.html" title="Cypress with TypeScript (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
@@ -134,7 +171,7 @@
         <li><a href="#data-cleansing">Data Cleansing</a></li>
         <li><a href="#data-enhancement">Data Enhancement</a></li>
         <li><a href="#conclusion-1">Conclusion</a></li>
-        <li><a href="#data-inspection-and-monitoring">*Data Inspection and Monitoring</a></li>
+        <li><a href="#data-inspection-and-monitoring">Data Inspection and Monitoring</a></li>
         <li><a href="#who-1">Who?</a></li>
       </ul>
     </li>
@@ -170,15 +207,29 @@
       <ul>
         <li><a href="#why-data-quality-tools-are-important">Why Data Quality Tools Are Important</a></li>
         <li><a href="#features-to-look-for-when-selecting-a-data-quality-tool">Features to Look for When Selecting a Data Quality Tool</a></li>
-        <li><a href="#why-choose-the-right-tool-early">Why Choose the Right Tool Early</a></li>
         <li><a href="#data-quality-tools-categorization">Data Quality Tools Categorization</a></li>
-        <li><a href="#comparative-table-of-data-quality-tools">Comparative Table of Data Quality Tools</a></li>
-        <li><a href="#in-a-nutshell-15">In a Nutshell</a></li>
         <li><a href="#data-quality-tools-from-aws-and-google-cloud">Data Quality Tools from AWS and Google Cloud</a></li>
       </ul>
     </li>
-    <li><a href="#data-governance-or-data-quality-management">Data Governance or Data Quality Management</a></li>
-    <li><a href="#best-practices">Best Practices</a></li>
+    <li><a href="#data-governance-or-data-quality-management">Data Governance or Data Quality Management</a>
+      <ul>
+        <li><a href="#why-data-governance-is-important">Why Data Governance Is Important</a></li>
+        <li><a href="#difference-between-data-quality-and-data-governance">Difference Between Data Quality and Data Governance</a></li>
+        <li><a href="#what-is-data-governance-1">What is Data Governance?</a></li>
+        <li><a href="#why-do-we-need-data-governance">Why Do We Need Data Governance?</a></li>
+        <li><a href="#major-data-governance-failures-key-cases-and-consequences">Major Data Governance Failures: Key Cases and Consequences</a></li>
+        <li><a href="#data-governance-policy-description">Data Governance Policy Description</a></li>
+        <li><a href="#data-governance-roles--responsibilities">Data Governance Roles &amp; Responsibilities</a></li>
+        <li><a href="#starting-data-governance-in-a-fintech">Starting Data Governance in a Fintech</a></li>
+      </ul>
+    </li>
+    <li><a href="#best-practices">Best Practices</a>
+      <ul>
+        <li><a href="#top-5-data-quality-best-practices">Top 5 Data Quality Best Practices</a></li>
+        <li><a href="#measuring-data-quality-success-what-really-matters">Measuring Data Quality Success: What Really Matters</a></li>
+        <li><a href="#beyond-clean-data-building-future-ready-data-quality-systems">Beyond Clean Data: Building Future-Ready Data Quality Systems</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 </div>
@@ -191,11 +242,11 @@
 </ul>
 <h3 id="what-is-data-quality-management-dqm-and-its-pillars">What is Data Quality Management (DQM) and its pillars?</h3>
 <ul>
-<li><strong>People</strong>: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues.  These roles ensure alignment alignment between business needs and the data used to support them.</li>
-<li><strong>Data Profiling</strong>: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies.  Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements.</li>
-<li><strong>Defining Data Quality</strong>: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency.  These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively.  What the data should look like, and it is based on the business goals</li>
+<li><strong>People</strong>: the involvement of the data stewards, analyst and business users who are responsible for setting data standards, monitoring quality, and resolving issues. These roles ensure alignment alignment between business needs and the data used to support them.</li>
+<li><strong>Data Profiling</strong>: a critical step that involves analyzing the current state of the data by examining its structure, patterns, and anomalies. Data profiling helps uncover quality issues such as duplicates, missing values, and inconsistencies, enabling organizations to identify areas needing improvement. It is initiated to understand the current state of existing data by comparing data to data standards as set by the DQM, used to define the benchmarks to evaluate the improvements.</li>
+<li><strong>Defining Data Quality</strong>: establishing clear, measurable data quality dimensions such as accuracy, completeness, timeliness and consistency. These criteria are developed based on business needs and objectives, ensuring that data supports decision-making and operations effectively. What the data should look like, and it is based on the business goals</li>
 <li><strong>Data Reporting</strong>: providing regular insights and metrics on the state of data quality through dashboards audits, and scorecards. This reporting enable stakeholders to monitor progress, identify trends, and make informed decisions about improvements and corrective actions. It will return the DQM &ldquo;return on the investment&rdquo; (ROI), and how data compares to the defined data quality benchmarks.</li>
-<li><strong>Data Fixing</strong>: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication.  It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn&rsquo;t meet the defined data quality benchmarks and standards. Improving data to the required standards.</li>
+<li><strong>Data Fixing</strong>: implementing corrective actions to resolve data quality issues, including data cleansing, standardization, and deduplication. It also involves root cause analysis to prevent recurring issues by addressing underlying process or system flaws. It is intended to repair the data that doesn&rsquo;t meet the defined data quality benchmarks and standards. Improving data to the required standards.</li>
 </ul>
 <p>Most important pillar is probably the People one.</p>
 <h3 id="what-is-the-impact-of-poor-data-quality">What is the Impact of Poor Data Quality</h3>
@@ -208,7 +259,7 @@
 </ul>
 <p>Key impacts include:</p>
 <ul>
-<li><strong>Inaccurate Decision-Making</strong>: poor data quality leads to faulty analysis and reporting, causing executives and managers to base strategic and operation decisions on incorrect or incomplete information.  This can result in missed opportunities, flawed strategies, or inappropriate response to market conditions. The data based decisions and policies are only as good as the data they are based on.</li>
+<li><strong>Inaccurate Decision-Making</strong>: poor data quality leads to faulty analysis and reporting, causing executives and managers to base strategic and operation decisions on incorrect or incomplete information. This can result in missed opportunities, flawed strategies, or inappropriate response to market conditions. The data based decisions and policies are only as good as the data they are based on.</li>
 <li><strong>Reduced Operational Efficiency</strong>: when data is inaccurate or inconsistent, processes such ad data integration, analysis, and reporting take longer and require more manual intervention. This leads to inefficiencies, increased labor costs, and delayed operations, affecting productivity.</li>
 <li><strong>Financial Losses</strong>: poor data quality can directly impact revenue by causing billing errors, incorrect pricing, or inventory mismanagement. It also increases costs due to rework compliance fines, or failed marking campaigns based on bad data. For example, failure to deliver service to customers or failure to sale the relevant contacts.</li>
 <li><strong>Customer dissatisfaction</strong>: errors in customer data, such as wrong addresses or incorrect orders, can result in poor customer experiences, damaged relationships, and loss of trust. This can lead to increased customer churn and negative brand reputation.</li>
@@ -221,7 +272,7 @@
 <ul>
 <li><strong>Knight Capital Group</strong>: in 2012, a software glitch caused the firm to make unintended stock trades, resulting in a $ 440 million loss within 45 minutes. This error was linked to poor data handling and led to the firm&rsquo;s eventual bankruptcy. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
 <li>**Boeing 747 Max Crashes: Faulty sensor data triggered the automated flight control system, contributing to two fatal crashes in 2018 and 2019. Boeing lost billions, and the incidents resulted in the grounding of all 737 Max planes. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
-<li><strong>UK Passport Agency</strong>: in 1999, data migration errors during a system upgrade delayed the insurance of 500K passports.  The fallout from these data issues led to public outrage and a cost of around £12.6 millions to resolve. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
+<li><strong>UK Passport Agency</strong>: in 1999, data migration errors during a system upgrade delayed the insurance of 500K passports. The fallout from these data issues led to public outrage and a cost of around £12.6 millions to resolve. [<a href="https://www.getrightdata.com/resources/why-quality-matters-the-10-biggest-data-quality-disasters" rel="external" target="_blank">GetRightData</a>]</li>
 <li><strong>NASA Mars Orbiter</strong>: NASA lost a $125 million Mars orbiter because a Lockheed Martin engineering team used English units of measurement while the agency&rsquo;s team used the more conventional metric system for a key spacecraft operation. [<a href="http://www.cnn.com/TECH/space/9909/30/mars.metric.02/" rel="external" target="_blank">CNN_NASA</a>]</li>
 </ul>
 <p>These examples demonstrate how critical accurate data is in preventing financial losses, reputation damage, and even human safety risks.</p>
@@ -232,7 +283,7 @@
 <li><strong>Human Error</strong>
 <ul>
 <li><strong>Manual Data Entry</strong>: people can make mistakes when entering data, leading to inaccuracies, misspellings, and incomplete records. For example, typographical errors or incorrect formatting can lead to inconsistencies in databases.</li>
-<li><strong>Lack of Training</strong>: when data entry personnel aren&rsquo;t adequately trained, they may unintentionally introduce systemic errors.  This happens when employees unknowingly enter incomplete or incorrect data, which accumulates and impacts the overall quality of the dataset.</li>
+<li><strong>Lack of Training</strong>: when data entry personnel aren&rsquo;t adequately trained, they may unintentionally introduce systemic errors. This happens when employees unknowingly enter incomplete or incorrect data, which accumulates and impacts the overall quality of the dataset.</li>
 </ul>
 </li>
 <li><strong>Inadequate Data Validation</strong>
@@ -255,7 +306,7 @@
 </li>
 <li><strong>Lack of Data Governance</strong>
 <ul>
-<li><strong>No Clear Ownership</strong>: when there&rsquo;s no assigned responsibility for data management, inconsistent practices across departments can result in poor data quality.  Without ownership, it&rsquo;s hard to maintain data standards.</li>
+<li><strong>No Clear Ownership</strong>: when there&rsquo;s no assigned responsibility for data management, inconsistent practices across departments can result in poor data quality. Without ownership, it&rsquo;s hard to maintain data standards.</li>
 <li><strong>Unstructured Data Management</strong>: without clear policies and structured processes for managing storing, and cleaning data, its quality tends to degrade, leading to inaccurate or complete data.</li>
 </ul>
 </li>
@@ -876,7 +927,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <ul>
 <li>Review the data issues:
 <ul>
-<li>Invalid email formats  (e.g., <code>jonh.smtih@email..com</code> or <code>emma@invalidemail@com</code>).</li>
+<li>Invalid email formats (e.g., <code>jonh.smtih@email..com</code> or <code>emma@invalidemail@com</code>).</li>
 <li>Missing or empty email fields.</li>
 <li>Duplicate emails, which can cause communication errors.</li>
 </ul>
@@ -949,7 +1000,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </li>
 </ol>
 <p>By following this process, the email column remains clean, valid and reliable for all stakeholders and business needs. The following code block in an example of <strong>Great Expectations</strong> script for the email column data validation according to the defined rules:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> great_expectations.dataset <span style="color:#f92672">import</span> PandasDataset
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> great_expectations.dataset <span style="color:#f92672">import</span> PandasDataset
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Table transformed into a dataframe, for example purpose only.</span>
@@ -983,14 +1034,14 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </span></span><span style="display:flex;"><span>result_unique <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>expect_column_values_to_be_unique(<span style="color:#e6db74">&#34;Email&#34;</span>)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Rule 3 - Unique Result:&#34;</span>, result_unique)</span></span></code></pre></div>
 <p>The script output should look like:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Rule 1 - Not Null Result: {&#39;success&#39;: True, &#39;result&#39;: {&#39;unexpected_count&#39;: 0, ...}}
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>Rule 1 - Not Null Result: {&#39;success&#39;: True, &#39;result&#39;: {&#39;unexpected_count&#39;: 0, ...}}
 </span></span><span style="display:flex;"><span>Rule 2 - Valid Format Result: {&#39;success&#39;: False, &#39;result&#39;: {&#39;unexpected_list&#39;: [&#39;jonh.smtih@email..com&#39;, &#39;emma@invalidemail@com&#39;], ...}}
 </span></span><span style="display:flex;"><span>Rule 3 - Unique Result: {&#39;success&#39;: True, &#39;result&#39;: {&#39;unexpected_count&#39;: 0, ...}}
 </span></span></code></pre></div>
 <p>This ensure that the email data meets the defined quality rules and flags issues for further review or correction. These expectations can be integrated into a <strong>Great Expectations</strong> validation suite for the <strong>Automation and monitoring</strong> step.</p>
 <h2 id="data-quality-techniques">Data Quality Techniques</h2>
 <h3 id="data-profiling">Data Profiling</h3>
-<p>The <strong>Data Profiling</strong> is the process of analyzing and understanding the structure, content, and quality within a dataset. It involves examining the data to uncover insights, patterns, anomalies, and potential issues.  It is helping organizations assess its fitness for use in decision making, reporting an other purposes.</p>
+<p>The <strong>Data Profiling</strong> is the process of analyzing and understanding the structure, content, and quality within a dataset. It involves examining the data to uncover insights, patterns, anomalies, and potential issues. It is helping organizations assess its fitness for use in decision making, reporting an other purposes.</p>
 <h4 id="what-1">What?</h4>
 <p>The following are the main aspects of Data Profiling:</p>
 <ol>
@@ -1016,7 +1067,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </li>
 </ol>
 <h4 id="why-1">Why?</h4>
-<p>Why Data Profiling is so important?  Because it plays a crucial role in improving data quality by identifying errors, inconsistencies, and gaps that require correction. It support decision-making by ensuring that decisions are based on reliable and accurate data. Additionally, data profiling enhances data integration by preparing datasets for merging or transformation in ETL pipelines. It also facilitates compliance by ensuring that data meets regulatory or business requirements.</p>
+<p>Why Data Profiling is so important? Because it plays a crucial role in improving data quality by identifying errors, inconsistencies, and gaps that require correction. It support decision-making by ensuring that decisions are based on reliable and accurate data. Additionally, data profiling enhances data integration by preparing datasets for merging or transformation in ETL pipelines. It also facilitates compliance by ensuring that data meets regulatory or business requirements.</p>
 <h4 id="example-1">Example</h4>
 <p>Results from a Data Profiling investigation would return this, as an example:</p>
 <ul>
@@ -1026,7 +1077,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </ul>
 <p>This report or information will help to guide the following actions in order to clean and standardize the data.</p>
 <h4 id="who">Who?</h4>
-<p>Who would benefit of data profiling? It would benefit to anyone relying on accurate, reliable data. <strong>Data Analysts and Scientists</strong> use it to prepare clean datasets for analysis or modeling. <strong>Data Engineers and Database Administrators</strong> leverage it to maintain ETL pipelines and database health. <strong>BI teams and Business Stakeholders</strong> gain trusts in reports and decisions. <strong>Compliance teams</strong> use it to ensure regulatory adherence, while the <strong>Data Governance teams</strong> enforce quality standards. Even <strong>Developers</strong> benefit by validating data used in applications.  In essence, data profiling ensures data quality for all roles across an organization.</p>
+<p>Who would benefit of data profiling? It would benefit to anyone relying on accurate, reliable data. <strong>Data Analysts and Scientists</strong> use it to prepare clean datasets for analysis or modeling. <strong>Data Engineers and Database Administrators</strong> leverage it to maintain ETL pipelines and database health. <strong>BI teams and Business Stakeholders</strong> gain trusts in reports and decisions. <strong>Compliance teams</strong> use it to ensure regulatory adherence, while the <strong>Data Governance teams</strong> enforce quality standards. Even <strong>Developers</strong> benefit by validating data used in applications. In essence, data profiling ensures data quality for all roles across an organization.</p>
 <h3 id="data-parsing">Data Parsing</h3>
 <p><strong>Data Parsing</strong> is the process of breaking down raw data into smaller, more manageable components to extract meaningful information and organize it for further processing or analysis. Parsing often involves converting unstructured or semi-structured data into a structured format that can be easily understood and utilized by systems or humans.</p>
 <h4 id="what-2">What?</h4>
@@ -1046,7 +1097,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <li><strong>Text</strong>: parsing text or string like <code>jon snow, jon.snow@doomain.com, 555-123-4567</code>into separate fields, for example <code>name</code>, <code>email</code> and <code>phone</code>.</li>
 </ul>
 <h4 id="why-2">Why?</h4>
-<p>The <strong>Data Parsing</strong> is important because it prepares raw data for analysis, storage or precessing. It is enabling systems to handle large dataset efficiently.  It also ensure data is standardized, making it consistent and usable across different platform and applications.</p>
+<p>The <strong>Data Parsing</strong> is important because it prepares raw data for analysis, storage or precessing. It is enabling systems to handle large dataset efficiently. It also ensure data is standardized, making it consistent and usable across different platform and applications.</p>
 <h3 id="data-standardization">Data Standardization</h3>
 <p>The <strong>Data Standardization</strong> is the process of transforming data into a consistent format to ensure uniformity and compatibility across different systems, datasets, or applications.It involves applying predefined rules to align data structure, naming conventions, units, format and values, making the data easier to integrate, analyze and interpret.</p>
 <h4 id="what-3">What?</h4>
@@ -1084,7 +1135,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
   </tbody>
 </table>
 <h4 id="why-3">Why?</h4>
-<p>The <strong>Data Standardization</strong> is important because it reduces errors, inconsistencies, and ambiguities.  It is improving overall data quality.  By ensuring compatibility between systems and datasets, it enables seamless integration and data sharing across platforms. Standardized data is also easier to query and interpret, simplifying analysis and decision-making processes. Additionally, it supports automation by facilitating smooth workflows and efficient processing in automated systems, ensuring reliable and consistent results.</p>
+<p>The <strong>Data Standardization</strong> is important because it reduces errors, inconsistencies, and ambiguities. It is improving overall data quality. By ensuring compatibility between systems and datasets, it enables seamless integration and data sharing across platforms. Standardized data is also easier to query and interpret, simplifying analysis and decision-making processes. Additionally, it supports automation by facilitating smooth workflows and efficient processing in automated systems, ensuring reliable and consistent results.</p>
 <h3 id="identify-resolution">Identify Resolution</h3>
 <p>The <strong>Identity Resolution</strong> is the process of identifying and linking records that refer to the same entity, (e.g. person, customer, or organization) across multiple data sources, even if the data is inconsistent, incomplete, or formatted differently. It involves matching and consolidating information to create a unified and accurate view of the entity.</p>
 <h4 id="what-4">What?</h4>
@@ -1324,7 +1375,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </table>
 <h3 id="conclusion-1">Conclusion</h3>
 <p>Data enhancement adds significant value by enriching datasets, enabling better decision-making, improving customer insights, and supporting business growth. It’s a key practice for organizations that want to maximize the potential of their data.</p>
-<h3 id="data-inspection-and-monitoring">*Data Inspection and Monitoring</h3>
+<h3 id="data-inspection-and-monitoring">Data Inspection and Monitoring</h3>
 <h4 id="what-8">What?</h4>
 <p><strong>Data inspection</strong> is the process of reviewing and validating data to ensure it is accurate, complete, and consistent before it is used. <strong>Data monitoring</strong> involves continuously tracking data quality over time to detect issues, such as missing values, errors, or anomalies, in real-time or through scheduled checks.</p>
 <h4 id="why-8">Why?</h4>
@@ -2217,7 +2268,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <strong>Issue</strong>: Data inconsistencies across systems.
 <strong>Analysis</strong>: 80% of inconsistencies were caused by 20% of the data sources.
 <strong>Root Cause</strong>: A few critical systems were not following the standard data format.
-<strong>Action</strong>: Focus efforts on aligning the data formats of the critical systems first.                   |</p>
+<strong>Action</strong>: Focus efforts on aligning the data formats of the critical systems first. |</p>
 </li>
 </ol>
 <h4 id="in-a-nutshell-10">In a Nutshell</h4>
@@ -2423,26 +2474,36 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <h2 id="data-quality-tools">Data Quality Tools</h2>
 <h3 id="why-data-quality-tools-are-important">Why Data Quality Tools Are Important</h3>
 <p>Data quality tools are essential for organizations to maintain and improve the quality of their data. These tools automate critical tasks, enhance operational efficiency, and ensure compliance with regulatory requirements. Here&rsquo;s a detailed look at why they are indispensable:</p>
-<h4 id="ensuring-accuracy-and-reliability">Ensuring Accuracy and Reliability</h4>
+<ol>
+<li>
+<p>Ensuring Accuracy and Reliability</p>
 <ul>
 <li>Automate the detection and correction of issues such as duplicates, missing values, and inconsistencies.</li>
 <li>Improve the accuracy of datasets, ensuring reliable insights for decision-making.</li>
 </ul>
-<h4 id="enhancing-efficiency">Enhancing Efficiency</h4>
+</li>
+<li>
+<p>Enhancing Efficiency</p>
 <ul>
 <li>Reduce manual efforts involved in data profiling, cleansing, and validation.</li>
 <li>Speed up processes, freeing teams to focus on strategic tasks.</li>
 </ul>
-<h4 id="supporting-compliance">Supporting Compliance</h4>
+</li>
+<li>
+<p>Supporting Compliance</p>
 <ul>
 <li>Ensure adherence to regulatory requirements such as GDPR and HIPAA.</li>
 <li>Provide comprehensive audit trails and documentation to meet compliance standards.</li>
 </ul>
-<h4 id="enabling-scalability">Enabling Scalability</h4>
+</li>
+<li>
+<p>Enabling Scalability</p>
 <ul>
 <li>Handle large datasets and complex operations seamlessly.</li>
 <li>Adapt to growing organizational data needs without significant manual intervention.</li>
 </ul>
+</li>
+</ol>
 <h4 id="tasks-data-quality-tools-can-perform">Tasks Data Quality Tools Can Perform</h4>
 <p>Data quality tools offer a wide range of functionalities to ensure data integrity and reliability. Key tasks include:</p>
 <ul>
@@ -2585,33 +2646,45 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
       </tr>
   </tbody>
 </table>
-<h3 id="why-choose-the-right-tool-early">Why Choose the Right Tool Early</h3>
+<h4 id="why-choose-the-right-tool-early">Why Choose the Right Tool Early</h4>
 <p>Choosing the right data quality tool as early as possible is crucial for the following reasons:</p>
-<h4 id="avoid-costly-rework">Avoid Costly Rework</h4>
+<ol>
+<li>
+<p>Avoid Costly Rework</p>
 <ul>
 <li>Implementing the wrong tool can result in wasted resources, as systems may need to be rebuilt or replaced later.</li>
 <li>Correcting initial poor decisions increases project costs and delays.</li>
 </ul>
-<h4 id="ensure-scalability">Ensure Scalability</h4>
+</li>
+<li>
+<p>Ensure Scalability</p>
 <ul>
 <li>Early selection of a scalable tool ensures that the system can grow alongside your organization&rsquo;s needs.</li>
 <li>A non-scalable tool may lead to limitations as data volume and complexity increase.</li>
 </ul>
-<h4 id="streamline-implementation">Streamline Implementation</h4>
+</li>
+<li>
+<p>Streamline Implementation</p>
 <ul>
 <li>Choosing a tool early allows teams to align processes, training, and workflows around the selected system.</li>
 <li>Delays in selection can create inefficiencies as teams work without a consistent framework.</li>
 </ul>
-<h4 id="support-stakeholder-alignment">Support Stakeholder Alignment</h4>
+</li>
+<li>
+<p>Support Stakeholder Alignment</p>
 <ul>
 <li>Early decisions foster collaboration by ensuring all stakeholders agree on the tools and processes.</li>
 <li>Late-stage changes can disrupt workflows and reduce buy-in.</li>
 </ul>
-<h4 id="avoid-data-quality-debt">Avoid Data Quality Debt</h4>
+</li>
+<li>
+<p>Avoid Data Quality Debt</p>
 <ul>
 <li>Starting with the right tool minimizes the accumulation of data quality issues that are harder to resolve later.</li>
 <li>Proactive decisions lead to long-term improvements in data integrity.</li>
 </ul>
+</li>
+</ol>
 <h4 id="examples-of-early-benefits">Examples of Early Benefits</h4>
 <table>
   <thead>
@@ -2638,29 +2711,39 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <h4 id="in-a-nutshell-14">In a Nutshell</h4>
 <p>When selecting a data quality tool, focus on features that align with your organizational needs, including profiling, cleansing, validation, scalability, and compliance. A well-chosen tool not only improves data quality but also enhances operational efficiency and decision-making, ensuring long-term value for your organization.</p>
 <h3 id="data-quality-tools-categorization">Data Quality Tools Categorization</h3>
-<h4 id="leaders">Leaders</h4>
+<ol>
+<li>
+<p>Leaders</p>
 <ul>
 <li>SAP LeanIX</li>
 <li>Ardoq</li>
 <li>Orbus Software</li>
 </ul>
-<h4 id="challengers">Challengers</h4>
+</li>
+<li>
+<p>Challengers</p>
 <ul>
 <li>ValueBlue</li>
 </ul>
-<h4 id="visionaries">Visionaries</h4>
+</li>
+<li>
+<p>Visionaries</p>
 <ul>
 <li>Capsifi</li>
 <li>Bizzdesign</li>
 <li>MEGA</li>
 </ul>
-<h4 id="niche-players">Niche Players</h4>
+</li>
+<li>
+<p>Niche Players</p>
 <ul>
 <li>Bee360</li>
 <li>North Highland</li>
 <li>UNICOM Systems</li>
 </ul>
-<h3 id="comparative-table-of-data-quality-tools">Comparative Table of Data Quality Tools</h3>
+</li>
+</ol>
+<h4 id="comparative-table-of-data-quality-tools">Comparative Table of Data Quality Tools</h4>
 <table>
   <thead>
       <tr>
@@ -2755,14 +2838,14 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
       </tr>
   </tbody>
 </table>
-<h3 id="in-a-nutshell-15">In a Nutshell</h3>
+<h4 id="in-a-nutshell-15">In a Nutshell</h4>
 <p>This table highlights the key characteristics of various data quality tools categorized into Leaders, Challengers, Visionaries, and Niche Players. Choosing the right tool depends on your organizational needs, budget, and specific use cases. Leaders offer robust solutions for large enterprises, while Niche Players cater to specialized needs.</p>
 <h3 id="data-quality-tools-from-aws-and-google-cloud">Data Quality Tools from AWS and Google Cloud</h3>
 <p>Both AWS and Google Cloud offer robust data quality tools as part of their cloud ecosystems. These tools provide features for data profiling, cleansing, validation, and monitoring, making them suitable for organizations looking to ensure high data quality in their cloud environments.</p>
 <h4 id="aws-data-quality-tools">AWS Data Quality Tools</h4>
 <ol>
 <li>
-<p><strong>AWS Glue DataBrew</strong></p>
+<p>AWS Glue DataBrew</p>
 <ul>
 <li><strong>Description</strong>: A visual data preparation tool for cleaning and normalizing data without writing code.</li>
 <li><strong>Key Features</strong>: Data profiling, cleaning, transformation, and validation rules.</li>
@@ -2772,7 +2855,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </ul>
 </li>
 <li>
-<p><strong>Amazon Redshift Data Quality</strong></p>
+<p>Amazon Redshift Data Quality</p>
 <ul>
 <li><strong>Description</strong>: Offers data quality checks and monitoring for datasets stored in Amazon Redshift.</li>
 <li><strong>Key Features</strong>: Built-in quality checks, anomaly detection, and automated alerts.</li>
@@ -2785,7 +2868,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <h4 id="google-cloud-data-quality-tools">Google Cloud Data Quality Tools</h4>
 <ol>
 <li>
-<p><strong>Cloud Dataprep (Trifacta)</strong></p>
+<p>Cloud Dataprep (Trifacta)</p>
 <ul>
 <li><strong>Description</strong>: A data preparation tool for cleaning, enriching, and transforming data.</li>
 <li><strong>Key Features</strong>: Data profiling, cleansing, and enrichment; strong collaboration features.</li>
@@ -2795,7 +2878,7 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 </ul>
 </li>
 <li>
-<p><strong>BigQuery Data Quality and Monitoring</strong></p>
+<p>BigQuery Data Quality and Monitoring</p>
 <ul>
 <li><strong>Description</strong>: Data quality solutions built into BigQuery for ensuring clean and reliable data.</li>
 <li><strong>Key Features</strong>: Data validation, monitoring, and rule-based anomaly detection.</li>
@@ -2855,7 +2938,647 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
 <h4 id="in-a-nutshell-16">In a Nutshell</h4>
 <p>AWS and Google Cloud offer powerful tools for managing data quality in cloud environments. While AWS Glue DataBrew and Amazon Redshift Data Quality provide strong options within AWS, Google Cloud’s Dataprep and BigQuery Data Quality solutions excel in collaboration and scalability. The choice of tool depends on your organization’s cloud platform, budget, and specific data quality requirements.</p>
 <h2 id="data-governance-or-data-quality-management">Data Governance or Data Quality Management</h2>
+<h3 id="why-data-governance-is-important">Why Data Governance Is Important</h3>
+<p>Data governance is all about managing data properly so everyone in the organization can trust and use it safely. It sets rules and responsibilities to keep data accurate, secure, and useful for making decisions.</p>
+<ol>
+<li>
+<p>Keeps Data Consistent and Accurate</p>
+<ul>
+<li>Makes sure data is created and maintained using clear rules.</li>
+<li>Helps different systems use the same data definitions, reducing confusion.</li>
+</ul>
+</li>
+<li>
+<p>Helps with Legal and Compliance Requirements</p>
+<ul>
+<li>Makes it easier to follow laws and regulations like GDPR (General Data Protection Regulation, a data privacy law in the European Union) or HIPAA (Health Insurance Portability and Accountability Act, a U.S. law protecting medical information).</li>
+<li>Keeps records of how data is handled for audits and transparency.</li>
+</ul>
+</li>
+<li>
+<p>Supports Better Decisions</p>
+<ul>
+<li>Ensures the right people have access to clean and reliable data.</li>
+<li>Builds trust in the data used for reports, planning, and daily work.</li>
+</ul>
+</li>
+<li>
+<p>Improves Data Privacy and Security</p>
+<ul>
+<li>Defines who owns the data and who can access it.</li>
+<li>Reduces the chances of data breaches or misuse.</li>
+</ul>
+</li>
+<li>
+<p>Makes Work More Efficient</p>
+<ul>
+<li>Cuts down on fixing errors caused by bad data.</li>
+<li>Saves time with shared rules and clear processes.</li>
+</ul>
+</li>
+<li>
+<p>Builds Trust and Accountability</p>
+<ul>
+<li>Assigns clear roles like data owners and stewards.</li>
+<li>Encourages teams to work together on managing data.</li>
+</ul>
+</li>
+</ol>
+<h4 id="example-scenarios-1">Example Scenarios</h4>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Situation</strong></th>
+          <th><strong>How Data Governance Helps</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Different departments show different customer info</td>
+          <td>Shared definitions ensure consistency across all systems.</td>
+      </tr>
+      <tr>
+          <td>Preparing for a regulatory audit</td>
+          <td>Governance rules provide clear documentation for compliance checks.</td>
+      </tr>
+      <tr>
+          <td>Executives question report accuracy</td>
+          <td>Verified and traceable data builds trust in reports.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="in-a-nutshell-17">In a Nutshell</h4>
+<p>Data governance helps organizations manage their data in a smart and secure way. With clear rules and responsibilities, it keeps data clean, safe, and ready to support decisions, legal compliance, and collaboration across teams.</p>
+<h3 id="difference-between-data-quality-and-data-governance">Difference Between Data Quality and Data Governance</h3>
+<p>Data quality and data governance are connected but focus on different things. Data quality is about making sure the data is good and usable. Data governance is about setting the rules and responsibilities for how data is handled.</p>
+<h4 id="what-is-data-quality">What is Data Quality?</h4>
+<p>Data quality is how good and useful the data is. It answers the question: &ldquo;Can we trust and use this data?&rdquo;</p>
+<p>Key points:</p>
+<ul>
+<li><strong>Accuracy</strong>: Is the information correct?</li>
+<li><strong>Completeness</strong>: Is anything missing?</li>
+<li><strong>Consistency</strong>: Is the data the same across different systems?</li>
+<li><strong>Timeliness</strong>: Is the data current?</li>
+<li><strong>Uniqueness</strong>: Are there duplicate records?</li>
+</ul>
+<h4 id="what-is-data-governance">What is Data Governance?</h4>
+<p>Data governance is the set of rules and people responsible for managing data in an organization. It helps decide who can do what with the data.</p>
+<p>Key points:</p>
+<ul>
+<li>Policies and standards for how data is handled</li>
+<li>Clear roles like data owners and stewards</li>
+<li>Rules for who can access the data and how it’s protected</li>
+<li>Making sure data practices follow laws (like GDPR)</li>
+</ul>
+<h4 id="main-differences">Main Differences</h4>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Aspect</strong></th>
+          <th><strong>Data Quality</strong></th>
+          <th><strong>Data Governance</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Focus</strong></td>
+          <td>Making sure the data is correct and usable</td>
+          <td>Setting rules and responsibilities for managing data</td>
+      </tr>
+      <tr>
+          <td><strong>Goal</strong></td>
+          <td>Use reliable data for decisions and operations</td>
+          <td>Keep data safe, organized, and compliant</td>
+      </tr>
+      <tr>
+          <td><strong>Activities</strong></td>
+          <td>Checking data, cleaning it, fixing errors</td>
+          <td>Creating policies, assigning roles, managing access</td>
+      </tr>
+      <tr>
+          <td><strong>People</strong></td>
+          <td>Analysts, data engineers, data stewards</td>
+          <td>Executives, compliance teams, data stewards</td>
+      </tr>
+      <tr>
+          <td><strong>Tools</strong></td>
+          <td>Tools that profile, clean, and check data</td>
+          <td>Tools for policies, metadata, and catalogs</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="how-they-work-together">How They Work Together</h4>
+<ul>
+<li>Governance defines the rules; quality makes sure the data follows them.</li>
+<li>Governance focuses on control; quality focuses on content.</li>
+<li>Together, they make data useful, safe, and reliable.</li>
+</ul>
+<h4 id="in-a-nutshell-18">In a Nutshell</h4>
+<p>Data governance is how you organize and control your data. Data quality makes sure that data is accurate and useful. You need both to use your data properly and with confidence.</p>
+<h3 id="what-is-data-governance-1">What is Data Governance?</h3>
+<p>Data governance is how a company sets up <strong>rules, processes, and responsibilities</strong> to make sure its data is easy to find, safe to use, and stays accurate and reliable.</p>
+<p><strong>Tip:</strong> Think of it as a way to <strong>keep your data under control</strong>, so it stays <strong>secure and consistent</strong> across the organization.</p>
+<h4 id="key-elements">Key Elements</h4>
+<ol>
+<li>
+<p><strong>Rules and Policies</strong>: These include decisions like:</p>
+<ul>
+<li>How long we keep data.</li>
+<li>Where we store data.</li>
+<li>Who should have access to which types of data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Processes</strong>: These are the workflows that help keep data up to date and protected. For example:</p>
+<ul>
+<li>How someone can request access to data.</li>
+<li>What steps are followed to keep data accurate and secure.</li>
+</ul>
+</li>
+<li>
+<p><strong>Accountability</strong>: This defines who is in charge of data across the organization:</p>
+<ul>
+<li>Who is responsible for each type of data.</li>
+<li>Who makes decisions about how different data sources are used.</li>
+</ul>
+</li>
+</ol>
+<h4 id="in-a-nutshell-19">In a Nutshell</h4>
+<p>Data governance helps an organization take control of its data by setting up clear rules and responsibilities. It keeps data safe, organized, and useful—so people can trust it and use it with confidence.</p>
+<h3 id="why-do-we-need-data-governance">Why Do We Need Data Governance?</h3>
+<p>Data governance gives an organization structure and control over how data is handled. Without it, data can quickly become messy, unreliable, or even risky to use. Here are the main reasons why data governance is important:</p>
+<ol>
+<li>
+<p>To Improve Data Quality</p>
+<ul>
+<li>Makes sure data is accurate, complete, and consistent across the company.</li>
+<li>Reduces errors, duplicates, and outdated information.</li>
+</ul>
+</li>
+<li>
+<p>To Protect Sensitive Data</p>
+<ul>
+<li>Helps control who can access what data.</li>
+<li>Prevents unauthorized access, data leaks, and misuse.</li>
+</ul>
+</li>
+<li>
+<p>To Support Better Decision-Making</p>
+<ul>
+<li>When data is clean and trusted, people can make better business decisions.</li>
+<li>Builds confidence in reports and analytics.</li>
+</ul>
+</li>
+<li>
+<p>To Stay Compliant with Laws and Regulations</p>
+<ul>
+<li>Helps the organization follow privacy and security rules like GDPR or HIPAA.</li>
+<li>Makes it easier to prove compliance during audits.</li>
+</ul>
+</li>
+<li>
+<p>To Clarify Roles and Responsibilities</p>
+<ul>
+<li>Defines who owns, manages, and makes decisions about data.</li>
+<li>Reduces confusion and creates accountability.</li>
+</ul>
+</li>
+<li>
+<p>To Increase Operational Efficiency</p>
+<ul>
+<li>Reduces time spent searching for, fixing, or duplicating data.</li>
+<li>Helps teams work more smoothly with shared data rules and processes.</li>
+</ul>
+</li>
+<li>
+<p>To Enable Trust and Collaboration</p>
+<ul>
+<li>When data is reliable and well-managed, teams are more likely to use and share it.</li>
+<li>Builds a culture of transparency and shared responsibility.</li>
+</ul>
+</li>
+</ol>
+<h4 id="in-a-nutshell-20">In a Nutshell</h4>
+<p>Data governance helps organizations take control of their data. It improves quality, ensures security, supports compliance, and makes it easier to work together. With good governance, data becomes a trusted, valuable asset instead of a source of confusion or risk.</p>
+<p>Certainly! Below is a document summarizing major data governance failures, including a comparative table and detailed descriptions of each case.</p>
+<h3 id="major-data-governance-failures-key-cases-and-consequences">Major Data Governance Failures: Key Cases and Consequences</h3>
+<h4 id="summary-table">Summary Table</h4>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Case</strong></th>
+          <th><strong>Fine</strong></th>
+          <th><strong>Short Description</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Securitas (2021)</strong></td>
+          <td>Potential fines under various laws</td>
+          <td>Misconfigured AWS S3 bucket exposed over 3TB of sensitive data, including airport employee records in Colombia and Peru.</td>
+      </tr>
+      <tr>
+          <td><strong>SingHealth (2018)</strong></td>
+          <td>$1 million (approx. $740,000 USD)</td>
+          <td>Cyberattack compromised personal data of 1.5 million patients, including Singapore&rsquo;s Prime Minister.</td>
+      </tr>
+      <tr>
+          <td><strong>Equifax (2017)</strong></td>
+          <td>Up to $700 million</td>
+          <td>Failure to patch a known vulnerability led to the exposure of personal data of 147 million individuals.</td>
+      </tr>
+      <tr>
+          <td><strong>British Airways (2018)</strong></td>
+          <td>£20 million (approx. $27 million)</td>
+          <td>Cyberattack compromised personal and financial details of over 400,000 customers due to inadequate security measures.</td>
+      </tr>
+      <tr>
+          <td><strong>Facebook–Cambridge Analytica (2018)</strong></td>
+          <td>$5 billion (FTC), £500,000 (UK ICO)</td>
+          <td>Unauthorized harvesting of data from up to 87 million users for political advertising purposes.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="detailed-case-descriptions">Detailed Case Descriptions</h4>
+<ol>
+<li>
+<p>Securitas Data Exposure (2021)</p>
+<p>In 2021, Securitas experienced a significant data breach due to a misconfigured Amazon S3 bucket, which left over 3TB of sensitive data publicly accessible. The exposed data included personal information of airport employees in Colombia and Peru, such as ID cards and photographs with embedded metadata. This breach highlighted severe lapses in data governance, particularly in securing cloud storage configurations. Potential fines under various data protection laws were anticipated, emphasizing the financial risks associated with poor data management practices.</p>
+</li>
+<li>
+<p>SingHealth Data Breach (2018)</p>
+<p>Singapore&rsquo;s largest healthcare group, SingHealth, suffered a cyberattack in 2018 that compromised the personal data of 1.5 million patients, including Prime Minister Lee Hsien Loong. The breach was attributed to inadequate cybersecurity measures and delayed incident response. Consequently, the Personal Data Protection Commission (PDPC) imposed fines totaling S$1 million, with S$750,000 levied on Integrated Health Information Systems (IHiS) and S$250,000 on SingHealth. This incident underscored the importance of robust data governance in the healthcare sector.</p>
+</li>
+<li>
+<p>Equifax Data Breach (2017)</p>
+<p>In 2017, Equifax, one of the major credit reporting agencies, experienced a data breach that exposed the personal information of approximately 147 million individuals. The breach resulted from Equifax&rsquo;s failure to patch a known vulnerability in a timely manner. The company faced a settlement of up to $700 million with the Federal Trade Commission (FTC), the Consumer Financial Protection Bureau (CFPB), and 50 U.S. states and territories. This case highlights the critical need for proactive data governance and timely security updates.</p>
+</li>
+<li>
+<p>British Airways Data Breach (2018)</p>
+<p>British Airways faced a cyberattack in 2018 that compromised the personal and financial details of over 400,000 customers. The breach was due to poor security measures, including inadequate protection of user data. The Information Commissioner&rsquo;s Office (ICO) initially issued a fine of £183 million, later reduced to £20 million, marking it as one of the largest penalties under GDPR at the time. This incident emphasizes the financial and reputational repercussions of insufficient data governance.</p>
+</li>
+<li>
+<p>Facebook–Cambridge Analytica Scandal (2018)</p>
+<p>In 2018, it was revealed that Cambridge Analytica had harvested data from up to 87 million Facebook users without their consent, using it for political advertising purposes. This scandal exposed significant lapses in data governance and user privacy protections. Facebook faced a $5 billion fine from the FTC and a £500,000 fine from the UK&rsquo;s Information Commissioner&rsquo;s Office. The case underscores the importance of transparent data practices and user consent in data governance frameworks.</p>
+</li>
+</ol>
+<h4 id="so-what">So what?</h4>
+<p>These cases illustrate the severe consequences organizations can face due to inadequate data governance, including substantial financial penalties and damage to reputation. Implementing robust data governance practices is essential to protect sensitive information, ensure compliance with regulations, and maintain public trust.</p>
+<p><a href="https://www.enforcementtracker.com/" rel="external" target="_blank">GDPR Enforcement Tracker</a></p>
+<h3 id="data-governance-policy-description">Data Governance Policy Description</h3>
+<h4 id="data-governance-structure">Data Governance Structure</h4>
+<p>As per Robert S. Seiner – KIK Consulting, data governance starts with policy. The policy breaks down into a set of high-level <strong>principles</strong>, and these principles are <strong>measured through data quality dimensions</strong>. This structure makes governance actionable, observable, and improvable.</p>
+<pre class="mermaid align-center ">flowchart
+    Policy[&#34;Data Governance Policy&#34;] --&gt; Principles[&#34;Principles&#34;]
+    Principles --&gt; Dimensions[&#34;Measured by Data Quality Dimensions&#34;]</pre>
+<h4 id="policy">Policy</h4>
+<p>The Data Governance Policy is a formal document approved by senior management as part of the organization&rsquo;s <strong>Information Governance Mandate</strong>. It sets the foundation for how data is governed, communicated, and enforced across all levels of the business.</p>
+<h4 id="principles">Principles</h4>
+<p>The policy breaks down into a set of guiding principles that define the mindset and expectations around data governance, grouped according to Seiner’s color-coded model:</p>
+<h4 id="data-as-a-strategic-enterprise-asset">Data as a Strategic Enterprise Asset</h4>
+<ul>
+<li><strong>Data is a strategic enterprise asset</strong>: Data must be recognized as valuable to the organization.</li>
+<li><strong>From &ldquo;my data&rdquo; to &ldquo;our data&rdquo;</strong>: Shifting the mindset from departmental ownership to shared organizational responsibility.</li>
+</ul>
+<h4 id="defined-accountability">Defined Accountability</h4>
+<ul>
+<li><strong>Everyone is responsible for data governance</strong>: All employees have a role in handling data appropriately.</li>
+<li><strong>Clear accountability</strong>: Formalize who is responsible for what data and ensure responsibilities are understood and followed.</li>
+</ul>
+<h4 id="compliance-and-risk-management">Compliance and Risk Management</h4>
+<ul>
+<li><strong>Compliance</strong>: Ensure data use aligns with internal policies and external regulations.</li>
+<li><strong>Avoid risk and compliance issues</strong>: Prevent legal and operational issues by applying governance consistently.</li>
+</ul>
+<h4 id="data-quality-and-consistency">Data Quality and Consistency</h4>
+<ul>
+<li><strong>Consistent data quality</strong>: Define and maintain data quality standards across the data lifecycle.</li>
+<li><strong>First time right, every time</strong>: Ensure processes are designed to get data right from the start.</li>
+</ul>
+<h4 id="dimensions">Dimensions</h4>
+<p>To measure the success of data governance, the following core data quality dimensions are monitored:</p>
+<ul>
+<li><strong>Accessibility</strong>: Is the data available to authorized users?</li>
+<li><strong>Accuracy</strong>: Is the data correct and trustworthy?</li>
+<li><strong>Completeness</strong>: Is any data missing?</li>
+<li><strong>Consistency</strong>: Does the data match across systems?</li>
+<li><strong>Relevance (non-obsolete)</strong>: Is the data current and meaningful?</li>
+<li><strong>Timeliness</strong>: Is the data available when needed?</li>
+<li><strong>Uniqueness</strong>: Are there any duplicates or unnecessary copies?</li>
+</ul>
+<h4 id="in-a-nutshell-21">In a Nutshell</h4>
+<p>Seiner’s approach to data governance policy is built around the idea of recognizing and organizing what is already happening in the business. The policy defines how to guide and measure data governance, encourages shared responsibility, and ensures data is managed safely and effectively without disrupting day-to-day operations.</p>
+<h3 id="data-governance-roles--responsibilities">Data Governance Roles &amp; Responsibilities</h3>
+<h4 id="what-21">What</h4>
+<p>A structured model of responsibilities that supports data governance across all parts of an organization. Based on Robert S. Seiner’s Non-Invasive Data Governance™ (NIDG) framework.</p>
+<p><a href="#R-image-966fa32f9a69a5c36a216cf071070333" class="lightbox-link"><img alt="Data Governance Roles and Responsibilities" class="lazy lightbox figure-image" loading="lazy" src="https://tdan.com/wp-content/uploads/2019/04/Picture11.png" style=" height: auto; width: auto;"></a>
+<a href="javascript:history.back();" class="lightbox-back" id="R-image-966fa32f9a69a5c36a216cf071070333"><img alt="Data Governance Roles and Responsibilities" class="lazy lightbox lightbox-image" loading="lazy" src="https://tdan.com/wp-content/uploads/2019/04/Picture11.png"></a></p>
+<h4 id="why-14">Why</h4>
+<p>To ensure accountability for data exists at every level. This approach minimizes disruption by assigning roles within existing teams and structures.</p>
+<h4 id="who-8">Who</h4>
+<p>Roles are distributed across five organizational levels:</p>
+<ol>
+<li>
+<p>Executive</p>
+<ul>
+<li>Sets strategic direction and governance priorities.</li>
+<li>Approves policies and data initiatives.</li>
+<li>Provides budget and resources.</li>
+<li>Champions data governance across the organization.</li>
+</ul>
+</li>
+<li>
+<p>Strategic</p>
+<ul>
+<li>Defines data governance policies and frameworks.</li>
+<li>Assigns data ownership and stewardship.</li>
+<li>Oversees compliance and governance performance.</li>
+<li>Aligns governance practices with business objectives.</li>
+</ul>
+</li>
+<li>
+<p>Tactical</p>
+<ul>
+<li>Coordinates data governance activities between departments.</li>
+<li>Supports adoption of policies and standards.</li>
+<li>Ensures data quality practices are followed.</li>
+<li>Facilitates communication and issue resolution.</li>
+</ul>
+</li>
+<li>
+<p>Operational</p>
+<ul>
+<li>Maintains data accuracy and completeness.</li>
+<li>Follows policies in day-to-day data use.</li>
+<li>Reports data issues or inconsistencies.</li>
+<li>Helps enforce data access and classification rules.</li>
+</ul>
+</li>
+<li>
+<p>Support</p>
+<ul>
+<li>Delivers systems and technical tools.</li>
+<li>Manages data infrastructure and platforms.</li>
+<li>Ensures integration of governance rules in technology.</li>
+<li>Provides analytics, automation, and metadata management.</li>
+</ul>
+</li>
+</ol>
+<h4 id="when-7">When</h4>
+<p>These roles operate continuously, aligned with the data lifecycle and evolving business needs.</p>
+<h4 id="how-9">How</h4>
+<p>By embedding governance activities into job functions. No new roles are created — responsibilities are formalized within existing positions.</p>
+<h4 id="in-a-nutshell-22">In a Nutshell</h4>
+<p>Seiner’s model places governance responsibility on existing staff, formalizing what people already do. This encourages shared accountability and supports sustainable data governance.</p>
+<p><strong>Source</strong>: <a href="https://tdan.com/data-governance-roles-and-responsibilities/24774" rel="external" target="_blank">Data Governance Roles and Responsibilities – TDAN.com</a>
+<strong>PDF</strong>: <a href="https://tdan.com/wp-content/uploads/2019/10/KIK-Consulting-Non-Invasive-Data-Governance-Framework-20190516.pdf" rel="external" target="_blank">KIK Consulting Framework PDF</a></p>
+<h3 id="starting-data-governance-in-a-fintech">Starting Data Governance in a Fintech</h3>
+<p>In a growing fintech company, especially one operating in the mortgage space, managing data properly is essential for compliance, efficiency, and trust. If no formal data governance is in place, it’s important to begin with activities that introduce structure without disrupting the business.</p>
+<p>This document outlines the top 10 foundational activities to launch data governance, based on industry best practices and the Non-Invasive Data Governance (NIDG) approach.</p>
+<h4 id="top-10-foundational-data-governance-activities">Top 10 Foundational Data Governance Activities</h4>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Activity</th>
+          <th>Main Actors Involved</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Get executive sponsorship and form a governance council</td>
+          <td>CDO / CTO / Head of Compliance / Executive sponsor</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Define a Data Governance Policy and Principles</td>
+          <td>Data Governance SME, Legal, Compliance, Risk</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Identify and assign data roles (owners, stewards, consumers)</td>
+          <td>HR, Department Heads, Data Governance Lead</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Prioritize key business domains (e.g., customer, loan, product)</td>
+          <td>Business SMEs, Product Owners, BI Leads</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Create a data catalog or inventory of core data assets</td>
+          <td>Data Stewards, Data Engineers, Analysts</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Develop data quality rules and metrics</td>
+          <td>Data Analysts, Data Stewards, Product, Legal</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>Establish data access rules and classifications</td>
+          <td>InfoSec, Legal, Data Owner</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>Integrate data governance with current business processes</td>
+          <td>All business units, Ops Managers, Tech Leads</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>Educate &amp; onboard teams about roles, responsibilities &amp; policy</td>
+          <td>Change Management, Training Team, Data Governance Council</td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>Set up monitoring and improvement processes</td>
+          <td>Data Quality Team, Compliance, BI, Platform Owners</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="in-a-nutshell-23">In a Nutshell</h4>
+<p>To succeed in data governance, a fintech company should treat data as a strategic asset from day one. Start small by focusing on critical domains (like customer onboarding or loan application), assign clear roles, and embed governance into the organization’s existing habits and operations. This allows the company to build trust, meet compliance needs, and improve decision-making without unnecessary friction.</p>
+<p>This roadmap can serve as a starting point for creating a sustainable, scalable, and business-aligned data governance program.</p>
 <h2 id="best-practices">Best Practices</h2>
+<h3 id="top-5-data-quality-best-practices">Top 5 Data Quality Best Practices</h3>
+<h4 id="what-22">What?</h4>
+<p>These are the five most important best practices to implement in order to build strong, sustainable data quality initiatives in any organization.</p>
+<h4 id="why-15">Why?</h4>
+<p>Without these practices, data quality efforts often stay siloed or misunderstood. These practices drive alignment, build internal knowledge, promote ownership, and enable progress tracking.</p>
+<h4 id="who--how">Who &amp; How?</h4>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Best Practice</th>
+          <th>Who’s Involved</th>
+          <th>How it Helps</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Get Executive Sponsorship</td>
+          <td>C-level leaders, sponsors</td>
+          <td>Drives company-wide alignment and ensures data quality is a shared responsibility.</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Invest in Data Quality Training</td>
+          <td>All departments, learning &amp; dev. teams</td>
+          <td>Builds awareness, capability, and support across the organization.</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Appoint Data Stewards in Every Department</td>
+          <td>Department heads, DQ leads, data teams</td>
+          <td>Ensures local ownership and better collaboration with central DQ efforts.</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Establish and Track Data Quality Metrics</td>
+          <td>DQ analysts, BI leads, executive sponsors</td>
+          <td>Measures progress, motivates improvement, and supports investment cases.</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Establish a Data Governance Program</td>
+          <td>Data governance leads, compliance, all teams</td>
+          <td>Creates structure, policies, and ongoing oversight to support long-term quality.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="examples-9">Examples</h4>
+<ul>
+<li>A senior leader publicly endorses a “trusted data” initiative across all departments.</li>
+<li>Each department names a steward who ensures that product data is accurate and complete.</li>
+<li>Data quality dashboards show duplicate rate reduction month-over-month.</li>
+<li>Training sessions introduce teams to data quality rules, roles, and processes.</li>
+</ul>
+<h4 id="in-a-nutshell-24">In a Nutshell</h4>
+<p>Data quality success depends on more than just tools. These five practices help embed data quality into the culture of the company. With leadership, education, clear roles, measurement, and governance, quality becomes everyone’s responsibility — and a business advantage.</p>
+<h3 id="measuring-data-quality-success-what-really-matters">Measuring Data Quality Success: What Really Matters</h3>
+<h4 id="what-23">What?</h4>
+<p>This summary explores how to measure the effectiveness of data quality efforts, emphasizing a practical, business-driven approach over technical perfection.</p>
+<h4 id="why-16">Why?</h4>
+<p>Many organizations fail to demonstrate ROI from data quality investments because they track only technical metrics, not business impact. True success comes from focusing on outcomes that matter to decision-makers.</p>
+<h4 id="key-practices">Key Practices</h4>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Practice</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Focus on Business Impact</td>
+          <td>Go beyond missing values—measure decision latency, regulatory costs, and trust in analytics.</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Use Balanced Scorecards</td>
+          <td>Combine technical metrics (e.g., error rates) with business outcomes (e.g., improved insights).</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>Design for Adaptability</td>
+          <td>Build flexible frameworks that evolve with business and technology changes.</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Embrace Continuous Learning</td>
+          <td>Evaluate what&rsquo;s working, adjust practices, and stay resilient in a changing environment.</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Be Pragmatic, Not Perfect</td>
+          <td>Strive for &ldquo;good enough to decide better&rdquo; rather than flawless data.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="examples-10">Examples</h4>
+<ul>
+<li>A retail bank tracks system uptime and error rates alongside executive trust in dashboard accuracy.</li>
+<li>Organizations reduce regulatory fines by prioritizing data critical to compliance.</li>
+<li>Modular data validation systems allow easy integration of new sources and tools.</li>
+</ul>
+<h4 id="in-a-nutshell-25">In a Nutshell</h4>
+<p>Data quality success isn’t about reaching perfection—it’s about making smarter, faster decisions than competitors. Measure what actually helps your business perform better. Focus on outcomes, stay adaptive, and build trust where it counts.</p>
+<p><em>Inspired by insights from George Smarts, March 2025</em></p>
+<h3 id="beyond-clean-data-building-future-ready-data-quality-systems">Beyond Clean Data: Building Future-Ready Data Quality Systems</h3>
+<h4 id="what-24">What?</h4>
+<p>This summary outlines the evolution of data quality from a technical discipline to a strategic capability that must be adaptive, intelligence-driven, and embedded across systems, teams, and cultures.</p>
+<h4 id="why-17">Why?</h4>
+<p>Traditional data quality practices can’t keep up with the scale, complexity, and changing demands of modern organizations. Future-ready systems must be resilient, continuously learning, and focused on business value rather than perfection.</p>
+<h4 id="key-principles-and-themes">Key Principles and Themes</h4>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>Theme</th>
+          <th>Summary</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Evolving Complexity</td>
+          <td>Modern data spans cloud, real-time, legacy, and unstructured sources—outgrowing legacy methods.</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>Strategic Business Impact</td>
+          <td>Data quality affects decision-making, operations, compliance, and reputation.</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>AI-Driven Quality</td>
+          <td>Machine learning enables predictive data quality and anomaly detection across vast datasets.</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>Real-Time Monitoring</td>
+          <td>Organizations must shift from batch cleansing to continuous quality assessment.</td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>Human-Centered Design</td>
+          <td>Quality must be aligned with real business needs and user workflows.</td>
+      </tr>
+      <tr>
+          <td>6</td>
+          <td>Embedded Governance</td>
+          <td>Policies, responsibilities, and standards must underpin all data quality efforts.</td>
+      </tr>
+      <tr>
+          <td>7</td>
+          <td>Integration Across Ecosystems</td>
+          <td>Data quality should be embedded into catalogs, pipelines, and data development practices.</td>
+      </tr>
+      <tr>
+          <td>8</td>
+          <td>Culture of Shared Responsibility</td>
+          <td>Data quality is not a separate function—it’s everyone’s job, supported by leadership.</td>
+      </tr>
+      <tr>
+          <td>9</td>
+          <td>Economics of Quality</td>
+          <td>Measure ROI based on business impacts like accuracy, speed, and regulatory cost avoidance.</td>
+      </tr>
+      <tr>
+          <td>10</td>
+          <td>Built-In Adaptability</td>
+          <td>Frameworks must evolve with data sources, technologies, and regulations.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="in-a-nutshell-26">In a Nutshell</h4>
+<p>Future-ready data quality isn’t about perfect data—it’s about sustainable practices that adapt, learn, and focus on enabling better business decisions. Success comes from aligning people, processes, and technology around shared goals and measurable outcomes.</p>
+<p><em>Inspired by insights from George Smarts, March 2025</em></p>
 <!-- links -->
 
   <footer class="footline">
@@ -2871,9 +3594,6 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
         <div id="R-header" class="default-animation">
 <img src="/logo.png">
         </div>
-        <script>
-          window.index_js_url="/searchindex.js?1740605805";
-        </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
             <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
@@ -2882,27 +3602,32 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
             <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
           </div>
         </form></search>
-        <script>
-          var contentLangs=['en'];
-        </script>
-        <script src="/js/auto-complete.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1740605805" defer></script>
-        <script src="/js/search.js?1740605805" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
-        <ul>
-          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
-        </ul>
-        <hr class="padding">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
       </div>
       <div id="R-content-wrapper" class="highlightable">
-        <div id="R-topics">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
-            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-0c82701243222eae0a7f46ed20de4880" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-56ddd28e5c6776f76f8fbdd8face0232" class="collapsible-menu">
             <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
             <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
             <li class="active " data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
@@ -2920,72 +3645,37 @@ In this table, <strong>Customer ID 103</strong> has multiple accuracy errors:</p
             <li class="" data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
           </ul>
         </div>
-        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
-        <div id="R-menu-footer">
-          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
-          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
-            <ul>
-              <li id="R-select-language-container" class="footerLangSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-language"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-language">Language</label>
-                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/data-quality/index.html" lang="en-us" selected></option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-              <li id="R-select-variant-container" class="footerVariantSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-paint-brush"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-variant">Theme</label>
-                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
-                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                <script>window.variants && variants.markSelectedVariant();</script>
-              </li>
-              <li class="footerVisitedLinks">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-history"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <button onclick="clearHistory();">Clear History</button>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="R-footer" class="footerFooter showFooter">
-        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
-          </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
         </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1740605805" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-color.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-dispatch.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-drag.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-ease.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-interpolate.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-selection.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-timer.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-transition.min.js?1740605805" defer></script>
-    <script src="/js/d3/d3-zoom.min.js?1740605805" defer></script>
-    <script src="/js/js-yaml.min.js?1740605805" defer></script>
-    <script src="/js/mermaid.min.js?1740605805" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1744834729" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1744834729" defer></script>
+    <script src="/js/js-yaml/js-yaml.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-color.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-dispatch.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-drag.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-ease.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-interpolate.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-selection.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-timer.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-transition.min.js?1744834729" defer></script>
+    <script src="/js/d3/d3-zoom.min.js?1744834729" defer></script>
+    <script src="/js/mermaid/mermaid.min.js?1744834729" defer></script>
     <script>
-      window.themeUseMermaid = JSON.parse("{}");
+      window.relearn.themeUseMermaid = JSON.parse("{}");
     </script>
-    <script src="/js/theme.js?1740605805" defer></script>
+    <script src="/js/theme.js?1744834729" defer></script>
   </body>
 </html>

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article">
+<html lang="en-us" dir="ltr" itemscope itemtype="http://schema.org/Article" data-r-output-format="html">
   <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <meta name="generator" content="Hugo 0.136.1">
-    <meta name="generator" content="Relearn 7.0.1+72a875f1db967152c77914cff4d53f8fcee0e619">
+    <meta name="generator" content="Relearn 7.6.1+b0c6bb558d7728ac4535a2ac677c5f47297203cc">
     <meta name="description" content="Node.JS Installation Quick Overview Initializing TypeScript Project Setting TypeScript Configuration File Searching and Importing Open Source Defined Types Types Primitive and Built-in Types Creating Custom Types Using Interface Creating Custom Types Using Aliases Enumerable Types Typing a Function Using Specific Types in a Function Defining a Megatype using Generics More Complex Types Using Aliases for Complex Types Definition Working with Record Type Resource Management with using Keyword Extending and modifying existing types The Partial helper type The Omit helper type The Pick helper type The Required helper type Decorators Decorator with no arguments Decorator with no arguments Using modules in typescript Using the globals.d.ts file The declare global {} statement Using or not using the declare global {} statement? TypeScript JavaScript and TypeScript are two popular programming languages for developing web applications. JavaScript is a simple and versatile language that supports dynamic typing. TypeScript extends JavaScript by adding static typing and features like interfaces, enums, and advanced type-checking.">
     <meta name="author" content="">
     <meta name="twitter:card" content="summary">
@@ -21,25 +21,62 @@
     <meta itemprop="description" content="Node.JS Installation Quick Overview Initializing TypeScript Project Setting TypeScript Configuration File Searching and Importing Open Source Defined Types Types Primitive and Built-in Types Creating Custom Types Using Interface Creating Custom Types Using Aliases Enumerable Types Typing a Function Using Specific Types in a Function Defining a Megatype using Generics More Complex Types Using Aliases for Complex Types Definition Working with Record Type Resource Management with using Keyword Extending and modifying existing types The Partial helper type The Omit helper type The Pick helper type The Required helper type Decorators Decorator with no arguments Decorator with no arguments Using modules in typescript Using the globals.d.ts file The declare global {} statement Using or not using the declare global {} statement? TypeScript JavaScript and TypeScript are two popular programming languages for developing web applications. JavaScript is a simple and versatile language that supports dynamic typing. TypeScript extends JavaScript by adding static typing and features like interfaces, enums, and advanced type-checking.">
     <meta itemprop="wordCount" content="2887">
     <title>TypeScript :: Alain Bouchard&#39;s Engineering Notes</title>
-    <link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fontawesome-all.min.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/nucleus.css?1740605805" rel="stylesheet">
-    <link href="/css/auto-complete.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/auto-complete.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/perfect-scrollbar.min.css?1740605805" rel="stylesheet">
-    <link href="/css/fonts.css?1740605805" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/css/fonts.css?1740605805" rel="stylesheet"></noscript>
-    <link href="/css/theme.css?1740605805" rel="stylesheet">
-    <link href="/css/theme-blue.css?1740605805" rel="stylesheet" id="R-variant-style">
-    <link href="/css/chroma-learn.css?1740605805" rel="stylesheet" id="R-variant-chroma-style">
-    <link href="/css/print.css?1740605805" rel="stylesheet" media="print">
-    <script src="/js/variant.js?1740605805"></script>
+    <link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="/fonts/fontawesome/css/fontawesome-all.min.css?1744834729" rel="stylesheet"></noscript>
+    <link href="/css/perfect-scrollbar/perfect-scrollbar.min.css?1744834729" rel="stylesheet">
+    <link href="/css/theme.css?1744834729" rel="stylesheet">
+    <link href="/css/format-html.css?1744834729" rel="stylesheet" id="R-format-style">
+    <link href="/css/auto-complete/auto-complete.min.css?1744834729" rel="stylesheet">
+    <script src="/js/auto-complete/auto-complete.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.stemmer.support.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.multi.min.js?1744834729" defer></script>
+    <script src="/js/lunr/lunr.en.min.js?1744834729" defer></script>
+    <script src="/js/search.js?1744834729" defer></script>
     <script>
       window.relearn = window.relearn || {};
+      // configuration
+      window.relearn.min = ``;
+      window.relearn.path='\/notes\/typescript\/index.html';
       window.relearn.relBasePath='..\/..';
       window.relearn.relBaseUri='..\/..';
       window.relearn.absBaseUri='http:\/\/localhost:1313';
+      window.relearn.contentLangs=['en'];
+      window.relearn.index_js_url="/searchindex.en.js?1744834729";
       window.relearn.disableAnchorCopy=false;
       window.relearn.disableAnchorScrolling=false;
+      window.relearn.disableInlineCopyToClipboard=false;
+      window.relearn.enableBlockCodeWrap=true;
+      // legal
+      window.relearn.getItem = (s,n) => {return s.getItem(n)};
+      window.relearn.setItem = (s,n,v) => {return s.setItem(n,v)};
+      window.relearn.removeItem = (s,n) => {return s.removeItem(n)};
       // variant stuff
-      window.variants && variants.init( [ 'blue' ] );
+      window.relearn.themevariants = [ 'blue' ];
+      window.relearn.customvariantname = "my-custom-variant";
+      window.relearn.changeVariant = function(variant) {
+        var oldVariant = document.documentElement.dataset.rThemeVariant;
+        window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        document.documentElement.dataset.rThemeVariant = variant;
+        if (oldVariant != variant) {
+          document.dispatchEvent( new CustomEvent('themeVariantLoaded', { detail: { variant, oldVariant } }) );
+          window.relearn.markVariant();
+        }
+      }
+      window.relearn.markVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant");
+        document.querySelectorAll(".R-variantswitcher select").forEach((select) => {select.value = variant;});
+      }
+      window.relearn.initVariant = function() {
+        var variant = window.relearn.getItem(window.localStorage, window.relearn.absBaseUri + "/variant") ?? "";
+        if( variant == window.relearn.customvariantname ){
+        }else if( !variant || !window.relearn.themevariants.includes(variant) ){
+          variant = window.relearn.themevariants[0];
+          window.relearn.setItem(window.localStorage, window.relearn.absBaseUri + "/variant", variant);
+        }
+        document.documentElement.dataset.rThemeVariant = variant;
+      }
+      window.relearn.initVariant();
+      window.relearn.markVariant();
       // translations
       window.T_Copy_to_clipboard = `Copy to clipboard`;
       window.T_Copied_to_clipboard = `Copied to clipboard!`;
@@ -61,10 +98,10 @@
             <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
             </div>
           </div>
-          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li><li
-            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">TypeScript</span><meta itemprop="position" content="3"></li>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList">
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/index.html"><span itemprop="name">Alain Bouchard&#39;s Engineering Notes and Blogs</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><a itemprop="item" href="/notes/index.html"><span itemprop="name">My Notes</span></a><meta itemprop="position" content="2">&nbsp;>&nbsp;</li>
+            <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement" class=""><span itemprop="name">TypeScript</span><meta itemprop="position" content="3"></li>
           </ol>
           <div class="topbar-area topbar-area-end" data-area="end">
             <div class="topbar-button topbar-button-prev" data-content-empty="disable" data-width-s="show" data-width-m="show" data-width-l="show"><a class="topbar-control" href="/notes/python-and-pytest/index.html" title="Python and PyTest (🡐)"><i class="fa-fw fas fa-chevron-left"></i></a>
@@ -147,14 +184,14 @@
 <p>JavaScript and TypeScript are two popular programming languages for developing web applications. JavaScript is a simple and versatile language that supports dynamic typing. TypeScript extends JavaScript by adding static typing and features like interfaces, enums, and advanced type-checking.</p>
 <h2 id="nodejs-installation-quick-overview">Node.JS Installation Quick Overview</h2>
 <p>Get current <code>node</code> version:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; node -v
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; node -v
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>v22.9.0</span></span></code></pre></div>
 <p>Installing <code>Node.js</code> using <a href="https://brew.sh/" rel="external" target="_blank">brew</a>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; brew install node</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; brew install node</span></span></code></pre></div>
 <h2 id="initializing-typescript-project">Initializing TypeScript Project</h2>
 <p>Installing <code>typescript</code> using <code>npm</code> at the project level:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install typescript --save-dev
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; npm install typescript --save-dev
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>&gt; ls -1 
 </span></span><span style="display:flex;"><span>
@@ -176,7 +213,7 @@
 <h2 id="setting-typescript-configuration-file">Setting TypeScript Configuration File</h2>
 <p>A configuration file <code>tsconfig.json</code> is required at the Project root directory:</p>
 <p><code>tsconfig.json</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;compilerOptions&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;outDir&#34;</span>: <span style="color:#e6db74">&#34;build&#34;</span>,
@@ -200,14 +237,14 @@
 <p>All defined types can be found in [DefinitelyTypes] github repository, or more easily on [npnjs.com] package locator:</p>
 <p>For example, search for <code>@types jquery</code> within <a href="https://www.npmjs.com/" rel="external" target="_blank">npmjs.com</a> search field.</p>
 <p>The installation command will be:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save @types/jquery</span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save @types/jquery</span></span></code></pre></div>
 <p>The imported library will be located in <code>node_modules/@type</code> directory.</p>
 <h2 id="types">Types</h2>
 <h3 id="primitive-and-built-in-types">Primitive and Built-in Types</h3>
 <p>By default, Javascript will infer the variable type.  For example, this will create a <code>number</code> type by default:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span></span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span></span></span></code></pre></div>
 <p>However, TypeScript won&rsquo;t infer anymore since variable type must be defined:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">number</span>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">x</span>: <span style="color:#66d9ef">number</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">y</span>: <span style="color:#66d9ef">string</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">z</span>: <span style="color:#66d9ef">boolean</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">Date</span>
@@ -215,12 +252,12 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">c</span>: <span style="color:#66d9ef">any</span></span></span></code></pre></div>
 <p>The <code>any</code> type will be automatically inferred.</p>
 <p>It is possible to use <code>casting</code>.</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">string</span>[]
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">string</span>[]
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">b</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello World!&#34;</span> <span style="color:#66d9ef">as</span> <span style="color:#66d9ef">any</span></span></span></code></pre></div>
 <p>Using <code>as any</code> is however avoiding the whole TypeScript purpose.</p>
 <h3 id="creating-custom-types-using-interface">Creating Custom Types Using Interface</h3>
 <p>It is possible to create custom types in TypeScript by using <code>interface</code>, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate?</span>: <span style="color:#66d9ef">Date</span>; <span style="color:#75715e">// Optional since ? was added
@@ -240,7 +277,7 @@
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <p>When a <code>?</code> is added to the interface field then it will make this field optional.</p>
 <p>It is possible to extend an actual interface, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> <span style="color:#a6e22e">extend</span> <span style="color:#a6e22e">Address</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> <span style="color:#a6e22e">extend</span> <span style="color:#a6e22e">Address</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate?</span>: <span style="color:#66d9ef">Date</span>; <span style="color:#75715e">// Optional since ? was added
@@ -263,11 +300,11 @@
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h3 id="creating-custom-types-using-aliases">Creating Custom Types Using Aliases</h3>
 <p>An Alias is only a replacement name for an existing type, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ContactName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">string</span></span></span></code></pre></div>
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ContactName</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">string</span></span></span></code></pre></div>
 <p>So <code>ContactName</code> is in reality a <code>string</code>, and both are now interchangeable.</p>
 <h3 id="enumerable-types">Enumerable Types</h3>
 <p>Enums allow a developer to define a set of named constants, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ContactStatus</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ContactStatus</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Active</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;active&#34;</span>, <span style="color:#75715e">// assigned value &#34;active&#34; is optional
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">Inactive</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;inactive&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">New</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;new&#34;</span>
@@ -288,7 +325,7 @@
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h2 id="typing-a-function">Typing a Function</h2>
 <p>This is a JavaScript function:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">source</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">source</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Object.<span style="color:#a6e22e">apply</span>({}, <span style="color:#a6e22e">source</span>) <span style="color:#75715e">// Apply will return an &#34;any&#34; type
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span><span style="display:flex;"><span>
@@ -297,7 +334,7 @@
 </span></span></span></code></pre></div>
 <h3 id="using-specific-types-in-a-function">Using Specific Types in a Function</h3>
 <p>This is the typed version in TypeScript:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">Contact</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Contact</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">Contact</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Object.<span style="color:#a6e22e">apply</span>({}, <span style="color:#a6e22e">source</span>) <span style="color:#75715e">// Apply will return an &#34;any&#34; type, but the function&#39;s returned type will be Contact
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span><span style="display:flex;"><span>
@@ -305,7 +342,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contact2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">contact1</span>); <span style="color:#75715e">// contact2&#39;s type will be &#34;Contact&#34;
 </span></span></span></code></pre></div>
 <h3 id="defining-a-megatype-using-generics">Defining a Megatype using Generics</h3>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">T</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">T</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>&lt;<span style="color:#f92672">T</span>&gt;(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">T</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">T</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Object.<span style="color:#a6e22e">apply</span>({}, <span style="color:#a6e22e">source</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -316,7 +353,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dateRange</span> <span style="color:#f92672">=</span> { <span style="color:#a6e22e">startDate</span>: <span style="color:#66d9ef">Date.now</span>(), <span style="color:#a6e22e">endDate</span>: <span style="color:#66d9ef">Date.now</span>() };
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dateRageCopy</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>(<span style="color:#a6e22e">dateRange</span>);</span></span></code></pre></div>
 <p>It is possible to define multiple types using Generics, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>&lt;<span style="color:#f92672">T1</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">T2</span>&gt;(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">T1</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">T2</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">clone</span>&lt;<span style="color:#f92672">T1</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">T2</span>&gt;(<span style="color:#a6e22e">source</span>: <span style="color:#66d9ef">T1</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">T2</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> Object.<span style="color:#a6e22e">apply</span>({}, <span style="color:#a6e22e">source</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
@@ -324,7 +361,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contact1</span>: <span style="color:#66d9ef">Contact</span> <span style="color:#f92672">=</span> {<span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;John Do&#34;</span>};
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contact2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">clone</span>&lt;<span style="color:#f92672">Contact</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">Date</span>&gt;(<span style="color:#a6e22e">contact1</span>);</span></span></code></pre></div>
 <p>It is possible to use <code>generics</code> with an <code>interface</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ExternalContact</span>&lt;<span style="color:#f92672">TExternalId</span>&gt; {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">ExternalContact</span>&lt;<span style="color:#f92672">TExternalId</span>&gt; {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate?</span>: <span style="color:#66d9ef">Date</span>;
@@ -334,13 +371,13 @@
 <h2 id="more-complex-types">More Complex Types</h2>
 <h3 id="using-aliases-for-complex-types-definition">Using Aliases for Complex Types Definition</h3>
 <p>It is possible to allow multiple types for one field, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate</span>: <span style="color:#66d9ef">Date</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">string</span>; <span style="color:#75715e">// all 3 types can be used
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
 <p>Now it is possible to use an <code>alias</code>, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ContactBirthDate</span> <span style="color:#f92672">=</span> Date <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">string</span>;
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">ContactBirthDate</span> <span style="color:#f92672">=</span> Date <span style="color:#f92672">|</span> <span style="color:#66d9ef">number</span> <span style="color:#f92672">|</span> <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
@@ -348,7 +385,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate</span><span style="color:#f92672">:</span> ; <span style="color:#a6e22e">ContactBirthDate</span>; <span style="color:#75715e">// all 3 types can be used
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
 <p>Creating a new <code>interface</code> or custom type using an <code>alias</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate</span>: <span style="color:#66d9ef">Date</span>;
@@ -364,7 +401,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AddressableContact</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Contact</span> <span style="color:#f92672">&amp;</span> <span style="color:#a6e22e">Address</span>;</span></span></code></pre></div>
 <p>Replacing an Enum type with an alias, for example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ContactStatus</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ContactStatus</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Active</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;active&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Inactive</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;inactive&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">New</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;new&#34;</span>
@@ -378,7 +415,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">ContactStatus</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;active&#34;</span>;</span></span></code></pre></div>
 <p>Using <code>keyof</code> to get the available fields for a given type:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Contact</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">birthDate</span>: <span style="color:#66d9ef">Date</span>;
@@ -396,7 +433,7 @@
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
 <h2 id="working-with-record-type">Working with Record Type</h2>
 <p>In TypeScript, a Record is a utility type that allows you to map keys of a specific type to values of another type. It&rsquo;s a concise way to define objects with a uniform key-value structure. Here&rsquo;s a simple example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// Syntax: Record&lt;KeyType, ValueType&gt;
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// Syntax: Record&lt;KeyType, ValueType&gt;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// Example 1: Record with string keys and number values
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scores</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">string</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">number</span>&gt; <span style="color:#f92672">=</span> {
@@ -417,20 +454,20 @@
 <li><code>Record&lt;string, boolean&gt;</code>: Here, the keys are also strings, but the values are booleans (true or false).</li>
 </ul>
 <p>It is possible to define a list of types, e.g.:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scores</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">string</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">number</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">scores</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">string</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">number</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Alice</span>: <span style="color:#66d9ef">85</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Bob</span>: <span style="color:#66d9ef">92</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Charlie</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;88&#34;</span>,
 </span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
 <p>It is possible to limit the keys to a custom type using <code>keyof</code>, e.g.:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contact1</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">keyof</span> <span style="color:#a6e22e">Contact</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">number</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">contact1</span>: <span style="color:#66d9ef">Record</span>&lt;<span style="color:#f92672">keyof</span> <span style="color:#a6e22e">Contact</span><span style="color:#960050;background-color:#1e0010">,</span> <span style="color:#a6e22e">number</span> <span style="color:#960050;background-color:#1e0010">|</span> <span style="color:#a6e22e">string</span>&gt; <span style="color:#f92672">=</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">id</span>: <span style="color:#66d9ef">85</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;Jon Snow&#34;</span>,
 </span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
 <h2 id="resource-management-with-using-keyword">Resource Management with using Keyword</h2>
 <p>As of TypeScript 5.2, a new using keyword has been introduced to work similarly to C#&rsquo;s using statement. This feature allows you to automatically dispose of resources when they are no longer needed, provided the resource implements a Disposable pattern.</p>
 <p>Here&rsquo;s a small example of using this feature in TypeScript 5.2+</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// can safely omit the `implements Disposable` statement 
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// can safely omit the `implements Disposable` statement 
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Resource</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">constructor</span>(<span style="color:#66d9ef">private</span> <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> is created`</span>);
@@ -461,7 +498,7 @@
 <h2 id="extending-and-modifying-existing-types">Extending and modifying existing types</h2>
 <h3 id="the-partial-helper-type">The Partial helper type</h3>
 <p>Partial<T> is a TypeScript utility type that makes all properties of a given type T optional. This allows you to create objects where only some properties of the original type are required. This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">email</span>: <span style="color:#66d9ef">string</span>;
@@ -482,7 +519,7 @@
 </ul>
 <h3 id="the-omit-helper-type">The Omit helper type</h3>
 <p><code>Omit&lt;T, K&gt;</code> is a TypeScript utility type that constructs a new type by removing the specified keys <code>K</code> from type <code>T</code>. This allows you to create a type without certain properties.  This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">email</span>: <span style="color:#66d9ef">string</span>;
@@ -503,7 +540,7 @@
 </ul>
 <h3 id="the-pick-helper-type">The Pick helper type</h3>
 <p><code>Pick&lt;T, K&gt;</code> is a TypeScript utility type that creates a new type by selecting specific keys <code>K</code> from type <code>T</code>. It allows you to include only the desired properties. There is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">email</span>: <span style="color:#66d9ef">string</span>;
@@ -524,7 +561,7 @@
 </ul>
 <h3 id="the-required-helper-type">The Required helper type</h3>
 <p><code>Required&lt;T&gt;</code> is a TypeScript utility type that makes all properties of a given type <code>T</code> required, removing any optional modifiers. This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">User</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name?</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">age?</span>: <span style="color:#66d9ef">number</span>;
 </span></span><span style="display:flex;"><span>}
@@ -555,7 +592,7 @@
 <p>More details may be found in the <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" rel="external" target="_blank">Decorators</a> official documentation.</p>
 <h3 id="decorator-with-no-arguments">Decorator with no arguments</h3>
 <p>This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">any</span>, <span style="color:#a6e22e">propertyKey</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">descriptor</span>: <span style="color:#66d9ef">PropertyDescriptor</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">any</span>, <span style="color:#a6e22e">propertyKey</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">descriptor</span>: <span style="color:#66d9ef">PropertyDescriptor</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalMethod</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (...<span style="color:#a6e22e">args</span>: <span style="color:#66d9ef">any</span>[]) {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`Method </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">propertyKey</span><span style="color:#e6db74">}</span><span style="color:#e6db74"> was called with args: </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">args</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>);
@@ -576,7 +613,7 @@
 <p>In this example, the <code>@log</code> decorator adds logging behavior to the <code>greet</code> method, printing when the method is called and the arguments passed to it.</p>
 <h3 id="decorator-with-no-arguments-1">Decorator with no arguments</h3>
 <p>This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">logWithMessage</span>(<span style="color:#a6e22e">message</span>: <span style="color:#66d9ef">string</span>) {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">logWithMessage</span>(<span style="color:#a6e22e">message</span>: <span style="color:#66d9ef">string</span>) {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">target</span>: <span style="color:#66d9ef">any</span>, <span style="color:#a6e22e">propertyKey</span>: <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">descriptor</span>: <span style="color:#66d9ef">PropertyDescriptor</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">originalMethod</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">descriptor</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> (...<span style="color:#a6e22e">args</span>: <span style="color:#66d9ef">any</span>[]) {
@@ -605,13 +642,13 @@
 <p>It is recommended to work with modules. Basically, the exported functions and properties require the <code>export</code> keyword in front.  The importing module require to define the imported functions and properties.</p>
 <p>This is an example:</p>
 <p>file: math.ts (exporting module)</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>: <span style="color:#66d9ef">number</span>, <span style="color:#a6e22e">b</span>: <span style="color:#66d9ef">number</span>)<span style="color:#f92672">:</span> <span style="color:#66d9ef">number</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">PI</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14</span>;</span></span></code></pre></div>
 <p>file: app.ts (importing module)</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">add</span>, <span style="color:#a6e22e">PI</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./math&#39;</span>;
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">add</span>, <span style="color:#a6e22e">PI</span> } <span style="color:#66d9ef">from</span> <span style="color:#e6db74">&#39;./math&#39;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>)); <span style="color:#75715e">// Output: 5
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">PI</span>);        <span style="color:#75715e">// Output: 3.14
@@ -629,7 +666,7 @@
 <li>Sharing global types or interfaces.</li>
 </ul>
 <p>This is an example of <code>globals.d.ts</code>:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">declare</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span>: <span style="color:#66d9ef">string</span>;
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#66d9ef">declare</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Window</span> {
 </span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">myCustomProperty</span>: <span style="color:#66d9ef">string</span>;
@@ -641,7 +678,7 @@
 <p>The <code>declare global {}</code> statement in TypeScript is used to extend or modify the global scope by adding new types, interfaces, or variables that will be accessible globally throughout the project. This is useful when you need to add custom properties to global objects (like <code>Window</code>, <code>Document</code>, etc.) or declare new global variables and types.</p>
 <p>It is typically used in <code>.d.ts</code> files to make these global declarations available project-wide.</p>
 <p>This is an example:</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> {};
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">declare</span> <span style="color:#66d9ef">global</span> {
@@ -663,7 +700,7 @@
 <h4 id="1-without-declare-global">1. Without declare global</h4>
 <p>When you use declare directly without declare global {}, the declared entities are treated as global only within the specific file where the declaration exists.</p>
 <p>Example (without <code>declare global {}</code>):</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">declare</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API_URL</span>: <span style="color:#66d9ef">string</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">Window</span> {
@@ -674,7 +711,7 @@ You don’t explicitly tell TypeScript that this is meant to modify the global n
 <h4 id="2-with-declare-global">2. With declare global</h4>
 <p>By wrapping the declarations inside <code>declare global {}</code>, you are explicitly modifying the global namespace and ensuring that these changes apply project-wide.</p>
 <p>Example (with <code>declare global {}</code>):</p>
-<div class="highlight wrap-code"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
+<div class="highlight wrap-code" dir="auto"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">// globals.d.ts
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">export</span> {}; <span style="color:#75715e">// Ensures the file is treated as a module
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">declare</span> <span style="color:#66d9ef">global</span> {
@@ -709,9 +746,6 @@ You don’t explicitly tell TypeScript that this is meant to modify the global n
         <div id="R-header" class="default-animation">
 <img src="/logo.png">
         </div>
-        <script>
-          window.index_js_url="/searchindex.js?1740605805";
-        </script>
         <search><form action="/search/index.html" method="get">
           <div class="searchbox default-animation">
             <button class="search-detail" type="submit" title="Search (CTRL+ALT+f)"><i class="fas fa-search"></i></button>
@@ -720,27 +754,32 @@ You don’t explicitly tell TypeScript that this is meant to modify the global n
             <button class="search-clear" type="button" data-search-clear="" title="Clear search"><i class="fas fa-times" title="Clear search"></i></button>
           </div>
         </form></search>
-        <script>
-          var contentLangs=['en'];
-        </script>
-        <script src="/js/auto-complete.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.stemmer.support.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.multi.min.js?1740605805" defer></script>
-        <script src="/js/lunr/lunr.en.min.js?1740605805" defer></script>
-        <script src="/js/search.js?1740605805" defer></script>
       </div>
       <div id="R-homelinks" class="default-animation homelinks">
-        <ul>
-          <li><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
-        </ul>
-        <hr class="padding">
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-homelinks">
+          <ul class="space collapsible-menu">
+            <li class="" data-nav-id="/index.html"><a class="padding" href="/index.html"><i class="fa-fw fas fa-home"></i> Home</a></li>
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-headercontrols">
+          <ul class="">
+          </ul>
+        </div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
       </div>
       <div id="R-content-wrapper" class="highlightable">
-        <div id="R-topics">
+        <div class="R-sidebarmenu R-shortcutmenu-main">
           <ul class="enlarge morespace collapsible-menu">
-            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-a69376f90f739b060662445f23838d97" class="collapsible-menu"></ul></li>
-            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-f0aa74b4dd15f49d7073057e7daf25a4" class="collapsible-menu">
+            <li class="" data-nav-id="/blogs/index.html"><a class="padding" href="/blogs/index.html">My Blogs</a><ul id="R-subsections-0c82701243222eae0a7f46ed20de4880" class="collapsible-menu"></ul></li>
+            <li class="parent " data-nav-id="/notes/index.html"><a class="padding" href="/notes/index.html">My Notes</a><ul id="R-subsections-56ddd28e5c6776f76f8fbdd8face0232" class="collapsible-menu">
             <li class="" data-nav-id="/notes/apache-kafka/index.html"><a class="padding" href="/notes/apache-kafka/index.html">Apache Kafka (WIP)</a></li>
             <li class="" data-nav-id="/notes/cypress/index.html"><a class="padding" href="/notes/cypress/index.html">Cypress with TypeScript</a></li>
             <li class="" data-nav-id="/notes/data-quality/index.html"><a class="padding" href="/notes/data-quality/index.html">Data Quality</a></li>
@@ -758,58 +797,23 @@ You don’t explicitly tell TypeScript that this is meant to modify the global n
             <li class="active " data-nav-id="/notes/typescript/index.html"><a class="padding" href="/notes/typescript/index.html">TypeScript</a></li></ul></li>
           </ul>
         </div>
-        <div class="padding footermargin footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter"></div>
-        <div id="R-menu-footer">
-          <hr class="padding default-animation footerLangSwitch footerVariantSwitch footerVisitedLinks footerFooter showFooter">
-          <div id="R-prefooter" class="footerLangSwitch footerVariantSwitch footerVisitedLinks">
-            <ul>
-              <li id="R-select-language-container" class="footerLangSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-language"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-language">Language</label>
-                    <select id="R-select-language" onchange="location = this.querySelector( this.value ).dataset.url;">
-                      <option id="R-select-language-en" value="#R-select-language-en" data-url="/notes/typescript/index.html" lang="en-us" selected></option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-              <li id="R-select-variant-container" class="footerVariantSwitch">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-paint-brush"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <label class="a11y-only" for="R-select-variant">Theme</label>
-                    <select id="R-select-variant" onchange="window.variants && variants.changeVariant( this.value );">
-                      <option id="R-select-variant-blue" value="blue" selected>Blue</option>
-                    </select>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-                <script>window.variants && variants.markSelectedVariant();</script>
-              </li>
-              <li class="footerVisitedLinks">
-                <div class="padding menu-control">
-                  <i class="fa-fw fas fa-history"></i>
-                  <span>&nbsp;</span>
-                  <div class="control-style">
-                    <button onclick="clearHistory();">Clear History</button>
-                  </div>
-                  <div class="clear"></div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div id="R-footer" class="footerFooter showFooter">
-        <p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p>
-          </div>
+        <div class="R-sidebarmenu R-shortcutmenu-shortcuts">
+          <ul class="space collapsible-menu">
+          </ul>
         </div>
+        <div id="R-footer-margin"></div>
+        <div class="R-menu-divider default-animation">
+          <hr class="padding">
+        </div>
+        <div class="R-sidebarmenu R-shortcutmenu-footercontrols">
+          <ul class="">
+          </ul>
+        </div>
+<div id="R-footer"><p>Built with <a href="https://github.com/McShelby/hugo-theme-relearn" title="love"><i class="fas fa-heart"></i></a> by <a href="https://gohugo.io/">Hugo</a></p></div>
       </div>
     </aside>
-    <script src="/js/clipboard.min.js?1740605805" defer></script>
-    <script src="/js/perfect-scrollbar.min.js?1740605805" defer></script>
-    <script src="/js/theme.js?1740605805" defer></script>
+    <script src="/js/clipboard/clipboard.min.js?1744834729" defer></script>
+    <script src="/js/perfect-scrollbar/perfect-scrollbar.min.js?1744834729" defer></script>
+    <script src="/js/theme.js?1744834729" defer></script>
   </body>
 </html>
